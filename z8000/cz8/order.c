@@ -121,7 +121,7 @@ sucomp( p ) register NODE *p; {
 
 	if( ty == LTYPE ) {
 		/* leaf nodes: LONG/FLOAT need 2 regs */
-		if( p->in.type==FLOAT && p->in.op!=ICON ) p->in.su = 2;
+		if( (p->in.type==FLOAT || p->in.type==DOUBLE) && p->in.op!=ICON ) p->in.su = szty(p->in.type);
 		else if( (p->in.type==LONG||p->in.type==ULONG) && p->in.op!=ICON ) p->in.su = 2;
 		return;
 		}

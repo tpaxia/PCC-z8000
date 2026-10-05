@@ -1,0 +1,633 @@
+[
+ {
+  "id": "2.1",
+  "title": "Comments",
+  "items": {
+   "between-tokens": "a comment is allowed wherever white space is",
+   "contents": "quotes and other characters inside a comment"
+  }
+ },
+ {
+  "id": "2.2",
+  "title": "Identifiers",
+  "items": {
+   "case": "upper and lower case are different",
+   "underscore": "underscore counts as a letter",
+   "long-names": "names longer than eight characters are accepted",
+   "eight-significant": "only the first eight characters are significant",
+   "runtime-names": "a program may use any non-keyword name, including the compiler's support routine names"
+  }
+ },
+ {
+  "id": "2.3",
+  "title": "Keywords",
+  "items": {
+   "reserved": "keywords cannot be used as identifiers",
+   "entry-fortran-asm": "entry, fortran and asm"
+  }
+ },
+ {
+  "id": "2.4.1",
+  "title": "Integer constants",
+  "items": {
+   "decimal": "decimal",
+   "octal": "leading 0 is octal",
+   "hex": "0x and 0X",
+   "octal-8-9": "digits 8 and 9 in an octal constant have value 10 and 11",
+   "auto-long": "a constant too large for int (decimal) or unsigned (octal, hex) is long"
+  }
+ },
+ {
+  "id": "2.4.2",
+  "title": "Explicit long constants",
+  "items": {
+   "suffix": "l and L suffix"
+  }
+ },
+ {
+  "id": "2.4.3",
+  "title": "Character constants",
+  "items": {
+   "plain": "value is the character's code",
+   "escapes": "\\n \\t \\b \\r \\f \\\\ \\'",
+   "octal-escape": "\\ddd",
+   "is-int": "a character constant has type int"
+  }
+ },
+ {
+  "id": "2.4.4",
+  "title": "Floating constants",
+  "items": {
+   "forms": "integer part, fraction, exponent in every allowed combination",
+   "is-double": "every floating constant is double"
+  }
+ },
+ {
+  "id": "2.5",
+  "title": "Strings",
+  "items": {
+   "array-null": "array of char with a terminating null",
+   "escapes": "escapes inside strings",
+   "continuation": "backslash-newline continues a string",
+   "static": "strings have static storage",
+   "distinct": "all strings, even identical ones, are distinct"
+  }
+ },
+ {
+  "id": "4",
+  "title": "What's in a name?",
+  "items": {
+   "storage-classes": "automatic, static, external, register",
+   "fundamental-types": "char, int in three sizes, unsigned, float, double"
+  }
+ },
+ {
+  "id": "5",
+  "title": "Objects and lvalues",
+  "items": {
+   "lvalue-required": "a non-lvalue on the left of = is rejected"
+  }
+ },
+ {
+  "id": "6.1",
+  "title": "Characters and integers",
+  "items": {
+   "char-to-int": "char used where int is allowed",
+   "int-to-char": "excess high bits are discarded",
+   "sign-extension": "machine dependent: char sign-extends here"
+  }
+ },
+ {
+  "id": "6.2",
+  "title": "Float and double",
+  "items": {
+   "float-to-double": "widening is exact",
+   "double-to-float": "narrowing rounds"
+  }
+ },
+ {
+  "id": "6.3",
+  "title": "Floating and integral",
+  "items": {
+   "float-to-int": "truncation, machine dependent for negatives",
+   "int-to-float": "integral to floating",
+   "long": "long to and from double"
+  }
+ },
+ {
+  "id": "6.4",
+  "title": "Pointers and integers",
+  "items": {
+   "pointer-integer": "an integer may be added to a pointer"
+  }
+ },
+ {
+  "id": "6.5",
+  "title": "Unsigned",
+  "items": {
+   "modulo": "arithmetic modulo 2**16",
+   "mixed-with-int": "the int operand is converted to unsigned"
+  }
+ },
+ {
+  "id": "6.6",
+  "title": "Arithmetic conversions",
+  "items": {
+   "char-short-to-int": "char and short become int",
+   "float-to-double": "float becomes double",
+   "long": "if either operand is long the other becomes long",
+   "unsigned": "otherwise if either is unsigned the other becomes unsigned"
+  }
+ },
+ {
+  "id": "7.1",
+  "title": "Primary expressions",
+  "items": {
+   "subscript": "E1[E2]",
+   "call-by-value": "arguments are passed by value",
+   "recursion": "recursive calls",
+   "member": "structure.member",
+   "arrow": "pointer->member",
+   "array-to-pointer": "an array name becomes a pointer to its first element",
+   "parenthesized": "parenthesized expression",
+   "call-implicit-int": "an undeclared function is assumed to return int",
+   "call-char-promoted": "char and short arguments are passed as int",
+   "call-float-promoted": "float arguments are passed as double",
+   "call-many-args": "many arguments, nested calls as arguments",
+   "call-long": "long arguments and results"
+  }
+ },
+ {
+  "id": "7.2",
+  "title": "Unary operators",
+  "items": {
+   "indirection": "*",
+   "address": "&",
+   "minus": "- including unsigned and long",
+   "not": "!",
+   "complement": "~",
+   "preinc": "++x and --x",
+   "postinc": "x++ and x--",
+   "incdec-pointer": "++ and -- scale for pointers",
+   "incdec-char-long": "++ and -- on char, long, members",
+   "cast": "(type-name) expression",
+   "sizeof-expr": "sizeof expression, operand not evaluated",
+   "sizeof-type": "sizeof (type-name)",
+   "cast-constant": "a cast applied to a constant converts it"
+  }
+ },
+ {
+  "id": "7.3",
+  "title": "Multiplicative operators",
+  "items": {
+   "int": "* / % on int, truncation machine dependent",
+   "unsigned": "unsigned * / %",
+   "long": "long * / %",
+   "float": "double * /"
+  }
+ },
+ {
+  "id": "7.4",
+  "title": "Additive operators",
+  "items": {
+   "int": "+ - on int",
+   "pointer-plus-int": "integer is scaled by the object size",
+   "pointer-minus-pointer": "result is a count of objects",
+   "long": "long + - with carry",
+   "float": "double + -"
+  }
+ },
+ {
+  "id": "7.5",
+  "title": "Shift operators",
+  "items": {
+   "left": "<<",
+   "right-signed": ">> on int, arithmetic here",
+   "right-unsigned": ">> on unsigned is logical",
+   "long": "long shifts",
+   "variable-count": "count held in a variable",
+   "result-type": "the result has the type of the left operand"
+  }
+ },
+ {
+  "id": "7.6",
+  "title": "Relational operators",
+  "items": {
+   "int": "signed comparison",
+   "unsigned": "unsigned comparison",
+   "pointer": "pointer comparison",
+   "long": "long comparison",
+   "float": "double comparison",
+   "result": "result is int 0 or 1",
+   "grouping": "a<b<c groups left to right",
+   "result-wide-operands": "the result is int for long and double operands too"
+  }
+ },
+ {
+  "id": "7.7",
+  "title": "Equality operators",
+  "items": {
+   "int": "== !=",
+   "long": "long equality",
+   "pointer-null": "a pointer may be compared with 0",
+   "float": "double equality",
+   "precedence": "lower precedence than the relational operators"
+  }
+ },
+ {
+  "id": "7.8",
+  "title": "Bitwise AND",
+  "items": {
+   "and": "& on int and unsigned",
+   "long": "& ^ | on long",
+   "precedence": "precedence of & ^ | against == and each other"
+  }
+ },
+ {
+  "id": "7.9",
+  "title": "Bitwise exclusive OR",
+  "items": {
+   "xor": "^"
+  }
+ },
+ {
+  "id": "7.10",
+  "title": "Bitwise inclusive OR",
+  "items": {
+   "or": "|"
+  }
+ },
+ {
+  "id": "7.11",
+  "title": "Logical AND",
+  "items": {
+   "and": "&&",
+   "short-circuit": "right operand not evaluated when the left decides",
+   "result": "result is int 0 or 1"
+  }
+ },
+ {
+  "id": "7.12",
+  "title": "Logical OR",
+  "items": {
+   "or": "||"
+  }
+ },
+ {
+  "id": "7.13",
+  "title": "Conditional operator",
+  "items": {
+   "select": "selects by the first operand",
+   "one-evaluated": "only one of the second and third is evaluated",
+   "right-assoc": "groups right to left",
+   "conversion": "usual conversions give a common type",
+   "pointer": "a pointer and the constant 0"
+  }
+ },
+ {
+  "id": "7.14",
+  "title": "Assignment operators",
+  "items": {
+   "simple": "the value is that of the left operand",
+   "chain": "groups right to left",
+   "conversion": "right operand converted to the left type",
+   "compound": "all ten op= forms",
+   "lhs-once": "E1 op= E2 evaluates E1 once",
+   "pointer": "pointer += and -=",
+   "long": "op= on long",
+   "float": "op= on double"
+  }
+ },
+ {
+  "id": "7.15",
+  "title": "Comma operator",
+  "items": {
+   "value": "type and value of the right operand",
+   "order": "left to right",
+   "in-argument": "parenthesized comma expression as one argument"
+  }
+ },
+ {
+  "id": "8.1",
+  "title": "Storage class specifiers",
+  "items": {
+   "auto": "auto",
+   "static-local": "static local keeps its value",
+   "extern": "extern inside a function",
+   "register": "register variables",
+   "static-file": "static at file level",
+   "register-no-address": "& of a register variable is rejected"
+  }
+ },
+ {
+  "id": "8.2",
+  "title": "Type specifiers",
+  "items": {
+   "short-long-unsigned": "short, long, unsigned with and without int",
+   "long-float": "long float means double",
+   "default-int": "a missing type specifier means int",
+   "unsigned-other": "unsigned char, unsigned short, unsigned long (not in K&R, common extension)"
+  }
+ },
+ {
+  "id": "8.4",
+  "title": "Meaning of declarators",
+  "items": {
+   "pointer": "pointer to",
+   "array": "array of",
+   "function": "function returning",
+   "array-of-pointers": "int *a[3]",
+   "pointer-to-array": "int (*p)[3]",
+   "pointer-to-function": "int (*f)()",
+   "function-returning-pointer": "int *f()",
+   "multidimensional": "int a[2][3]"
+  }
+ },
+ {
+  "id": "8.5",
+  "title": "Structure and union declarations",
+  "items": {
+   "struct": "structure with mixed members",
+   "nested": "structure inside a structure",
+   "self-reference": "pointer to the structure being declared",
+   "layout": "member offsets and padding",
+   "array-member": "array as a member",
+   "tag-reuse": "a tag used for later declarations",
+   "union": "members overlay",
+   "union-size": "big enough for the largest member",
+   "union-in-struct": "union as a member",
+   "field-width": "bit fields of given width",
+   "field-unnamed": "unnamed field as padding",
+   "field-zero": "width 0 aligns to the next word",
+   "field-truncation": "assignment truncates to the field width",
+   "member-namespace": "V7: members with the same name in different structures"
+  }
+ },
+ {
+  "id": "8.6",
+  "title": "Initialization",
+  "items": {
+   "scalar": "static scalar",
+   "array": "braced array",
+   "partial": "missing trailing elements are zero",
+   "size-from-init": "array size taken from the initializer",
+   "string": "char array from a string",
+   "struct": "structure initializer",
+   "elided-braces": "inner braces left out",
+   "pointer": "address constants",
+   "auto-expression": "automatic initialized by any expression",
+   "default-zero": "static and external default to zero",
+   "long-float": "long, float and double initializers"
+  }
+ },
+ {
+  "id": "8.7",
+  "title": "Type names",
+  "items": {
+   "type-names": "abstract declarators in casts and sizeof"
+  }
+ },
+ {
+  "id": "8.8",
+  "title": "Typedef",
+  "items": {
+   "scalar": "typedef of a simple type",
+   "pointer": "typedef of a pointer",
+   "struct": "typedef of a structure",
+   "array": "typedef of an array",
+   "function-pointer": "typedef of a pointer to function",
+   "block": "typedef inside a block",
+   "redeclare-inner": "a typedef name redeclared in an inner block"
+  }
+ },
+ {
+  "id": "9.1",
+  "title": "Expression statement",
+  "items": {
+   "expression": "expression used as a statement"
+  }
+ },
+ {
+  "id": "9.2",
+  "title": "Compound statement",
+  "items": {
+   "compound": "block with its own declarations"
+  }
+ },
+ {
+  "id": "9.3",
+  "title": "Conditional statement",
+  "items": {
+   "if": "if",
+   "else": "if else",
+   "dangling-else": "else goes with the nearest if"
+  }
+ },
+ {
+  "id": "9.4",
+  "title": "While statement",
+  "items": {
+   "while": "while"
+  }
+ },
+ {
+  "id": "9.5",
+  "title": "Do statement",
+  "items": {
+   "do": "do while"
+  }
+ },
+ {
+  "id": "9.6",
+  "title": "For statement",
+  "items": {
+   "for": "for",
+   "for-omitted": "any of the three expressions omitted"
+  }
+ },
+ {
+  "id": "9.7",
+  "title": "Switch statement",
+  "items": {
+   "switch": "case selection",
+   "default": "default, in any position",
+   "fallthrough": "falls through without break",
+   "no-match": "no match and no default does nothing",
+   "char-and-negative": "character and negative case constants",
+   "nested": "switch inside switch and loop",
+   "long": "switch on a long expression"
+  }
+ },
+ {
+  "id": "9.8",
+  "title": "Break statement",
+  "items": {
+   "break": "leaves the nearest loop or switch"
+  }
+ },
+ {
+  "id": "9.9",
+  "title": "Continue statement",
+  "items": {
+   "continue": "in while, do and for"
+  }
+ },
+ {
+  "id": "9.10",
+  "title": "Return statement",
+  "items": {
+   "return": "with and without a value, converted to the function type"
+  }
+ },
+ {
+  "id": "9.11",
+  "title": "Goto statement",
+  "items": {
+   "goto": "forward, backward, out of nested loops, into a block"
+  }
+ },
+ {
+  "id": "9.12",
+  "title": "Labeled statement",
+  "items": {
+   "label": "labels"
+  }
+ },
+ {
+  "id": "9.13",
+  "title": "Null statement",
+  "items": {
+   "null": "null statement"
+  }
+ },
+ {
+  "id": "10.1",
+  "title": "External function definitions",
+  "items": {
+   "default-int-params": "undeclared parameters are int",
+   "param-order": "declarations in any order",
+   "char-param": "char parameter",
+   "float-param": "float parameter is adjusted to double",
+   "array-param": "array parameter is a pointer",
+   "register-param": "register parameters",
+   "return-types": "functions returning pointer, long, double",
+   "struct-pointer-param": "pointer to structure parameter"
+  }
+ },
+ {
+  "id": "10.2",
+  "title": "External data definitions",
+  "items": {
+   "external-data": "definitions with and without initializers",
+   "static-file": "static data and functions private to the file",
+   "extern-then-define": "extern declaration before the definition"
+  }
+ },
+ {
+  "id": "11.1",
+  "title": "Lexical scope",
+  "items": {
+   "block-shadow": "inner block hides outer names",
+   "param-shadow": "parameter hides an external",
+   "inner-extern": "extern in a block reaches the external",
+   "tag-in-block": "structure tag declared in a block",
+   "label-scope": "labels belong to the whole function"
+  }
+ },
+ {
+  "id": "11.2",
+  "title": "Scope of externals",
+  "items": {
+   "forward-reference": "use before definition in the same file",
+   "multiple-files": "one definition shared by several files"
+  }
+ },
+ {
+  "id": "12",
+  "title": "Compiler control lines",
+  "items": {
+   "define": "#define with and without arguments",
+   "include": "#include",
+   "conditional": "#if #ifdef #ifndef #else #endif",
+   "line": "#line"
+  },
+  "note": "The preprocessor is the host cpp, not part of this toolchain; nothing here is probed."
+ },
+ {
+  "id": "13",
+  "title": "Implicit declarations",
+  "items": {
+   "undeclared-function": "an undeclared name followed by ( is a function returning int",
+   "class-only": "storage class alone declares an int"
+  }
+ },
+ {
+  "id": "14.1",
+  "title": "Structures and unions",
+  "items": {
+   "member-address": "address of a member"
+  }
+ },
+ {
+  "id": "14.2",
+  "title": "Functions",
+  "items": {
+   "function-name-as-pointer": "a function name not being called is a pointer",
+   "call-through-pointer": "(*f)()",
+   "function-argument": "function passed as an argument",
+   "table": "initialized table of functions",
+   "returned": "function returning a pointer to function"
+  }
+ },
+ {
+  "id": "14.3",
+  "title": "Arrays, pointers and subscripting",
+  "items": {
+   "subscript-identity": "E1[E2] is *((E1)+(E2))",
+   "row-major": "arrays are stored by rows",
+   "multidimensional": "partial subscripting of a multidimensional array",
+   "negative-index": "negative subscripts from a pointer"
+  }
+ },
+ {
+  "id": "14.4",
+  "title": "Explicit pointer conversions",
+  "items": {
+   "pointer-integer-round-trip": "pointer to integer and back",
+   "pointer-type-cast": "pointer to one type cast to another",
+   "byte-access": "char pointer over a larger object"
+  }
+ },
+ {
+  "id": "15",
+  "title": "Constant expressions",
+  "items": {
+   "array-bound": "in array bounds",
+   "initializer": "in initializers",
+   "sizeof": "sizeof in a constant expression",
+   "conditional": "?: in a constant expression",
+   "case": "after case"
+  }
+ },
+ {
+  "id": "17",
+  "title": "Anachronisms",
+  "items": {
+   "old-assignment-ops": "=+ =- =* and the rest",
+   "old-initializer": "initializer without ="
+  }
+ },
+ {
+  "id": "V7",
+  "title": "Additions after the book (V7 compiler)",
+  "items": {
+   "struct-assign": "structure assignment",
+   "struct-argument": "structure passed by value",
+   "struct-return": "function returning a structure",
+   "enum-values": "enumeration constants count from 0",
+   "enum-explicit": "explicit enumerator values",
+   "enum-variable": "variables and members of enumeration type",
+   "enum-switch": "enumeration constants as case labels"
+  }
+ }
+]

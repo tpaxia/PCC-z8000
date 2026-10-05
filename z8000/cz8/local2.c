@@ -1,4 +1,6 @@
 # include "mfile2"
+
+NODE *block(), *makety();
 /* a lot of the machine dependent parts of the second pass */
 
 # define BITMASK(n) ((1L<<n)-1)
@@ -226,6 +228,68 @@ zzzcode( p, c ) NODE *p; {
 		}
 		return;
 
+	case 'V': /* unsigned word division, including divisors >= 32768 */
+		{
+			int large = getlab(), less = getlab(), done = getlab();
+			/* Preserve the scratch address register; capture RHS before
+			 * moving the dividend into the fixed division register. */
+			expand(p, FOREFF, "\tpush\t@sp,r9\n\tld\tr9,AR\n\tld\tr1,AL\n");
+			printf("\ttest\tr9\n\tjr mi,.L%d\n", large);
+			printf("\tclr\tr0\n\tdiv\trr0,r9\n\tjr\t.L%d\n", done);
+			deflab(large);
+			printf("\tcp\tr1,r9\n\tjr ult,.L%d\n", less);
+			printf("\tsub\tr1,r9\n\tld\tr0,r1\n\tld\tr1,#1\n\tjr\t.L%d\n", done);
+			deflab(less);
+			printf("\tld\tr0,r1\n\tclr\tr1\n");
+			deflab(done);
+			if(p->in.op==MOD || p->in.op==ASG MOD)
+				printf("\tld\tr1,r0\n");
+			printf("\tpop\tr9,@sp\n");
+			if(asgop(p->in.op)) expand(p, FOREFF, "\tld\tAL,r1\n");
+		}
+		return;
+
+	case 'X': /* copy a double between addressable operands */
+	case 'E': /* load a double into the result register quad */
+	case 'G': /* push a double, low word first */
+	case 'K': /* spill a double to a frame temporary */
+		{
+			NODE *src = getlr(p,'R');
+			NODE *dst = c=='X' ? getlr(p,'L') : getlr(p,'1');
+			int k, words = src->in.type==FLOAT ? 2 : 4;
+			for(k=0;k<words;k++) {
+				if(c=='G') {
+					printf("\tpush\t@sp,"); fpword(src,words-1-k); printf("\n");
+				} else if(src->in.op!=REG && dst->in.op!=REG) {
+					printf("\tld\t%s,",rnames[getlr(p,'1')->tn.rval]);
+					fpword(src,k); printf("\n\tld\t"); fpword(dst,k);
+					printf(",%s\n",rnames[getlr(p,'1')->tn.rval]);
+				} else {
+					printf("\tld\t"); fpword(dst,k); printf(","); fpword(src,k); printf("\n");
+				}
+			}
+			if(c=='G') { toff+=2*words; if(toff>maxtoff) maxtoff=toff; }
+		}
+		return;
+
+	case 'Y': /* floating truth: ignore sign, test all magnitude bits */
+		{
+			NODE *src=getlr(p,'R'), *dst=getlr(p,'1');
+			int k,words=src->in.type==FLOAT?2:4;
+			printf("\tld\t%s,",rnames[dst->tn.rval]); fpword(src,0);
+			printf("\n\tand\t%s,#32767\n",rnames[dst->tn.rval]);
+			for(k=1;k<words;k++) {
+				printf("\tor\t%s,",rnames[dst->tn.rval]); fpword(src,k); printf("\n");
+			}
+		}
+		return;
+
+	case 'J': /* high and low words of a long static initializer */
+		printf("\t.word\t%ld\n\t.word\t%ld\n",
+		    (p->in.left->tn.lval >> 16) & 65535L,
+		    p->in.left->tn.lval & 65535L);
+		return;
+
 	case 'Q':
 		/* print register pair name for left operand (for long shifts) */
 		{
@@ -265,17 +329,8 @@ zzzcode( p, c ) NODE *p; {
 
 			size = p->stn.stsize;
 
-			if( size > 4 && p->in.op == STASG ){
-				/* use LDIR for large struct copy */
-				/* dst addr in left reg, src addr in right reg */
-				printf( "	ld	r0,#%d\n", size );
-				printf( "	ldir	@" );
-				adrput( l );
-				printf( ",@" );
-				adrput( r );
-				printf( ",r0\n" );
-			} else {
-				/* small struct: word-by-word copy */
+			{
+				/* Copy exact bytes, including large and odd-sized aggregates. */
 				r->tn.lval += size;
 				if( p->in.op == STASG ) l->tn.lval += size;
 
@@ -342,9 +397,12 @@ zzzcode( p, c ) NODE *p; {
 	}
 
 rmove( rt, rs, t ) TWORD t; {
-	printf( "	ld	%s,%s\n", rnames[rt], rnames[rs] );
-	usedregs |= 1<<rs;
-	usedregs |= 1<<rt;
+	int k, size = szty(t), i;
+	for(k=0;k<size;k++) {
+		i = rt>rs ? size-1-k : k;
+		printf("\tld\t%s,%s\n",rnames[rt+i],rnames[rs+i]);
+		usedregs |= (1<<(rs+i)) | (1<<(rt+i));
+	}
 	}
 
 struct respref
@@ -379,8 +437,10 @@ setregs(){ /* set up temporary registers */
 szty(t) TWORD t; { /* size, in words, needed to hold thing of type t */
 	/* really is the number of registers to hold type t */
 	/* on Z8000: LONG and FLOAT need 2 regs (register pair) */
-	/* DOUBLE is handled by hardops (library calls), never in regs */
+	/* DOUBLE uses a quad; arithmetic is implemented by library calls. */
 	switch(t) {
+	case DOUBLE:
+		return(4);
 	case LONG:
 	case ULONG:
 	case FLOAT:
@@ -400,7 +460,7 @@ callreg(p) NODE *p; {
 
 shltype( o, p ) NODE *p; {
 	if( o == NAME|| o==REG || o == ICON || o == OREG ) return( 1 );
-	return( o==UNARY MUL && shumul(p->in.left) );
+	return( o==UNARY MUL && p && shumul(p->in.left) );
 	}
 
 flshape( p ) register NODE *p; {
@@ -648,7 +708,7 @@ gencall( p, cookie ) register NODE *p; {
 popargs( size ) register size; {
 	/* pop arguments from stack */
 
-	toff -= size/2;
+	toff -= size;
 	if( size > 0 ){
 		printf( "\tadd\tsp,#%d\n", size);
 		}
@@ -769,7 +829,7 @@ struct functbl {
 	MUL,		DOUBLE, "fmul",
 	DIV,		DOUBLE, "fdiv",
 	UNARY MINUS,	DOUBLE, "fneg",
-	UNARY MINUS,	FLOAT,	"fneg",
+	UNARY MINUS,	FLOAT,	"fnegf",
 	ASG PLUS,	DOUBLE,	"afadd",
 	ASG MINUS,	DOUBLE, "afsub",
 	ASG MUL,	DOUBLE, "afmul",
@@ -782,6 +842,10 @@ struct functbl {
 	MINUS,		FLOAT,	"fsubf",
 	MUL,		FLOAT,	"fmulf",
 	DIV,		FLOAT,	"fdivf",
+	INCR, DOUBLE, "dfpost",
+	DECR, DOUBLE, "dfpost",
+	INCR, FLOAT, "ffpost",
+	DECR, FLOAT, "ffpost",
 	0,	0,	0 };
 
 hardops(p)  register NODE *p; {
@@ -804,6 +868,11 @@ hardops(p)  register NODE *p; {
 	/* need address of left node for ASG OP */
 	/* WARNING - this won't work for long in a REG */
 	convert:
+	if((o==INCR || o==DECR) && (t==FLOAT || t==DOUBLE)) {
+		tfree(p->in.right); p->in.right=q=talloc();
+		q->in.op=ICON; q->in.type=INT; q->in.rall=NOPREF;
+		q->tn.lval=o==INCR?1:-1; q->tn.rval=0; q->tn.name[0]=0;
+	}
 
 	if( asgop( o ) ) {
 		switch( p->in.left->in.op ) {
@@ -893,58 +962,65 @@ hardops(p)  register NODE *p; {
 
 	}
 
-/* do fix and float conversions */
-hardconv(p)
-  register NODE *p;
-  {	register NODE *q;
-	register TWORD t,tl;
-	int m,ml;
-
-	t = p->in.type;
-	tl = p->in.left->in.type;
-
-	m = t==DOUBLE || t==FLOAT;
-	ml = tl==DOUBLE || tl==FLOAT;
-
-	if (m==ml) return;
-
-	p->in.op = CALL;
-	p->in.right = p->in.left;
-
-	/* put function name in left node of call */
-	p->in.left = q = talloc();
-	q->in.op = ICON;
-	q->in.rall = NOPREF;
-	q->in.type = INCREF( FTN + p->in.type );
-	strcpy( q->tn.name, m ? "float" : "fix" );
-	q->tn.lval = 0;
-	q->tn.rval = 0;
+/* Internal helpers use the actual target widths, without user-call promotions. */
+static NODE *fpconv(p,t)
+NODE *p;
+TWORD t;
+{
+	NODE *q;
+	if(p->in.type==t) return p;
+	q=block(SCONV,p,NIL,t,0,(int)t);
+	hardconv(q);
+	return q;
 }
 
-/* do local tree transformations and optimizations */
-optim2( p )
-  register NODE *p;
-  {	register NODE *q;
+hardconv(p)
+NODE *p;
+{
+	NODE *q;
+	TWORD t=p->in.type, tl=p->in.left->in.type;
+	char *name;
+	if(t==tl || ((t!=FLOAT && t!=DOUBLE) && (tl!=FLOAT && tl!=DOUBLE))) return;
+	if(tl==FLOAT && t!=DOUBLE) { p->in.left=fpconv(p->in.left,DOUBLE); tl=DOUBLE; }
+	if(t==FLOAT && tl!=DOUBLE) { p->in.left=fpconv(p->in.left,DOUBLE); tl=DOUBLE; }
+	if(t==FLOAT) name="dtof";
+	else if(tl==FLOAT) name="ftod";
+	else if(t==DOUBLE) {
+		if(tl==LONG) name="ltod";
+		else if(tl==ULONG) name="ultod";
+		else {
+			int u=ISUNSIGNED(tl) || ISPTR(tl);
+			p->in.left=makety(p->in.left,u?UNSIGNED:INT,0,u?UNSIGNED:INT);
+			name=u?"utod":"itod";
+		}
+	} else {
+		if(t==LONG) name="dtol";
+		else if(t==ULONG) name="dtoul";
+		else name=(ISUNSIGNED(t)||ISPTR(t))?"dtou":"dtoi";
+	}
+	p->in.op=CALL; p->in.right=p->in.left;
+	p->in.left=q=talloc();
+	q->in.op=ICON; q->in.rall=NOPREF; q->in.type=INCREF(FTN+t);
+	strcpy(q->tn.name,name); q->tn.lval=q->tn.rval=0;
+}
 
-	/* change <flt exp>1 <logop> <flt exp>2 to
-	 * (<exp>1 - <exp>2) <logop> 0.0
-	 */
-	if (logop(p->in.op) &&
-	    ((q = p->in.left)->in.type==FLOAT || q->in.type==DOUBLE) &&
-	    ((q = p->in.right)->in.type==FLOAT || q->in.type==DOUBLE)) {
-	  q = talloc();
-	  q->in.op = MINUS;
-	  q->in.rall = NOPREF;
-	  q->in.type = DOUBLE;
-	  q->in.left = p->in.left;
-	  q->in.right = p->in.right;
-	  p->in.left = q;
-	  p->in.right = q = talloc();
-	  q->tn.op = ICON;
-	  q->tn.type = DOUBLE;
-	  q->tn.name[0] = '\0';
-	  q->tn.rval = 0;
-	  q->tn.lval = 0;
+optim2(p)
+NODE *p;
+{
+	NODE *q,*args;
+	char *name;
+	int o=p->in.op;
+	if(o>=EQ && o<=GT &&
+	   (p->in.left->in.type==FLOAT || p->in.left->in.type==DOUBLE)) {
+		switch(o) {
+		case EQ: name="feq"; break; case NE: name="fne"; break;
+		case LT: name="flt"; break; case LE: name="fle"; break;
+		case GT: name="fgt"; break; default: name="fge";
+		}
+		args=block(CM,fpconv(p->in.left,DOUBLE),fpconv(p->in.right,DOUBLE),INT,0,INT);
+		p->in.op=CALL; p->in.type=INT; p->in.right=args;
+		p->in.left=q=talloc(); q->in.op=ICON; q->in.type=INCREF(FTN+INT);
+		q->in.rall=NOPREF; q->tn.lval=q->tn.rval=0; strcpy(q->tn.name,name);
 	}
 }
 
@@ -985,3 +1061,20 @@ main( argc, argv ) char *argv[]; {
 	return( mainp2( argc, argv ) );
 	}
 # endif
+
+fpword(p,k) NODE *p; int k; {
+	CONSZ save = p->tn.lval;
+	int r = p->tn.rval;
+	if(p->in.op==REG) {
+		p->tn.rval += k;
+	} else if(p->in.op==UNARY MUL) {
+		NODE *q = p->in.left;
+		if(k) printf("%d(%s)",2*k,rnames[q->tn.rval]);
+		else printf("@%s",rnames[q->tn.rval]);
+		usedregs |= 1<<q->tn.rval;
+		return;
+	} else p->tn.lval += 2*k;
+	adrput(p);
+	p->tn.lval = save;
+	p->tn.rval = r;
+}

@@ -1,0 +1,648 @@
+{
+ "gen/abs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c3c96390278f89d4",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/atof.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/libc/gen/atof.c:14: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "909a801cfc5acbe8",
+  "status": "error",
+  "warnings": []
+ },
+ "gen/atoi.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7a382fc623b05a55",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/atol.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "413d51f67dce42cf",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/calloc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "05b3ffa84ea2cb4c",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/crypt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e9d17c54b2e3c8cf",
+  "status": "ok",
+  "warnings": [
+   "usr/src/libc/gen/crypt.c:146: warning: old-fashioned initialization: use =",
+   "usr/src/libc/gen/crypt.c:162: warning: old-fashioned initialization: use =",
+   "usr/src/libc/gen/crypt.c:208: warning: old-fashioned initialization: use =",
+   "usr/src/libc/gen/crypt.c:49: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "gen/ctime.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1d316665fdd7f16d",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/ctype_.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0cb708a3cdbe4491",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/ecvt.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/libc/gen/ecvt.c:16: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "30358dd0f84618b6",
+  "status": "error",
+  "warnings": []
+ },
+ "gen/errlst.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "cb6a9fb1ba5a7f4a",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/execvp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2b241a0c67afc174",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/getenv.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f74c614ff84980db",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/getlogin.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e918fa73d7189932",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/index.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6a8337647fff746b",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/isatty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a20dc4845e378c1e",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/l3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "33aba415bd9b7ea8",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/malloc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9b01d8af5cd47365",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/mktemp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a19b543a89741ab6",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/mon.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b88fadd3b2262f4f",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/mpx.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fbe127d3a35c8058",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/tty.h:59: warning: structure typed union member must be named"
+  ]
+ },
+ "gen/nlist.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/libc/gen/nlist.c:30: a_flag undefined"
+  ],
+  "src": "7edb697797a2e023",
+  "status": "error",
+  "warnings": []
+ },
+ "gen/perror.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ec5610d90b290b1b",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/pkon.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dd4a38009cf50b23",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/qsort.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/libc/gen/qsort.c:13: compiler error: faulty register move"
+  ],
+  "src": "8eb85ef6a93c2026",
+  "status": "error",
+  "warnings": []
+ },
+ "gen/rand.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5f3a0466b78ada5c",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/rindex.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "97833a88dcb6d86b",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/sleep.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a164e2d5f86724cb",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strcat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "59023ac7be6d4037",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strcmp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "69ba71ad37fad5c8",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strcpy.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "735d9e1066d8372a",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strlen.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d082361d3e43fe9a",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strncat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fbfe2167ff5ad18b",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strncmp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "beaa59d29d84055f",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/strncpy.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9ef5ab8047c7eedc",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/stty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9d21905e5ce473d7",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/swab.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4c200525c6f15da3",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/tell.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "96ff33c0b4e91697",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/timezone.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f9b723755e557c69",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/ttyname.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2eeed094ce9113e1",
+  "status": "ok",
+  "warnings": []
+ },
+ "gen/ttyslot.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ca53e7a5e02e1d0a",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/clrerr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "516a09e3eb3045ed",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/data.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "756b35fe4f1fbbdc",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/doscan.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/libc/stdio/doscan.c:183: compiler error: no table entry for op REG"
+  ],
+  "src": "2e604fab5ea6d468",
+  "status": "error",
+  "warnings": []
+ },
+ "stdio/endopen.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2ede7878ba000d1b",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fdopen.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "53dcd878a7e24313",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fgetc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "374a3a134f4d8490",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fgets.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e6a2049b0c81beea",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/filbuf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f060a6b214994b57",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/findiop.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "31d2215fda7a0535",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/flsbuf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f1debf1581b99773",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fopen.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "89fe16b96a725620",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fprintf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ae1e9f274d445383",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fputc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "73eaf180e444fec3",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fputs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "921948f8862489e6",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/freopen.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fe208b3253902432",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/fseek.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c0f68511b7f3ef0a",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/ftell.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "513f0ff0fc071fb6",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/gcvt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e1845b38e5213b78",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getchar.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f958386c405f4e87",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getgrent.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "154b54cf18def5f4",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getgrgid.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6407a28e441f8ed1",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getgrnam.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b0ae32f38afc368a",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getpass.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a6fa7f46d6c7917a",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getpw.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "57feaf6edf4a72b3",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getpwent.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dd02591058c36a69",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getpwnam.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "af8927d14795cc57",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getpwuid.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fa2519e8570c4b68",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/gets.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e0610c3344605412",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/getw.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c9a10f2e8e4869a4",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/popen.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3f659b17f206aebb",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/printf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5ae2151417b6ce03",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/putchar.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d3301d82b80d972d",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/puts.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "906f4d37b460983b",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/putw.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1dcd88ad4217b58f",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/rdwr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "69e8c207f61178d9",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/rew.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "298ba50379ba884e",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/scanf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d01caf5023db8001",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/setbuf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a9e3cfb960b4425c",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/sprintf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "274dd583a0b802f9",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/strout.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2f7650e30758819c",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/system.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b0ba2ebf3af3e71a",
+  "status": "ok",
+  "warnings": []
+ },
+ "stdio/ungetc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "21620dad60d37681",
+  "status": "ok",
+  "warnings": []
+ },
+ "v6/access.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fc8734d447f922b0",
+  "status": "ok",
+  "warnings": []
+ },
+ "v6/chown.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b1a7a09fe4616c4a",
+  "status": "ok",
+  "warnings": []
+ },
+ "v6/execl.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "78729f050c1372d2",
+  "status": "ok",
+  "warnings": [
+   "usr/src/libc/v6/execl.c:10: warning: illegal pointer/integer combination, op =",
+   "usr/src/libc/v6/execl.c:6: warning: illegal pointer/integer combination, op =",
+   "usr/src/libc/v6/execl.c:7: warning: illegal pointer/integer combination, op =",
+   "usr/src/libc/v6/execl.c:8: warning: illegal pointer/integer combination, op =",
+   "usr/src/libc/v6/execl.c:9: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "v6/ftime.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "09340d85e1739587",
+  "status": "ok",
+  "warnings": []
+ },
+ "v6/gtty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e9fbd8e25383640c",
+  "status": "ok",
+  "warnings": []
+ },
+ "v6/lseek.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f06ac48c5d55c83f",
+  "status": "ok",
+  "warnings": []
+ },
+ "v6/stat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a417cf78f96cfc49",
+  "status": "ok",
+  "warnings": []
+ }
+}

@@ -15,7 +15,7 @@
 # define R11 11
 # define R12 12
 # define R13 13
-# define FP 14
+# define FP 13
 # define SP 15
 
 # define SAVEREGION 8 /* number of bytes for save area */

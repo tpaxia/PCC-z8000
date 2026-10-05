@@ -1,0 +1,9 @@
+{
+  "break": "illegal break",
+  "duplicate_case": "duplicate case",
+  "invalid_octal": "illegal octal constant",
+  "empty_hex": "illegal hex constant",
+  "bad_hex_prefix": "illegal hex constant",
+  "missing_semicolon": "syntax error",
+  "prototype": "syntax error"
+}

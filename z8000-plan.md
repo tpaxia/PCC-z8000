@@ -1,5 +1,21 @@
 # Z8000 PCC Port — Implementation Plan
 
+## Current implementation status
+
+This document preserves the original implementation plan below, including its
+initial register choices and early gap assessments. The implemented ABI uses
+R13 as the frame pointer and R15 as the stack pointer; scalar returns use R0,
+RR0, or R0–R3 for word, long/float, or double values respectively. Float arguments
+are promoted to double under K&R default argument promotions.
+
+The subsequent compiler audit and fixes now pass 70 general regression cases,
+54 comparison probes and 58 external GCC/PCC K&R cases, with no expected-failure
+exemptions. The software floating runtime implements basic arithmetic,
+comparisons, conversions and compound/prefix/postfix updates, with nearest/even
+rounding. Earlier statements below that these routines are unimplemented refer
+to the original plan. Current results, build commands and remaining limitations
+are maintained in [README.md](README.md) and the linked suite reports.
+
 ## Context
 
 Port the Portable C Compiler (PCC) from the Motorola 68000 backend (`68000/c68/`) to the Zilog Z8002 (nonsegmented, 16-bit flat address space). The result is a full cross-compilation toolchain: compiler backend (`cz8`), assembler (`az8`), linker (`ldz8`), and driver (`ccz8`).

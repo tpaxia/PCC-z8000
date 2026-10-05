@@ -450,6 +450,10 @@ yylex(){
 			/* eat up a single character, and return an opcode */
 
 			yylval.intval = p->lxval;
+			if( p->lxtok==CM && curclass==MOE ) stwart = SEENAME;
+			/* a declaration with no declarator ends here: stop
+			   treating a following typedef name as an identifier */
+			if( p->lxtok==SM ) stwart &= ~SEENAME;
 			return( p->lxtok );
 
 		case A_ERR:
@@ -468,7 +472,7 @@ yylex(){
 				(stwart&(INSTRUCT|INUNION|FUNNYNAME))?SMOS:0 );
 			sp = &stab[id];
 			if( sp->sclass == TYPEDEF && !stwart ){
-				stwart = instruct;
+				stwart = instruct|SEENAME;
 				yylval.nodep = mkty( sp->stype, sp->dimoff, sp->sizoff );
 				return( TYPE );
 				}
@@ -484,8 +488,9 @@ yylex(){
 
 			case 'x':
 			case 'X':
-				if( yytext[0] != '0' && !yytext[1] ) uerror( "illegal hex constant" );
+				if( yytext[0] != '0' || yytext[1] ) uerror( "illegal hex constant" );
 				lxmore( lxchar, LEXHEX );
+				if( !yytext[2] ) uerror( "illegal hex constant" );
 				/* convert the value */
 				{
 					register char *cp;
@@ -536,6 +541,7 @@ yylex(){
 					/* convert in octal */
 					register char *cp;
 					for( cp = yytext+1; *cp; ++cp ){
+						if( *cp > '7' ) uerror( "illegal octal constant" );
 						lastcon <<= 3;
 						lastcon += *cp - '0';
 						}
@@ -857,7 +863,7 @@ lxres() {
 
 			case AR_TY:
 				/* type word */
-				stwart = instruct;
+				stwart = instruct|SEENAME;
 				yylval.nodep = mkty( (TWORD)p->lxrval, 0, p->lxrval );
 				return( TYPE );
 

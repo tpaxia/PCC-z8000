@@ -7,6 +7,50 @@
 
 struct optab  table[] = {
 
+/* IEEE binary64 values occupy four consecutive word registers. */
+ASSIGN, INAREG|FOREFF,
+	SAREG, TDOUBLE, EAA, TDOUBLE,
+	0, RLEFT|RRIGHT, "ZX",
+ASSIGN, INAREG|FOREFF,
+	SNAME|SOREG|STARNM, TDOUBLE, SAREG, TDOUBLE,
+	0, RLEFT|RRIGHT, "ZX",
+ASSIGN, INAREG|FOREFF,
+	SNAME|SOREG|STARNM, TDOUBLE, SNAME|SOREG|STARNM, TDOUBLE,
+	NAREG, RLEFT|RRIGHT, "ZX",
+OPLTYPE, INTAREG|INAREG,
+	SANY, TANY, EAA, TDOUBLE,
+	NAREG|NASR, RESC1, "ZE",
+OPLTYPE, FORARG,
+	SANY, TANY, EAA, TDOUBLE,
+	0, RNULL, "ZG",
+OPLTYPE, INTEMP,
+	SANY, TANY, SAREG, TDOUBLE,
+	4*NTEMP, RESC1, "ZK",
+
+/* IEEE binary64 values occupy four consecutive word registers. */
+ASSIGN, INAREG|FOREFF,
+	SAREG, TFLOAT, EAA, TFLOAT,
+	0, RLEFT|RRIGHT, "ZX",
+ASSIGN, INAREG|FOREFF,
+	SNAME|SOREG|STARNM, TFLOAT, SAREG, TFLOAT,
+	0, RLEFT|RRIGHT, "ZX",
+ASSIGN, INAREG|FOREFF,
+	SNAME|SOREG|STARNM, TFLOAT, SNAME|SOREG|STARNM, TFLOAT,
+	NAREG, RLEFT|RRIGHT, "ZX",
+OPLTYPE, INTAREG|INAREG,
+	SANY, TANY, EAA, TFLOAT,
+	NAREG|NASR, RESC1, "ZE",
+OPLTYPE, FORARG,
+	SANY, TANY, EAA, TFLOAT,
+	0, RNULL, "ZG",
+OPLTYPE, INTEMP,
+	SANY, TANY, SAREG, TFLOAT,
+	2*NTEMP, RESC1, "ZK",
+
+OPLTYPE, FORCC,
+	SANY, TANY, EAA, TDOUBLE|TFLOAT,
+	NAREG, RESCC, "ZY",
+
 /* === ASSIGN === */
 
 /* clear word/byte to zero */
@@ -85,7 +129,7 @@ ASSIGN, INAREG|FOREFF,
 	SFLD,	TANY,
 	SZERO,	TANY,
 		NAREG,	RRIGHT,
-		"	ld	A1,AL\n	and	A1,#Z~\n	ld	AL,A1\n",
+		"	ld	A1,AL\n	and	A1,#N\n	ld	AL,A1\n",
 
 /* assign to bit field: general case */
 /* Z8000 has no memory-dest AND/OR, so load/modify/store through A1 */
@@ -392,6 +436,13 @@ COMPL,	INTAREG|INAREG,
 		0,	RLEFT,
 		"	comb	AL\n",
 
+/* complement both words of a long register pair */
+COMPL, INTAREG|INAREG,
+	STAREG, TLONG|TULONG,
+	SANY, TANY,
+		0, RLEFT,
+		"	com	AL\n	com	UL\n",
+
 /* === INCR/DECR === */
 
 /* post-increment with small constant (1-16) */
@@ -672,14 +723,14 @@ ASG LS,	INAREG|FOREFF,
 ASG RS,	INAREG|FOREFF,
 	SAREG|STAREG,	TINT|TSHORT,
 	SAREG,	TANY,
-		0,	RLEFT,
-		"	negZB	AR\n	sda	AL,AR\n",
+		NAREG,	RLEFT,
+		"	ld	A1,AR\n	neg	A1\n	sda	AL,A1\n",
 
 ASG RS,	INAREG|FOREFF,
 	SAREG|STAREG,	TUNSIGNED|TUSHORT,
 	SAREG,	TANY,
-		0,	RLEFT,
-		"	negZB	AR\n	sdl	AL,AR\n",
+		NAREG,	RLEFT,
+		"	ld	A1,AR\n	neg	A1\n	sdl	AL,A1\n",
 
 /* long shift by immediate count */
 ASG LS,	INAREG|FOREFF,
@@ -710,14 +761,14 @@ ASG LS,	INAREG|FOREFF,
 ASG RS,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG,
 	SAREG,	TANY,
-		0,	RLEFT,
-		"	negZB	AR\n	sdal	ZQ,AR\n",
+		NAREG,	RLEFT,
+		"	ld	A1,AR\n	neg	A1\n	sdal	ZQ,A1\n",
 
 ASG RS,	INAREG|FOREFF,
 	SAREG|STAREG,	TULONG,
 	SAREG,	TANY,
-		0,	RLEFT,
-		"	negZB	AR\n	sdll	ZQ,AR\n",
+		NAREG,	RLEFT,
+		"	ld	A1,AR\n	neg	A1\n	sdll	ZQ,A1\n",
 
 /* byte shift */
 ASG LS,	INAREG|FOREFF,
@@ -737,6 +788,17 @@ ASG RS,	INAREG|FOREFF,
 	SCON,	TANY,
 		0,	RLEFT,
 		"	srlb	AL,AR\n",
+
+/* Byte shifts also accept a live register count. */
+ASG LS, INAREG|FOREFF,
+	SAREG|STAREG, TCHAR|TUCHAR, SAREG, TANY,
+	0, RLEFT, "\tsdab\tAL,AR\n",
+ASG RS, INAREG|FOREFF,
+	SAREG|STAREG, TCHAR, SAREG, TANY,
+	NAREG, RLEFT, "\tld\tA1,AR\n\tneg\tA1\n\tsdab\tAL,A1\n",
+ASG RS, INAREG|FOREFF,
+	SAREG|STAREG, TUCHAR, SAREG, TANY,
+	NAREG, RLEFT, "\tld\tA1,AR\n\tneg\tA1\n\tsdlb\tAL,A1\n",
 
 /* === MUL / DIV / MOD (16-bit hardware operations) === */
 /* rallo ensures left operand is in r1 (part of pair rr0) */
@@ -767,7 +829,7 @@ DIV,	INAREG|INTAREG,
 	SAREG|STAREG,	TUNSIGNED|TUSHORT,
 	EA,	TUNSIGNED|TUSHORT,
 		0,	RLEFT,
-		"	ld	r1,AL\n	clr	r0\n	div	rr0,AR\nZH",
+		"ZVZH",
 
 /* signed modulus: move AL to r1, sign extend, divide, remainder r0 -> r1 */
 MOD,	INAREG|INTAREG,
@@ -781,7 +843,7 @@ MOD,	INAREG|INTAREG,
 	SAREG|STAREG,	TUNSIGNED|TUSHORT,
 	EA,	TUNSIGNED|TUSHORT,
 		0,	RLEFT,
-		"	ld	r1,AL\n	clr	r0\n	div	rr0,AR\n	ld	r1,r0\nZH",
+		"ZVZH",
 
 /* ASG MUL/DIV/MOD */
 ASG MUL,	INAREG,
@@ -806,7 +868,7 @@ ASG DIV,	INAREG,
 	SAREG|STAREG,	TUNSIGNED|TUSHORT,
 	EA,	TUNSIGNED|TUSHORT,
 		0,	RLEFT,
-		"	ld	r1,AL\n	clr	r0\n	div	rr0,AR\n	ld	AL,r1\nZH",
+		"ZVZH",
 
 ASG MOD,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT,
@@ -818,7 +880,7 @@ ASG MOD,	INAREG,
 	SAREG|STAREG,	TUNSIGNED|TUSHORT,
 	EA,	TUNSIGNED|TUSHORT,
 		0,	RLEFT,
-		"	ld	r1,AL\n	clr	r0\n	div	rr0,AR\n	ld	r1,r0\n	ld	AL,r1\nZH",
+		"ZVZH",
 
 /* === UNARY CALL === */
 
@@ -862,7 +924,7 @@ SCONV,	INTAREG,
 	STAREG,	TUCHAR,
 	SANY,	TWORD,
 		0,	RLEFT,
-		"	and	AL,#0xFF\n",
+		"	and	AL,#255\n",
 
 /* int -> long: sign extend word to long pair */
 /* load source into low reg of pair, sign extend to fill high reg */
@@ -960,7 +1022,7 @@ INIT,	FOREFF,
 	SCON,	TANY,
 	SANY,	TLONG|TULONG,
 		0,	RNOP,
-		"	.word	CL\n	.word	CL\n",
+		"ZJ",
 
 	/* Default actions for hard trees ... */
 

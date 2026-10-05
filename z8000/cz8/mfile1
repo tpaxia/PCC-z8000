@@ -46,6 +46,7 @@ extern char *scnames();
 # define SREF 020
 # define SNONUNIQ 040
 # define STAG 0100
+# define SLABEL 0200
 
 # ifndef FIXDEF
 # define FIXDEF(p)
@@ -120,6 +121,7 @@ union ndu {
 
 struct sw {
 	CONSZ sval;
+	TWORD stype;
 	int slab;
 	};
 

@@ -1,0 +1,4971 @@
+{
+ "ac.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7cdfd0ad82bfbfe1",
+  "status": "ok",
+  "warnings": []
+ },
+ "accton.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5e49ae0b862eef00",
+  "status": "ok",
+  "warnings": []
+ },
+ "adb/access.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "428dd192023c307b",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named"
+  ]
+ },
+ "adb/command.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3ffe355724044f67",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/command.c:26: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/command.c:27: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/command.c:33: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "adb/dummy.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "220f49423082a0b6",
+  "status": "ok",
+  "warnings": []
+ },
+ "adb/expr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "46a2b7effc103276",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/expr.c:213: warning: old-fashioned assignment operator"
+  ]
+ },
+ "adb/findfn.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "defe05e13db44544",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named"
+  ]
+ },
+ "adb/format.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "864924395e714a32",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/format.c:106: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/format.c:107: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/format.c:196: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/format.c:201: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/format.c:238: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "adb/input.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "05b6f60a5a9d2700",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/input.c:14: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "adb/main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1caf18b9c80bd20e",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/main.c:109: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/main.c:119: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "adb/message.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0a83f6e2c462b491",
+  "status": "ok",
+  "warnings": []
+ },
+ "adb/opset.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8ef5e563ce28b6b7",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/opset.c:134: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/opset.c:201: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/opset.c:329: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/opset.c:39: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "adb/output.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/adb/output.c:140: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "1744548c584870b8",
+  "status": "error",
+  "warnings": []
+ },
+ "adb/pcs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "87fdbe9a43ba5796",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/pcs.c:64: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/pcs.c:65: warning: illegal pointer/integer combination, op =="
+  ]
+ },
+ "adb/print.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/adb/print.c:311: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "45bc415669449f76",
+  "status": "error",
+  "warnings": []
+ },
+ "adb/runpcs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "74e64acbfdb2e319",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/runpcs.c:249: warning: illegal pointer/integer combination, op <",
+   "usr/src/cmd/adb/runpcs.c:249: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/runpcs.c:249: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/runpcs.c:249: warning: struct/union or struct/union pointer required"
+  ]
+ },
+ "adb/setup.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "171b68b9ff3d7d59",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/setup.c:104: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/setup.c:35: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/setup.c:37: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/setup.c:38: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/setup.c:68: warning: old-fashioned assignment operator",
+   "usr/src/cmd/adb/setup.c:72: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/setup.c:74: warning: illegal pointer/integer combination, op ==",
+   "usr/src/cmd/adb/setup.c:75: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/setup.c:95: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/setup.c:96: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/setup.c:97: warning: struct/union or struct/union pointer required"
+  ]
+ },
+ "adb/sym.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a3cacbc3c4645ac0",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/sym.c:25: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "ar.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b6c615a9e484dd29",
+  "status": "ok",
+  "warnings": []
+ },
+ "arcv.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1bc1ab89d080eca2",
+  "status": "ok",
+  "warnings": []
+ },
+ "at.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "abf9bdffb9a312a9",
+  "status": "ok",
+  "warnings": []
+ },
+ "atrun.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "567fa29511167823",
+  "status": "ok",
+  "warnings": []
+ },
+ "awk/b.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/b.c:3:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/lib.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/lib.c:3:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/main.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/main.c:3:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/parse.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/parse.c:2:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/proc.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/proc.c:1:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/run.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/run.c:4:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/token.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/token.c:1:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "awk/tran.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: awk/tran.c:3:10: fatal error: 'awk.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "basename.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fe2476a4ab1c415b",
+  "status": "ok",
+  "warnings": []
+ },
+ "c/c00.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8521b5d51e58b6e2",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c00.c:113: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:137: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c00.c:138: warning: illegal member use: strp",
+   "usr/src/cmd/c/c00.c:141: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c00.c:15: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c00.c:16: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c00.c:17: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c00.c:23: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c00.c:390: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:394: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:396: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:398: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:400: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:401: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:510: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c00.c:573: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:574: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:627: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c00.c:641: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:648: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c00.c:652: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c00.c:653: warning: illegal member use: op",
+   "usr/src/cmd/c/c00.c:654: warning: illegal member use: type",
+   "usr/src/cmd/c/c00.c:655: warning: illegal member use: lvalue",
+   "usr/src/cmd/c/c00.c:656: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c00.c:660: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c00.c:666: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c00.c:686: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c00.c:702: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:825: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c00.c:861: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c00.c:86: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c00.c:870: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c00.c:871: warning: illegal member use: op"
+  ]
+ },
+ "c/c01.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/c/c01.c:547: compiler error: faulty register move"
+  ],
+  "src": "f4c28af3086ec3eb",
+  "status": "error",
+  "warnings": []
+ },
+ "c/c02.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/c/c02.c:171: compiler error: faulty register move"
+  ],
+  "src": "ca1ebd55ef413585",
+  "status": "error",
+  "warnings": []
+ },
+ "c/c03.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ccde541aaaa2e07f",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c03.c:165: warning: illegal member use: strp",
+   "usr/src/cmd/c/c03.c:165: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:167: warning: illegal member use: strp",
+   "usr/src/cmd/c/c03.c:168: warning: illegal member use: strp",
+   "usr/src/cmd/c/c03.c:172: warning: illegal member use: strp",
+   "usr/src/cmd/c/c03.c:174: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:207: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:251: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:255: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:296: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:307: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:317: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:319: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:326: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c03.c:328: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:335: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c03.c:335: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c03.c:338: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c03.c:371: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:373: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c03.c:373: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c03.c:374: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:387: warning: illegal member use: bitoffs",
+   "usr/src/cmd/c/c03.c:388: warning: illegal member use: flen",
+   "usr/src/cmd/c/c03.c:391: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:394: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:395: warning: illegal member use: bitoffs",
+   "usr/src/cmd/c/c03.c:396: warning: illegal member use: flen",
+   "usr/src/cmd/c/c03.c:397: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:400: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:401: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:404: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:405: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:425: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:472: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c03.c:476: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:628: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:644: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c03.c:651: warning: old-fashioned assignment operator"
+  ]
+ },
+ "c/c04.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "be109a0039454602",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c04.c:100: warning: illegal member use: value",
+   "usr/src/cmd/c/c04.c:104: warning: illegal member use: cstr",
+   "usr/src/cmd/c/c04.c:113: warning: illegal member use: bitoffs",
+   "usr/src/cmd/c/c04.c:113: warning: illegal member use: flen",
+   "usr/src/cmd/c/c04.c:170: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c04.c:197: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c04.c:265: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c04.c:393: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c04.c:398: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c04.c:59: warning: illegal member use: value",
+   "usr/src/cmd/c/c04.c:62: warning: illegal member use: value",
+   "usr/src/cmd/c/c04.c:85: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c04.c:96: warning: illegal member use: lvalue"
+  ]
+ },
+ "c/c05.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b06b706773fc4bb7",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c05.c:149: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c05.c:160: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c05.c:167: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c05.c:16: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "c/c10.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/c/c10.c:498: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "e38ad15cbf180d0f",
+  "status": "error",
+  "warnings": []
+ },
+ "c/c11.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/c/c11.c:413: compiler error: faulty register move"
+  ],
+  "src": "37031d109d1aa047",
+  "status": "error",
+  "warnings": []
+ },
+ "c/c12.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/c/c12.c:312: compiler error: no table entry for op ="
+  ],
+  "src": "2902082ea8e74862",
+  "status": "error",
+  "warnings": []
+ },
+ "c/c13.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "040bca6ab34e17e4",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c13.c:128: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:251: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:252: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:253: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:254: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:255: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:256: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:257: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:258: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:259: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:260: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:261: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:262: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:263: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:264: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:265: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:266: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:267: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:268: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:269: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:270: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:271: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:272: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:273: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:274: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:275: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:276: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:277: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:278: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:279: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:280: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:281: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:282: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:283: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:284: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:285: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:286: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:287: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:288: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:289: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:290: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:291: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:292: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:299: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:364: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c13.c:8: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "c/c20.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fbd6ce957497abae",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c20.c:62: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c20.c:8: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "c/c21.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fd0a8b93c1b80314",
+  "status": "ok",
+  "warnings": []
+ },
+ "c/cvopt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8538279f582d3637",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/cvopt.c:158: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/cvopt.c:162: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/cvopt.c:166: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/cvopt.c:170: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/cvopt.c:247: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/cvopt.c:349: warning: old-fashioned assignment operator"
+  ]
+ },
+ "cal.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "59027c50acf9b45e",
+  "status": "ok",
+  "warnings": []
+ },
+ "calendar.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a388bafeee630daf",
+  "status": "ok",
+  "warnings": []
+ },
+ "cat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "58fae06a269c3f62",
+  "status": "ok",
+  "warnings": []
+ },
+ "cb.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "16fd0c8fa1fbc8cf",
+  "status": "ok",
+  "warnings": []
+ },
+ "cc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3dad36b71aeb6129",
+  "status": "ok",
+  "warnings": []
+ },
+ "checkeq.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5716adef1880f7ef",
+  "status": "ok",
+  "warnings": []
+ },
+ "chgrp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "487a81d0e1eacf2b",
+  "status": "ok",
+  "warnings": []
+ },
+ "chmod.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4917814439af72e4",
+  "status": "ok",
+  "warnings": []
+ },
+ "chown.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3e55f8c97a25dabd",
+  "status": "ok",
+  "warnings": []
+ },
+ "clri.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "88aa5ec3c68e0766",
+  "status": "ok",
+  "warnings": []
+ },
+ "cmp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7d570c2e3ad96f5d",
+  "status": "ok",
+  "warnings": []
+ },
+ "col.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "05b233642274181d",
+  "status": "ok",
+  "warnings": []
+ },
+ "comm.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "50c3dd3196d40521",
+  "status": "ok",
+  "warnings": []
+ },
+ "cp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3bf14fe83502dd66",
+  "status": "ok",
+  "warnings": []
+ },
+ "cpp/cpp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3827919dfbaf8b0d",
+  "status": "ok",
+  "warnings": []
+ },
+ "cpp/yylex.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/cpp/yylex.c:13: OROR undefined"
+  ],
+  "src": "58c956b3606af403",
+  "status": "error",
+  "warnings": []
+ },
+ "cron.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ee2686f6b6ebc8a9",
+  "status": "ok",
+  "warnings": []
+ },
+ "crypt.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/crypt.c:46: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "d0996d269ad9e968",
+  "status": "error",
+  "warnings": []
+ },
+ "cu.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8334a2393d7d36e7",
+  "status": "ok",
+  "warnings": []
+ },
+ "date.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3a6b51d89054233f",
+  "status": "ok",
+  "warnings": []
+ },
+ "dc/dc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7bf5940856de94bc",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/dc/dc.c:590: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "dcheck.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a6edf4963e30c14e",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "dd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "30317d9b5bbbaeae",
+  "status": "ok",
+  "warnings": []
+ },
+ "deroff.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "46c906a06a0bfc8b",
+  "status": "ok",
+  "warnings": []
+ },
+ "df.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5b65efed12791970",
+  "status": "ok",
+  "warnings": []
+ },
+ "diff.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1d2f23845e662d0d",
+  "status": "ok",
+  "warnings": []
+ },
+ "diff3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "32dc36acad33740f",
+  "status": "ok",
+  "warnings": []
+ },
+ "diffh.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a155600bd0df71b3",
+  "status": "ok",
+  "warnings": []
+ },
+ "dmesg.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3544676544860076",
+  "status": "ok",
+  "warnings": []
+ },
+ "du.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "417fdd6e3e74a70f",
+  "status": "ok",
+  "warnings": []
+ },
+ "dump.c": {
+  "az8": "fail",
+  "errors": [],
+  "src": "44e034b136f50b75",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "dumpdir.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "406932869ee39847",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/dumpdir.c:180: warning: loop not entered at top"
+  ]
+ },
+ "echo.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dbe6365d413e58c9",
+  "status": "ok",
+  "warnings": []
+ },
+ "ed.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/ed.c:1723: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "b5265c036d63faa7",
+  "status": "error",
+  "warnings": []
+ },
+ "eqn/diacrit.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/diacrit.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/eqnbox.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d01727c771315db7",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/font.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "21b778ed6fdd243c",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/fromto.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ebb9d169ff136b48",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/funny.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/funny.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/glob.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3579e65a44079bfa",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/integral.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/integral.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/io.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "de4ce5e29a10b4c4",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/lex.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/lex.c:2:10: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/lookup.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/lookup.c:2:10: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/mark.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1556a756ef326302",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/matrix.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "120f6b46dbf5f7ea",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/move.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/move.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/over.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e37f718ddf8de148",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/paren.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a3ab04f8918f0062",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/pile.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b97dfed62c221f4e",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/shift.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/shift.c:2:10: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "eqn/size.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e9152da8036d0f08",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/sqrt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8756c9ad4e307db9",
+  "status": "ok",
+  "warnings": []
+ },
+ "eqn/text.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: eqn/text.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "f77/data.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "05ab170c03f7edcd",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/driver.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "890a208c1b29c265",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/equiv.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "d491af760873f50f",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/error.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "346bb768e57e8215",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/exec.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "c856a245a77996e6",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/expr.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "5c7d75bf40c0bfe2",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/init.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "62ee855f4072cf3e",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/intr.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "d8ba21106bb32db4",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/io.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "0673745151be5d94",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/lex.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "e7fa09764196119d",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/main.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "7ccc1b2cc5fc3897",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/malloc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c722ad8e328991a3",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/f77/malloc.c:102: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:117: warning: illegal member use: tag",
+   "usr/src/cmd/f77/malloc.c:117: warning: illegal member use: vtype",
+   "usr/src/cmd/f77/malloc.c:121: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:32: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:34: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:61: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:80: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:82: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:91: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/f77/malloc.c:99: warning: illegal pointer/integer combination, op >"
+  ]
+ },
+ "f77/misc.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "37c17e2651ae7033",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/pdp11.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "3423066d42c4f20f",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/pdp11x.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "451ac1ca29b13252",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/proc.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "fef574a3f6829c79",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/put.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "a08505fe66f24680",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/putdmr.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "38b1639fca871c8b",
+  "status": "error",
+  "warnings": []
+ },
+ "f77/putscj.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/f77/defines:18: illegal initialization"
+  ],
+  "src": "4f836e544c16f2aa",
+  "status": "error",
+  "warnings": []
+ },
+ "fgrep.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "29f21f0a7dfe9dab",
+  "status": "ok",
+  "warnings": []
+ },
+ "file.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "60da0fe112777698",
+  "status": "ok",
+  "warnings": []
+ },
+ "find.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "12980aad3bcb4702",
+  "status": "ok",
+  "warnings": []
+ },
+ "getty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fab102d33affce09",
+  "status": "ok",
+  "warnings": []
+ },
+ "graph.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f88039de7e56112d",
+  "status": "ok",
+  "warnings": []
+ },
+ "grep.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c7a44601c9891827",
+  "status": "ok",
+  "warnings": []
+ },
+ "icheck.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "862da550ded6e5ae",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/icheck.c:355: warning: illegal member use: df_nfree",
+   "usr/src/cmd/icheck.c:363: warning: illegal member use: df_free",
+   "usr/src/cmd/icheck.c:381: warning: illegal member use: df_nfree",
+   "usr/src/cmd/icheck.c:383: warning: illegal member use: df_free"
+  ]
+ },
+ "init.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "948565d6f1a15d46",
+  "status": "ok",
+  "warnings": []
+ },
+ "iostat.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/iostat.c:99: compiler error: no table entry for op ="
+  ],
+  "src": "db6645da559e3380",
+  "status": "error",
+  "warnings": []
+ },
+ "join.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6a6c8d8210921d68",
+  "status": "ok",
+  "warnings": []
+ },
+ "kill.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c1960143da098310",
+  "status": "ok",
+  "warnings": []
+ },
+ "ld.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "51eeb838bad9bf48",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/copy.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7aabec5a3d3db727",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/dounit.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "067d20f724ae9467",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/lcount.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9af06be6b0851fb1",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/learn.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9ab8588bc3471858",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/list.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "75db22221991ed8f",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/makpipe.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4dce24d9e98ff0b2",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/maktee.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d19cf91165e487b3",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/mem.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bd77661644135912",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/mysys.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d424eb78d93749a1",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/selsub.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1cfbb7c21e0693b4",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/selunit.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "cd040c8d15f300ec",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/start.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "03d8c8c79bf5d070",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/tee.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8939144826f3cad3",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/whatnow.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "365e066194ae4a03",
+  "status": "ok",
+  "warnings": []
+ },
+ "learn/wrapup.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8855a8eb4c8df349",
+  "status": "ok",
+  "warnings": []
+ },
+ "lex/header.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/lex/ldefs.c:141: constant expected"
+  ],
+  "src": "3b3546ab38ac1d32",
+  "status": "error",
+  "warnings": []
+ },
+ "lex/ldefs.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/lex/ldefs.c:141: constant expected"
+  ],
+  "src": "fb6a074eeabd7554",
+  "status": "error",
+  "warnings": []
+ },
+ "lex/lib/allprint.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5ce568e316cdc703",
+  "status": "ok",
+  "warnings": []
+ },
+ "lex/lib/main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6e823fba68d348ff",
+  "status": "ok",
+  "warnings": []
+ },
+ "lex/lib/reject.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6b6e81ec1a0236df",
+  "status": "ok",
+  "warnings": []
+ },
+ "lex/lib/yyless.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "39d7fbec0c8e028c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/lex/lib/yyless.c:11: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "lex/lib/yywrap.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ae281268757e178e",
+  "status": "ok",
+  "warnings": []
+ },
+ "lex/lmain.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/lex/ldefs.c:141: constant expected"
+  ],
+  "src": "51506d7f39a73063",
+  "status": "error",
+  "warnings": []
+ },
+ "lex/once.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/lex/once.c:47: illegal initialization"
+  ],
+  "src": "598cdb19eaab2721",
+  "status": "error",
+  "warnings": []
+ },
+ "lex/sub1.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/lex/ldefs.c:141: constant expected"
+  ],
+  "src": "7b9a88e7f231e1db",
+  "status": "error",
+  "warnings": []
+ },
+ "lex/sub2.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/lex/ldefs.c:141: constant expected"
+  ],
+  "src": "10c547461a3ece87",
+  "status": "error",
+  "warnings": []
+ },
+ "lint/lint.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: lint/lint.c:1:11: fatal error: 'mfile1' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "lint/lpass2.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: lint/lpass2.c:2:11: fatal error: 'manifest' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "ln.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8444a4c617b53f8f",
+  "status": "ok",
+  "warnings": []
+ },
+ "login.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "140d677b63238881",
+  "status": "ok",
+  "warnings": []
+ },
+ "look.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6658e8cbec886f9b",
+  "status": "ok",
+  "warnings": []
+ },
+ "ls.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dbdc3b0077269182",
+  "status": "ok",
+  "warnings": []
+ },
+ "m4/m4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a5ef1a1663e71de2",
+  "status": "ok",
+  "warnings": []
+ },
+ "mail.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "56aec6dab38356a5",
+  "status": "ok",
+  "warnings": []
+ },
+ "make/doname.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "640194d2cdfdd7ea",
+  "status": "ok",
+  "warnings": []
+ },
+ "make/dosys.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4d93b5a0e156d56d",
+  "status": "ok",
+  "warnings": []
+ },
+ "make/files.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/make/files.c:448: a_flag undefined"
+  ],
+  "src": "58fad31abbbe7e54",
+  "status": "error",
+  "warnings": []
+ },
+ "make/ident.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d74ae66e98acf534",
+  "status": "ok",
+  "warnings": []
+ },
+ "make/main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b5c695792f2d9c12",
+  "status": "ok",
+  "warnings": []
+ },
+ "make/misc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f707ff0afbecf868",
+  "status": "ok",
+  "warnings": []
+ },
+ "makekey.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "aec74005b6d0404b",
+  "status": "ok",
+  "warnings": []
+ },
+ "mesg.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5954ddc12e8cf67f",
+  "status": "ok",
+  "warnings": []
+ },
+ "mip/allo.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/comm1.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile1:2:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/fallo.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/fcomm2.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/flocal2.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/flocal2.c:2:11: fatal error: 'local2.c' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/fmatch.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/forder.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/forder.c:2:11: fatal error: 'order.c' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/fort.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/freader.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/ftable.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/ftable.c:2:11: fatal error: 'table.c' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/match.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/optim.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile1:2:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/pftn.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile1:2:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/reader.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile2:1:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/scan.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile1:2:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/trees.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile1:2:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mip/xdefs.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: mip/mfile1:2:11: fatal error: 'macdefs' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "mkdir.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "93380646facc115c",
+  "status": "ok",
+  "warnings": []
+ },
+ "mkfs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "df2d0ad9da44c8c5",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/mkfs.c:110: warning: illegal member use: s_fsize",
+   "usr/src/cmd/mkfs.c:116: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:156: warning: illegal member use: s_fsize",
+   "usr/src/cmd/mkfs.c:159: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:171: warning: illegal member use: s_m",
+   "usr/src/cmd/mkfs.c:172: warning: illegal member use: s_n",
+   "usr/src/cmd/mkfs.c:174: warning: illegal member use: s_fsize",
+   "usr/src/cmd/mkfs.c:174: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:175: warning: illegal member use: s_fsize",
+   "usr/src/cmd/mkfs.c:175: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:178: warning: illegal member use: s_tfree",
+   "usr/src/cmd/mkfs.c:179: warning: illegal member use: s_tinode",
+   "usr/src/cmd/mkfs.c:182: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:184: warning: illegal member use: s_tinode",
+   "usr/src/cmd/mkfs.c:192: warning: illegal member use: s_time",
+   "usr/src/cmd/mkfs.c:240: warning: illegal member use: i_addr",
+   "usr/src/cmd/mkfs.c:278: warning: illegal member use: i_addr",
+   "usr/src/cmd/mkfs.c:406: warning: illegal member use: s_tfree",
+   "usr/src/cmd/mkfs.c:407: warning: illegal member use: s_free",
+   "usr/src/cmd/mkfs.c:407: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:412: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:414: warning: illegal member use: df_nfree",
+   "usr/src/cmd/mkfs.c:414: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:416: warning: illegal member use: df_free",
+   "usr/src/cmd/mkfs.c:416: warning: illegal member use: s_free",
+   "usr/src/cmd/mkfs.c:426: warning: illegal member use: s_tfree",
+   "usr/src/cmd/mkfs.c:427: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:428: warning: illegal member use: df_nfree",
+   "usr/src/cmd/mkfs.c:428: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:430: warning: illegal member use: df_free",
+   "usr/src/cmd/mkfs.c:430: warning: illegal member use: s_free",
+   "usr/src/cmd/mkfs.c:432: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:434: warning: illegal member use: s_free",
+   "usr/src/cmd/mkfs.c:434: warning: illegal member use: s_nfree",
+   "usr/src/cmd/mkfs.c:523: warning: illegal member use: i_addr",
+   "usr/src/cmd/mkfs.c:529: warning: illegal member use: s_fsize",
+   "usr/src/cmd/mkfs.c:535: warning: illegal member use: s_fsize",
+   "usr/src/cmd/mkfs.c:535: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:559: warning: illegal member use: s_tinode",
+   "usr/src/cmd/mkfs.c:561: warning: illegal member use: s_isize",
+   "usr/src/cmd/mkfs.c:587: warning: illegal member use: i_addr",
+   "usr/src/cmd/mkfs.c:590: warning: illegal member use: i_addr",
+   "usr/src/cmd/mkfs.c:595: warning: illegal member use: i_addr",
+   "usr/src/cmd/mkfs.c:600: warning: illegal member use: i_addr"
+  ]
+ },
+ "mknod.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5e4586da6b23ddfd",
+  "status": "ok",
+  "warnings": []
+ },
+ "mount.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f62c87e233c5d57a",
+  "status": "ok",
+  "warnings": []
+ },
+ "mv.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5532dc5fab8f0845",
+  "status": "ok",
+  "warnings": []
+ },
+ "ncheck.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bde4254cee0ed9d4",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "neqn/diacrit.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/diacrit.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/eqnbox.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c9c50fb1b2ca9443",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/font.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c63064fa5d215fa2",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/fromto.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3d36c5a415661bc5",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/funny.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/funny.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/glob.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1683116c2ad55140",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/integral.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/integral.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/io.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a6ad15a833632142",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/lex.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/lex.c:2:10: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/lookup.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/lookup.c:2:10: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/mark.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1556a756ef326302",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/matrix.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "120f6b46dbf5f7ea",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/move.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/move.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/over.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "75fc5dd385d63924",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/paren.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1c3f311be08dcef5",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/pile.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fe6c561c9527b0a4",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/shift.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/shift.c:2:10: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "neqn/size.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e9152da8036d0f08",
+  "status": "ok",
+  "warnings": []
+ },
+ "neqn/sqrt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1bf3aa2e77a71919",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/neqn/sqrt.c:9: warning: old-fashioned assignment operator"
+  ]
+ },
+ "neqn/text.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: neqn/text.c:2:11: fatal error: 'e.def' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "newgrp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4de3c0649a9099ce",
+  "status": "ok",
+  "warnings": []
+ },
+ "nice.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fc0b6bed5aea76c6",
+  "status": "ok",
+  "warnings": []
+ },
+ "nm.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/nm.c:107: a_flag undefined"
+  ],
+  "src": "0e1f7763b1892029",
+  "status": "error",
+  "warnings": []
+ },
+ "od.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "992719dfdd1d38e6",
+  "status": "ok",
+  "warnings": []
+ },
+ "osh.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "182427353ce49464",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/osh.c:159: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:229: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:235: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/osh.c:248: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:250: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:256: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:258: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:299: warning: illegal pointer/integer combination, op ==",
+   "usr/src/cmd/osh.c:302: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:368: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:373: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:374: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:377: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/osh.c:413: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:418: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/osh.c:440: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:468: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:483: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:488: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:499: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:507: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:510: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:515: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/osh.c:526: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:559: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:55: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/osh.c:672: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:673: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:680: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:692: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:703: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:704: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:706: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:707: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:713: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:714: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:716: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:717: warning: old-fashioned assignment operator",
+   "usr/src/cmd/osh.c:734: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:735: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/osh.c:842: warning: old-fashioned assignment operator"
+  ]
+ },
+ "passwd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3cbaef3ff21a61a4",
+  "status": "ok",
+  "warnings": []
+ },
+ "pcc/code.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: pcc/code.c:4:11: fatal error: 'mfile1' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "pcc/local.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: pcc/local.c:1:11: fatal error: 'mfile1' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "pcc/local2.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: pcc/local2.c:1:11: fatal error: 'mfile2' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "pcc/order.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: pcc/order.c:1:11: fatal error: 'mfile2' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "pcc/table.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: pcc/table.c:1:11: fatal error: 'mfile2' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "plot/chrtab.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0faaace5b7dcca6e",
+  "status": "ok",
+  "warnings": []
+ },
+ "plot/driver.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fdeaa59f3ce6cab1",
+  "status": "ok",
+  "warnings": []
+ },
+ "plot/vplot.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/plot/vplot.c:106: compiler error: no table entry for op ="
+  ],
+  "src": "aad8e694b769a128",
+  "status": "error",
+  "warnings": []
+ },
+ "pr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "69bd35ebe46ad860",
+  "status": "ok",
+  "warnings": []
+ },
+ "prep/prep0.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b73c00c5182007ec",
+  "status": "ok",
+  "warnings": []
+ },
+ "prep/prep1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4edbb05873cb76ae",
+  "status": "ok",
+  "warnings": []
+ },
+ "prep/prep2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "65b62f8df01ce955",
+  "status": "ok",
+  "warnings": []
+ },
+ "prof.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/prof.c:97: compiler error: no table entry for op REG"
+  ],
+  "src": "75abc465e5c3e397",
+  "status": "error",
+  "warnings": []
+ },
+ "ps.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9555c2cd263ec1da",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/tty.h:59: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named"
+  ]
+ },
+ "pstat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "766747d5ffb1def9",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/include/sys/tty.h:59: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/pstat.c:144: warning: illegal member use: i_rdev",
+   "usr/src/cmd/pstat.c:144: warning: illegal member use: i_rdev"
+  ]
+ },
+ "ptx.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a667968b12536a8d",
+  "status": "ok",
+  "warnings": []
+ },
+ "pwd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ff02f3f11335f54a",
+  "status": "ok",
+  "warnings": []
+ },
+ "quot.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "393c2423d72bf093",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "random.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b006d8378bf0528e",
+  "status": "ok",
+  "warnings": []
+ },
+ "ranlib.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/ranlib.c:56: a_flag undefined"
+  ],
+  "src": "56abe3862969c74a",
+  "status": "error",
+  "warnings": []
+ },
+ "ratfor/r0.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: ratfor/r.h:2:10: fatal error: 'y.tab.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "ratfor/r1.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: ratfor/r.h:2:10: fatal error: 'y.tab.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "ratfor/r2.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: ratfor/r.h:2:10: fatal error: 'y.tab.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "ratfor/rio.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: ratfor/r.h:2:10: fatal error: 'y.tab.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "ratfor/rlex.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: ratfor/r.h:2:10: fatal error: 'y.tab.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "ratfor/rlook.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "69d5f54e13054cb5",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/deliv1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e1d8ee4e5b6619e4",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/deliv1.c:13: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/deliv1.c:7: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/deliv2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c7a5b270add9972b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/deliv2.c:32: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "refer/flagger.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8ea7b8ab217037f1",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/flagger.c:154: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/flagger.c:162: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/flagger.c:5: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/glue1.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/refer/glue1.c:9: operands of = have incompatible types"
+  ],
+  "src": "b794e1a9b532e070",
+  "status": "error",
+  "warnings": []
+ },
+ "refer/glue2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e1b4160a38ade5f6",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/glue3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3c3cc93659fa8c8b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/glue3.c:46: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue3.c:51: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "refer/glue4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "702f92d758617536",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/glue4.c:11: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/glue4.c:11: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/glue4.c:11: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/glue5.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b104acf75fdbcad4",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/glue5.c:110: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:141: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:142: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:142: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:144: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:145: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:145: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:149: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:149: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:151: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:153: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:154: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:154: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:156: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:157: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:157: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:163: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:209: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:226: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:237: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:245: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:246: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:250: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:251: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:251: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:254: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:255: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:257: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:258: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:261: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:261: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:268: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:270: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:271: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:275: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:310: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:313: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:314: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:317: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:317: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:322: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:327: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:328: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:32: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/glue5.c:336: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:347: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:347: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/glue5.c:38: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:41: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:45: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:56: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/glue5.c:61: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "refer/hunt1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b68aec7441293315",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt1.c:10: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:11: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:123: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt1.c:124: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt1.c:12: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:130: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt1.c:13: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:17: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:204: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/hunt1.c:209: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/hunt1.c:20: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:27: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:30: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:33: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:62: warning: illegal pointer/integer combination, op <",
+   "usr/src/cmd/refer/hunt1.c:64: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt1.c:7: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt1.c:8: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/hunt2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ede9fb4437475c22",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt2.c:188: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/hunt2.c:188: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/hunt2.c:252: warning: illegal pointer combination, op =",
+   "usr/src/cmd/refer/hunt2.c:260: warning: illegal pointer combination, op =",
+   "usr/src/cmd/refer/hunt2.c:27: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt2.c:2: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt2.c:30: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt2.c:31: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "refer/hunt3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fa0f7d7a86a19f2f",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt3.c:10: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt3.c:10: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt3.c:7: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/hunt5.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "30f109469e87aecd",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt5.c:16: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/refer/hunt5.c:16: warning: struct/union or struct/union pointer required"
+  ]
+ },
+ "refer/hunt6.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "805f41c4b12067be",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt6.c:4: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt6.c:63: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt6.c:66: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "refer/hunt7.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d991ad9cd4c8ccfe",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt7.c:10: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt7.c:15: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt7.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt7.c:6: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/hunt7.c:8: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/hunt8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b09bd5b392eb9ce5",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/hunt8.c:23: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt8.c:24: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt8.c:30: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/hunt8.c:71: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "refer/hunt9.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3224edc09a911759",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/inv1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "56031168f6a4929b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/inv1.c:19: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv1.c:20: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv1.c:21: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv1.c:21: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv1.c:24: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv1.c:25: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/inv2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "67e306cf34e99d16",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/inv2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv2.c:19: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv2.c:19: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/inv3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e4c6763c5979506d",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/inv5.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a22290004bd5ecfd",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/inv5.c:23: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/inv5.c:28: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/inv5.c:35: warning: & before array or function: ignored",
+   "usr/src/cmd/refer/inv5.c:35: warning: illegal pointer combination, op =",
+   "usr/src/cmd/refer/inv5.c:37: warning: & before array or function: ignored"
+  ]
+ },
+ "refer/inv6.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "35688c876803d04d",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/inv6.c:10: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv6.c:11: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv6.c:13: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv6.c:17: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv6.c:19: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/inv6.c:21: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/inv6.c:68: warning: illegal pointer combination, op =",
+   "usr/src/cmd/refer/inv6.c:9: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/inv6.c:9: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/kaiser.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e5ec02f217928659",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/kaiser.c:139: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/kaiser.c:210: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/kaiser.c:249: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/kaiser.c:267: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/kaiser.c:270: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/kaiser.c:273: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/kaiser.c:3: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/kaiser.c:7: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/mkey1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f6ebfbd7a9250ad1",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/mkey1.c:23: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey1.c:8: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/mkey2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7ad5916882667614",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/mkey2.c:102: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/mkey2.c:4: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey2.c:71: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey2.c:72: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey2.c:72: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey2.c:98: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/mkey3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e24e28179169634d",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/mkey3.c:2: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey3.c:3: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/mkey3.c:7: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/refer..c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "888d872cb429c937",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/refer0.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7e634f84036f350a",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer0.c:10: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:11: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:12: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:12: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:15: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:19: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:26: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:27: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:4: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:5: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:6: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:7: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:8: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer0.c:9: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/refer1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2c748f6c9da4a1f1",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer1.c:130: warning: & before array or function: ignored",
+   "usr/src/cmd/refer/refer1.c:130: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer1.c:133: warning: & before array or function: ignored",
+   "usr/src/cmd/refer/refer1.c:134: warning: & before array or function: ignored",
+   "usr/src/cmd/refer/refer1.c:135: warning: & before array or function: ignored"
+  ]
+ },
+ "refer/refer2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5a3f9856deb4dc74",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer2.c:14: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer2.c:159: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer2.c:6: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer2.c:7: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/refer3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c6f7b5bed64d5123",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/refer4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "57ed31aa2354f626",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer4.c:2: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer4.c:59: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer4.c:63: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "refer/refer5.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "007d9b6519762b64",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer5.c:140: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer5.c:151: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer5.c:166: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer5.c:187: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer5.c:190: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer5.c:19: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer5.c:201: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer5.c:22: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer5.c:239: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer5.c:257: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer5.c:269: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer5.c:271: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer5.c:36: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer5.c:67: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer5.c:9: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/refer6.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "193832d3ad761911",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer6.c:114: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer6.c:130: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:132: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:134: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:136: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:138: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:140: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:141: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:189: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:217: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer6.c:43: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer6.c:71: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/refer/refer6.c:7: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer6.c:7: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer6.c:7: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/refer7.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e6114966cdf5948b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer7.c:24: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer7.c:24: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer7.c:51: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer7.c:89: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/refer8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2046bce50d9bf807",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/refer8.c:13: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer8.c:15: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer8.c:19: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/refer8.c:3: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/refer8.c:4: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/shell.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a9d20d7ea241899f",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/thash.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d3cb00aaaa357627",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/thash.c:126: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/refer/thash.c:2: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/thash.c:4: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/thash.c:52: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/thash.c:54: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/thash.c:55: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/thash.c:56: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/types.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e3b0c44298fc1c14",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/what..c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "23106c8795a2f8b9",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/what1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a2abe2c0fdf1ea99",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/what1.c:128: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what1.c:13: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what1.c:4: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what1.c:6: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what1.c:76: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what1.c:77: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what1.c:81: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "refer/what2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4efbbf75f438d54c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/what2.c:135: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:160: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:16: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:200: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:201: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:54: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:55: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what2.c:61: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "refer/what3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6b0dee2127ac562a",
+  "status": "ok",
+  "warnings": []
+ },
+ "refer/what4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b327707ddffaf347",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/refer/what4.c:11: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what4.c:18: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what4.c:78: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what4.c:78: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what4.c:78: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what4.c:88: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/refer/what4.c:88: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "restor.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ade69a1900a67994",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/restor.c:458: warning: loop not entered at top",
+   "usr/src/cmd/restor.c:863: warning: illegal member use: df_nfree",
+   "usr/src/cmd/restor.c:865: warning: illegal member use: df_free",
+   "usr/src/cmd/restor.c:896: warning: illegal member use: df_nfree",
+   "usr/src/cmd/restor.c:898: warning: illegal member use: df_free"
+  ]
+ },
+ "rev.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "71b3fcd81ef052d7",
+  "status": "ok",
+  "warnings": []
+ },
+ "rm.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a2ac8f58847d4037",
+  "status": "ok",
+  "warnings": []
+ },
+ "rmdir.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "255e9bba8466d1c9",
+  "status": "ok",
+  "warnings": []
+ },
+ "sa.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "392f6f6e4cabc3e7",
+  "status": "ok",
+  "warnings": []
+ },
+ "sed/sed0.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "672a229cc24f1f33",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/sed/sed.h:116: warning: structure typed union member must be named",
+   "usr/src/cmd/sed/sed.h:128: warning: structure typed union member must be named",
+   "usr/src/cmd/sed/sed0.c:151: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:157: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:159: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:165: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:166: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:168: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:171: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:175: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:180: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:181: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:183: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:186: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:204: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed0.c:208: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:209: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed0.c:209: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed0.c:210: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:215: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:221: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:232: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:236: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:237: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:244: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:275: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:280: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:281: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:290: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:291: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:294: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:300: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:301: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:304: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:305: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:314: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:315: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:319: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:323: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:327: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:32: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:331: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:335: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:339: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:346: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:348: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:364: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:367: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:369: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:382: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:386: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:390: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:394: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:398: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:399: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:407: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:408: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:412: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:416: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:417: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:421: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:422: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed0.c:429: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:433: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:435: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:436: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:441: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:442: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:444: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:447: warning: illegal member use: rhs",
+   "usr/src/cmd/sed/sed0.c:452: warning: illegal member use: rhs",
+   "usr/src/cmd/sed/sed0.c:458: warning: illegal member use: gfl",
+   "usr/src/cmd/sed/sed0.c:460: warning: illegal member use: gfl",
+   "usr/src/cmd/sed/sed0.c:464: warning: illegal member use: pfl",
+   "usr/src/cmd/sed/sed0.c:469: warning: illegal member use: pfl",
+   "usr/src/cmd/sed/sed0.c:486: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed0.c:489: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed0.c:493: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed0.c:498: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:511: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed0.c:515: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed0.c:519: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed0.c:523: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:527: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:529: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:530: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed0.c:548: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed0.c:558: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed0.c:922: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:923: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed0.c:926: warning: illegal member use: lb1"
+  ]
+ },
+ "sed/sed1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7bc3d7b621100b33",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/sed/sed.h:116: warning: structure typed union member must be named",
+   "usr/src/cmd/sed/sed.h:128: warning: structure typed union member must be named",
+   "usr/src/cmd/sed/sed1.c:106: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed1.c:112: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:115: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:117: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed1.c:124: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed1.c:136: warning: illegal member use: lb1",
+   "usr/src/cmd/sed/sed1.c:339: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:342: warning: illegal member use: rhs",
+   "usr/src/cmd/sed/sed1.c:344: warning: illegal member use: gfl",
+   "usr/src/cmd/sed/sed1.c:346: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:347: warning: illegal member use: rhs",
+   "usr/src/cmd/sed/sed1.c:411: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed1.c:424: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:425: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:488: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:599: warning: illegal member use: pfl",
+   "usr/src/cmd/sed/sed1.c:600: warning: illegal member use: pfl",
+   "usr/src/cmd/sed/sed1.c:607: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed1.c:619: warning: illegal member use: fcode",
+   "usr/src/cmd/sed/sed1.c:637: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:700: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed1.c:701: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:705: warning: illegal member use: re1",
+   "usr/src/cmd/sed/sed1.c:70: warning: illegal member use: command",
+   "usr/src/cmd/sed/sed1.c:72: warning: illegal member use: ad1",
+   "usr/src/cmd/sed/sed1.c:73: warning: illegal member use: ad2",
+   "usr/src/cmd/sed/sed1.c:77: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:83: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:84: warning: illegal member use: negfl",
+   "usr/src/cmd/sed/sed1.c:90: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:93: warning: illegal member use: inar",
+   "usr/src/cmd/sed/sed1.c:97: warning: illegal member use: negfl"
+  ]
+ },
+ "size.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "56853525b695ab9f",
+  "status": "ok",
+  "warnings": []
+ },
+ "sleep.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8d4fe81562eccb42",
+  "status": "ok",
+  "warnings": []
+ },
+ "sort.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2d6f923e90a85c4e",
+  "status": "ok",
+  "warnings": []
+ },
+ "sp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bcc1ca12231b8eb0",
+  "status": "ok",
+  "warnings": []
+ },
+ "spell/spell.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "cbc699b96b563ede",
+  "status": "ok",
+  "warnings": []
+ },
+ "spell/spellin.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a9ab027407fbe18e",
+  "status": "ok",
+  "warnings": []
+ },
+ "spell/spellout.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "112fa790618e9f49",
+  "status": "ok",
+  "warnings": []
+ },
+ "spline.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2ddaa8ae58c556d1",
+  "status": "ok",
+  "warnings": []
+ },
+ "split.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "98f7c7b6186fc7b2",
+  "status": "ok",
+  "warnings": []
+ },
+ "standalone/SYS.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/standalone/SYS.c:153: redeclaration of dlook"
+  ],
+  "src": "7d0940bed4fea6bb",
+  "status": "error",
+  "warnings": []
+ },
+ "standalone/boot.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e286433fb52e3229",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/boot.c:60: warning: old-fashioned assignment operator"
+  ]
+ },
+ "standalone/cat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f4fce190e359171d",
+  "status": "ok",
+  "warnings": []
+ },
+ "standalone/compress.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/standalone/compress.c:277: devsw undefined"
+  ],
+  "src": "b40ddac169d596bf",
+  "status": "error",
+  "warnings": []
+ },
+ "standalone/conf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a40392a216a67917",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/conf.c:41: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "standalone/dd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7fd49f31767f1603",
+  "status": "ok",
+  "warnings": []
+ },
+ "standalone/good_rk.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "64fb8a95ecbe668d",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/hp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c16478e10f1b765a",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/ht.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b2f205fced7ac2a8",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/ht.c:115: warning: old-fashioned assignment operator",
+   "usr/src/cmd/standalone/ht.c:117: warning: old-fashioned assignment operator"
+  ]
+ },
+ "standalone/icheck.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "862da550ded6e5ae",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/icheck.c:355: warning: illegal member use: df_nfree",
+   "usr/src/cmd/standalone/icheck.c:363: warning: illegal member use: df_free",
+   "usr/src/cmd/standalone/icheck.c:381: warning: illegal member use: df_nfree",
+   "usr/src/cmd/standalone/icheck.c:383: warning: illegal member use: df_free"
+  ]
+ },
+ "standalone/maketape.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "efdc66ab1a0f92b7",
+  "status": "ok",
+  "warnings": []
+ },
+ "standalone/mkfs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "df2d0ad9da44c8c5",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/mkfs.c:110: warning: illegal member use: s_fsize",
+   "usr/src/cmd/standalone/mkfs.c:116: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:156: warning: illegal member use: s_fsize",
+   "usr/src/cmd/standalone/mkfs.c:159: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:171: warning: illegal member use: s_m",
+   "usr/src/cmd/standalone/mkfs.c:172: warning: illegal member use: s_n",
+   "usr/src/cmd/standalone/mkfs.c:174: warning: illegal member use: s_fsize",
+   "usr/src/cmd/standalone/mkfs.c:174: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:175: warning: illegal member use: s_fsize",
+   "usr/src/cmd/standalone/mkfs.c:175: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:178: warning: illegal member use: s_tfree",
+   "usr/src/cmd/standalone/mkfs.c:179: warning: illegal member use: s_tinode",
+   "usr/src/cmd/standalone/mkfs.c:182: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:184: warning: illegal member use: s_tinode",
+   "usr/src/cmd/standalone/mkfs.c:192: warning: illegal member use: s_time",
+   "usr/src/cmd/standalone/mkfs.c:240: warning: illegal member use: i_addr",
+   "usr/src/cmd/standalone/mkfs.c:278: warning: illegal member use: i_addr",
+   "usr/src/cmd/standalone/mkfs.c:406: warning: illegal member use: s_tfree",
+   "usr/src/cmd/standalone/mkfs.c:407: warning: illegal member use: s_free",
+   "usr/src/cmd/standalone/mkfs.c:407: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:412: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:414: warning: illegal member use: df_nfree",
+   "usr/src/cmd/standalone/mkfs.c:414: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:416: warning: illegal member use: df_free",
+   "usr/src/cmd/standalone/mkfs.c:416: warning: illegal member use: s_free",
+   "usr/src/cmd/standalone/mkfs.c:426: warning: illegal member use: s_tfree",
+   "usr/src/cmd/standalone/mkfs.c:427: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:428: warning: illegal member use: df_nfree",
+   "usr/src/cmd/standalone/mkfs.c:428: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:430: warning: illegal member use: df_free",
+   "usr/src/cmd/standalone/mkfs.c:430: warning: illegal member use: s_free",
+   "usr/src/cmd/standalone/mkfs.c:432: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:434: warning: illegal member use: s_free",
+   "usr/src/cmd/standalone/mkfs.c:434: warning: illegal member use: s_nfree",
+   "usr/src/cmd/standalone/mkfs.c:523: warning: illegal member use: i_addr",
+   "usr/src/cmd/standalone/mkfs.c:529: warning: illegal member use: s_fsize",
+   "usr/src/cmd/standalone/mkfs.c:535: warning: illegal member use: s_fsize",
+   "usr/src/cmd/standalone/mkfs.c:535: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:559: warning: illegal member use: s_tinode",
+   "usr/src/cmd/standalone/mkfs.c:561: warning: illegal member use: s_isize",
+   "usr/src/cmd/standalone/mkfs.c:587: warning: illegal member use: i_addr",
+   "usr/src/cmd/standalone/mkfs.c:590: warning: illegal member use: i_addr",
+   "usr/src/cmd/standalone/mkfs.c:595: warning: illegal member use: i_addr",
+   "usr/src/cmd/standalone/mkfs.c:600: warning: illegal member use: i_addr"
+  ]
+ },
+ "standalone/mymktape.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:1068:2: error: Unsupported architecture"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "standalone/newrk.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "657fbbe14b856460",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/prf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bb2a6df212a4cdbe",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/standalone/prf.c:69: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/standalone/prf.c:69: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "standalone/restor.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ade69a1900a67994",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/restor.c:458: warning: loop not entered at top",
+   "usr/src/cmd/standalone/restor.c:863: warning: illegal member use: df_nfree",
+   "usr/src/cmd/standalone/restor.c:865: warning: illegal member use: df_free",
+   "usr/src/cmd/standalone/restor.c:896: warning: illegal member use: df_nfree",
+   "usr/src/cmd/standalone/restor.c:898: warning: illegal member use: df_free"
+  ]
+ },
+ "standalone/rk.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "657fbbe14b856460",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/rl.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5896355bde3bf945",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/rp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e3628474a834066f",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/tm.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0e5aaea3645083cb",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named"
+  ]
+ },
+ "standalone/vt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e42445877fdad1a5",
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
+   "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
+   "usr/src/cmd/standalone/vt.c:175: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "standalone/vtcat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b69dae392816a9f4",
+  "status": "ok",
+  "warnings": []
+ },
+ "strip.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/strip.c:57: a_flag undefined"
+  ],
+  "src": "676247a197546844",
+  "status": "error",
+  "warnings": []
+ },
+ "struct/0.alloc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5cddab170ff37142",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/0.alloc.c:105: warning: illegal pointer combination, op =",
+   "usr/src/cmd/struct/0.alloc.c:106: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/struct/0.alloc.c:50: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/0.alloc.c:57: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/struct/0.alloc.c:93: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/0.args.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d8c28d14e90c2eea",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/0.def.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6c93393126c6fb18",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/0.extr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "55845d2504e42809",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/0.graph.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fc76792bd0393ae0",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/0.list.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "58f308e8dd21605d",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/0.list.c:9: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/0.parts.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4cfcd84d1316209c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/0.parts.c:107: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/0.parts.c:109: warning: illegal pointer combination, op =",
+   "usr/src/cmd/struct/0.parts.c:112: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/0.string.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "65f351fad0ee0516",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/0.string.c:102: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/0.string.c:105: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "struct/1.finish.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "aede13247a98fcb6",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/1.form.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "130c5e58849292c1",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/1.fort.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "04134de2a472e67a",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/1.fort.c:111: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:125: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:130: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:168: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:169: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:190: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:207: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:247: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:249: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/struct/1.fort.c:259: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/struct/1.fort.c:45: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:70: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.fort.c:94: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/1.hash.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "be1ac7882043a216",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/1.hash.c:162: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.hash.c:187: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.hash.c:212: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.hash.c:92: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.hash.c:93: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.hash.c:94: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/1.init.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0ee357f60db24c8e",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/1.init.c:11: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/1.line.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "523368cf72ea037b",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/1.main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d721361c08cb2bc1",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/1.node.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3a6789dd3d4e32a3",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/1.recog.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a22deac83c4a6278",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/1.recog.c:109: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:131: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:14: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:14: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:166: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:167: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:187: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:191: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:249: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:314: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:315: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:323: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:325: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/1.recog.c:37: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/1.tables.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a365cb2602777796",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/2.dfs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ccde2ac3bd7cc49b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/2.dfs.c:40: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/2.dfs.c:50: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/2.dfs.c:53: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/2.dfs.c:54: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/2.dom.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "67ee244ca9be539f",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/2.head.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "79c65e6a218c13d1",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/2.inarc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "450073019dc803ee",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/2.inarc.c:36: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/2.main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "abf45ade39f63049",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/2.main.c:21: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/2.main.c:26: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/2.main.c:30: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/2.test.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c6a136fe035d34ce",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/2.tree.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fba27ff048ab8aed",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/3.branch.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "51d1de759caeadfc",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/3.flow.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c4c246145942c834",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/3.loop.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/struct/3.loop.c:59: operands of *= have incompatible types"
+  ],
+  "src": "a9e4dcf1a4b2b3a0",
+  "status": "error",
+  "warnings": []
+ },
+ "struct/3.main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c45236698f5f7cde",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/3.main.c:18: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/3.reach.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "002827afb6aef5fd",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/3.reach.c:40: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/3.reach.c:53: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/3.reach.c:61: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/struct/3.reach.c:87: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "struct/3.test.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f20aaeaad06685d5",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/3.then.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2d96d450dda7237b",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/4.brace.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "10feee00ae27f99b",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/4.form.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e267e4f971f51dc8",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/4.main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5dd084f712ac220b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/struct/4.main.c:10: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "struct/4.out.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c855e1a552d6ff77",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/bdef.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "de4e74322ed4eb89",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "16a337dc6dae1a29",
+  "status": "ok",
+  "warnings": []
+ },
+ "struct/tree.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: struct/tree.c:1:11: fatal error: 'y.tab.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "stty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1f58ed8b58d4d12e",
+  "status": "ok",
+  "warnings": []
+ },
+ "su.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a2bc0f18f3b62929",
+  "status": "ok",
+  "warnings": []
+ },
+ "sum.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "884c4dd896fc5690",
+  "status": "ok",
+  "warnings": []
+ },
+ "sync.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9b0a6ffaeb8d1d3d",
+  "status": "ok",
+  "warnings": []
+ },
+ "tabs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4e926524892b46ab",
+  "status": "ok",
+  "warnings": []
+ },
+ "tail.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/tail.c:40: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "d68ffca271d6cb0c",
+  "status": "error",
+  "warnings": []
+ },
+ "tar/tar.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "14137b8deadc5574",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/t..c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5387af801548cc91",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/t0.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "23024f6f56dbef8e",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/t1.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/tbl/t1.c:70: MACROS undefined"
+  ],
+  "src": "389cacf8aece5d13",
+  "status": "error",
+  "warnings": []
+ },
+ "tbl/t2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0783f5d3188a0dc0",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/t3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "48b3bd82ca6e4acc",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/t3.c:3: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "tbl/t4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "09913c824fc446c2",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/t5.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6686275134290adc",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/t5.c:23: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t5.c:40: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t5.c:42: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t5.c:60: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t5.c:69: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t5.c:6: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t5.c:89: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "tbl/t6.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bf56c0521d63662e",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/t6.c:33: warning: illegal pointer/integer combination, op <",
+   "usr/src/cmd/tbl/t6.c:48: warning: illegal pointer/integer combination, op <",
+   "usr/src/cmd/tbl/t6.c:65: warning: illegal pointer/integer combination, op <"
+  ]
+ },
+ "tbl/t7.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8d2dcd61efadb0d4",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/t8.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/tbl/t8.c:71: operands of |= have incompatible types"
+  ],
+  "src": "cfd5ab7c79ae9757",
+  "status": "error",
+  "warnings": []
+ },
+ "tbl/t9.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4137e061d619719b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/t9.c:30: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/t9.c:47: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "tbl/tb.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f7cdbb4b47fa659c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/tb.c:43: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/tbl/tb.c:47: warning: illegal pointer/integer combination, op ==",
+   "usr/src/cmd/tbl/tb.c:49: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/tbl/tb.c:66: warning: illegal pointer/integer combination, op ==",
+   "usr/src/cmd/tbl/tb.c:69: warning: illegal pointer combination, op =",
+   "usr/src/cmd/tbl/tb.c:71: warning: illegal pointer combination, op <",
+   "usr/src/cmd/tbl/tb.c:73: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "tbl/tc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "36f9e9cd8144deb9",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/te.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fe276736b95b483c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/te.c:38: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "tbl/tf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2185771be9ac8a3a",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/tg.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dce9b3f1db6b56d1",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/ti.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "460c0e22db422626",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/tm.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5f9418824421b74f",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/tm.c:21: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/tm.c:31: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/tm.c:38: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/tm.c:44: warning: illegal pointer/integer combination, op RETURN"
+  ]
+ },
+ "tbl/ts.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a2d15ffbbc0d1527",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/tt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6faacc24f661c2b2",
+  "status": "ok",
+  "warnings": []
+ },
+ "tbl/tu.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dfa811eabe6b8d30",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tbl/tu.c:112: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/tbl/tu.c:114: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "tbl/tv.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "17bb1eb218f3bcc3",
+  "status": "ok",
+  "warnings": []
+ },
+ "tc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0d2d688389cb4700",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/tc.c:414: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "tee.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5cd225b89f1eeb40",
+  "status": "ok",
+  "warnings": []
+ },
+ "test.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b09414368fd8f22a",
+  "status": "ok",
+  "warnings": []
+ },
+ "time.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4b1c77e7d72d6d30",
+  "status": "ok",
+  "warnings": []
+ },
+ "tk.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "400d44946c357332",
+  "status": "ok",
+  "warnings": []
+ },
+ "touch.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "36c4a77ca803502b",
+  "status": "ok",
+  "warnings": []
+ },
+ "tp/tp0.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "82dfbf7ddf92a2e3",
+  "status": "ok",
+  "warnings": []
+ },
+ "tp/tp1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5498228dbf6c9bfe",
+  "status": "ok",
+  "warnings": []
+ },
+ "tp/tp2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5af037348b0b1677",
+  "status": "ok",
+  "warnings": []
+ },
+ "tp/tp3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9f91ab03e2f0c5d3",
+  "status": "ok",
+  "warnings": []
+ },
+ "tr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "caa68d7f763e7a2a",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/font/chars.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "49eb9b6073376200",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/chars.c:9: warning: old-fashioned assignment operator"
+  ]
+ },
+ "troff/font/ftB.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "75326f15701f77e9",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftB.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftBC.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "99d1596eddf19918",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftBC.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftC.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "30d454914420098d",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftC.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftCE.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "16e781e2ef459f1c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftCE.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftCI.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "90c450dace3b5d31",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftCI.c:4: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftCK.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4d967421782038b8",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftCK.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftCS.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f8b3b891b1b96cfe",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftCS.c:4: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftCW.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "abddbbed8990632b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftCW.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftG.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bb2207486693ef5c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftG.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftGI.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "18267192ebb85a80",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftGI.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftGM.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3de000e30aafee0d",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftGM.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftGR.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "11fafa7718c3d066",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftGR.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftI.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "195793ea476eb17a",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftI.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftL.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "acbd493fa8ba8eb0",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftL.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftLI.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c373114587f474e4",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftLI.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftPA.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0087eab204bd3e5e",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftPA.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftPB.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5b64674d9bbd9cec",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftPB.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftPI.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7bec078137a35dd7",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftPI.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftR.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "be1c6f8187504507",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftR.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftS.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ac5bed0ddf6e5a10",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftS.c:5: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftSB.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c2a3bf5c301133c5",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftSB.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftSI.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7d8ef2573e235026",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftSI.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftSM.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "38083ac7238ddadf",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftSM.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftUD.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ce41eea74d7ff8ef",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftUD.c:2: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/ftXM.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3a17b85f85c7506c",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/ftXM.c:1: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/mkfont.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2e7a49f061c94821",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/mkfont.c:45: warning: old-fashioned assignment operator",
+   "usr/src/cmd/troff/font/mkfont1.c:108: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/troff/font/mkfont1.c:243: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/troff/font/mkfont1.c:5: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/font/mkfont1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "db2872be8459de5b",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/font/mkfont1.c:108: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/troff/font/mkfont1.c:243: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/troff/font/mkfont1.c:5: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/hytab.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5125772210217924",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "265a829f32d77af4",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n10.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/troff/n10.c:65: pts undefined"
+  ],
+  "src": "7de775a04b1e3827",
+  "status": "error",
+  "warnings": []
+ },
+ "troff/n2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "880987f618e2abdc",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3268794fae6c3b70",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6799e64687db477c",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n5.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f03fabe8347d4500",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n6.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/troff/n6.c:68: t undefined"
+  ],
+  "src": "9e55d1530b032e4f",
+  "status": "error",
+  "warnings": []
+ },
+ "troff/n7.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1ddb6b6146df67fe",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "eee4876b8828bdb7",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/n9.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4916456a1966b0b6",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/ni.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "059a13e41021aafa",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/nii.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "59ee1565fd7c304c",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/ntab.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "95e295059fc14f6d",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/suftab.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "697c6c24f319cd91",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/t10.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fae064d26e092030",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/t6.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d7f4ac8cea3171c2",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/tab3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "60480b45a9852991",
+  "status": "ok",
+  "warnings": []
+ },
+ "troff/term/tab300-12.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "816b774d0f1bd4ec",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab300-12.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab300.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ba913025df8faeef",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab300.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab300s-12.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4197e224428a05ad",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab300s-12.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab300s.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "172a6089de494c09",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab300s.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab37.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a2e419ee471e16da",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab37.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab450-12-8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4a39d8c88eedd6b2",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab450-12-8.c:35: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab450-12.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "90198216cfbba831",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab450-12.c:35: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab450.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2bcf62d2a46888f0",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab450.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tab832.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1f6426b08dab340e",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tab832.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/taba1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ef2ee19b27b7ca85",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/taba1.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tablp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e5132af438321fa3",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tablp.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "troff/term/tabtn300.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a27de91cbc5d7039",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/troff/term/tabtn300.c:34: warning: old-fashioned initialization: use ="
+  ]
+ },
+ "tsort.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c91801770b8e489d",
+  "status": "ok",
+  "warnings": []
+ },
+ "tty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bae35eeb0847097a",
+  "status": "ok",
+  "warnings": []
+ },
+ "umount.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "74a2831e5719bf5f",
+  "status": "ok",
+  "warnings": []
+ },
+ "uniq.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d2b10dc090f0ffea",
+  "status": "ok",
+  "warnings": []
+ },
+ "units.c": {
+  "az8": "skipped",
+  "errors": [
+   "usr/src/cmd/units.c:89: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "5fd99a67d5fd04fa",
+  "status": "error",
+  "warnings": []
+ },
+ "update.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fc4b01959c899ae8",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/anlwrk.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3e747207603e67d9",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/chkpth.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e8ca06ad41f6bfb9",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/uucp/chkpth.c:128: warning: illegal pointer combination, op =",
+   "usr/src/cmd/uucp/chkpth.c:142: warning: illegal pointer combination, op ="
+  ]
+ },
+ "uucp/cico.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b249e681d99d4d97",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/cntrl.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "10fd9e6e35be1e6e",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/conn.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "05b89c003bcd2b5a",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/cpmv.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "88fbabbe1c503c21",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/expfile.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "837b8fbb5d30330a",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/uucp/expfile.c:83: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "uucp/gename.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9f7eb6c9bbe21358",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/getargs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f7fc27442e0fc86e",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/getprm.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4a865d76dc4cda86",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/uucp/getprm.c:38: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/uucp/getprm.c:73: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/uucp/getprm.c:84: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "uucp/getpwinfo.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e8d9db76d40e4c42",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/gio.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e51466aaab4624ee",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/gnamef.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "47908c4411fe7c38",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/gnsys.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8fa287270870ffe2",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/gnxseq.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ff8442905bc59096",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/gwd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "80054669f108e15d",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/imsg.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e91bb4383f5dd5f1",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/index.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bd4a3b50c3514684",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/ioctl.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f7151f88f83ae21a",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/lastpart.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0bcbeb6c37b92fbe",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/logent.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "72911d3f70b12b35",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/pk0.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "385027d2e3012c6d",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/uucp/pk0.c:342: warning: illegal pointer/integer combination, op ="
+  ]
+ },
+ "uucp/pk1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8ebc10b6a97ad815",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/pkon.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "73343b3d3cb64f04",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/prefix.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5a4b0b93cba97efb",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/sdmail.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "79e3031678157cd3",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/uucp/sdmail.c:24: warning: illegal pointer/integer combination, op =="
+  ]
+ },
+ "uucp/shio.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e04556f1332378ba",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/sysacct.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3e781549546e6c74",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/systat.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "89e37fcf63223c82",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/ulockf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ae0b9fedff15a940",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/uuclean.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "07ee2fe3726bf867",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/uucp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "e5e8417dbb9efab9",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/uulog.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b33e388ee5d9dfe4",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/uurecover.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: uucp/uurecover.c:3:10: fatal error: 'param.h' file not found"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "uucp/uux.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4b3328678068fcf7",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/uuxqt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bb103c05be62ebe1",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/versys.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "aafa752245f2a987",
+  "status": "ok",
+  "warnings": []
+ },
+ "uucp/xqt.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b3019b3f0fa1f41c",
+  "status": "ok",
+  "warnings": []
+ },
+ "vpr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "da4e7fc05f5b0739",
+  "status": "ok",
+  "warnings": []
+ },
+ "wall.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b44d69fd0e76d2c4",
+  "status": "ok",
+  "warnings": []
+ },
+ "wc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d63938c06cd48473",
+  "status": "ok",
+  "warnings": []
+ },
+ "who.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "cedab7293c29b9a5",
+  "status": "ok",
+  "warnings": []
+ },
+ "write.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b3da8214e4852605",
+  "status": "ok",
+  "warnings": []
+ },
+ "xsend/enroll.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0a90ca5fafde4b36",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/xsend/enroll.c:13: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/xsend/enroll.c:15: warning: struct/union or struct/union pointer required"
+  ]
+ },
+ "xsend/lib.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2faa7545200523da",
+  "status": "ok",
+  "warnings": []
+ },
+ "xsend/xget.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6e23f62932a3b4e0",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/xsend/xget.c:22: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/xsend/xget.c:24: warning: struct/union or struct/union pointer required"
+  ]
+ },
+ "xsend/xsend.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "31c4954227c52cd2",
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/xsend/xsend.c:24: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/xsend/xsend.c:26: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/xsend/xsend.c:27: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/xsend/xsend.c:35: warning: struct/union or struct/union pointer required"
+  ]
+ },
+ "yacc/y1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "882f652d3ca831db",
+  "status": "ok",
+  "warnings": []
+ },
+ "yacc/y2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b0382e77c774078c",
+  "status": "ok",
+  "warnings": []
+ },
+ "yacc/y3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6902d5bbd4ad1d04",
+  "status": "ok",
+  "warnings": []
+ },
+ "yacc/y4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b5ad5082a090f4c6",
+  "status": "ok",
+  "warnings": []
+ },
+ "yes.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a71239cedb6d5b77",
+  "status": "ok",
+  "warnings": []
+ }
+}

@@ -1,0 +1,14 @@
+	.data
+value:
+	.word 1234
+	.text
+	.globl main
+main:
+	ld r0,value
+	cp r0,#1234
+	jr ne,.Lbad
+	clr r0
+	ret
+.Lbad:
+	ld r0,#1
+	ret

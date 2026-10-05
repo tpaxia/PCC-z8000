@@ -1,4 +1,6 @@
 # include "mfile1"
+#include <stdint.h>
+#include <string.h>
 
 
 /*	this file contains code which is dependent on the target machine */
@@ -77,6 +79,15 @@ clocal(p) NODE *p; {
 		break;
 
 	case PCONV:
+		if( p->in.left->in.op == ICON ){
+			/* a constant keeps the pointer's own type information,
+			   e.g. (struct user *)0xF000 where 0xF000 is a long */
+			if( p->in.left->in.type==LONG || p->in.left->in.type==ULONG )
+				p->in.left->tn.lval &= 0XFFFFL;
+			}
+		else if(!ISPTR(p->in.left->in.type) && (p->in.left->in.type==LONG || p->in.left->in.type==ULONG || p->in.left->in.type==CHAR || p->in.left->in.type==UCHAR)) {
+			p->in.op=SCONV; return clocal(p);
+		}
 		/* pointer conversions are trivial on Z8000 since ptrs = ints = 16 bits */
 		/* just inherit the type */
 		p->in.left->in.type = p->in.type;
@@ -88,12 +99,22 @@ clocal(p) NODE *p; {
 	case SCONV:
 		m = (p->in.type == FLOAT || p->in.type == DOUBLE );
 		ml = (p->in.left->in.type == FLOAT || p->in.left->in.type == DOUBLE );
-		if( m != ml ) break;
+		if(m && ml && p->in.left->in.op==FCON) {
+			if(p->in.type==FLOAT) p->in.left->fpn.dval=(float)p->in.left->fpn.dval;
+			p->in.left->in.type=p->in.type; p->in.op=FREE; return p->in.left;
+		}
+		if( m || ml ) { if(p->in.type==p->in.left->in.type) { p->in.op=FREE; return p->in.left; } break; }
 
 		/* now, look for conversions downwards */
 
 		m = p->in.type;
 		ml = p->in.left->in.type;
+		/* Widen bytes through a word before allocating a long pair. */
+		if( (m==LONG || m==ULONG) && (ml==CHAR || ml==UCHAR) && p->in.left->in.op!=ICON ){
+			int wt = ml==CHAR ? INT : UNSIGNED;
+			p->in.left = makety( p->in.left, wt, 0, wt );
+			break;
+			}
 		if( p->in.left->in.op == ICON ){ /* simulate the conversion here */
 			CONSZ val;
 			val = p->in.left->tn.lval;
@@ -206,13 +227,19 @@ fincode( d, sz ) double d; {
 	/* inoff is updated to have the proper final value */
 	/* on the target machine, write it out in octal! */
 
-	register short *mi = (short *)&d;
-
-	if( sz==SZDOUBLE )
-		printf( "	.word	0x%x, 0x%x, 0x%x, 0x%x\n",
-		        mi[0], mi[1], mi[2], mi[3] );
-	else
-		printf( "	.word	0x%x, 0x%x\n", mi[0], mi[1] );
+	uint64_t bits;
+	uint32_t fb;
+	float f;
+	if( sz==SZDOUBLE ) {
+		memcpy(&bits, &d, sizeof bits);
+		printf("\t.word\t%u,%u,%u,%u\n",
+		 (unsigned)(bits>>48), (unsigned)((bits>>32)&65535),
+		 (unsigned)((bits>>16)&65535), (unsigned)(bits&65535));
+	} else {
+		f = (float)d;
+		memcpy(&fb, &f, sizeof fb);
+		printf("\t.word\t%u,%u\n", (unsigned)(fb>>16), (unsigned)(fb&65535));
+	}
 	inoff += sz;
 	}
 

@@ -38,9 +38,44 @@ pcc_optim_EXPECT  = 0
 # Build artifacts
 BOUTS     = $(TESTS:%=%.bout)
 
-.PHONY: all clean test
+.PHONY: all clean test regress regress-strict external compare68k ratchet knr parser-sync gate
 
 all: test
+
+# Broad K&R language/backend audit; rebuilds cases in regress/build.
+regress:
+	python3 regress/run.py
+
+# Fail on any outstanding expected failures.
+regress-strict:
+	python3 regress/run.py --strict
+
+# Selected upstream tests adapted for this compiler's K&R/16-bit model.
+# Discovery failures are real failures; this target exits nonzero for any.
+external:
+	python3 external/run.py
+
+# 68000 comparison probes.
+compare68k:
+	python3 compare68k/run.py
+
+# No-regression ratchet over real K&R source (V7 kernel, shell, commands, libc
+# and this toolchain's own sources). Compile-only; needs the V7 tree, see
+# ratchet/README.md. A missing corpus fails rather than skips.
+ratchet:
+	python3 ratchet/run.py
+
+# K&R reference-manual coverage probes; see knr/MATRIX.md for the result
+# per rule. A probe recorded as passing must keep passing.
+knr:
+	python3 knr/run.py
+
+# The checked-in cgram.c must be exactly what V7 yacc generates from cgram.y.
+parser-sync:
+	python3 ../cz8/regen_cgram.py --check
+
+# Everything a compiler change must pass before it is accepted.
+gate: parser-sync test regress-strict compare68k external ratchet knr
 
 # Build the emulator library if needed
 $(EMU_LIB):
@@ -51,29 +86,36 @@ run_emu: run_emu.cpp $(EMU_LIB)
 	$(CXX) $(CXXFLAGS) -o $@ $< $(EMU_LIB)
 
 # Assemble crt0
-crt0.b: $(TOOLDIR)/crt0.az8
+crt0.b: $(TOOLDIR)/crt0.az8 $(AZ8)
 	$(AZ8) -o $@ $<
 
 # Assemble exit stub
-exit.b: $(TOOLDIR)/lib/exit.az8
+exit.b: $(TOOLDIR)/lib/exit.az8 $(AZ8)
 	$(AZ8) -o $@ $<
 
 # Assemble arithmetic library (named liblong.b to avoid clash with arith.c test)
-liblong.b: $(TOOLDIR)/lib/arith.az8
+liblong.b: $(TOOLDIR)/lib/arith.az8 $(AZ8)
 	$(AZ8) -o $@ $<
 
-# Pattern rules for compiling and assembling test .c files
-%.az8: %.c
+# Floating runtime used by the general regression tests and user programs.
+libfloat.b: $(TOOLDIR)/lib/float.az8 $(AZ8)
+	$(AZ8) -o $@ $<
+
+softfp.az8: $(TOOLDIR)/lib/softfp.c $(CZ8)
 	$(CZ8) < $< > $@
 
-%.b: %.az8
+# Pattern rules for compiling and assembling test .c files
+%.az8: %.c $(CZ8)
+	$(CZ8) < $< > $@
+
+%.b: %.az8 $(AZ8)
 	$(AZ8) -o $@ $<
 
 # Link: crt0 first (so _start is at origin), then test, then exit
 # -R 8 = text origin at 0x0008 (after 6-byte PSAP reset vector area)
 # -x = discard local symbols
-%.bout: crt0.b %.b liblong.b exit.b
-	$(LDZ8) -x crt0.b -R 8 $*.b liblong.b exit.b -o $@
+%.bout: crt0.b %.b liblong.b libfloat.b softfp.b exit.b $(LDZ8)
+	$(LDZ8) -x crt0.b -R 8 $*.b liblong.b libfloat.b softfp.b exit.b -o $@
 
 # Run all tests
 test: run_emu $(BOUTS)

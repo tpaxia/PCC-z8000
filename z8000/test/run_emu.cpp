@@ -46,22 +46,44 @@ static int load_bout(const char *path, bout_hdr *hdr,
         return -1;
     }
 
-    /* Read 32-byte header */
+    /* Current a.out uses 8 big-endian 16-bit fields. Older b.out images
+     * use 8 big-endian 32-bit fields; retain support for existing fixtures. */
     uint8_t raw[32];
-    if (fread(raw, 1, 32, f) != 32) {
+    if (fread(raw, 1, 16, f) != 16) {
         fprintf(stderr, "run_emu: short header in %s\n", path);
         fclose(f);
         return -1;
     }
 
-    hdr->fmagic = read_be32(&raw[0]);
-    hdr->tsize  = read_be32(&raw[4]);
-    hdr->dsize  = read_be32(&raw[8]);
-    hdr->bsize  = read_be32(&raw[12]);
-    hdr->ssize  = read_be32(&raw[16]);
-    hdr->rtsize = read_be32(&raw[20]);
-    hdr->rdsize = read_be32(&raw[24]);
-    hdr->entry  = read_be32(&raw[28]);
+    uint16_t magic16 = ((uint16_t)raw[0] << 8) | raw[1];
+    if (magic16 == 0407 || magic16 == 0405 ||
+        magic16 == 0410 || magic16 == 0411) {
+        uint16_t fields[8];
+        for (int i = 0; i < 8; ++i)
+            fields[i] = ((uint16_t)raw[2*i] << 8) | raw[2*i+1];
+        hdr->fmagic = fields[0];
+        hdr->tsize = fields[1];
+        hdr->dsize = fields[2];
+        hdr->bsize = fields[3];
+        hdr->ssize = fields[4];
+        hdr->entry = fields[5];
+        hdr->rtsize = fields[6];
+        hdr->rdsize = fields[7];
+    } else {
+        if (fread(raw + 16, 1, 16, f) != 16) {
+            fprintf(stderr, "run_emu: short header in %s\n", path);
+            fclose(f);
+            return -1;
+        }
+        hdr->fmagic = read_be32(&raw[0]);
+        hdr->tsize  = read_be32(&raw[4]);
+        hdr->dsize  = read_be32(&raw[8]);
+        hdr->bsize  = read_be32(&raw[12]);
+        hdr->ssize  = read_be32(&raw[16]);
+        hdr->rtsize = read_be32(&raw[20]);
+        hdr->rdsize = read_be32(&raw[24]);
+        hdr->entry  = read_be32(&raw[28]);
+    }
 
     /* Validate magic */
     if (hdr->fmagic != 0407 && hdr->fmagic != 0405 &&
@@ -101,6 +123,7 @@ int main(int argc, char **argv)
 {
     bool trace = false;
     int expected = -1;
+    int cycle_limit = 1000000;
     bool check_expected = false;
     const char *path = NULL;
 
@@ -111,16 +134,24 @@ int main(int argc, char **argv)
         } else if (strcmp(argv[i], "-e") == 0 && i + 1 < argc) {
             expected = atoi(argv[++i]);
             check_expected = true;
+        } else if (strcmp(argv[i], "-c") == 0 && i + 1 < argc) {
+            char *end;
+            long n = strtol(argv[++i], &end, 10);
+            if (*end || n <= 0 || n > 100000000) {
+                fprintf(stderr, "run_emu: invalid cycle limit\n");
+                return 1;
+            }
+            cycle_limit = (int)n;
         } else if (argv[i][0] != '-') {
             path = argv[i];
         } else {
-            fprintf(stderr, "usage: run_emu [-t] [-e expected] <file.bout>\n");
+            fprintf(stderr, "usage: run_emu [-t] [-e expected] [-c cycles] <file.bout>\n");
             return 1;
         }
     }
 
     if (!path) {
-        fprintf(stderr, "usage: run_emu [-t] [-e expected] <file.bout>\n");
+        fprintf(stderr, "usage: run_emu [-t] [-e expected] [-c cycles] <file.bout>\n");
         return 1;
     }
 
@@ -180,7 +211,7 @@ int main(int argc, char **argv)
     cpu.set_reg(15, 0xFFFE);
 
     /* Run with cycle limit */
-    cpu.run(1000000);
+    cpu.run(cycle_limit);
 
     if (!cpu.is_halted()) {
         fprintf(stderr, "run_emu: %s: CPU did not halt (cycle limit exceeded)\n", path);

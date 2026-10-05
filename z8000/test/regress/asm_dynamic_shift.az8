@@ -1,0 +1,13 @@
+	.text
+	.globl main
+main:
+	ld r0,#-256
+	ld r1,#-4
+	sda r0,r1
+	cp r0,#-16
+	jr ne,.Lbad
+	clr r0
+	ret
+.Lbad:
+	ld r0,#1
+	ret

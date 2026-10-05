@@ -1,0 +1,82 @@
+{
+ "args.c": {
+  "asm": "30287a2bbd668919",
+  "src": "cbc69facc28ee241"
+ },
+ "blok.c": {
+  "asm": "5c7966eee660f138",
+  "src": "4f04d027d10a49f0"
+ },
+ "builtin.c": {
+  "asm": "2981c39ed6756db9",
+  "src": "bf4b16f0c83f5073"
+ },
+ "cmd.c": {
+  "asm": "c2ef22e60cb40a2b",
+  "src": "ffe6ccb1e032a34e"
+ },
+ "ctype.c": {
+  "asm": "c6f513d82af5a9c3",
+  "src": "51134f7d3f8ce1c7"
+ },
+ "error.c": {
+  "asm": "446bc848957943fb",
+  "src": "4b6a6bb5a829513d"
+ },
+ "expand.c": {
+  "asm": "98bea2d4fb8779dc",
+  "src": "2db1cb52c249b6e1"
+ },
+ "fault.c": {
+  "asm": "19ece130ecf8daa6",
+  "src": "b6c4496e5cdc8629"
+ },
+ "io.c": {
+  "asm": "eafcdc05dd39fee7",
+  "src": "d172be4842b6d06e"
+ },
+ "macro.c": {
+  "asm": "faa4a231e969c2a3",
+  "src": "5b6f362c9c66acfb"
+ },
+ "main.c": {
+  "asm": "3e0107671523fac4",
+  "src": "89ccffbd056ca1d1"
+ },
+ "msg.c": {
+  "asm": "f661a506e2e663a2",
+  "src": "f1dbcc2fc07f98fa"
+ },
+ "name.c": {
+  "asm": "96e69b72f57d5102",
+  "src": "9e5af3e388b4e6d1"
+ },
+ "print.c": {
+  "asm": "1545519c0b181366",
+  "src": "5e51c21efc3a44e3"
+ },
+ "service.c": {
+  "asm": "919802774857935d",
+  "src": "c34f375a16bde61e"
+ },
+ "setbrk.c": {
+  "asm": "37b6e6e6a1561c0d",
+  "src": "efb1ec25013a3baa"
+ },
+ "stak.c": {
+  "asm": "908f2df7ba8b1c1e",
+  "src": "32ef271d4aa893e8"
+ },
+ "string.c": {
+  "asm": "53f5fab04415f618",
+  "src": "0031b2edc8cdf65e"
+ },
+ "word.c": {
+  "asm": "f5059d10ef174128",
+  "src": "03e4cfb8ed99707b"
+ },
+ "xec.c": {
+  "asm": "1755e935f44b30b3",
+  "src": "351fd349029d0965"
+ }
+}

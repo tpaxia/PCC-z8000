@@ -1,0 +1,94 @@
+[
+  {
+    "file": "Makefile",
+    "identical": false
+  },
+  {
+    "file": "allo.c",
+    "identical": false
+  },
+  {
+    "file": "cgram.c",
+    "identical": true
+  },
+  {
+    "file": "cgram.y",
+    "identical": true
+  },
+  {
+    "file": "code.c",
+    "identical": false
+  },
+  {
+    "file": "comm1.c",
+    "identical": true
+  },
+  {
+    "file": "common",
+    "identical": true
+  },
+  {
+    "file": "local.c",
+    "identical": false
+  },
+  {
+    "file": "local2.c",
+    "identical": false
+  },
+  {
+    "file": "mac2defs",
+    "identical": false
+  },
+  {
+    "file": "macdefs",
+    "identical": false
+  },
+  {
+    "file": "manifest",
+    "identical": true
+  },
+  {
+    "file": "match.c",
+    "identical": true
+  },
+  {
+    "file": "mfile1",
+    "identical": true
+  },
+  {
+    "file": "mfile2",
+    "identical": true
+  },
+  {
+    "file": "optim.c",
+    "identical": true
+  },
+  {
+    "file": "order.c",
+    "identical": false
+  },
+  {
+    "file": "pftn.c",
+    "identical": false
+  },
+  {
+    "file": "reader.c",
+    "identical": false
+  },
+  {
+    "file": "scan.c",
+    "identical": false
+  },
+  {
+    "file": "table.c",
+    "identical": false
+  },
+  {
+    "file": "trees.c",
+    "identical": false
+  },
+  {
+    "file": "xdefs.c",
+    "identical": true
+  }
+]

@@ -1,0 +1,193 @@
+{
+ "dev/conf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "05421e7fae4339a8",
+  "status": "ok",
+  "warnings": []
+ },
+ "dev/cons.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "612de97fdb26103a",
+  "status": "ok",
+  "warnings": []
+ },
+ "dev/hd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fb90e8a36fa4f348",
+  "status": "ok",
+  "warnings": []
+ },
+ "dev/md.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "821d54847a69b24b",
+  "status": "ok",
+  "warnings": []
+ },
+ "dev/partab.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bd9bb7ca70aa3c89",
+  "status": "ok",
+  "warnings": []
+ },
+ "dev/tty.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "277a31b857d6fa52",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/alloc.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "82f2a573f3dcbc86",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/bio.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5af72c95b66dfdd1",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/clock.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ab66c5792ebd2122",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/fio.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "21da1f87f79f1467",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/iget.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fa514b361d3b2ea4",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/machdep.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "fe476a2fec134635",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2a57a76921e9b249",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/nami.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "20da837bf2595005",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/pipe.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2419044f4c880c67",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/prf.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6708f6ab5bf82491",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/prim.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "72b20ffc1bdea52a",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/rdwri.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "428cc231eaf90479",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/sig.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "620ae993d6a4cd98",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/slp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b554d9a5ed0f96cf",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/subr.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "20293246bc084967",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/sys1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a7b57cb2567965f6",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/sys2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "33fc733e96e68bf0",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/sys3.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ed07f3dc7e789699",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/sys4.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ea300532062d7823",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/sysent.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "700e49c8563c643e",
+  "status": "ok",
+  "warnings": []
+ },
+ "sys/trap.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "a617f58d3f4b9f38",
+  "status": "ok",
+  "warnings": [
+   "usr/sys/sys/trap.c:31: warning: illegal pointer combination, op ="
+  ]
+ }
+}

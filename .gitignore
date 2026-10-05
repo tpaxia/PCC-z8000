@@ -5,3 +5,14 @@ z8000/cz8/cz8
 z8000/az8/az8
 z8000/ccz8
 z8000/ldz8
+z8000/test/regress/build/
+z8000/lib/softfp.az8
+z8000/test/softfp.az8
+z8000/test/compare68k/build/
+z8000/test/regress/__pycache__/
+z8000/test/external/build/
+z8000/test/compare68k/__pycache__/
+z8000/test/ratchet/build/
+z8000/test/ratchet/__pycache__/
+z8000/test/knr/build/
+z8000/test/knr/__pycache__/

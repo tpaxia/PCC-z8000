@@ -1,0 +1,5 @@
+{
+  "long_init": "x:\\s+\\.word\\s+1\\s+\\.word\\s+2",
+  "bitfield_init": "b:\\s+\\.word\\s+45512",
+  "char_init": "a:\\s+\\.word\\s+298"
+}

@@ -1,0 +1,110 @@
+{
+ "dev/conf.c": {
+  "asm": "a34158fb3beb4dcf",
+  "src": "05421e7fae4339a8"
+ },
+ "dev/cons.c": {
+  "asm": "8f80656337eee888",
+  "src": "612de97fdb26103a"
+ },
+ "dev/hd.c": {
+  "asm": "037993855ef45909",
+  "src": "fb90e8a36fa4f348"
+ },
+ "dev/md.c": {
+  "asm": "1fe6f65116150caf",
+  "src": "821d54847a69b24b"
+ },
+ "dev/partab.c": {
+  "asm": "c1d34774a9836669",
+  "src": "bd9bb7ca70aa3c89"
+ },
+ "dev/tty.c": {
+  "asm": "1c6cb59e3dd285a4",
+  "src": "277a31b857d6fa52"
+ },
+ "sys/alloc.c": {
+  "asm": "42c84511a0be0456",
+  "src": "82f2a573f3dcbc86"
+ },
+ "sys/bio.c": {
+  "asm": "42d67656bc9e7219",
+  "src": "5af72c95b66dfdd1"
+ },
+ "sys/clock.c": {
+  "asm": "572186359afacf02",
+  "src": "ab66c5792ebd2122"
+ },
+ "sys/fio.c": {
+  "asm": "de5e03255443bb35",
+  "src": "21da1f87f79f1467"
+ },
+ "sys/iget.c": {
+  "asm": "64bbd4e4fa96c920",
+  "src": "fa514b361d3b2ea4"
+ },
+ "sys/machdep.c": {
+  "asm": "8f5409beadda70b9",
+  "src": "fe476a2fec134635"
+ },
+ "sys/main.c": {
+  "asm": "032c10b45c1d16cc",
+  "src": "2a57a76921e9b249"
+ },
+ "sys/nami.c": {
+  "asm": "cd82444619412790",
+  "src": "20da837bf2595005"
+ },
+ "sys/pipe.c": {
+  "asm": "0536f1da0996e094",
+  "src": "2419044f4c880c67"
+ },
+ "sys/prf.c": {
+  "asm": "a8a78d3f7014d94a",
+  "src": "6708f6ab5bf82491"
+ },
+ "sys/prim.c": {
+  "asm": "6a29ad1fa3dfbdc7",
+  "src": "72b20ffc1bdea52a"
+ },
+ "sys/rdwri.c": {
+  "asm": "9d5673d589e9f6aa",
+  "src": "428cc231eaf90479"
+ },
+ "sys/sig.c": {
+  "asm": "64a9492f356f6a06",
+  "src": "620ae993d6a4cd98"
+ },
+ "sys/slp.c": {
+  "asm": "86f3fe516358ab38",
+  "src": "b554d9a5ed0f96cf"
+ },
+ "sys/subr.c": {
+  "asm": "791121ebda30d19f",
+  "src": "20293246bc084967"
+ },
+ "sys/sys1.c": {
+  "asm": "dca5428be9130fcf",
+  "src": "a7b57cb2567965f6"
+ },
+ "sys/sys2.c": {
+  "asm": "a4002bb7a3486fc8",
+  "src": "33fc733e96e68bf0"
+ },
+ "sys/sys3.c": {
+  "asm": "825f4da635974ea6",
+  "src": "ed07f3dc7e789699"
+ },
+ "sys/sys4.c": {
+  "asm": "b24537495abe5829",
+  "src": "ea300532062d7823"
+ },
+ "sys/sysent.c": {
+  "asm": "b109b57555bc0bd9",
+  "src": "700e49c8563c643e"
+ },
+ "sys/trap.c": {
+  "asm": "1c4087b736f4ef26",
+  "src": "a617f58d3f4b9f38"
+ }
+}

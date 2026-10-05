@@ -30,9 +30,10 @@ xdefs.o: manifest mfile1 macdefs xdefs.c
 cgram.o: manifest mfile1 macdefs cgram.c
 	cc -c $(XCFLAGS) cgram.c
 
-cgram.c: cgram.y
-	yacc cgram.y
-	mv y.tab.c cgram.c
+# cgram.c is generated from cgram.y by the Seventh Edition yacc in ../yacc
+# and is never edited by hand. See regen_cgram.py.
+cgram.c: cgram.y regen_cgram.py ../yacc/yaccpar ../yacc/y1.c ../yacc/y2.c ../yacc/y3.c ../yacc/y4.c ../yacc/dextern ../yacc/files
+	python3 regen_cgram.py
 
 comm1.o: manifest mfile1 common macdefs comm1.c
 	cc -c $(XCFLAGS) comm1.c

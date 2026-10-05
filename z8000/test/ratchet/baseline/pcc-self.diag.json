@@ -1,0 +1,203 @@
+{
+ "az8/error.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "36cfd560e3509807",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/init.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3070b413f82b4bbc",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/ins.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "982097a7b42194d3",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/ioz8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "1324ce3c9083de02",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/ps.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "84aedaae58859399",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/rel.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bf98291e646261f8",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/scan.c": {
+  "az8": "skipped",
+  "errors": [
+   "z8000/az8/scan.c:417: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "a993466bb508e68c",
+  "status": "error",
+  "warnings": []
+ },
+ "az8/sdi.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "96d93784a6943e25",
+  "status": "ok",
+  "warnings": []
+ },
+ "az8/sym.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "790c6e9bc9a091c2",
+  "status": "ok",
+  "warnings": []
+ },
+ "ccz8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d98f028d35a9a73e",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/allo.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "8055e4d97d0c8f33",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/cgram.c": {
+  "az8": "skipped",
+  "errors": [
+   "z8000/cgram.y:749: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "b4402382ea4b7ffc",
+  "status": "error",
+  "warnings": []
+ },
+ "cz8/code.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2aa1bde0be792958",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/comm1.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5858cc5e4a019a1c",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/local.c": {
+  "az8": "skipped",
+  "errors": [
+   "cpp: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:1068:2: error: Unsupported architecture"
+  ],
+  "src": null,
+  "status": "cpp",
+  "warnings": []
+ },
+ "cz8/local2.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "6aedb2a8563fc116",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/match.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3d76613d0533a71c",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/optim.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "975dc2b8a0b9af5e",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/order.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2821d4c5ef8108a2",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/pftn.c": {
+  "az8": "skipped",
+  "errors": [
+   "z8000/cz8/pftn.c:1052: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "4b0f2ac47c361b5f",
+  "status": "error",
+  "warnings": []
+ },
+ "cz8/reader.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "11b85a761ddfa0c5",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/scan.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d274e078f160596a",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/table.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "3763a7184235618e",
+  "status": "ok",
+  "warnings": []
+ },
+ "cz8/trees.c": {
+  "az8": "skipped",
+  "errors": [
+   "z8000/cz8/trees.c:69: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "b4257d6cab8a8abb",
+  "status": "error",
+  "warnings": []
+ },
+ "cz8/xdefs.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "dfcdeaa8d56333ee",
+  "status": "ok",
+  "warnings": []
+ },
+ "ldz8.c": {
+  "az8": "skipped",
+  "errors": [
+   "z8000/ldz8.c:261: compiler error: expression causes compiler loop: try simplifying"
+  ],
+  "src": "d61bd53fae56d01c",
+  "status": "error",
+  "warnings": []
+ },
+ "lib/softfp.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "7c877fb8ca11c8a7",
+  "status": "ok",
+  "warnings": []
+ }
+}

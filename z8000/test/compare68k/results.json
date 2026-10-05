@@ -1,0 +1,164 @@
+{
+  "bitfield_clear": {
+    "status": "PASS"
+  },
+  "bitfield_cross": {
+    "status": "PASS"
+  },
+  "bitfield_signed": {
+    "status": "PASS"
+  },
+  "bitfield_wide": {
+    "status": "PASS"
+  },
+  "branch_range": {
+    "status": "PASS"
+  },
+  "call_nested_longs": {
+    "status": "PASS"
+  },
+  "call_nested_words": {
+    "status": "PASS"
+  },
+  "double_compare": {
+    "status": "PASS"
+  },
+  "double_compound": {
+    "status": "PASS"
+  },
+  "double_div": {
+    "status": "PASS"
+  },
+  "double_float": {
+    "status": "PASS"
+  },
+  "double_increment": {
+    "status": "PASS"
+  },
+  "double_int": {
+    "status": "PASS"
+  },
+  "double_long": {
+    "status": "PASS"
+  },
+  "double_mul": {
+    "status": "PASS"
+  },
+  "double_neg": {
+    "status": "PASS"
+  },
+  "double_sub": {
+    "status": "PASS"
+  },
+  "double_truth": {
+    "status": "PASS"
+  },
+  "enum_static": {
+    "status": "PASS"
+  },
+  "float_copy": {
+    "status": "PASS"
+  },
+  "float_double": {
+    "status": "PASS"
+  },
+  "fold_ulong": {
+    "status": "PASS"
+  },
+  "fold_unsigned": {
+    "status": "PASS"
+  },
+  "function_pointer_long": {
+    "status": "PASS"
+  },
+  "inline_asm": {
+    "status": "PASS"
+  },
+  "int_double": {
+    "status": "PASS"
+  },
+  "long_carry": {
+    "status": "PASS"
+  },
+  "long_double": {
+    "status": "PASS"
+  },
+  "long_indirect": {
+    "status": "PASS"
+  },
+  "long_pointer_updates": {
+    "status": "PASS"
+  },
+  "mixed_compare": {
+    "status": "PASS"
+  },
+  "pointer_byte_cast": {
+    "status": "PASS"
+  },
+  "pointer_long_cast": {
+    "status": "PASS"
+  },
+  "register_byte_param": {
+    "status": "PASS"
+  },
+  "register_long_param": {
+    "status": "PASS"
+  },
+  "register_long_pressure": {
+    "status": "PASS"
+  },
+  "register_pressure": {
+    "status": "PASS"
+  },
+  "shift_byte": {
+    "status": "PASS"
+  },
+  "shift_immediate_long": {
+    "status": "PASS"
+  },
+  "signed_division": {
+    "status": "PASS"
+  },
+  "signed_long_division": {
+    "status": "PASS"
+  },
+  "static_padding": {
+    "status": "PASS"
+  },
+  "struct_arg_large": {
+    "status": "PASS"
+  },
+  "struct_copy_large": {
+    "status": "PASS"
+  },
+  "struct_copy_pointer": {
+    "status": "PASS"
+  },
+  "struct_return_large": {
+    "status": "PASS"
+  },
+  "switch_long": {
+    "status": "PASS"
+  },
+  "switch_unsigned": {
+    "status": "PASS"
+  },
+  "union_layout": {
+    "status": "PASS"
+  },
+  "unsigned_byte_call": {
+    "status": "PASS"
+  },
+  "varargs_integer": {
+    "status": "PASS"
+  },
+  "word_pointer_updates": {
+    "status": "PASS"
+  },
+  "multifile": {
+    "status": "PASS"
+  },
+  "archive": {
+    "status": "PASS"
+  }
+}

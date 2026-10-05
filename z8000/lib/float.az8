@@ -1,0 +1,673 @@
+! IEEE software runtime. Big-endian word arguments on stack.
+! Internal conversion helpers use word/pair/quad widths explicitly.
+	.text
+	.globl	fadd
+fadd:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	daddcore
+	add	sp,#6
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fsub
+fsub:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dsubcore
+	add	sp,#6
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fmul
+fmul:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dmulcore
+	add	sp,#6
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fdiv
+fdiv:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	ddivcore
+	add	sp,#6
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fneg
+fneg:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dnegcore
+	add	sp,#4
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	feq
+feq:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	call	dcompare
+	add	sp,#6
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fne
+fne:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	call	dcompare
+	add	sp,#6
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	flt
+flt:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#2
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	call	dcompare
+	add	sp,#6
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fle
+fle:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#3
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	call	dcompare
+	add	sp,#6
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fgt
+fgt:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#4
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	call	dcompare
+	add	sp,#6
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fge
+fge:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#5
+	lda	r0,12(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	call	dcompare
+	add	sp,#6
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	ftod
+ftod:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	ftodcore
+	add	sp,#4
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	dtof
+dtof:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dtofcore
+	add	sp,#4
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	itod
+itod:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#1
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	itodcore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	utod
+utod:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#1
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	itodcore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	ltod
+ltod:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#2
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	itodcore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	ultod
+ultod:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#2
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	itodcore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	dtoi
+dtoi:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#1
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dtoicore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	dtou
+dtou:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#1
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dtoicore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	dtol
+dtol:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#2
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dtoicore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	dtoul
+dtoul:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#2
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dtoicore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fnegf
+fnegf:
+	ld	r0,2(sp)
+	xor	r0,#32768
+	ld	r1,4(sp)
+	ret
+	.globl	afadd
+afadd:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#0
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afaddf
+afaddf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#0
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	faddf
+faddf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#0
+	lda	r0,8(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dfopcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afsub
+afsub:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#1
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afsubf
+afsubf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#1
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fsubf
+fsubf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#1
+	lda	r0,8(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dfopcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afmul
+afmul:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#2
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afmulf
+afmulf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#2
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fmulf
+fmulf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#2
+	lda	r0,8(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dfopcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afdiv
+afdiv:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	push	@sp,#3
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	afdivf
+afdivf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#3
+	lda	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dafcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	fdivf
+fdivf:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	push	@sp,#3
+	lda	r0,8(r13)
+	push	@sp,r0
+	lda	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	dfopcore
+	add	sp,#10
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	dfpost
+dfpost:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#0
+	ld	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	postcore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	r2,-4(r13)
+	ld	r3,-2(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.globl	ffpost
+ffpost:
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,#8
+	push	@sp,#1
+	ld	r0,6(r13)
+	push	@sp,r0
+	ld	r0,4(r13)
+	push	@sp,r0
+	lda	r0,-8(r13)
+	push	@sp,r0
+	call	postcore
+	add	sp,#8
+	ld	r0,-8(r13)
+	ld	r1,-6(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret
+	.data
+	.globl	fltused
+fltused:
+	.word	0

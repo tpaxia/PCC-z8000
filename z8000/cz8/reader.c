@@ -1142,6 +1142,22 @@ ffld( p, down, down1, down2 ) NODE *p; int *down1, *down2; {
 		o = szty(p->in.type)*SZINT - s - UPKFOFF(v);  /* amount to shift */
 #endif
 
+		/* Signed fields need sign extension from their declared bit width. */
+		if(!ISUNSIGNED(p->in.type)) {
+			NODE *q,*c;
+			p->in.left->in.type=ty;
+			q=talloc(); c=talloc();
+			q->in.op=LS; q->in.type=ty; q->in.rall=NOPREF;
+			q->in.left=p->in.left; q->in.right=c;
+			c->in.op=ICON; c->in.type=INT; c->in.rall=NOPREF;
+			c->tn.lval=SZINT-s-o; c->tn.rval=0; c->tn.name[0]=0;
+			p->in.op=RS; p->in.type=ty; p->in.left=q;
+			c=p->in.right=talloc();
+			c->in.op=ICON; c->in.type=INT; c->in.rall=NOPREF;
+			c->tn.lval=SZINT-s; c->tn.rval=0; c->tn.name[0]=0;
+			return;
+		}
+
 		/* make & mask part */
 
 		p->in.left->in.type = ty;

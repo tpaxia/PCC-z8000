@@ -1,205 +1,286 @@
-! Long (32-bit) arithmetic library for PCC-z8000
+! arith.az8 -- 32-bit multiply/divide/modulo runtime library for Z8000
 !
-! Calling convention: args pushed right-to-left on stack (4 bytes each)
-! Return value in RR0 (R0=high, R1=low)
-! Stack cleaned by caller (add sp, #8)
+! Functions:
+!   lmul / ulmul  -- signed/unsigned long multiply (identical)
+!   ldiv          -- signed long divide (quotient)
+!   lrem          -- signed long remainder
+!   uldiv         -- unsigned long divide (quotient)
+!   ulrem         -- unsigned long remainder
+!   almul/aulmul  -- assignment multiply
+!   aldiv         -- assignment signed divide
+!   auldiv        -- assignment unsigned divide
+!   alrem         -- assignment signed remainder
+!   aulrem        -- assignment unsigned remainder
 !
-! Stack layout at function entry:
-!   sp+0: return address (2 bytes)
-!   sp+2: left operand high word
-!   sp+4: left operand low word
-!   sp+6: right operand high word
-!   sp+8: right operand low word
+! Calling convention (no frame pointer -- args via SP):
+!   Binary ops:  SP+2 = a_high, SP+4 = a_low, SP+6 = b_high, SP+8 = b_low
+!   ASG ops:     SP+2 = ptr (to a), SP+4 = b_high, SP+6 = b_low
+!   Return:      RR0 (R0 = high, R1 = low)
+!   Clobbers:    R0-R3, R8-R9 (caller-saved)
+!   Preserves:   R4-R7, R10-R13 (callee-saved, saved/restored if used)
 
 	.text
 
-! uldiv_core - unsigned 32-bit division (internal)
-!
-! Input:  R2:R3 = dividend, R4:R5 = divisor
-! Output: R2:R3 = quotient,  R0:R1 = remainder
-! Uses:   R6 (loop counter, must be saved by caller)
-!
-! Algorithm: shift-and-subtract (restoring)
-uldiv_core:
-	clr	r0
-	clr	r1
-	ld	r6, #32
-.udloop:
-	! shift dividend left, MSB goes to carry
-	slal	rr2, #1
-	! shift carry into remainder
-	rlc	r1, #1
-	rlc	r0, #1
-	! compare remainder >= divisor
-	cp	r0, r4
-	jr ult,	.udskip
-	jr ugt,	.udsub
-	cp	r1, r5
-	jr ult,	.udskip
-.udsub:
-	! remainder -= divisor
-	sub	r1, r5
-	sbc	r0, r4
-	! set quotient bit (bit 0 of R3, was shifted in as 0)
-	or	r3, #1
-.udskip:
-	dec	r6, #1
-	jr ne,	.udloop
+! ============================================================
+! lmul / ulmul -- 32-bit multiply
+! ============================================================
+! Algorithm: a*b = al*bl + (ah*bl + al*bh) << 16
+! Low 32 bits are identical for signed and unsigned.
+! For al*bl: use signed MULT with unsigned correction --
+!   if al has bit 15 set, add bl to high word of result
+!   if bl has bit 15 set, add al to high word of result
+
+	.globl	lmul
+	.globl	ulmul
+lmul:
+ulmul:
+	ld	r0, 4(sp)	! al
+	ld	r1, 8(sp)	! bl
+	ld	r3, r0		! R3 = al (multiplicand for MULT RR2)
+	ld	r8, r1		! R8 = bl (saved for unsigned correction)
+	mult	rr2, r1		! R3(al) * R1(bl) -> RR2 (signed 32-bit)
+	! Unsigned correction for al*bl
+	test	r0		! test al
+	jr	pl, .Lm1
+	add	r2, r8		! al bit 15 set: add bl to high word
+.Lm1:
+	test	r8		! test bl
+	jr	pl, .Lm2
+	add	r2, r0		! bl bit 15 set: add al to high word
+.Lm2:
+	! RR2 = unsigned(al * bl) -- full 32-bit product
+	! Cross term 1: ah * bl (only low 16 bits contribute)
+	ld	r9, 2(sp)	! R9 = ah (for MULT RR8: R9 * src -> RR8)
+	mult	rr8, r1		! ah * bl -> RR8; R9 = low 16 bits
+	add	r2, r9		! add to result high word
+	! Cross term 2: bh * al (only low 16 bits contribute)
+	ld	r9, 6(sp)	! R9 = bh
+	mult	rr8, r0		! bh * al -> RR8; R9 = low 16 bits
+	add	r2, r9		! add to result high word
+	! Move result to return register
+	ld	r0, r2
+	ld	r1, r3
 	ret
 
-! ldiv - signed 32-bit division, return quotient
+! ============================================================
+! ldiv -- signed 32-bit divide (quotient)
+! ============================================================
+! Uses hardware DIVL: sign-extend dividend to 64-bit, divide.
+! DIVL RQ0, RR8: R0:R1:R2:R3 / R8:R9 -> R2:R3 quot, R0:R1 rem
+
 	.globl	ldiv
 ldiv:
-	push	@sp, r4
-	push	@sp, r5
-	push	@sp, r6
-	push	@sp, r7
-	! sp+8=retaddr, sp+10=dividend_hi, sp+12=dividend_lo
-	!               sp+14=divisor_hi,  sp+16=divisor_lo
-	ld	r2, 10(sp)
-	ld	r3, 12(sp)
-	ld	r4, 14(sp)
-	ld	r5, 16(sp)
-	! r7 bit 15 = sign of quotient (XOR of operand signs)
-	ld	r7, r2
-	xor	r7, r4
-	! make dividend positive
-	test	r2
-	jr pl,	.ld_dpos
-	com	r2
-	com	r3
-	add	r3, #1
-	jr nc,	.ld_dpos
-	add	r2, #1
-.ld_dpos:
-	! make divisor positive
-	test	r4
-	jr pl,	.ld_spos
-	com	r4
-	com	r5
-	add	r5, #1
-	jr nc,	.ld_spos
-	add	r4, #1
-.ld_spos:
-	call	uldiv_core
-	! R2:R3 = quotient, R0:R1 = remainder
-	! negate quotient if sign bit set
-	test	r7
-	jr pl,	.ld_done
-	com	r2
-	com	r3
-	add	r3, #1
-	jr nc,	.ld_done
-	add	r2, #1
-.ld_done:
-	ld	r0, r2
+	ld	r2, 2(sp)	! a_high (dividend)
+	ld	r3, 4(sp)	! a_low
+	! Sign-extend RR2 (32-bit) to RQ0 (64-bit)
+	! EXTS RR0 sets R0 = sign(R1), so copy R2 to R1 first
+	ld	r1, r2		! R1 = a_high (for sign extension)
+	exts	rr0		! R0 = sign(R1) = sign of dividend
+	ld	r1, r0		! R1 = R0 = sign extension word
+	! Now RQ0 = R0:R1:R2:R3 = sign-extended 64-bit dividend
+	ld	r8, 6(sp)	! b_high (divisor)
+	ld	r9, 8(sp)	! b_low
+	divl	rq0, rr8	! quotient in R2:R3, remainder in R0:R1
+	ld	r0, r2		! move quotient to return register
 	ld	r1, r3
-	pop	r7, @sp
-	pop	r6, @sp
-	pop	r5, @sp
-	pop	r4, @sp
 	ret
 
-! aldiv - signed 32-bit divide-assign: *ptr /= value
-!   sp+2 = ptr (pointer to long)
-!   sp+4 = divisor high, sp+6 = divisor low
-!   stores quotient at *ptr, returns quotient in RR0
-	.globl	aldiv
-aldiv:
-	push	@sp, r4
-	push	@sp, r5
-	push	@sp, r6
-	push	@sp, r7
-	push	@sp, r8
-	! sp+10=retaddr, sp+12=ptr, sp+14=div_hi, sp+16=div_lo
-	ld	r8, 12(sp)		! r8 = pointer to long
-	ld	r2, @r8			! dividend high
-	ld	r3, 2(r8)		! dividend low
-	ld	r4, 14(sp)		! divisor high
-	ld	r5, 16(sp)		! divisor low
-	ld	r7, r2
-	xor	r7, r4
-	! make dividend positive
-	test	r2
-	jr pl,	.ad_dpos
-	com	r2
-	com	r3
-	add	r3, #1
-	jr nc,	.ad_dpos
-	add	r2, #1
-.ad_dpos:
-	test	r4
-	jr pl,	.ad_spos
-	com	r4
-	com	r5
-	add	r5, #1
-	jr nc,	.ad_spos
-	add	r4, #1
-.ad_spos:
-	call	uldiv_core
-	test	r7
-	jr pl,	.ad_done
-	com	r2
-	com	r3
-	add	r3, #1
-	jr nc,	.ad_done
-	add	r2, #1
-.ad_done:
-	ld	@r8, r2			! store quotient high
-	ld	2(r8), r3		! store quotient low
-	ld	r0, r2
-	ld	r1, r3
-	pop	r8, @sp
-	pop	r7, @sp
-	pop	r6, @sp
-	pop	r5, @sp
-	pop	r4, @sp
-	ret
+! ============================================================
+! lrem -- signed 32-bit remainder
+! ============================================================
 
-! lrem - signed 32-bit division, return remainder
 	.globl	lrem
 lrem:
+	ld	r2, 2(sp)	! a_high (dividend)
+	ld	r3, 4(sp)	! a_low
+	! Sign-extend RR2 to RQ0 (same as ldiv)
+	ld	r1, r2
+	exts	rr0
+	ld	r1, r0
+	ld	r8, 6(sp)	! b_high (divisor)
+	ld	r9, 8(sp)	! b_low
+	divl	rq0, rr8	! quotient in R2:R3, remainder in R0:R1
+	! Remainder already in R0:R1
+	ret
+
+! ============================================================
+! uldiv -- unsigned 32-bit divide (quotient)
+! ============================================================
+! Fast path: divisor high word = 0 AND low word < 32768
+!   -> two hardware DIV instructions
+! Slow path: binary long division, 32 iterations
+
+	.globl	uldiv
+uldiv:
 	push	@sp, r4
 	push	@sp, r5
-	push	@sp, r6
-	push	@sp, r7
-	ld	r2, 10(sp)
-	ld	r3, 12(sp)
-	ld	r4, 14(sp)
-	ld	r5, 16(sp)
-	! r7 bit 15 = sign of remainder (= sign of dividend)
-	ld	r7, r2
-	! make dividend positive
-	test	r2
-	jr pl,	.lr_dpos
-	com	r2
-	com	r3
-	add	r3, #1
-	jr nc,	.lr_dpos
-	add	r2, #1
-.lr_dpos:
-	! make divisor positive
+	! SP adjusted by 4 from saves
+	ld	r0, 6(sp)	! a_high (dividend)
+	ld	r1, 8(sp)	! a_low
+	ld	r4, 10(sp)	! b_high (divisor)
+	ld	r5, 12(sp)	! b_low
+	! Fast path check
 	test	r4
-	jr pl,	.lr_spos
-	com	r4
-	com	r5
-	add	r5, #1
-	jr nc,	.lr_spos
-	add	r4, #1
-.lr_spos:
-	call	uldiv_core
-	! R0:R1 = remainder
-	! negate remainder if dividend was negative
-	test	r7
-	jr pl,	.lr_done
-	com	r0
-	com	r1
-	add	r1, #1
-	jr nc,	.lr_done
-	add	r0, #1
-.lr_done:
-	pop	r7, @sp
-	pop	r6, @sp
+	jr	ne,.Lud_slow
+	test	r5
+	jr	mi, .Lud_slow	! bl >= 32768: not safe for signed DIV
+	! Fast path: unsigned 32/16 via two signed DIV instructions
+	! Step 1: divide a_high by divisor
+	ld	r8, r1		! save a_low in R8
+	ld	r1, r0		! R1 = a_high
+	clr	r0		! RR0 = 0:a_high (positive 32-bit)
+	div	rr0, r5		! R1 = q_high, R0 = r_high
+	ld	r9, r1		! save q_high
+	! Step 2: divide (r_high:a_low) by divisor
+	ld	r1, r8		! R1 = a_low, RR0 = r_high:a_low
+	div	rr0, r5		! R1 = q_low, R0 = r_low
+	ld	r0, r9		! R0 = q_high
+	! Result: R0:R1 = quotient
 	pop	r5, @sp
+	pop	r4, @sp
+	ret
+
+.Lud_slow:
+	! Binary long division
+	! R0:R1 = dividend (shifts out) -> quotient (shifts in)
+	! R2:R3 = remainder (starts at 0)
+	! R4:R5 = divisor (callee-saved)
+	! R8 = loop counter
+	clr	r2
+	clr	r3
+	ld	r8, #32
+.Lud_loop:
+	! Shift 64-bit {R2:R3:R0:R1} left by 1
+	sll	r1, #1		! dividend low: MSB -> carry
+	rlc	r0, #1		! dividend high: carry in, MSB -> carry
+	rlc	r3, #1		! remainder low: carry in, MSB -> carry
+	rlc	r2, #1		! remainder high: carry in, MSB -> carry
+	! If carry out from remainder, it overflows 32 bits -- always >= divisor
+	jr	c, .Lud_sub	! carry set means remainder >= 2^32 > divisor
+	cpl	rr2, rr4	! compare remainder with divisor
+	jr	ult, .Lud_skip	! if remainder < divisor, skip subtraction
+.Lud_sub:
+	subl	rr2, rr4	! remainder -= divisor
+	or	r1, #1		! set quotient bit
+.Lud_skip:
+	dec	r8, #1
+	jr	ne,.Lud_loop
+	! Result: R0:R1 = quotient
+	pop	r5, @sp
+	pop	r4, @sp
+	ret
+
+! ============================================================
+! ulrem -- unsigned 32-bit remainder
+! ============================================================
+! Same algorithm as uldiv but returns remainder instead of quotient.
+
+	.globl	ulrem
+ulrem:
+	push	@sp, r4
+	push	@sp, r5
+	! SP adjusted by 4 from saves
+	ld	r0, 6(sp)	! a_high (dividend)
+	ld	r1, 8(sp)	! a_low
+	ld	r4, 10(sp)	! b_high (divisor)
+	ld	r5, 12(sp)	! b_low
+	! Fast path check
+	test	r4
+	jr	ne,.Lur_slow
+	test	r5
+	jr	mi, .Lur_slow
+	! Fast path: unsigned 32/16 via two signed DIV instructions
+	ld	r8, r1		! save a_low
+	ld	r1, r0		! R1 = a_high
+	clr	r0		! RR0 = 0:a_high
+	div	rr0, r5		! R1 = q_high, R0 = r_high
+	ld	r1, r8		! R1 = a_low, RR0 = r_high:a_low
+	div	rr0, r5		! R1 = q_low, R0 = r_low
+	! Remainder = R0 (16-bit, since divisor < 32768)
+	ld	r1, r0
+	clr	r0		! R0:R1 = 0:remainder
+	pop	r5, @sp
+	pop	r4, @sp
+	ret
+
+.Lur_slow:
+	! Binary long division (same loop as uldiv)
+	clr	r2
+	clr	r3
+	ld	r8, #32
+.Lur_loop:
+	sll	r1, #1
+	rlc	r0, #1
+	rlc	r3, #1
+	rlc	r2, #1
+	jr	c, .Lur_sub
+	cpl	rr2, rr4
+	jr	ult, .Lur_skip
+.Lur_sub:
+	subl	rr2, rr4
+	or	r1, #1
+.Lur_skip:
+	dec	r8, #1
+	jr	ne,.Lur_loop
+	! Result: R2:R3 = remainder
+	ld	r0, r2
+	ld	r1, r3
+	pop	r5, @sp
+	pop	r4, @sp
+	ret
+
+! ============================================================
+! Assignment variants -- shared wrapper
+! ============================================================
+! ASG ops: SP+2 = ptr (to a), SP+4 = b_high, SP+6 = b_low
+! Each entry point loads the target function address into R8,
+! then falls through to the shared wrapper .Lasg.
+
+	.globl	almul
+	.globl	aulmul
+almul:
+aulmul:
+	lda	r8, lmul
+	jr	.Lasg
+
+	.globl	aldiv
+aldiv:
+	lda	r8, ldiv
+	jr	.Lasg
+
+	.globl	auldiv
+auldiv:
+	lda	r8, uldiv
+	jr	.Lasg
+
+	.globl	alrem
+alrem:
+	lda	r8, lrem
+	jr	.Lasg
+
+	.globl	aulrem
+aulrem:
+	lda	r8, ulrem
+	! fall through
+
+.Lasg:
+	push	@sp, r4
+	! SP adjusted by 2
+	ld	r4, 4(sp)	! ptr (to a)
+	ld	r0, @r4		! a_high = *ptr
+	ld	r1, 2(r4)	! a_low  = *(ptr+2)
+	ld	r2, 6(sp)	! b_high
+	ld	r3, 8(sp)	! b_low
+	! Push args for base function (right-to-left: b then a)
+	push	@sp, r3		! b_low
+	push	@sp, r2		! b_high
+	push	@sp, r1		! a_low
+	push	@sp, r0		! a_high
+	call	@r8		! call base function
+	add	sp, #8		! clean up 8 bytes of args
+	! Store result back to *ptr
+	ld	@r4, r0		! store high word
+	ld	2(r4), r1	! store low word
+	! Restore R4
 	pop	r4, @sp
 	ret

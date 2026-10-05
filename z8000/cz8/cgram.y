@@ -217,7 +217,7 @@ type:		   TYPE
 		;
 
 enum_dcl:	   enum_head LC moe_list optcomma RC
-			={ $$ = dclstruct($1); }
+			={ $$ = dclstruct($1); stwart = instruct|SEENAME; }
 		|  ENUM NAME
 			={  $$ = rstruct($2,0);  stwart = instruct; }
 		;
@@ -239,7 +239,7 @@ moe:		   NAME
 		;
 
 struct_dcl:	   str_head LC type_dcl_list optsemi RC
-			={ $$ = dclstruct($1);  }
+			={ $$ = dclstruct($1); stwart = instruct|SEENAME;  }
 		|  STRUCT NAME
 			={  $$ = rstruct($2,$1); }
 		;
@@ -517,7 +517,11 @@ statement:	   e   SM
 		|  GOTO NAME SM
 			={  register NODE *q;
 			    q = block( FREE, NIL, NIL, INT|ARY, 0, INT );
-			    q->tn.rval = idname = $2;
+			    q->tn.rval = idname = lookup(stab[$2].sname, SLABEL);
+			    /* the scanner entered this name as an ordinary identifier
+			       before it was known to be a label; that entry must not
+			       be reported as undefined when its stale level is cleared */
+			    if( stab[$2].stype == UNDEF ) stab[$2].slevel = 0;
 			    defid( q, ULABEL );
 			    stab[idname].suse = -lineno;
 			    branch( stab[idname].offset );
@@ -531,7 +535,11 @@ statement:	   e   SM
 label:		   NAME COLON
 			={  register NODE *q;
 			    q = block( FREE, NIL, NIL, INT|ARY, 0, LABEL );
-			    q->tn.rval = $1;
+			    q->tn.rval = lookup(stab[$1].sname, SLABEL);
+			    /* the scanner entered this name as an ordinary identifier
+			       before it was known to be a label; that entry must not
+			       be reported as undefined when its stale level is cleared */
+			    if( stab[$1].stype == UNDEF ) stab[$1].slevel = 0;
 			    defid( q, LABEL );
 			    reached = 1;
 			    }
@@ -593,9 +601,9 @@ forprefix:	  FOR  LP  .e  SM .e  SM
 switchpart:	   SWITCH  LP  e  RP
 			={  savebc();
 			    brklab = getlab();
-			    ecomp( buildtree( FORCE, makety($3,INT,0,INT), NIL ) );
+			    swstart($3->in.type);
+			    ecomp( buildtree( FORCE, makety($3,swtab[swx].stype,0,(int)swtab[swx].stype), NIL ) );
 			    branch( $$ = getlab() );
-			    swstart();
 			    reached = 0;
 			    }
 		;
@@ -759,6 +767,8 @@ cast_type:	  type null_decl
 			$$ = tymerge( $1, $2 );
 			$$->in.op = NAME;
 			$1->in.op = FREE;
+			/* a type name has no declarator: a typedef name may follow */
+			stwart = instruct;
 			}
 		;
 
@@ -867,6 +877,8 @@ addcase(p) NODE *p; { /* add case to switch */
 		cerror( "switch table overflow");
 		}
 	swp->sval = p->tn.lval;
+	if(swtab[swx].stype==INT) swp->sval=(short)swp->sval;
+	else if(swtab[swx].stype==UNSIGNED) swp->sval &= 65535L;
 	deflab( swp->slab = getlab() );
 	++swp;
 	tfree(p);
@@ -884,13 +896,14 @@ adddef(){ /* add default case to switch */
 	deflab( swtab[swx].slab = getlab() );
 	}
 
-swstart(){
+swstart(t) TWORD t; {
 	/* begin a switch block */
 	if( swp >= &swtab[SWITSZ] ){
 		cerror( "switch table overflow");
 		}
 	swx = swp - swtab;
 	swp->slab = -1;
+	swp->stype=(t==LONG || t==ULONG || t==UNSIGNED)?t:INT;
 	++swp;
 	}
 

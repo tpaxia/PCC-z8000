@@ -1,0 +1,190 @@
+{
+  "bitfield_clear": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "bitfield_cross": {
+    "status": "PASS"
+  },
+  "bitfield_signed": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "bitfield_wide": {
+    "status": "PASS"
+  },
+  "branch_range": {
+    "status": "PASS"
+  },
+  "call_nested_longs": {
+    "status": "PASS"
+  },
+  "call_nested_words": {
+    "status": "PASS"
+  },
+  "double_compare": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "double_compound": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_div": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_float": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "double_increment": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "double_int": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_long": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_mul": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_neg": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_sub": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "double_truth": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "enum_static": {
+    "status": "PASS"
+  },
+  "float_copy": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "float_double": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "fold_ulong": {
+    "status": "PASS"
+  },
+  "fold_unsigned": {
+    "status": "PASS"
+  },
+  "function_pointer_long": {
+    "status": "PASS"
+  },
+  "inline_asm": {
+    "status": "PASS"
+  },
+  "int_double": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "long_carry": {
+    "status": "PASS"
+  },
+  "long_double": {
+    "status": "FAIL",
+    "stage": "link"
+  },
+  "long_indirect": {
+    "status": "PASS"
+  },
+  "long_pointer_updates": {
+    "status": "PASS"
+  },
+  "mixed_compare": {
+    "status": "PASS"
+  },
+  "pointer_byte_cast": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "pointer_long_cast": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "register_byte_param": {
+    "status": "PASS"
+  },
+  "register_long_param": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "register_long_pressure": {
+    "status": "PASS"
+  },
+  "register_pressure": {
+    "status": "PASS"
+  },
+  "shift_byte": {
+    "status": "FAIL",
+    "stage": "compile"
+  },
+  "shift_immediate_long": {
+    "status": "PASS"
+  },
+  "signed_division": {
+    "status": "PASS"
+  },
+  "signed_long_division": {
+    "status": "PASS"
+  },
+  "static_padding": {
+    "status": "PASS"
+  },
+  "struct_arg_large": {
+    "status": "PASS"
+  },
+  "struct_copy_large": {
+    "status": "FAIL",
+    "stage": "assemble"
+  },
+  "struct_copy_pointer": {
+    "status": "FAIL",
+    "stage": "assemble"
+  },
+  "struct_return_large": {
+    "status": "FAIL",
+    "stage": "assemble"
+  },
+  "switch_long": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "switch_unsigned": {
+    "status": "FAIL",
+    "stage": "run"
+  },
+  "union_layout": {
+    "status": "PASS"
+  },
+  "unsigned_byte_call": {
+    "status": "PASS"
+  },
+  "varargs_integer": {
+    "status": "PASS"
+  },
+  "word_pointer_updates": {
+    "status": "PASS"
+  },
+  "multifile": {
+    "status": "PASS"
+  },
+  "archive": {
+    "status": "PASS"
+  }
+}

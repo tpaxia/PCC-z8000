@@ -93,7 +93,7 @@ efcode(){
 		printf( "	ld	r9,#.L%d\n" , stlab );  /* dst ptr */
 		size = tsize( DECREF(p->stype), p->dimoff, p->sizoff ) / SZCHAR;
 		if( size > 4 ){
-			printf( "	ld	r0,#%d\n", size );
+			printf( "	ld	r0,#%d\n", size/2 );
 			printf( "	ldir	@r9,@r8,r0\n" );
 		} else {
 			i = size;
@@ -177,6 +177,10 @@ bfcode( a, n ) int a[]; {
 			else
 				printf( "	ld	%s,%d(r13)\n",
 				  rnames[temp], p->offset/SZCHAR );
+			if(p->stype==LONG || p->stype==ULONG) {
+				printf("\tld\t%s,%d(r13)\n",rnames[temp+1],p->offset/SZCHAR+2);
+				usedregs |= 1<<(temp+1);
+			}
 			usedregs |= 1<<temp;
 			p->offset = temp;  /* remember register number */
 			p->sclass = REGISTER;   /* remember that it is a register */
@@ -310,6 +314,18 @@ genswitch(p,n) register struct sw *p;{
 	register CONSZ j, range;
 	register dlab, swlab;
 
+	if(p->stype==LONG || p->stype==ULONG || p->stype==UNSIGNED) {
+		for(i=1;i<=n;i++) {
+			int next=getlab();
+			if(p->stype==LONG || p->stype==ULONG) {
+				printf("\tcp\tr0,#%ld\n\tjr\tne,.L%d\n",(p[i].sval>>16)&65535L,next);
+				printf("\tcp\tr1,#%ld\n",p[i].sval&65535L);
+			} else printf("\tcp\tr0,#%ld\n",p[i].sval&65535L);
+			printf("\tjr\teq,.L%d\n",p[i].slab); deflab(next);
+		}
+		if(p->slab>=0) branch(p->slab);
+		return;
+	}
 	range = p[n].sval-p[1].sval;
 
 	if( range>0 && range <= 3*n && n>=4 ){ /* implement a direct switch */

@@ -63,7 +63,7 @@ YYSTYPE yylval, yyval;
 	static char fakename[NCHNAM+1];
 # define YYERRCODE 256
 
-# line 794 "cgram.y"
+# line 804 "cgram.y"
 
 
 NODE *
@@ -140,6 +140,8 @@ addcase(p) NODE *p; { /* add case to switch */
 		cerror( "switch table overflow");
 		}
 	swp->sval = p->tn.lval;
+	if(swtab[swx].stype==INT) swp->sval=(short)swp->sval;
+	else if(swtab[swx].stype==UNSIGNED) swp->sval &= 65535L;
 	deflab( swp->slab = getlab() );
 	++swp;
 	tfree(p);
@@ -157,13 +159,14 @@ adddef(){ /* add default case to switch */
 	deflab( swtab[swx].slab = getlab() );
 	}
 
-swstart(){
+swstart(t) TWORD t; {
 	/* begin a switch block */
 	if( swp >= &swtab[SWITSZ] ){
 		cerror( "switch table overflow");
 		}
 	swx = swp - swtab;
 	swp->slab = -1;
+	swp->stype=(t==LONG || t==ULONG || t==UNSIGNED)?t:INT;
 	++swp;
 	}
 
@@ -736,7 +739,7 @@ case 30:
 			    } break;
 case 33:
 # line 220 "cgram.y"
-{ yyval.nodep = dclstruct(yypvt[-4].intval); } break;
+{ yyval.nodep = dclstruct(yypvt[-4].intval); stwart = instruct|SEENAME; } break;
 case 34:
 # line 222 "cgram.y"
 {  yyval.nodep = rstruct(yypvt[-0].intval,0);  stwart = instruct; } break;
@@ -754,7 +757,7 @@ case 40:
 {  strucoff = yypvt[-0].intval;  moedef( yypvt[-2].intval ); } break;
 case 41:
 # line 242 "cgram.y"
-{ yyval.nodep = dclstruct(yypvt[-4].intval);  } break;
+{ yyval.nodep = dclstruct(yypvt[-4].intval); stwart = instruct|SEENAME;  } break;
 case 42:
 # line 244 "cgram.y"
 {  yyval.nodep = rstruct(yypvt[-0].intval,yypvt[-1].intval); } break;
@@ -1021,33 +1024,41 @@ case 109:
 # line 518 "cgram.y"
 {  register NODE *q;
 			    q = block( FREE, NIL, NIL, INT|ARY, 0, INT );
-			    q->tn.rval = idname = yypvt[-1].intval;
+			    q->tn.rval = idname = lookup(stab[yypvt[-1].intval].sname, SLABEL);
+			    /* the scanner entered this name as an ordinary identifier
+			       before it was known to be a label; that entry must not
+			       be reported as undefined when its stale level is cleared */
+			    if( stab[yypvt[-1].intval].stype == UNDEF ) stab[yypvt[-1].intval].slevel = 0;
 			    defid( q, ULABEL );
 			    stab[idname].suse = -lineno;
 			    branch( stab[idname].offset );
 			    goto rch;
 			    } break;
 case 114:
-# line 532 "cgram.y"
+# line 536 "cgram.y"
 {  register NODE *q;
 			    q = block( FREE, NIL, NIL, INT|ARY, 0, LABEL );
-			    q->tn.rval = yypvt[-1].intval;
+			    q->tn.rval = lookup(stab[yypvt[-1].intval].sname, SLABEL);
+			    /* the scanner entered this name as an ordinary identifier
+			       before it was known to be a label; that entry must not
+			       be reported as undefined when its stale level is cleared */
+			    if( stab[yypvt[-1].intval].stype == UNDEF ) stab[yypvt[-1].intval].slevel = 0;
 			    defid( q, LABEL );
 			    reached = 1;
 			    } break;
 case 115:
-# line 539 "cgram.y"
+# line 547 "cgram.y"
 {  addcase(yypvt[-1].nodep);
 			    reached = 1;
 			    } break;
 case 116:
-# line 543 "cgram.y"
+# line 551 "cgram.y"
 {  reached = 1;
 			    adddef();
 			    flostat |= FDEF;
 			    } break;
 case 117:
-# line 549 "cgram.y"
+# line 557 "cgram.y"
 {  savebc();
 			    if( !reached ) werror( "loop not entered at top");
 			    brklab = getlab();
@@ -1056,19 +1067,19 @@ case 117:
 			    reached = 1;
 			    } break;
 case 118:
-# line 558 "cgram.y"
+# line 566 "cgram.y"
 {  ecomp( buildtree( CBRANCH, yypvt[-1].nodep, bcon( yyval.intval=getlab()) ) ) ;
 			    reached = 1;
 			    } break;
 case 119:
-# line 563 "cgram.y"
+# line 571 "cgram.y"
 {  if( reached ) branch( yyval.intval = getlab() );
 			    else yyval.intval = NOLAB;
 			    deflab( yypvt[-2].intval );
 			    reached = 1;
 			    } break;
 case 120:
-# line 571 "cgram.y"
+# line 579 "cgram.y"
 {  savebc();
 			    if( !reached ) werror( "loop not entered at top");
 			    if( yypvt[-1].nodep->in.op == ICON && yypvt[-1].nodep->tn.lval != 0 ) flostat = FLOOP;
@@ -1079,7 +1090,7 @@ case 120:
 			    else ecomp( buildtree( CBRANCH, yypvt[-1].nodep, bcon( brklab) ) );
 			    } break;
 case 121:
-# line 582 "cgram.y"
+# line 590 "cgram.y"
 {  if( yypvt[-3].nodep ) ecomp( yypvt[-3].nodep );
 			    else if( !reached ) werror( "loop not entered at top");
 			    savebc();
@@ -1091,28 +1102,28 @@ case 121:
 			    else flostat |= FLOOP;
 			    } break;
 case 122:
-# line 594 "cgram.y"
+# line 602 "cgram.y"
 {  savebc();
 			    brklab = getlab();
-			    ecomp( buildtree( FORCE, makety(yypvt[-1].nodep,INT,0,INT), NIL ) );
+			    swstart(yypvt[-1].nodep->in.type);
+			    ecomp( buildtree( FORCE, makety(yypvt[-1].nodep,swtab[swx].stype,0,(int)swtab[swx].stype), NIL ) );
 			    branch( yyval.intval = getlab() );
-			    swstart();
 			    reached = 0;
 			    } break;
 case 123:
-# line 603 "cgram.y"
+# line 611 "cgram.y"
 { yyval.intval=instruct; stwart=instruct=0; } break;
 case 124:
-# line 605 "cgram.y"
+# line 613 "cgram.y"
 {  yyval.intval = icons( yypvt[-0].nodep );  instruct=yypvt[-1].intval; } break;
 case 126:
-# line 609 "cgram.y"
+# line 617 "cgram.y"
 { yyval.nodep=0; } break;
 case 128:
-# line 614 "cgram.y"
+# line 622 "cgram.y"
 {  goto bop; } break;
 case 129:
-# line 618 "cgram.y"
+# line 626 "cgram.y"
 {
 			preconf:
 			    if( yychar==RELOP||yychar==EQUOP||yychar==AND||yychar==OR||yychar==ER ){
@@ -1123,89 +1134,89 @@ case 129:
 			    yyval.nodep = buildtree( yypvt[-1].intval, yypvt[-2].nodep, yypvt[-0].nodep );
 			    } break;
 case 130:
-# line 628 "cgram.y"
+# line 636 "cgram.y"
 {  yypvt[-1].intval = COMOP;
 			    goto bop;
 			    } break;
 case 131:
-# line 632 "cgram.y"
-{  goto bop; } break;
-case 132:
-# line 634 "cgram.y"
-{  if(yychar==SHIFTOP) goto precplaint; else goto bop; } break;
-case 133:
-# line 636 "cgram.y"
-{  if(yychar==SHIFTOP ) goto precplaint; else goto bop; } break;
-case 134:
-# line 638 "cgram.y"
-{  if(yychar==PLUS||yychar==MINUS) goto precplaint; else goto bop; } break;
-case 135:
 # line 640 "cgram.y"
 {  goto bop; } break;
-case 136:
+case 132:
 # line 642 "cgram.y"
+{  if(yychar==SHIFTOP) goto precplaint; else goto bop; } break;
+case 133:
+# line 644 "cgram.y"
+{  if(yychar==SHIFTOP ) goto precplaint; else goto bop; } break;
+case 134:
+# line 646 "cgram.y"
+{  if(yychar==PLUS||yychar==MINUS) goto precplaint; else goto bop; } break;
+case 135:
+# line 648 "cgram.y"
+{  goto bop; } break;
+case 136:
+# line 650 "cgram.y"
 {  goto preconf; } break;
 case 137:
-# line 644 "cgram.y"
+# line 652 "cgram.y"
 {  if( yychar==RELOP||yychar==EQUOP ) goto preconf;  else goto bop; } break;
 case 138:
-# line 646 "cgram.y"
+# line 654 "cgram.y"
 {  if(yychar==RELOP||yychar==EQUOP) goto preconf; else goto bop; } break;
 case 139:
-# line 648 "cgram.y"
+# line 656 "cgram.y"
 {  if(yychar==RELOP||yychar==EQUOP) goto preconf; else goto bop; } break;
 case 140:
-# line 650 "cgram.y"
+# line 658 "cgram.y"
 {  goto bop; } break;
 case 141:
-# line 652 "cgram.y"
+# line 660 "cgram.y"
 {  goto bop; } break;
 case 142:
-# line 654 "cgram.y"
+# line 662 "cgram.y"
 {  abop:
 				yyval.nodep = buildtree( ASG yypvt[-2].intval, yypvt[-3].nodep, yypvt[-0].nodep );
 				} break;
 case 143:
-# line 658 "cgram.y"
-{  goto abop; } break;
-case 144:
-# line 660 "cgram.y"
-{  goto abop; } break;
-case 145:
-# line 662 "cgram.y"
-{  goto abop; } break;
-case 146:
-# line 664 "cgram.y"
-{  goto abop; } break;
-case 147:
 # line 666 "cgram.y"
 {  goto abop; } break;
-case 148:
+case 144:
 # line 668 "cgram.y"
 {  goto abop; } break;
-case 149:
+case 145:
 # line 670 "cgram.y"
 {  goto abop; } break;
-case 150:
+case 146:
 # line 672 "cgram.y"
+{  goto abop; } break;
+case 147:
+# line 674 "cgram.y"
+{  goto abop; } break;
+case 148:
+# line 676 "cgram.y"
+{  goto abop; } break;
+case 149:
+# line 678 "cgram.y"
+{  goto abop; } break;
+case 150:
+# line 680 "cgram.y"
 {  yyval.nodep=buildtree(QUEST, yypvt[-4].nodep, buildtree( COLON, yypvt[-2].nodep, yypvt[-0].nodep ) );
 			    } break;
 case 151:
-# line 675 "cgram.y"
+# line 683 "cgram.y"
 {  werror( "old-fashioned assignment operator" );  goto bop; } break;
 case 152:
-# line 677 "cgram.y"
+# line 685 "cgram.y"
 {  goto bop; } break;
 case 154:
-# line 681 "cgram.y"
+# line 689 "cgram.y"
 {  yyval.nodep = buildtree( yypvt[-0].intval, yypvt[-1].nodep, bcon(1) ); } break;
 case 155:
-# line 683 "cgram.y"
+# line 691 "cgram.y"
 { ubop:
 			    yyval.nodep = buildtree( UNARY yypvt[-1].intval, yypvt[-0].nodep, NIL );
 			    } break;
 case 156:
-# line 687 "cgram.y"
+# line 695 "cgram.y"
 {  if( ISFTN(yypvt[-0].nodep->in.type) || ISARY(yypvt[-0].nodep->in.type) ){
 				werror( "& before array or function: ignored" );
 				yyval.nodep = yypvt[-0].nodep;
@@ -1213,43 +1224,43 @@ case 156:
 			    else goto ubop;
 			    } break;
 case 157:
-# line 694 "cgram.y"
+# line 702 "cgram.y"
 {  goto ubop; } break;
 case 158:
-# line 696 "cgram.y"
+# line 704 "cgram.y"
 {
 			    yyval.nodep = buildtree( yypvt[-1].intval, yypvt[-0].nodep, NIL );
 			    } break;
 case 159:
-# line 700 "cgram.y"
+# line 708 "cgram.y"
 {  yyval.nodep = buildtree( yypvt[-1].intval==INCR ? ASG PLUS : ASG MINUS,
 						yypvt[-0].nodep,
 						bcon(1)  );
 			    } break;
 case 160:
-# line 705 "cgram.y"
+# line 713 "cgram.y"
 {  yyval.nodep = doszof( yypvt[-0].nodep ); } break;
 case 161:
-# line 707 "cgram.y"
+# line 715 "cgram.y"
 {  yyval.nodep = buildtree( CAST, yypvt[-2].nodep, yypvt[-0].nodep );
 			    yyval.nodep->in.left->in.op = FREE;
 			    yyval.nodep->in.op = FREE;
 			    yyval.nodep = yyval.nodep->in.right;
 			    } break;
 case 162:
-# line 713 "cgram.y"
+# line 721 "cgram.y"
 {  yyval.nodep = doszof( yypvt[-1].nodep ); } break;
 case 163:
-# line 715 "cgram.y"
+# line 723 "cgram.y"
 {  yyval.nodep = buildtree( UNARY MUL, buildtree( PLUS, yypvt[-3].nodep, yypvt[-1].nodep ), NIL ); } break;
 case 164:
-# line 717 "cgram.y"
+# line 725 "cgram.y"
 {  yyval.nodep=buildtree(UNARY CALL,yypvt[-1].nodep,NIL); } break;
 case 165:
-# line 719 "cgram.y"
+# line 727 "cgram.y"
 {  yyval.nodep=buildtree(CALL,yypvt[-2].nodep,yypvt[-1].nodep); } break;
 case 166:
-# line 721 "cgram.y"
+# line 729 "cgram.y"
 {  if( yypvt[-1].intval == DOT ){
 				if( notlval( yypvt[-2].nodep ) )uerror("structure reference must be addressable");
 				yypvt[-2].nodep = buildtree( UNARY AND, yypvt[-2].nodep, NIL );
@@ -1258,7 +1269,7 @@ case 166:
 			    yyval.nodep = buildtree( STREF, yypvt[-2].nodep, buildtree( NAME, NIL, NIL ) );
 			    } break;
 case 167:
-# line 729 "cgram.y"
+# line 737 "cgram.y"
 {  idname = yypvt[-0].intval;
 			    /* recognize identifiers in initializations */
 			    if( blevel==0 && stab[idname].stype == UNDEF ) {
@@ -1272,53 +1283,55 @@ case 167:
 			    stab[yypvt[-0].intval].suse = -lineno;
 			} break;
 case 168:
-# line 742 "cgram.y"
+# line 750 "cgram.y"
 {  yyval.nodep=bcon(0);
 			    yyval.nodep->tn.lval = lastcon;
 			    yyval.nodep->tn.rval = NONAME;
 			    if( yypvt[-0].intval ) yyval.nodep->fn.csiz = yyval.nodep->in.type = ctype(LONG);
 			    } break;
 case 169:
-# line 748 "cgram.y"
+# line 756 "cgram.y"
 {  yyval.nodep=buildtree(FCON,NIL,NIL);
 			    yyval.nodep->fpn.dval = dcon;
 			    } break;
 case 170:
-# line 752 "cgram.y"
+# line 760 "cgram.y"
 {  yyval.nodep = getstr(); /* get string contents */ } break;
 case 171:
-# line 754 "cgram.y"
+# line 762 "cgram.y"
 { yyval.nodep=yypvt[-1].nodep; } break;
 case 172:
-# line 758 "cgram.y"
+# line 766 "cgram.y"
 {
 			yyval.nodep = tymerge( yypvt[-1].nodep, yypvt[-0].nodep );
 			yyval.nodep->in.op = NAME;
 			yypvt[-1].nodep->in.op = FREE;
+			/* a type name has no declarator: a typedef name may follow */
+			stwart = instruct;
 			} break;
 case 173:
-# line 766 "cgram.y"
+# line 776 "cgram.y"
 { yyval.nodep = bdty( NAME, NIL, -1 ); } break;
 case 174:
-# line 768 "cgram.y"
+# line 778 "cgram.y"
 { yyval.nodep = bdty( UNARY CALL, bdty(NAME,NIL,-1),0); } break;
 case 175:
-# line 770 "cgram.y"
+# line 780 "cgram.y"
 {  yyval.nodep = bdty( UNARY CALL, yypvt[-3].nodep, 0 ); } break;
 case 176:
-# line 772 "cgram.y"
+# line 782 "cgram.y"
 {  goto umul; } break;
 case 177:
-# line 774 "cgram.y"
+# line 784 "cgram.y"
 {  goto uary; } break;
 case 178:
-# line 776 "cgram.y"
+# line 786 "cgram.y"
 {  goto bary;  } break;
 case 179:
-# line 778 "cgram.y"
+# line 788 "cgram.y"
 { yyval.nodep = yypvt[-1].nodep; } break;
 case 180:
-# line 782 "cgram.y"
+# line 792 "cgram.y"
 {  if( stab[yypvt[-1].intval].stype == UNDEF ){
 				register NODE *q;
 				q = block( FREE, NIL, NIL, FTN|INT, 0, INT );

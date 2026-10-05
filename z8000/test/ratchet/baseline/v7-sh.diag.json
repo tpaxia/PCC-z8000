@@ -1,0 +1,142 @@
+{
+ "args.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "cbc69facc28ee241",
+  "status": "ok",
+  "warnings": []
+ },
+ "blok.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4f04d027d10a49f0",
+  "status": "ok",
+  "warnings": []
+ },
+ "builtin.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "bf4b16f0c83f5073",
+  "status": "ok",
+  "warnings": []
+ },
+ "cmd.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "ffe6ccb1e032a34e",
+  "status": "ok",
+  "warnings": []
+ },
+ "ctype.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "51134f7d3f8ce1c7",
+  "status": "ok",
+  "warnings": []
+ },
+ "error.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "4b6a6bb5a829513d",
+  "status": "ok",
+  "warnings": []
+ },
+ "expand.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2db1cb52c249b6e1",
+  "status": "ok",
+  "warnings": []
+ },
+ "fault.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "b6c4496e5cdc8629",
+  "status": "ok",
+  "warnings": []
+ },
+ "io.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "d172be4842b6d06e",
+  "status": "ok",
+  "warnings": []
+ },
+ "macro.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5b6f362c9c66acfb",
+  "status": "ok",
+  "warnings": []
+ },
+ "main.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "89ccffbd056ca1d1",
+  "status": "ok",
+  "warnings": []
+ },
+ "msg.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "f1dbcc2fc07f98fa",
+  "status": "ok",
+  "warnings": []
+ },
+ "name.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "9e5af3e388b4e6d1",
+  "status": "ok",
+  "warnings": []
+ },
+ "print.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "5e51c21efc3a44e3",
+  "status": "ok",
+  "warnings": []
+ },
+ "service.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "c34f375a16bde61e",
+  "status": "ok",
+  "warnings": []
+ },
+ "setbrk.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "efb1ec25013a3baa",
+  "status": "ok",
+  "warnings": []
+ },
+ "stak.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "32ef271d4aa893e8",
+  "status": "ok",
+  "warnings": []
+ },
+ "string.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "0031b2edc8cdf65e",
+  "status": "ok",
+  "warnings": []
+ },
+ "word.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "03e4cfb8ed99707b",
+  "status": "ok",
+  "warnings": []
+ },
+ "xec.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "351fd349029d0965",
+  "status": "ok",
+  "warnings": []
+ }
+}

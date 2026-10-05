@@ -1,0 +1,266 @@
+{
+  "gcc-20010910-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-900409-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920202-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920409-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920411-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920429-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920501-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920506-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920520-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920603-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920721-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920721-3": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920731-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920812-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-920909-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921006-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921013-1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 7: compiler error: expression causes compiler loop: try simplifying",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921019-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921019-2": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 6: compiler error: no table entry for op REG",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921104-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921110-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921112-1": {
+    "status": "FAIL",
+    "stage": "assemble",
+    "detail": "\"test.az8\", line 52: Invalid term\n\"test.az8\", line 52: Invalid operand\n\"test.az8\", line 52: Invalid operand",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921117-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921123-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921123-2": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921124-1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 11: compiler error: no table entry for op REG",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921207-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921208-1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 14: warning: & before array or function: ignored\n, line 14: compiler error: no table entry for op REG",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921218-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-921218-2": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930106-1": {
+    "status": "FAIL",
+    "stage": "link",
+    "detail": "ldz8: Undefined -\n\tfix\nDEBUG common: total csize=0\nDEBUG middle: torigin=0x8 tsize=0xd78 dorigin=0xd80 dsize=0x14 corigin=0xd94 csize=0x0 borigin=0xd94",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930123-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930208-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930429-2": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930513-2": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930518-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930526-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930527-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930603-1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 5: compiler error: expression causes compiler loop: try simplifying",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930603-2": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930603-3": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930608-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930614-1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 11: compiler error: expression causes compiler loop: try simplifying",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930614-2": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 12: compiler error: no table entry for op =",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930622-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930628-1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 17: compiler error: no table entry for op =",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930713-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "gcc-930718-1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "pcc-call1": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "pcc-types2": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "pcc-init0": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "pcc-ptr0": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "pcc-struct0": {
+    "status": "PASS",
+    "m68k_compile": "PASS"
+  },
+  "pcc-namespace0": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 7: syntax error",
+    "m68k_compile": "FAIL",
+    "m68k_detail": ", line 7: syntax error"
+  },
+  "pcc-namespace1": {
+    "status": "FAIL",
+    "stage": "compile",
+    "detail": ", line 6: syntax error\n, line 6: warning: old-fashioned initialization: use =\n, line 7: warning: struct/union or struct/union pointer required",
+    "m68k_compile": "FAIL",
+    "m68k_detail": ", line 6: syntax error\n, line 6: warning: old-fashioned initialization: use ="
+  },
+  "pcc-optim002": {
+    "status": "FAIL",
+    "stage": "assemble",
+    "detail": "\"test.az8\", line 66: Multiply defined symbol\n\"test.az8\", line 99: Multiply defined symbol\n\"test.az8\", line 196: Multiply defined symbol",
+    "m68k_compile": "PASS"
+  },
+  "pcc-optim002_case": {
+    "status": "FAIL",
+    "stage": "assemble",
+    "detail": "\"test.az8\", line 66: Multiply defined symbol\n\"test.az8\", line 98: Multiply defined symbol\n\"test.az8\", line 194: Multiply defined symbol",
+    "m68k_compile": "PASS"
+  },
+  "pcc-optim002_label": {
+    "status": "FAIL",
+    "stage": "run",
+    "detail": "FAIL <build>/pcc-optim002_label/test.bout (R0=1, expected 0)",
+    "m68k_compile": "PASS"
+  }
+}

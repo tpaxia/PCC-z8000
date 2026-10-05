@@ -1669,7 +1669,7 @@ lookup( name, s) char *name; {
 			sp->sclass = SNULL;
 			return( i );
 			}
-		if( (sp->sflags & (STAG|SMOS|SHIDDEN)) != s ) goto next;
+		if( (sp->sflags & (STAG|SMOS|SLABEL|SHIDDEN)) != s ) goto next;
 		p = sp->sname;
 		q = name;
 		for( j=0; j<NCHNAM;++j ){
@@ -1695,7 +1695,7 @@ checkst(lev){
 
 	for( i=0, p=stab; i<SYMTSZ; ++i, ++p ){
 		if( p->stype == TNULL ) continue;
-		j = lookup( p->sname, p->sflags&(SMOS|STAG) );
+		j = lookup( p->sname, p->sflags&(SMOS|STAG|SLABEL) );
 		if( j != i ){
 			q = &stab[j];
 			if( q->stype == UNDEF ||
@@ -1714,7 +1714,7 @@ relook(p) register struct symtab *p; {  /* look up p again, and see where it lie
 	register struct symtab *q;
 
 	/* I'm not sure that this handles towers of several hidden definitions in all cases */
-	q = &stab[lookup( p->sname, p->sflags&(STAG|SMOS|SHIDDEN) )];
+	q = &stab[lookup( p->sname, p->sflags&(STAG|SMOS|SLABEL|SHIDDEN) )];
 	/* make relook always point to either p or an empty cell */
 	if( q->stype == UNDEF ){
 		q->stype = TNULL;
@@ -1807,7 +1807,7 @@ hide( p ) register struct symtab *p; {
 		}
 	movestab( q, p );
 	p->sflags |= SHIDDEN;
-	q->sflags = (p->sflags&(SMOS|STAG)) | SHIDES;
+	q->sflags = (p->sflags&(SMOS|STAG|SLABEL)) | SHIDES;
 	if( hflag ) werror( "%.8s redefinition hides earlier one", p->sname );
 # ifndef BUG1
 	if( ddebug ) printf( "	%d hidden in %d\n", p-stab, q-stab );
@@ -1819,7 +1819,7 @@ unhide( p ) register struct symtab *p; {
 	register struct symtab *q;
 	register s, j;
 
-	s = p->sflags & (SMOS|STAG);
+	s = p->sflags & (SMOS|STAG|SLABEL);
 	q = p;
 
 	for(;;){
@@ -1829,7 +1829,7 @@ unhide( p ) register struct symtab *p; {
 
 		if( q == p ) break;
 
-		if( (q->sflags&(SMOS|STAG)) == s ){
+		if( (q->sflags&(SMOS|STAG|SLABEL)) == s ){
 			for( j =0; j<NCHNAM; ++j ) if( p->sname[j] != q->sname[j] ) break;
 			if( j == NCHNAM ){ /* found the name */
 				q->sflags &= ~SHIDDEN;
