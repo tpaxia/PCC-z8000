@@ -20,31 +20,31 @@
   "src": "bd9bb7ca70aa3c89"
  },
  "dev/tty.c": {
-  "asm": "1c6cb59e3dd285a4",
+  "asm": "b4065c862cd02506",
   "src": "277a31b857d6fa52"
  },
  "sys/alloc.c": {
-  "asm": "42c84511a0be0456",
+  "asm": "1955b97010303341",
   "src": "82f2a573f3dcbc86"
  },
  "sys/bio.c": {
-  "asm": "42d67656bc9e7219",
+  "asm": "8d06599a94bb829f",
   "src": "5af72c95b66dfdd1"
  },
  "sys/clock.c": {
-  "asm": "572186359afacf02",
+  "asm": "cf1c54ebd1a40ec2",
   "src": "ab66c5792ebd2122"
  },
  "sys/fio.c": {
-  "asm": "de5e03255443bb35",
+  "asm": "8e1839dece4366b2",
   "src": "21da1f87f79f1467"
  },
  "sys/iget.c": {
-  "asm": "64bbd4e4fa96c920",
+  "asm": "6d10d7572cc8a39a",
   "src": "fa514b361d3b2ea4"
  },
  "sys/machdep.c": {
-  "asm": "8f5409beadda70b9",
+  "asm": "0770a37f65d7a112",
   "src": "fe476a2fec134635"
  },
  "sys/main.c": {
@@ -52,11 +52,11 @@
   "src": "2a57a76921e9b249"
  },
  "sys/nami.c": {
-  "asm": "cd82444619412790",
+  "asm": "ff3d76e55dc0dbfc",
   "src": "20da837bf2595005"
  },
  "sys/pipe.c": {
-  "asm": "0536f1da0996e094",
+  "asm": "0c087c83370b8dd1",
   "src": "2419044f4c880c67"
  },
  "sys/prf.c": {
@@ -68,15 +68,15 @@
   "src": "72b20ffc1bdea52a"
  },
  "sys/rdwri.c": {
-  "asm": "9d5673d589e9f6aa",
+  "asm": "9e0112914a5d8857",
   "src": "428cc231eaf90479"
  },
  "sys/sig.c": {
-  "asm": "64a9492f356f6a06",
+  "asm": "3c85ab3400f8322a",
   "src": "620ae993d6a4cd98"
  },
  "sys/slp.c": {
-  "asm": "86f3fe516358ab38",
+  "asm": "2e4bcad5ef5cf378",
   "src": "b554d9a5ed0f96cf"
  },
  "sys/subr.c": {
@@ -84,19 +84,19 @@
   "src": "20293246bc084967"
  },
  "sys/sys1.c": {
-  "asm": "dca5428be9130fcf",
+  "asm": "df86565b98c39484",
   "src": "a7b57cb2567965f6"
  },
  "sys/sys2.c": {
-  "asm": "a4002bb7a3486fc8",
+  "asm": "47bb3abfe812e3e6",
   "src": "33fc733e96e68bf0"
  },
  "sys/sys3.c": {
-  "asm": "825f4da635974ea6",
+  "asm": "f32b5c0e252e86dd",
   "src": "ed07f3dc7e789699"
  },
  "sys/sys4.c": {
-  "asm": "b24537495abe5829",
+  "asm": "225c8480d3ed7004",
   "src": "ea300532062d7823"
  },
  "sys/sysent.c": {
@@ -104,7 +104,7 @@
   "src": "700e49c8563c643e"
  },
  "sys/trap.c": {
-  "asm": "1c4087b736f4ef26",
+  "asm": "1977e397ab19a777",
   "src": "a617f58d3f4b9f38"
  }
 }

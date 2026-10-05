@@ -7,12 +7,10 @@
   "warnings": []
  },
  "gen/atof.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/libc/gen/atof.c:14: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "909a801cfc5acbe8",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "gen/atoi.c": {
@@ -63,12 +61,10 @@
   "warnings": []
  },
  "gen/ecvt.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/libc/gen/ecvt.c:16: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "30358dd0f84618b6",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "gen/errlst.c": {
@@ -174,12 +170,10 @@
   "warnings": []
  },
  "gen/qsort.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/libc/gen/qsort.c:13: compiler error: faulty register move"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "8eb85ef6a93c2026",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "gen/rand.c": {

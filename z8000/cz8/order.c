@@ -149,7 +149,9 @@ sucomp( p ) register NODE *p; {
 
 	if( o == ASSIGN ){
 		asop:  /* also used for +=, etc., to memory */
-		if( sul==0 ){
+		/* a long or double variable on the left is only addressed, never
+		   loaded, so its own register count does not apply */
+		if( sul==0 || optype(p->in.left->in.op)==LTYPE ){
 			/* don't need to worry about the left side */
 			p->in.su = max( sur, nr );
 			}

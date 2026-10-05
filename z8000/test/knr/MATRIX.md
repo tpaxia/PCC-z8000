@@ -7,24 +7,19 @@ here; the regression, comparison and external suites are not.
 
 | Items | Count |
 | --- | --- |
-| Probed and passing | 216 |
-| Probed and failing | 17 |
+| Probed and passing | 221 |
+| Probed and failing | 12 |
 | Not probed | 13 |
 | Total | 246 |
 
-58 probes, 51 passing.
+58 probes, 56 passing.
 
 ## Failing probes
 
 | Probe | Failure |
 | --- | --- |
 | `d86_init` | link: format error bad address in relocation command |
-| `e72_cast_const` | run: check 1 failed |
-| `e75_shift_type` | run: check 1 failed |
-| `e76_rel_type` | run: check 1 failed |
-| `k15_conditional` | compile: line 3: constant expected |
 | `l22_runtime_names` | link: multiply defined symbol fadd |
-| `l241_octal89` | compile: line 5: illegal octal constant |
 
 ## By section
 
@@ -59,7 +54,7 @@ here; the regression, comparison and external suites are not.
 | decimal | decimal | `l241_intconst` | PASS |
 | octal | leading 0 is octal | `l241_intconst` | PASS |
 | hex | 0x and 0X | `l241_intconst` | PASS |
-| octal-8-9 | digits 8 and 9 in an octal constant have value 10 and 11 | `l241_octal89` | FAIL |
+| octal-8-9 | digits 8 and 9 in an octal constant have value 10 and 11 | `l241_octal89` | PASS |
 | auto-long | a constant too large for int (decimal) or unsigned (octal, hex) is long | `l241_intconst` | PASS |
 
 ### 2.4.2 Explicit long constants
@@ -185,7 +180,7 @@ here; the regression, comparison and external suites are not.
 | cast | (type-name) expression | `e72_cast_sizeof` | PASS |
 | sizeof-expr | sizeof expression, operand not evaluated | `e72_cast_sizeof` | PASS |
 | sizeof-type | sizeof (type-name) | `e72_cast_sizeof` | PASS |
-| cast-constant | a cast applied to a constant converts it | `e72_cast_const` | FAIL |
+| cast-constant | a cast applied to a constant converts it | `e72_cast_const` | PASS |
 
 ### 7.3 Multiplicative operators
 
@@ -215,7 +210,7 @@ here; the regression, comparison and external suites are not.
 | right-unsigned | >> on unsigned is logical | `e75_shift` | PASS |
 | long | long shifts | `e75_shift` | PASS |
 | variable-count | count held in a variable | `e75_shift` | PASS |
-| result-type | the result has the type of the left operand | `e75_shift_type` | FAIL |
+| result-type | the result has the type of the left operand | `e75_shift_type` | PASS |
 
 ### 7.6 Relational operators
 
@@ -228,7 +223,7 @@ here; the regression, comparison and external suites are not.
 | float | double comparison | `e76_rel` | PASS |
 | result | result is int 0 or 1 | `e76_rel` | PASS |
 | grouping | a<b<c groups left to right | `e76_rel` | PASS |
-| result-wide-operands | the result is int for long and double operands too | `e76_rel_type` | FAIL |
+| result-wide-operands | the result is int for long and double operands too | `e76_rel_type` | PASS |
 
 ### 7.7 Equality operators
 
@@ -574,7 +569,7 @@ The preprocessor is the host cpp, not part of this toolchain; nothing here is pr
 | array-bound | in array bounds | `k15_constexpr` | PASS |
 | initializer | in initializers | `k15_constexpr` | PASS |
 | sizeof | sizeof in a constant expression | `k15_constexpr` | PASS |
-| conditional | ?: in a constant expression | `k15_conditional` | FAIL |
+| conditional | ?: in a constant expression | `k15_conditional` | PASS |
 | case | after case | `k15_constexpr`, `s9_switch` | PASS |
 
 ### 17 Anachronisms

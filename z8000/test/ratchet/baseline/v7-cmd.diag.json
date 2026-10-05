@@ -116,13 +116,23 @@
   ]
  },
  "adb/output.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/adb/output.c:140: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "1744548c584870b8",
-  "status": "error",
-  "warnings": []
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/output.c:100: warning: illegal pointer combination, op =",
+   "usr/src/cmd/adb/output.c:109: warning: illegal pointer combination, op =",
+   "usr/src/cmd/adb/output.c:109: warning: illegal pointer combination, op =",
+   "usr/src/cmd/adb/output.c:136: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/output.c:13: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/output.c:140: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/output.c:17: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/output.c:192: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/adb/output.c:252: warning: old-fashioned assignment operator",
+   "usr/src/cmd/adb/output.c:37: warning: old-fashioned initialization: use ="
+  ]
  },
  "adb/pcs.c": {
   "az8": "ok",
@@ -136,13 +146,20 @@
   ]
  },
  "adb/print.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/adb/print.c:311: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "45bc415669449f76",
-  "status": "error",
-  "warnings": []
+  "status": "ok",
+  "warnings": [
+   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/src/cmd/adb/print.c:308: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/print.c:310: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/print.c:311: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/print.c:312: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/adb/print.c:37: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/print.c:49: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/adb/print.c:70: warning: old-fashioned initialization: use ="
+  ]
  },
  "adb/runpcs.c": {
   "az8": "ok",
@@ -338,22 +355,117 @@
   ]
  },
  "c/c01.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/c/c01.c:547: compiler error: faulty register move"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "f4c28af3086ec3eb",
-  "status": "error",
-  "warnings": []
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c01.c:131: warning: illegal member use: hclass",
+   "usr/src/cmd/c/c01.c:136: warning: illegal member use: hflag",
+   "usr/src/cmd/c/c01.c:141: warning: illegal member use: hoffset",
+   "usr/src/cmd/c/c01.c:143: warning: illegal member use: hflag",
+   "usr/src/cmd/c/c01.c:144: warning: illegal member use: hstrp",
+   "usr/src/cmd/c/c01.c:170: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:195: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:199: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:327: warning: illegal member use: hclass",
+   "usr/src/cmd/c/c01.c:404: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c01.c:42: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c01.c:435: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c01.c:43: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c01.c:44: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c01.c:453: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c01.c:471: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c01.c:472: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:473: warning: illegal pointer/integer combination, op ==",
+   "usr/src/cmd/c/c01.c:477: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:479: warning: illegal pointer combination, op RETURN",
+   "usr/src/cmd/c/c01.c:516: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:516: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:516: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:516: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:525: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:528: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:532: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:536: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:540: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:550: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:560: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:564: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:568: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:572: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:584: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:592: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c01.c:624: warning: illegal member use: value",
+   "usr/src/cmd/c/c01.c:643: warning: illegal member use: value"
+  ]
  },
  "c/c02.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/c/c02.c:171: compiler error: faulty register move"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "ca1ebd55ef413585",
-  "status": "error",
-  "warnings": []
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/c/c02.c:105: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:109: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:128: warning: illegal pointer combination, op <",
+   "usr/src/cmd/c/c02.c:129: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:130: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:144: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:145: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:148: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:165: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:166: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c02.c:175: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:189: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:192: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:194: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:210: warning: illegal member use: value",
+   "usr/src/cmd/c/c02.c:212: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:230: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c02.c:235: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:250: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:292: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:48: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:500: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c02.c:501: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:502: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:504: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:506: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c02.c:511: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:512: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:513: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:513: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:514: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:515: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:516: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:51: warning: illegal member use: type",
+   "usr/src/cmd/c/c02.c:52: warning: illegal member use: strp",
+   "usr/src/cmd/c/c02.c:567: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:575: warning: illegal pointer combination, op <",
+   "usr/src/cmd/c/c02.c:576: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:577: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:593: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c02.c:596: warning: illegal pointer/integer combination, op RETURN",
+   "usr/src/cmd/c/c02.c:642: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c02.c:643: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c02.c:643: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/c/c02.c:652: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:653: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:654: warning: illegal pointer/integer combination, op =",
+   "usr/src/cmd/c/c02.c:654: warning: struct/union or struct/union pointer required",
+   "usr/src/cmd/c/c02.c:659: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:660: warning: illegal member use: subsp",
+   "usr/src/cmd/c/c02.c:662: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:719: warning: illegal structure pointer combination, op =",
+   "usr/src/cmd/c/c02.c:722: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:740: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:741: warning: old-fashioned assignment operator",
+   "usr/src/cmd/c/c02.c:75: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:78: warning: illegal pointer combination, op >",
+   "usr/src/cmd/c/c02.c:79: warning: illegal pointer combination, op =",
+   "usr/src/cmd/c/c02.c:80: warning: illegal pointer combination, op ="
+  ]
  },
  "c/c03.c": {
   "az8": "ok",
@@ -669,12 +781,10 @@
   "warnings": []
  },
  "crypt.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/crypt.c:46: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "d0996d269ad9e968",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "cu.c": {
@@ -767,7 +877,7 @@
   "warnings": []
  },
  "dump.c": {
-  "az8": "fail",
+  "az8": "ok",
   "errors": [],
   "src": "44e034b136f50b75",
   "status": "ok",
@@ -795,12 +905,10 @@
   "warnings": []
  },
  "ed.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/ed.c:1723: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "b5265c036d63faa7",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "eqn/diacrit.c": {
@@ -1204,12 +1312,10 @@
   "warnings": []
  },
  "iostat.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/iostat.c:99: compiler error: no table entry for op ="
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "db6645da559e3380",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "join.c": {
@@ -2096,13 +2202,14 @@
   "warnings": []
  },
  "plot/vplot.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/plot/vplot.c:106: compiler error: no table entry for op ="
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "aad8e694b769a128",
-  "status": "error",
-  "warnings": []
+  "status": "ok",
+  "warnings": [
+   "usr/src/cmd/plot/vplot.c:27: warning: old-fashioned initialization: use =",
+   "usr/src/cmd/plot/vplot.c:28: warning: old-fashioned initialization: use ="
+  ]
  },
  "pr.c": {
   "az8": "ok",
@@ -4563,12 +4670,10 @@
   "warnings": []
  },
  "units.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/units.c:89: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "5fd99a67d5fd04fa",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "update.c": {

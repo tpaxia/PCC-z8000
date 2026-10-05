@@ -5,7 +5,7 @@
   "bitfield_cross": {
     "status": "PASS"
   },
-  "bitfield_signed": {
+  "bitfield_plain_int": {
     "status": "PASS"
   },
   "bitfield_wide": {

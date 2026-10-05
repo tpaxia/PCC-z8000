@@ -3,12 +3,16 @@
   "asm": "3dd3d630102249f3",
   "src": "c3c96390278f89d4"
  },
+ "gen/atof.c": {
+  "asm": "c272fdf2ee91b267",
+  "src": "909a801cfc5acbe8"
+ },
  "gen/atoi.c": {
-  "asm": "4b26d87c43682f02",
+  "asm": "3414a181b8f5991a",
   "src": "7a382fc623b05a55"
  },
  "gen/atol.c": {
-  "asm": "30771c22384bbfb7",
+  "asm": "6ca9612becd45daa",
   "src": "413d51f67dce42cf"
  },
  "gen/calloc.c": {
@@ -16,7 +20,7 @@
   "src": "05b3ffa84ea2cb4c"
  },
  "gen/crypt.c": {
-  "asm": "e74d6652f08b870b",
+  "asm": "5743e136e02b4f16",
   "src": "e9d17c54b2e3c8cf"
  },
  "gen/ctime.c": {
@@ -27,20 +31,24 @@
   "asm": "c7d6f485fb452e44",
   "src": "0cb708a3cdbe4491"
  },
+ "gen/ecvt.c": {
+  "asm": "d99feeacaca5ad0e",
+  "src": "30358dd0f84618b6"
+ },
  "gen/errlst.c": {
   "asm": "167c0e8d989cbcfa",
   "src": "cb6a9fb1ba5a7f4a"
  },
  "gen/execvp.c": {
-  "asm": "e3318a63eee948e0",
+  "asm": "82ea2a6cc1de731d",
   "src": "2b241a0c67afc174"
  },
  "gen/getenv.c": {
-  "asm": "a2e14068118f47ef",
+  "asm": "372cdcc13ce399d3",
   "src": "f74c614ff84980db"
  },
  "gen/getlogin.c": {
-  "asm": "78c4aced6933a1ef",
+  "asm": "842563e7353df3d4",
   "src": "e918fa73d7189932"
  },
  "gen/index.c": {
@@ -60,7 +68,7 @@
   "src": "9b01d8af5cd47365"
  },
  "gen/mktemp.c": {
-  "asm": "589ac167e03f5c1d",
+  "asm": "5d334e2ef35e9af3",
   "src": "a19b543a89741ab6"
  },
  "gen/mon.c": {
@@ -79,6 +87,10 @@
   "asm": "c8bd48493c060c9c",
   "src": "dd4a38009cf50b23"
  },
+ "gen/qsort.c": {
+  "asm": "43d785e808cc0cb8",
+  "src": "8eb85ef6a93c2026"
+ },
  "gen/rand.c": {
   "asm": "ff66dec7c923b886",
   "src": "5f3a0466b78ada5c"
@@ -96,7 +108,7 @@
   "src": "59023ac7be6d4037"
  },
  "gen/strcmp.c": {
-  "asm": "4663223fe6671c8f",
+  "asm": "32d45f795bc28ee7",
   "src": "69ba71ad37fad5c8"
  },
  "gen/strcpy.c": {
@@ -112,11 +124,11 @@
   "src": "fbfe2167ff5ad18b"
  },
  "gen/strncmp.c": {
-  "asm": "300634ad28cd556b",
+  "asm": "fa9015a62515dd86",
   "src": "beaa59d29d84055f"
  },
  "gen/strncpy.c": {
-  "asm": "4e612954f991d585",
+  "asm": "128da1e761c4de49",
   "src": "9ef5ab8047c7eedc"
  },
  "gen/stty.c": {
@@ -140,7 +152,7 @@
   "src": "2eeed094ce9113e1"
  },
  "gen/ttyslot.c": {
-  "asm": "20b3d8478d0aad1e",
+  "asm": "9b60cdca735dc1b4",
   "src": "ca53e7a5e02e1d0a"
  },
  "stdio/clrerr.c": {
@@ -152,11 +164,11 @@
   "src": "756b35fe4f1fbbdc"
  },
  "stdio/endopen.c": {
-  "asm": "9a9e81b775c74d70",
+  "asm": "765a10fda7344273",
   "src": "2ede7878ba000d1b"
  },
  "stdio/fdopen.c": {
-  "asm": "ec65255bcd0f4b6d",
+  "asm": "058108ac4ce60bff",
   "src": "53dcd878a7e24313"
  },
  "stdio/fgetc.c": {
@@ -176,7 +188,7 @@
   "src": "31d2215fda7a0535"
  },
  "stdio/flsbuf.c": {
-  "asm": "3d5e8ce8da22ffb7",
+  "asm": "cf9f19a542febab2",
   "src": "f1debf1581b99773"
  },
  "stdio/fopen.c": {
@@ -208,7 +220,7 @@
   "src": "513f0ff0fc071fb6"
  },
  "stdio/gcvt.c": {
-  "asm": "f6a40a7f2a36406f",
+  "asm": "afe8327a5765ec22",
   "src": "e1845b38e5213b78"
  },
  "stdio/getchar.c": {
@@ -236,7 +248,7 @@
   "src": "57feaf6edf4a72b3"
  },
  "stdio/getpwent.c": {
-  "asm": "a72f0c390b567df0",
+  "asm": "5544cb948578ce51",
   "src": "dd02591058c36a69"
  },
  "stdio/getpwnam.c": {
@@ -256,7 +268,7 @@
   "src": "c9a10f2e8e4869a4"
  },
  "stdio/popen.c": {
-  "asm": "0eae083563e4300d",
+  "asm": "e5b9c9b9606343ca",
   "src": "3f659b17f206aebb"
  },
  "stdio/printf.c": {
@@ -296,7 +308,7 @@
   "src": "274dd583a0b802f9"
  },
  "stdio/strout.c": {
-  "asm": "5bf8640acfdef511",
+  "asm": "4aa04256854649cc",
   "src": "2f7650e30758819c"
  },
  "stdio/system.c": {

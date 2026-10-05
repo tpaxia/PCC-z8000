@@ -113,6 +113,7 @@
 # define NTEMP 0400
 # define NTMASK 07400
 # define REWRITE 010000
+# define NWORD 020000  /* scratch registers are used one word at a time */
 
 
 # define MUSTDO 010000   /* force register requirements */

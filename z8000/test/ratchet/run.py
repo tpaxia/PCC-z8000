@@ -194,7 +194,12 @@ def build_reference(rev, build):
     cz8 = ref / "z8000" / "cz8" / "cz8"
     if not cz8.exists():
         ref.mkdir(parents=True, exist_ok=True)
-        archive = subprocess.run(["git", "-C", REPO, "archive", rev, "z8000/cz8"],
+        # Newer revisions generate the parser with the in-tree yacc.
+        paths = ["z8000/cz8"]
+        if subprocess.run(["git", "-C", REPO, "cat-file", "-e", rev + ":z8000/yacc"],
+                          capture_output=True).returncode == 0:
+            paths.append("z8000/yacc")
+        archive = subprocess.run(["git", "-C", REPO, "archive", rev, *paths],
                                  capture_output=True, check=True).stdout
         subprocess.run(["tar", "-x", "-C", ref], input=archive, check=True)
         made = subprocess.run(["make", "-C", cz8.parent], capture_output=True)

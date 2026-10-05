@@ -36,7 +36,7 @@ Current complete logs, assembly and results are under `build/`. `results.json` i
 
 ## Inherited behavior and gaps in the original baseline
 
-`bitfield_signed` fails its signed-value expectation on Z8000. Inspection of the original emitted assembly shows the same field extraction algorithm: shift and mask without sign extension. This is inherited behavior, not a newly omitted Z8000 template. Plain `int` bitfield signedness can depend on the historical dialect, so this probe does not alone establish a violation of its original language contract.
+`bitfield_plain_int` records that plain `int` bit-fields are unsigned. The original 68000 backend uses the same field extraction: shift and mask without sign extension. An earlier version of this probe (`bitfield_signed`) expected sign extension and the compiler was briefly changed to provide it; that was reverted, because it silently changed the value of existing K&R code such as `int flag:1` used as a boolean.
 
 `double_increment` fails compilation in both backends. The original compiler is not a complete correctness oracle.
 

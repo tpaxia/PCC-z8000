@@ -160,6 +160,11 @@ buildtree( o, l, r ) register NODE *l, *r; {
 
 	/* its real; we must make a new node */
 
+	/* The result of a shift has the type of its left operand; the count is
+	   converted to int first so that a long count does not widen it. */
+	if( (o==LS || o==RS) && (r->in.type==LONG || r->in.type==ULONG) )
+		r = makety( r, INT, 0, INT );
+
 	p = block( o, l, r, INT, 0, INT );
 
 	actions = opact(p);
@@ -815,10 +820,10 @@ NODE *
 bcon( i ){ /* make a constant node with value i */
 	register NODE *p;
 
+	/* An integer constant is an int. (The 68000 port this file came from
+	   typed it char or short when it fitted, as a hint for short
+	   immediates; that made a cast such as (char)300 a no-op.) */
 	p = block( ICON, NIL, NIL, INT, 0, INT );
-	if (i>=-128 && i<=127) p->tn.type = CHAR;
-	else if (i>=-32768 && i<=32767) p->tn.type = SHORT;
-	else p->tn.type = INT;
 	p->tn.lval = i;
 	p->tn.rval = NONAME;
 	return( clocal(p) );
@@ -1081,7 +1086,8 @@ tymatch(p)  register NODE *p; {
 	else {	if ( logop(o) ) p->in.type = INT;
 		else p->in.type = tu;
 		p->fn.cdim = 0;
-		p->fn.csiz = t;
+		/* a comparison yields an int whatever it compares */
+		p->fn.csiz = logop(o) ? INT : t;
 		}
 
 # ifndef BUG1

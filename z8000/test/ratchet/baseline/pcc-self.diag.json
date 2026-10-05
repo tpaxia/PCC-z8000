@@ -74,7 +74,7 @@
  "cz8/allo.c": {
   "az8": "ok",
   "errors": [],
-  "src": "8055e4d97d0c8f33",
+  "src": "604a37977df606e7",
   "status": "ok",
   "warnings": []
  },
@@ -113,7 +113,7 @@
  "cz8/local2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "6aedb2a8563fc116",
+  "src": "544806b05293e36a",
   "status": "ok",
   "warnings": []
  },
@@ -134,7 +134,7 @@
  "cz8/order.c": {
   "az8": "ok",
   "errors": [],
-  "src": "2821d4c5ef8108a2",
+  "src": "06ced111b0b9bd48",
   "status": "ok",
   "warnings": []
  },
@@ -150,21 +150,21 @@
  "cz8/reader.c": {
   "az8": "ok",
   "errors": [],
-  "src": "11b85a761ddfa0c5",
+  "src": "7854d36340042517",
   "status": "ok",
   "warnings": []
  },
  "cz8/scan.c": {
   "az8": "ok",
   "errors": [],
-  "src": "d274e078f160596a",
+  "src": "7a6bd772ea6c215c",
   "status": "ok",
   "warnings": []
  },
  "cz8/table.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3763a7184235618e",
+  "src": "a407d3c6a3a21403",
   "status": "ok",
   "warnings": []
  },
@@ -173,7 +173,7 @@
   "errors": [
    "z8000/cz8/trees.c:69: compiler error: expression causes compiler loop: try simplifying"
   ],
-  "src": "b4257d6cab8a8abb",
+  "src": "16d1bb80104d4f84",
   "status": "error",
   "warnings": []
  },

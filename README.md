@@ -28,11 +28,11 @@ compile, assemble, link and execute on the Z8002 emulator:
 
 | Suite | Result | Documentation |
 | --- | --- | --- |
-| General regression, including the 15 core programs | 73 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
+| General regression, including the 15 core programs | 75 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
 | 68000 comparison probes | 54 PASS, 0 FAIL | [Compiler comparison](z8000/test/compare68k/README.md) |
 | Selected external GCC/PCC K&R tests | 58 PASS, 0 FAIL | [Sources, adaptations and results](z8000/test/external/README.md) |
 | No-regression ratchet: 686 real K&R source files, compile-only | 0 regressions | [Ratchet](z8000/test/ratchet/README.md) |
-| K&R reference-manual probes | 51 of 58 PASS, 7 known failures | [Coverage matrix](z8000/test/knr/MATRIX.md) |
+| K&R reference-manual probes | 56 of 58 PASS, 2 known failures | [Coverage matrix](z8000/test/knr/MATRIX.md) |
 
 The first three suites have no expected-failure exemptions; the K&R probes
 record their known failures in `knr/status.json`. The suites have overlapping coverage;
@@ -120,7 +120,7 @@ All four binaries (`cz8`, `az8`, `ccz8`, `ldz8`) compile and link successfully.
 
 The comparison and external suites exposed failures beyond the initial core
 programs. Fixes now cover label namespaces, typedef shadowing in declarations
-and enum constants, signed bitfield extraction and clearing, variable byte
+and enum constants, bitfield clearing, variable byte
 shifts, register long arguments, byte/long pointer conversions, full-width long
 and unsigned switch dispatch, and large aggregate copies and returns. The
 assembler now distinguishes lowercase register aliases from ordinary symbols.
@@ -160,5 +160,5 @@ suite documentation for the exact verified scope and historical failures.
 - R0 cannot be used for indirect/indexed addressing
 - Register classes: SAREG (R0-R7 data), SBREG (R8-R13 address)
 - Compiler and target C sources use K&R C; host test runners and generators use Python 3
-- float = IEEE binary32, double = IEEE binary64; plain int bitfields are signed
+- float = IEEE binary32, double = IEEE binary64; plain int bitfields are unsigned
 - Object format: current linker emits a.out with a 16-byte big-endian header; the test driver also accepts older b.out images

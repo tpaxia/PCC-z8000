@@ -541,7 +541,6 @@ yylex(){
 					/* convert in octal */
 					register char *cp;
 					for( cp = yytext+1; *cp; ++cp ){
-						if( *cp > '7' ) uerror( "illegal octal constant" );
 						lastcon <<= 3;
 						lastcon += *cp - '0';
 						}

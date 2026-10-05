@@ -1,6 +1,6 @@
 {
  "args.c": {
-  "asm": "30287a2bbd668919",
+  "asm": "29624d04a89b0658",
   "src": "cbc69facc28ee241"
  },
  "blok.c": {
@@ -12,7 +12,7 @@
   "src": "bf4b16f0c83f5073"
  },
  "cmd.c": {
-  "asm": "c2ef22e60cb40a2b",
+  "asm": "2f46e7b10da715bd",
   "src": "ffe6ccb1e032a34e"
  },
  "ctype.c": {
@@ -24,7 +24,7 @@
   "src": "4b6a6bb5a829513d"
  },
  "expand.c": {
-  "asm": "98bea2d4fb8779dc",
+  "asm": "4c182708856bb4e0",
   "src": "2db1cb52c249b6e1"
  },
  "fault.c": {
@@ -36,11 +36,11 @@
   "src": "d172be4842b6d06e"
  },
  "macro.c": {
-  "asm": "faa4a231e969c2a3",
+  "asm": "da41ea39133e3ac6",
   "src": "5b6f362c9c66acfb"
  },
  "main.c": {
-  "asm": "3e0107671523fac4",
+  "asm": "229e9995ef244df5",
   "src": "89ccffbd056ca1d1"
  },
  "msg.c": {
@@ -48,7 +48,7 @@
   "src": "f1dbcc2fc07f98fa"
  },
  "name.c": {
-  "asm": "96e69b72f57d5102",
+  "asm": "3459f082ea839da6",
   "src": "9e5af3e388b4e6d1"
  },
  "print.c": {
@@ -56,7 +56,7 @@
   "src": "5e51c21efc3a44e3"
  },
  "service.c": {
-  "asm": "919802774857935d",
+  "asm": "42f4be11b56d128f",
   "src": "c34f375a16bde61e"
  },
  "setbrk.c": {
@@ -68,15 +68,15 @@
   "src": "32ef271d4aa893e8"
  },
  "string.c": {
-  "asm": "53f5fab04415f618",
+  "asm": "c0725bc42eba810c",
   "src": "0031b2edc8cdf65e"
  },
  "word.c": {
-  "asm": "f5059d10ef174128",
+  "asm": "fa7826c8bbffe604",
   "src": "03e4cfb8ed99707b"
  },
  "xec.c": {
-  "asm": "1755e935f44b30b3",
+  "asm": "59c4eb690b9a87e2",
   "src": "351fd349029d0965"
  }
 }

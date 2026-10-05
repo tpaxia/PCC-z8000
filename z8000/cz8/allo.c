@@ -28,12 +28,17 @@ allo0(){ /* free everything */
 
 # define TBUSY 01000
 
+/* set while allocating for a template whose scratch register holds one word
+   at a time, so a long or double operand must not reserve a pair or quad */
+static int wordneed;
+
 allo( p, q ) NODE *p; struct optab *q; {
 
 	register n, i, j;
 
 	n = q->needs;
 	i = 0;
+	wordneed = n & NWORD;
 
 	while( n & NACOUNT ){
 		resc[i].in.op = REG;
@@ -149,6 +154,11 @@ usable( p, n, r ) NODE *p; {
 	if( busy[r] > 1 ) return(0);
 	if(((n&NAMASK) && !(rstatus[r]&SAREG)) || ((n&NBMASK) && !(rstatus[r]&SBREG)))
 		return(0);
+	if( wordneed ) {
+		if( busy[r] ) return(0);
+		busy[r] |= TBUSY;
+		return(1);
+	}
 	if( szty(p->in.type) == 4 ) {
 		int k;
 		if( r&3 ) return(0);

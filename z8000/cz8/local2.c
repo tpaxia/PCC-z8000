@@ -285,6 +285,13 @@ zzzcode( p, c ) NODE *p; {
 		return;
 
 	case 'J': /* high and low words of a long static initializer */
+		if( p->in.left->in.name[0] ) {
+			/* an address: it is 16 bits wide, so the high word is 0 */
+			printf("\t.word\t0\n\t.word\t");
+			acon(p->in.left);
+			printf("\n");
+			return;
+		}
 		printf("\t.word\t%ld\n\t.word\t%ld\n",
 		    (p->in.left->tn.lval >> 16) & 65535L,
 		    p->in.left->tn.lval & 65535L);
@@ -618,6 +625,11 @@ adrput( p ) register NODE *p; {
 		if( szty( p->in.type ) == 2 ) {
 			/* print the high order value for long */
 			CONSZ save;
+			if( p->in.name[0] ) {
+				/* an address is 16 bits: its high word is 0 */
+				printf( "#0" );
+				return;
+				}
 			save = p->tn.lval;
 			p->tn.lval = ( p->tn.lval >> SZINT ) & BITMASK(SZINT);
 			printf( "#" );
