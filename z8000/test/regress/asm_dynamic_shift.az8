@@ -1,6 +1,6 @@
 	.text
-	.globl main
-main:
+	.globl _main
+_main:
 	ld r0,#-256
 	ld r1,#-4
 	sda r0,r1

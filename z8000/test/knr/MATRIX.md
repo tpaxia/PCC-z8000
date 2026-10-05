@@ -7,19 +7,12 @@ here; the regression, comparison and external suites are not.
 
 | Items | Count |
 | --- | --- |
-| Probed and passing | 221 |
-| Probed and failing | 12 |
+| Probed and passing | 233 |
+| Probed and failing | 0 |
 | Not probed | 13 |
 | Total | 246 |
 
-58 probes, 56 passing.
-
-## Failing probes
-
-| Probe | Failure |
-| --- | --- |
-| `d86_init` | link: format error bad address in relocation command |
-| `l22_runtime_names` | link: multiply defined symbol fadd |
+58 probes, 58 passing.
 
 ## By section
 
@@ -38,7 +31,7 @@ here; the regression, comparison and external suites are not.
 | underscore | underscore counts as a letter | `l22_ident` | PASS |
 | long-names | names longer than eight characters are accepted | `l22_ident` | PASS |
 | eight-significant | only the first eight characters are significant |  | UNCOVERED |
-| runtime-names | a program may use any non-keyword name, including the compiler's support routine names | `l22_runtime_names` | FAIL |
+| runtime-names | a program may use any non-keyword name, including the compiler's support routine names | `l22_runtime_names` | PASS |
 
 ### 2.3 Keywords
 
@@ -356,17 +349,17 @@ here; the regression, comparison and external suites are not.
 
 | Item | Rule | Probe | Result |
 | --- | --- | --- | --- |
-| scalar | static scalar | `d86_init` | FAIL |
-| array | braced array | `d86_init` | FAIL |
-| partial | missing trailing elements are zero | `d86_init` | FAIL |
-| size-from-init | array size taken from the initializer | `d86_init` | FAIL |
-| string | char array from a string | `d86_init` | FAIL |
-| struct | structure initializer | `d86_init` | FAIL |
-| elided-braces | inner braces left out | `d86_init` | FAIL |
-| pointer | address constants | `d86_init` | FAIL |
-| auto-expression | automatic initialized by any expression | `d86_init` | FAIL |
-| default-zero | static and external default to zero | `d86_init` | FAIL |
-| long-float | long, float and double initializers | `d86_init` | FAIL |
+| scalar | static scalar | `d86_init` | PASS |
+| array | braced array | `d86_init` | PASS |
+| partial | missing trailing elements are zero | `d86_init` | PASS |
+| size-from-init | array size taken from the initializer | `d86_init` | PASS |
+| string | char array from a string | `d86_init` | PASS |
+| struct | structure initializer | `d86_init` | PASS |
+| elided-braces | inner braces left out | `d86_init` | PASS |
+| pointer | address constants | `d86_init` | PASS |
+| auto-expression | automatic initialized by any expression | `d86_init` | PASS |
+| default-zero | static and external default to zero | `d86_init` | PASS |
+| long-float | long, float and double initializers | `d86_init` | PASS |
 
 ### 8.7 Type names
 

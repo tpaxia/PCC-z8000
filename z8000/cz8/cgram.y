@@ -518,10 +518,7 @@ statement:	   e   SM
 			={  register NODE *q;
 			    q = block( FREE, NIL, NIL, INT|ARY, 0, INT );
 			    q->tn.rval = idname = lookup(stab[$2].sname, SLABEL);
-			    /* the scanner entered this name as an ordinary identifier
-			       before it was known to be a label; that entry must not
-			       be reported as undefined when its stale level is cleared */
-			    if( stab[$2].stype == UNDEF ) stab[$2].slevel = 0;
+			    lblname( $2 );
 			    defid( q, ULABEL );
 			    stab[idname].suse = -lineno;
 			    branch( stab[idname].offset );
@@ -536,10 +533,7 @@ label:		   NAME COLON
 			={  register NODE *q;
 			    q = block( FREE, NIL, NIL, INT|ARY, 0, LABEL );
 			    q->tn.rval = lookup(stab[$1].sname, SLABEL);
-			    /* the scanner entered this name as an ordinary identifier
-			       before it was known to be a label; that entry must not
-			       be reported as undefined when its stale level is cleared */
-			    if( stab[$1].stype == UNDEF ) stab[$1].slevel = 0;
+			    lblname( $1 );
 			    defid( q, LABEL );
 			    reached = 1;
 			    }

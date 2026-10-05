@@ -77,6 +77,11 @@ parser-sync:
 # Everything a compiler change must pass before it is accepted.
 gate: parser-sync test regress-strict compare68k external ratchet knr
 
+# The linker is K&R C; without this rule make's built-in rule compiles it with
+# default flags, which a modern host compiler rejects.
+$(LDZ8): $(TOOLDIR)/ldz8.c
+	cc -O -w -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -o $@ $<
+
 # Build the emulator library if needed
 $(EMU_LIB):
 	$(MAKE) -C $(EMU_DIR) libz8000

@@ -1727,6 +1727,20 @@ relook(p) register struct symtab *p; {  /* look up p again, and see where it lie
 	return(q);
 	}
 
+lblname( id ){
+	/* The scanner enters every name as an ordinary identifier before the
+	   grammar knows it is a label. If nothing else uses that entry, mark
+	   it so that clearst() removes it at the end of the function without
+	   reporting it as undefined. */
+	register struct symtab *p;
+
+	p = &stab[id];
+	if( p->stype == UNDEF ){
+		p->sclass = LABEL;
+		p->slevel = 2;
+		}
+	}
+
 clearst( lev ){ /* clear entries of internal scope  from the symbol table */
 	register struct symtab *p, *q, *r;
 	register int temp, rehash;
@@ -1754,7 +1768,10 @@ clearst( lev ){ /* clear entries of internal scope  from the symbol table */
 		lineno = p->suse;
 		if( lineno < 0 ) lineno = - lineno;
 		if( p->slevel>lev ){ /* must clobber */
-			if( p->stype == UNDEF || ( p->sclass == ULABEL && lev < 2 ) ){
+			if( p->stype == UNDEF && p->sclass == LABEL ){
+				/* placeholder left by lblname(): just remove it */
+				}
+			else if( p->stype == UNDEF || ( p->sclass == ULABEL && lev < 2 ) ){
 				lineno = temp;
 				uerror( "%.8s undefined", p->sname );
 				}

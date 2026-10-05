@@ -14,7 +14,7 @@ def emit(name,core,args,n=4,out=True):
   elif arg.startswith('v'):lines.append('\tld\tr0,%s(r13)\n\tpush\t@sp,r0\n'%arg[1:])
   else:lines.append('\tlda\tr0,%s(r13)\n\tpush\t@sp,r0\n'%arg)
  if out:lines.append('\tlda\tr0,-8(r13)\n\tpush\t@sp,r0\n')
- lines.append('\tcall\t'+core+'\n\tadd\tsp,#%d\n'%((len(args)+int(out))*2))
+ lines.append('\tcall\t_'+core+'\n\tadd\tsp,#%d\n'%((len(args)+int(out))*2))  # softfp.c is C: its names carry the C underscore
  if out:
   for k in range(n):lines.append('\tld\tr%d,%d(r13)\n'%(k,-8+2*k))
  lines.append('\tld\tsp,r13\n\tpop\tr13,@sp\n\tret\n')

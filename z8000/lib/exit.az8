@@ -1,6 +1,6 @@
 ! _exit -- terminate program (halt CPU)
 ! Preserves R0 so test driver can read the return value.
 	.text
-	.globl	exit
-exit:
+	.globl	_exit
+_exit:
 	halt

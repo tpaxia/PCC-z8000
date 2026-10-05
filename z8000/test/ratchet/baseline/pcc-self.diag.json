@@ -37,7 +37,7 @@
  "az8/rel.c": {
   "az8": "ok",
   "errors": [],
-  "src": "bf98291e646261f8",
+  "src": "0bdafdb53e99f545",
   "status": "ok",
   "warnings": []
  },
@@ -81,9 +81,9 @@
  "cz8/cgram.c": {
   "az8": "skipped",
   "errors": [
-   "z8000/cgram.y:749: compiler error: expression causes compiler loop: try simplifying"
+   "z8000/cgram.y:751: compiler error: expression causes compiler loop: try simplifying"
   ],
-  "src": "b4402382ea4b7ffc",
+  "src": "063e9102f4a0558a",
   "status": "error",
   "warnings": []
  },
@@ -141,9 +141,9 @@
  "cz8/pftn.c": {
   "az8": "skipped",
   "errors": [
-   "z8000/cz8/pftn.c:1052: compiler error: expression causes compiler loop: try simplifying"
+   "z8000/cz8/pftn.c:1085: compiler error: expression causes compiler loop: try simplifying"
   ],
-  "src": "4b0f2ac47c361b5f",
+  "src": "1db2512a94aafbc7",
   "status": "error",
   "warnings": []
  },
@@ -187,9 +187,9 @@
  "ldz8.c": {
   "az8": "skipped",
   "errors": [
-   "z8000/ldz8.c:261: compiler error: expression causes compiler loop: try simplifying"
+   "z8000/ldz8.c:295: SARMAG undefined"
   ],
-  "src": "d61bd53fae56d01c",
+  "src": "b6d63296ffb896d6",
   "status": "error",
   "warnings": []
  },

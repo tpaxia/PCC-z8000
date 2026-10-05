@@ -7,8 +7,8 @@
 
 	.text
 	.globl	_start
-	.globl	main
-	.globl	exit
+	.globl	_main
+	.globl	_exit
 	.globl	_etext
 	.globl	_edata
 	.globl	_end
@@ -39,12 +39,12 @@ _start:
 	PUSH	@SP, R0		! envp = NULL
 	PUSH	@SP, R0		! argv = NULL
 	PUSH	@SP, R0		! argc = 0
-	CALL	main
+	CALL	_main
 	INC	SP, #6		! clean up args
 
 	! Call exit with return value from main (in R0)
 	PUSH	@SP, R0
-	CALL	exit
+	CALL	_exit
 
 	! Should not return, but just in case
 	JR	_start

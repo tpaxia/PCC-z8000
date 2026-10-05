@@ -18,6 +18,7 @@ long rtsize;		/* size of text relocation area */
 long rdsize;		/* size of data relocation area */
 
 char rname[STR_MAX];	/* name of file for relocation commands */
+char rdname[STR_MAX];	/* name of file for data relocation commands */
 
 struct bhdr filhdr;	/* header for b.out files, contains sizes */
 
@@ -31,10 +32,16 @@ Rel_Header()
 		(dout = fopen(Rel_name, "r+")) == NULL)
 		Sys_Error("open on output file %s failed", Rel_name);
 
+	/* Text and data relocation commands go to separate files. They used to
+	 * share one, with the data commands placed after the space the first
+	 * pass estimated for text; when the final pass emitted more text
+	 * commands than estimated, the two ran into each other. */
 	Concat(rname, Source_name, ".tmpr");
-	if ((rtout = fopen(rname, "w")) == NULL
-	 || (rdout = fopen(rname, "r+")) == NULL)
+	Concat(rdname, Source_name, ".tmpd");
+	if ((rtout = fopen(rname, "w")) == NULL)
 		Sys_Error("open on output file %s failed", rname);
+	if ((rdout = fopen(rdname, "w")) == NULL)
+		Sys_Error("open on output file %s failed", rdname);
 	filhdr.fmagic = FMAGIC;
 	filhdr.tsize = tsize;
 	filhdr.dsize = dsize;
@@ -56,7 +63,6 @@ Rel_Header()
 
 	fseek(tout, (long)(TEXTPOS), 0);	/* seek to start of text */
 	fseek(dout, (long)(DATAPOS), 0);
-	fseek(rdout, rtsize, 0);
 	rtsize = 0;
 	rdsize = 0;
 }
@@ -67,12 +73,10 @@ Rel_Header()
  */
 Fix_Rel()
 {
-	long ortsize;
 	long i;
 	long Sym_Write();
 	register FILE *fin, *fout;
 
-	ortsize = filhdr.trsize;
 	filhdr.trsize = rtsize;
 	filhdr.drsize = rdsize;
 	fclose(rtout);
@@ -87,8 +91,11 @@ Fix_Rel()
 	for (i=0; i<rtsize; i++)
 		putc(getc(fin), fout);
 
-	/* seek to start of data segment relocation commands */
-	fseek(fin, ortsize, 0);
+	/* then the data segment relocation commands */
+	fclose(fin);
+	unlink(rname);
+	if ((fin = fopen(rdname, "r")) == NULL)
+		Sys_Error("cannot reopen relocation file %s", rdname);
 	for (i=0; i<rdsize; i++)
 		putc(getc(fin), fout);
 
@@ -106,7 +113,7 @@ Fix_Rel()
 	put68(tout, &filhdr.trsize, 2);
 	put68(tout, &filhdr.drsize, 2);
 	fclose(fin);
-	unlink(rname);
+	unlink(rdname);
 }
 
 /* rel_val -	Puts value of operand into next bytes of Code

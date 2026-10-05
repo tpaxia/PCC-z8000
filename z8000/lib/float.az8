@@ -12,7 +12,7 @@ fadd:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	daddcore
+	call	_daddcore
 	add	sp,#6
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -32,7 +32,7 @@ fsub:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dsubcore
+	call	_dsubcore
 	add	sp,#6
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -52,7 +52,7 @@ fmul:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dmulcore
+	call	_dmulcore
 	add	sp,#6
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -72,7 +72,7 @@ fdiv:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	ddivcore
+	call	_ddivcore
 	add	sp,#6
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -90,7 +90,7 @@ fneg:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dnegcore
+	call	_dnegcore
 	add	sp,#4
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -109,7 +109,7 @@ feq:
 	push	@sp,r0
 	lda	r0,4(r13)
 	push	@sp,r0
-	call	dcompare
+	call	_dcompare
 	add	sp,#6
 	ld	sp,r13
 	pop	r13,@sp
@@ -124,7 +124,7 @@ fne:
 	push	@sp,r0
 	lda	r0,4(r13)
 	push	@sp,r0
-	call	dcompare
+	call	_dcompare
 	add	sp,#6
 	ld	sp,r13
 	pop	r13,@sp
@@ -139,7 +139,7 @@ flt:
 	push	@sp,r0
 	lda	r0,4(r13)
 	push	@sp,r0
-	call	dcompare
+	call	_dcompare
 	add	sp,#6
 	ld	sp,r13
 	pop	r13,@sp
@@ -154,7 +154,7 @@ fle:
 	push	@sp,r0
 	lda	r0,4(r13)
 	push	@sp,r0
-	call	dcompare
+	call	_dcompare
 	add	sp,#6
 	ld	sp,r13
 	pop	r13,@sp
@@ -169,7 +169,7 @@ fgt:
 	push	@sp,r0
 	lda	r0,4(r13)
 	push	@sp,r0
-	call	dcompare
+	call	_dcompare
 	add	sp,#6
 	ld	sp,r13
 	pop	r13,@sp
@@ -184,7 +184,7 @@ fge:
 	push	@sp,r0
 	lda	r0,4(r13)
 	push	@sp,r0
-	call	dcompare
+	call	_dcompare
 	add	sp,#6
 	ld	sp,r13
 	pop	r13,@sp
@@ -198,7 +198,7 @@ ftod:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	ftodcore
+	call	_ftodcore
 	add	sp,#4
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -216,7 +216,7 @@ dtof:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dtofcore
+	call	_dtofcore
 	add	sp,#4
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -234,7 +234,7 @@ itod:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	itodcore
+	call	_itodcore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -254,7 +254,7 @@ utod:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	itodcore
+	call	_itodcore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -274,7 +274,7 @@ ltod:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	itodcore
+	call	_itodcore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -294,7 +294,7 @@ ultod:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	itodcore
+	call	_itodcore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -314,7 +314,7 @@ dtoi:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dtoicore
+	call	_dtoicore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	sp,r13
@@ -331,7 +331,7 @@ dtou:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dtoicore
+	call	_dtoicore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	sp,r13
@@ -348,7 +348,7 @@ dtol:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dtoicore
+	call	_dtoicore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -366,7 +366,7 @@ dtoul:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dtoicore
+	call	_dtoicore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -392,7 +392,7 @@ afadd:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -414,7 +414,7 @@ afaddf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -434,7 +434,7 @@ faddf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dfopcore
+	call	_dfopcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -454,7 +454,7 @@ afsub:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -476,7 +476,7 @@ afsubf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -496,7 +496,7 @@ fsubf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dfopcore
+	call	_dfopcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -516,7 +516,7 @@ afmul:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -538,7 +538,7 @@ afmulf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -558,7 +558,7 @@ fmulf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dfopcore
+	call	_dfopcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -578,7 +578,7 @@ afdiv:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -600,7 +600,7 @@ afdivf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dafcore
+	call	_dafcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -620,7 +620,7 @@ fdivf:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	dfopcore
+	call	_dfopcore
 	add	sp,#10
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -639,7 +639,7 @@ dfpost:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	postcore
+	call	_postcore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)
@@ -660,7 +660,7 @@ ffpost:
 	push	@sp,r0
 	lda	r0,-8(r13)
 	push	@sp,r0
-	call	postcore
+	call	_postcore
 	add	sp,#8
 	ld	r0,-8(r13)
 	ld	r1,-6(r13)

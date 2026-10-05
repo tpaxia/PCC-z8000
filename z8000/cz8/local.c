@@ -274,7 +274,11 @@ exname( p ) char *p; {
 
 	register i;
 
-	for( i=0; *p&&i<NCHNAM; ++i ){
+	/* Every C name gets a leading underscore, as in the PDP-11 compiler.
+	   That keeps C names apart from the names of the compiler's support
+	   routines (lmul, ldiv, fadd, ...), which have none. */
+	text[0] = '_';
+	for( i=1; *p&&i<NCHNAM; ++i ){
 		text[i] = *p++;
 		}
 

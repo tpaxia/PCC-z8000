@@ -87,7 +87,7 @@ def main():
     # also call exit(status) directly, so use a real stack-argument exit here.
     exit_source = build / "exit.az8"
     exit_obj = build / "exit.b"
-    exit_source.write_text("\t.text\n\t.globl\texit\nexit:\n\tld\tr0,2(sp)\n\thalt\n")
+    exit_source.write_text("\t.text\n\t.globl\t_exit\n_exit:\n\tld\tr0,2(sp)\n\thalt\n")
     ok, detail = regress.command([TARGET / "az8/az8", "-o", exit_obj.name, exit_source.name],
                                  build / "exit-assemble.log", cwd=build)
     if not ok:

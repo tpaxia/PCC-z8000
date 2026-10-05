@@ -1,82 +1,82 @@
 {
  "args.c": {
-  "asm": "29624d04a89b0658",
+  "asm": "5857bea4b375ad84",
   "src": "cbc69facc28ee241"
  },
  "blok.c": {
-  "asm": "5c7966eee660f138",
+  "asm": "a4884939dd6f464e",
   "src": "4f04d027d10a49f0"
  },
  "builtin.c": {
-  "asm": "2981c39ed6756db9",
+  "asm": "a522664d1f90a045",
   "src": "bf4b16f0c83f5073"
  },
  "cmd.c": {
-  "asm": "2f46e7b10da715bd",
+  "asm": "0b59f56e28acf453",
   "src": "ffe6ccb1e032a34e"
  },
  "ctype.c": {
-  "asm": "c6f513d82af5a9c3",
+  "asm": "74ead9799ce7f016",
   "src": "51134f7d3f8ce1c7"
  },
  "error.c": {
-  "asm": "446bc848957943fb",
+  "asm": "f0ec0fa937fce73c",
   "src": "4b6a6bb5a829513d"
  },
  "expand.c": {
-  "asm": "4c182708856bb4e0",
+  "asm": "2407914f3f4ca5df",
   "src": "2db1cb52c249b6e1"
  },
  "fault.c": {
-  "asm": "19ece130ecf8daa6",
+  "asm": "b6e7473fc7fc0d53",
   "src": "b6c4496e5cdc8629"
  },
  "io.c": {
-  "asm": "eafcdc05dd39fee7",
+  "asm": "d7467b967f4c9f59",
   "src": "d172be4842b6d06e"
  },
  "macro.c": {
-  "asm": "da41ea39133e3ac6",
+  "asm": "32f855ffb9f21fb4",
   "src": "5b6f362c9c66acfb"
  },
  "main.c": {
-  "asm": "229e9995ef244df5",
+  "asm": "a171afd4123f544e",
   "src": "89ccffbd056ca1d1"
  },
  "msg.c": {
-  "asm": "f661a506e2e663a2",
+  "asm": "46cc01b2d78ef682",
   "src": "f1dbcc2fc07f98fa"
  },
  "name.c": {
-  "asm": "3459f082ea839da6",
+  "asm": "d68c61f52a1f8ad0",
   "src": "9e5af3e388b4e6d1"
  },
  "print.c": {
-  "asm": "1545519c0b181366",
+  "asm": "9310852eed8657e7",
   "src": "5e51c21efc3a44e3"
  },
  "service.c": {
-  "asm": "42f4be11b56d128f",
+  "asm": "782e0ccaab66e807",
   "src": "c34f375a16bde61e"
  },
  "setbrk.c": {
-  "asm": "37b6e6e6a1561c0d",
+  "asm": "66c0847fc69accc0",
   "src": "efb1ec25013a3baa"
  },
  "stak.c": {
-  "asm": "908f2df7ba8b1c1e",
+  "asm": "2cabe824d12357d2",
   "src": "32ef271d4aa893e8"
  },
  "string.c": {
-  "asm": "c0725bc42eba810c",
+  "asm": "c2c0a3892ba54a84",
   "src": "0031b2edc8cdf65e"
  },
  "word.c": {
-  "asm": "fa7826c8bbffe604",
+  "asm": "bb496f72c08eb59a",
   "src": "03e4cfb8ed99707b"
  },
  "xec.c": {
-  "asm": "59c4eb690b9a87e2",
+  "asm": "4e29d941d0e84a60",
   "src": "351fd349029d0965"
  }
 }

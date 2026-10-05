@@ -28,14 +28,14 @@ compile, assemble, link and execute on the Z8002 emulator:
 
 | Suite | Result | Documentation |
 | --- | --- | --- |
-| General regression, including the 15 core programs | 75 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
+| General regression, including the 15 core programs | 76 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
 | 68000 comparison probes | 54 PASS, 0 FAIL | [Compiler comparison](z8000/test/compare68k/README.md) |
 | Selected external GCC/PCC K&R tests | 58 PASS, 0 FAIL | [Sources, adaptations and results](z8000/test/external/README.md) |
 | No-regression ratchet: 686 real K&R source files, compile-only | 0 regressions | [Ratchet](z8000/test/ratchet/README.md) |
-| K&R reference-manual probes | 56 of 58 PASS, 2 known failures | [Coverage matrix](z8000/test/knr/MATRIX.md) |
+| K&R reference-manual probes | 58 PASS, 0 FAIL | [Coverage matrix](z8000/test/knr/MATRIX.md) |
 
-The first three suites have no expected-failure exemptions; the K&R probes
-record their known failures in `knr/status.json`. The suites have overlapping coverage;
+None of the suites has an expected-failure exemption; the K&R probes record
+their status in `knr/status.json`. The suites have overlapping coverage;
 these counts describe separate runs. The floating runtime also passes more than
 200,000 deterministic host numerical checks. The original 68000 backend is
 compiled for comparison; its generated code is not executed.
@@ -113,7 +113,7 @@ All four binaries (`cz8`, `az8`, `ccz8`, `ldz8`) compile and link successfully.
 - `ps.c`/`init.c`/`inst.h`/`ins.c`: added `.zerow` pseudo-op (zero N words) — compiler emits this for zero-initialized word-sized static data; `.zerol` (zero N longs) already existed
 
 **Runtime:**
-- `crt0.az8`: fixed `_main`/`_exit` → `main`/`exit` (compiler does not prepend underscore to C symbols)
+- `crt0.az8`: calls `_main` and `_exit` (the compiler prepends an underscore to C symbols)
 - `lib/arith.az8`: 32-bit arithmetic runtime library — `lmul`/`ulmul` (signed/unsigned multiply), `ldiv`/`uldiv` (divide), `lrem`/`ulrem` (remainder), plus assignment variants (`almul`, `aldiv`, `alrem`, `aulmul`, `auldiv`, `aulrem`). Unsigned ops use a fast path (two hardware DIV instructions) when divisor < 32768, otherwise binary long division (32 iterations)
 
 ### Fixes from the broader compiler audit
@@ -157,6 +157,7 @@ suite documentation for the exact verified scope and historical failures.
 - Z8002 nonsegmented: 16-bit flat address space, 16x16-bit GPRs (R0-R15)
 - int = short = pointer = 16 bits, long = 32 bits (register pairs)
 - R13 = frame pointer, R15 = stack pointer
+- Every C symbol gets a leading underscore and is truncated to eight characters with it (seven of the C name), as in the PDP-11 compiler. The compiler's support routines (`lmul`, `ldiv`, `fadd`, ...) have none, so no C name can collide with them. Assembly called from C defines `_name`
 - R0 cannot be used for indirect/indexed addressing
 - Register classes: SAREG (R0-R7 data), SBREG (R8-R13 address)
 - Compiler and target C sources use K&R C; host test runners and generators use Python 3

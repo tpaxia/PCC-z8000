@@ -149,6 +149,7 @@ symp *hash();
 long relext();
 long relcmd();
 long atox();
+int nerrors;	/* number of errors reported by error() */
 /* main -	The link editor works in two passes.  In pass 1, symbols
 		are defined.  In pass 2, the actual text and data will
 		be output along with any relocation commands and symbols
@@ -169,7 +170,9 @@ char **argv;
 	for (argp = arglist; argp; argp = argp->arg_next)
 		load2arg(filename = argp->arg_name);
 	finishout();
-	exit(0);
+	/* An image is still written, but a link with undefined or multiply
+	   defined symbols or bad relocation commands is not a success. */
+	exit(nerrors || nund ? 1 : 0);
 }
 
 /* progargs -	Process command arguments
@@ -1087,6 +1090,7 @@ long getsym()
 error(fmt, a1, a2, a3, a4, a5)
 char *fmt;
 {
+	nerrors++;
 	printf("ldz8: ");
 	printf(fmt, a1, a2, a3, a4, a5);
 	printf("\n");

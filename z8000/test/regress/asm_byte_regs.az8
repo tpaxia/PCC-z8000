@@ -1,6 +1,6 @@
 	.text
-	.globl main
-main:
+	.globl _main
+_main:
 	ld r0,#0x1234
 	ldb rl0,#0x56
 	cp r0,#0x1256

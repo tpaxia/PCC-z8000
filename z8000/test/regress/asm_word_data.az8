@@ -2,8 +2,8 @@
 value:
 	.word 1234
 	.text
-	.globl main
-main:
+	.globl _main
+_main:
 	ld r0,value
 	cp r0,#1234
 	jr ne,.Lbad
