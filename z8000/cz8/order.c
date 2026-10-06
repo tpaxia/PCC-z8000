@@ -151,6 +151,11 @@ sucomp( p ) register NODE *p; {
 		asop:  /* also used for +=, etc., to memory */
 		/* a long or double variable on the left is only addressed, never
 		   loaded, so its own register count does not apply */
+		/* likewise a double reached through a pointer: forming its address
+		   takes what the pointer expression takes (and an address register),
+		   not the four data registers a double value would */
+		if( nr==4 && p->in.left->in.op==UNARY MUL )
+			sul = p->in.left->in.left->in.su;
 		if( sul==0 || optype(p->in.left->in.op)==LTYPE ){
 			/* don't need to worry about the left side */
 			p->in.su = max( sur, nr );

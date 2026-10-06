@@ -163,6 +163,10 @@
   "asm": "4a986d842e29c049",
   "src": "756b35fe4f1fbbdc"
  },
+ "stdio/doscan.c": {
+  "asm": "3afeba97761cfaa6",
+  "src": "2e604fab5ea6d468"
+ },
  "stdio/endopen.c": {
   "asm": "03c5e8cca3c29ac4",
   "src": "2ede7878ba000d1b"

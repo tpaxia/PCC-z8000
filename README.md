@@ -28,7 +28,7 @@ compile, assemble, link and execute on the Z8002 emulator:
 
 | Suite | Result | Documentation |
 | --- | --- | --- |
-| General regression, including the 15 core programs | 76 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
+| General regression, including the 15 core programs | 77 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
 | 68000 comparison probes | 54 PASS, 0 FAIL | [Compiler comparison](z8000/test/compare68k/README.md) |
 | Selected external GCC/PCC K&R tests | 58 PASS, 0 FAIL | [Sources, adaptations and results](z8000/test/external/README.md) |
 | No-regression ratchet: 686 real K&R source files, compile-only | 0 regressions | [Ratchet](z8000/test/ratchet/README.md) |

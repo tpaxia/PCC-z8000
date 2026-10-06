@@ -39,6 +39,10 @@
   "asm": "7036764ad9b262bc",
   "src": "604a37977df606e7"
  },
+ "cz8/cgram.c": {
+  "asm": "def088f04cce400e",
+  "src": "063e9102f4a0558a"
+ },
  "cz8/code.c": {
   "asm": "e9d23982ee0cd760",
   "src": "2aa1bde0be792958"
@@ -60,8 +64,8 @@
   "src": "975dc2b8a0b9af5e"
  },
  "cz8/order.c": {
-  "asm": "475abc723d78968c",
-  "src": "06ced111b0b9bd48"
+  "asm": "df2253196e33953b",
+  "src": "b208265161052eb8"
  },
  "cz8/reader.c": {
   "asm": "785827b5a97948c2",
@@ -74,6 +78,10 @@
  "cz8/table.c": {
   "asm": "d19e914945379587",
   "src": "a407d3c6a3a21403"
+ },
+ "cz8/trees.c": {
+  "asm": "6f53b658ed1a4fd5",
+  "src": "16d1bb80104d4f84"
  },
  "cz8/xdefs.c": {
   "asm": "1988ac732949f085",
