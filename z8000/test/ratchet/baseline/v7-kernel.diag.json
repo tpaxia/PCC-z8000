@@ -2,7 +2,7 @@
  "conf/emulated.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3ca0126b3adc82b1",
+  "src": "612c8b633f7b0a60",
   "status": "ok",
   "warnings": [
    "usr/sys/h/tty.h:59: warning: structure typed union member must be named"
@@ -11,25 +11,30 @@
  "dev/cons.c": {
   "az8": "ok",
   "errors": [],
-  "src": "576621da9715ac93",
+  "src": "c8a8c69eece2a6c5",
   "status": "ok",
   "warnings": [
-   "usr/sys/h/tty.h:59: warning: structure typed union member must be named"
+   "usr/sys/h/tty.h:59: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
   ]
  },
  "dev/hd.c": {
   "az8": "ok",
   "errors": [],
-  "src": "c47be0844cdef130",
+  "src": "3de29bb0ed567e95",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  },
  "dev/md.c": {
   "az8": "ok",
   "errors": [],
-  "src": "2f5031c0a3255273",
+  "src": "bb95c269e1aa39fb",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  },
  "dev/partab.c": {
   "az8": "ok",
@@ -41,147 +46,186 @@
  "dev/tty.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5e358bb9504b9c42",
+  "src": "46cec56f87bbb09e",
   "status": "ok",
   "warnings": [
-   "usr/sys/dev/tty.c:187: warning: illegal member use: t_eofc",
-   "usr/sys/dev/tty.c:208: warning: illegal member use: t_startc",
-   "usr/sys/dev/tty.c:263: warning: illegal member use: t_startc",
-   "usr/sys/dev/tty.c:268: warning: illegal member use: t_stopc",
-   "usr/sys/dev/tty.c:273: warning: illegal member use: t_stopc",
-   "usr/sys/dev/tty.c:278: warning: illegal member use: t_startc",
-   "usr/sys/dev/tty.c:281: warning: illegal member use: t_intrc",
-   "usr/sys/dev/tty.c:281: warning: illegal member use: t_quitc",
-   "usr/sys/dev/tty.c:283: warning: illegal member use: t_intrc",
-   "usr/sys/dev/tty.c:297: warning: illegal member use: t_brkc",
-   "usr/sys/dev/tty.c:297: warning: illegal member use: t_eofc",
-   "usr/sys/dev/tty.c:324: warning: illegal member use: t_stopc",
-   "usr/sys/dev/tty.c:591: warning: illegal member use: i_rdev",
-   "usr/sys/dev/tty.c:85: warning: illegal member use: t_intrc",
-   "usr/sys/dev/tty.c:86: warning: illegal member use: t_quitc",
-   "usr/sys/dev/tty.c:87: warning: illegal member use: t_startc",
-   "usr/sys/dev/tty.c:88: warning: illegal member use: t_stopc",
-   "usr/sys/dev/tty.c:89: warning: illegal member use: t_eofc",
-   "usr/sys/dev/tty.c:90: warning: illegal member use: t_brkc",
+   "usr/sys/dev/tty.c:160: warning: illegal member use: i_rdev",
+   "usr/sys/dev/tty.c:376: warning: illegal member use: t_eofc",
+   "usr/sys/dev/tty.c:397: warning: illegal member use: t_startc",
+   "usr/sys/dev/tty.c:455: warning: illegal member use: t_startc",
+   "usr/sys/dev/tty.c:460: warning: illegal member use: t_stopc",
+   "usr/sys/dev/tty.c:465: warning: illegal member use: t_stopc",
+   "usr/sys/dev/tty.c:470: warning: illegal member use: t_startc",
+   "usr/sys/dev/tty.c:473: warning: illegal member use: t_intrc",
+   "usr/sys/dev/tty.c:473: warning: illegal member use: t_quitc",
+   "usr/sys/dev/tty.c:475: warning: illegal member use: t_intrc",
+   "usr/sys/dev/tty.c:492: warning: illegal member use: t_brkc",
+   "usr/sys/dev/tty.c:492: warning: illegal member use: t_eofc",
+   "usr/sys/dev/tty.c:521: warning: illegal member use: t_stopc",
+   "usr/sys/dev/tty.c:87: warning: illegal member use: t_intrc",
+   "usr/sys/dev/tty.c:88: warning: illegal member use: t_quitc",
+   "usr/sys/dev/tty.c:89: warning: illegal member use: t_startc",
+   "usr/sys/dev/tty.c:90: warning: illegal member use: t_stopc",
+   "usr/sys/dev/tty.c:91: warning: illegal member use: t_eofc",
+   "usr/sys/dev/tty.c:92: warning: illegal member use: t_brkc",
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
-   "usr/sys/h/tty.h:59: warning: structure typed union member must be named"
+   "usr/sys/h/tty.h:59: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
   ]
  },
  "machine/cpu.c": {
   "az8": "ok",
   "errors": [],
-  "src": "342c5c10d5f4f2cb",
+  "src": "0dcc9bfdf11be6b8",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
   ]
  },
  "machine/fpe.c": {
   "az8": "ok",
   "errors": [],
-  "src": "526feaa554bedd61",
+  "src": "53e56ac49b9ae067",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  },
  "machine/paged.c": {
   "az8": "ok",
   "errors": [],
-  "src": "f2ef1c317b7f8d7e",
+  "src": "8c6c9e2b40acaa6e",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/machine/paged.c:217: warning: illegal member use: r_val1"
   ]
  },
  "machine/trap.c": {
   "az8": "ok",
   "errors": [],
-  "src": "cc945606746a7c20",
+  "src": "f2536b03cd929b46",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/machine/trap.c:42: warning: illegal member use: r_val1",
+   "usr/sys/machine/trap.c:43: warning: illegal member use: r_val2",
+   "usr/sys/machine/trap.c:71: warning: illegal member use: r_val1",
+   "usr/sys/machine/trap.c:72: warning: illegal member use: r_val2"
+  ]
  },
  "sys/alloc.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e83f31e56b576033",
+  "src": "ae834f3c7bb38478",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
    "usr/sys/sys/alloc.c:169: warning: illegal member use: i_addr"
   ]
  },
  "sys/bio.c": {
   "az8": "ok",
   "errors": [],
-  "src": "6ce4f6e5b93906b3",
+  "src": "50b77486d90457dd",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  },
  "sys/clock.c": {
   "az8": "ok",
   "errors": [],
-  "src": "21f27d50a8a9f519",
+  "src": "c5b1d382983d8838",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  },
- "sys/fio.c": {
+ "sys/fakemx.c": {
   "az8": "ok",
   "errors": [],
-  "src": "fa1ff77adff05b0d",
+  "src": "af4ad1f6c8ee2caf",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
-   "usr/sys/sys/fio.c:105: warning: illegal member use: i_rdev",
-   "usr/sys/sys/fio.c:61: warning: illegal member use: i_rdev"
+   "usr/sys/h/tty.h:59: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
+ },
+ "sys/fio.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "2d1fd7a1dd895718",
+  "status": "ok",
+  "warnings": [
+   "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/sys/fio.c:108: warning: illegal member use: i_rdev",
+   "usr/sys/sys/fio.c:224: warning: illegal member use: r_val1",
+   "usr/sys/sys/fio.c:63: warning: illegal member use: i_rdev"
   ]
  },
  "sys/iget.c": {
   "az8": "ok",
   "errors": [],
-  "src": "adff131a6288aa85",
+  "src": "7c0f6888e1e28473",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
    "usr/sys/sys/iget.c:112: warning: illegal member use: i_addr",
    "usr/sys/sys/iget.c:186: warning: illegal member use: i_addr",
-   "usr/sys/sys/iget.c:226: warning: illegal member use: i_addr",
-   "usr/sys/sys/iget.c:229: warning: illegal member use: i_addr",
+   "usr/sys/sys/iget.c:227: warning: illegal member use: i_addr",
+   "usr/sys/sys/iget.c:230: warning: illegal member use: i_addr",
    "usr/sys/sys/iget.c:75: warning: illegal member use: i_lastr"
   ]
  },
  "sys/main.c": {
   "az8": "ok",
   "errors": [],
-  "src": "fdf797905ee0cab3",
+  "src": "a451d6c290c75654",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
   ]
  },
  "sys/nami.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a5b05a9c6f66c492",
+  "src": "3dcc82ffd60ce9fd",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
   ]
  },
  "sys/pipe.c": {
   "az8": "ok",
   "errors": [],
-  "src": "cb8c961014a5d7d1",
+  "src": "50bba80103f53c87",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/sys/pipe.c:39: warning: illegal member use: r_val1",
+   "usr/sys/sys/pipe.c:47: warning: illegal member use: r_val1",
+   "usr/sys/sys/pipe.c:47: warning: illegal member use: r_val2",
+   "usr/sys/sys/pipe.c:48: warning: illegal member use: r_val1"
   ]
  },
  "sys/prf.c": {
@@ -203,11 +247,12 @@
  "sys/rdwri.c": {
   "az8": "ok",
   "errors": [],
-  "src": "9ac538e74b0dec23",
+  "src": "fcb5efc3e4d2bd51",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
    "usr/sys/sys/rdwri.c:36: warning: illegal member use: i_rdev",
    "usr/sys/sys/rdwri.c:61: warning: illegal member use: i_lastr",
    "usr/sys/sys/rdwri.c:65: warning: illegal member use: i_lastr",
@@ -217,28 +262,32 @@
  "sys/sig.c": {
   "az8": "ok",
   "errors": [],
-  "src": "d87a661e6688a8a1",
+  "src": "8a0bfef7aa57f331",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  },
  "sys/slp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "c9ba1356db348fd9",
+  "src": "2945da8c3f3dc0af",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
   ]
  },
  "sys/subr.c": {
   "az8": "ok",
   "errors": [],
-  "src": "489d7014997294f8",
+  "src": "2698802f3c5dbef4",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
    "usr/sys/sys/subr.c:40: warning: illegal member use: i_addr",
    "usr/sys/sys/subr.c:46: warning: illegal member use: i_addr",
    "usr/sys/sys/subr.c:50: warning: illegal member use: i_addr",
@@ -249,51 +298,75 @@
  "sys/sys1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "640b8844c9def850",
+  "src": "1bc7675d5f6f8ceb",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/sys/sys1.c:120: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys1.c:121: warning: illegal member use: r_val2",
+   "usr/sys/sys/sys1.c:164: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys1.c:165: warning: illegal member use: r_val2",
+   "usr/sys/sys/sys1.c:175: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys1.c:176: warning: illegal member use: r_val2"
   ]
  },
  "sys/sys2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e04633d41170db33",
+  "src": "020e0c0147b2b423",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
-   "usr/sys/sys/sys2.c:276: warning: illegal member use: i_rdev"
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/sys/sys2.c:153: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys2.c:285: warning: illegal member use: i_rdev",
+   "usr/sys/sys/sys2.c:78: warning: illegal member use: r_val1"
   ]
  },
  "sys/sys3.c": {
   "az8": "ok",
   "errors": [],
-  "src": "f51b8c488c25d6be",
+  "src": "031cbd662acbf75f",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
    "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
-   "usr/sys/sys/sys3.c:249: warning: illegal member use: i_rdev",
-   "usr/sys/sys/sys3.c:74: warning: illegal member use: i_rdev"
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/sys/sys3.c:118: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys3.c:250: warning: illegal member use: i_rdev",
+   "usr/sys/sys/sys3.c:75: warning: illegal member use: i_rdev"
   ]
  },
  "sys/sys4.c": {
   "az8": "ok",
   "errors": [],
-  "src": "c724f80010829eb6",
+  "src": "1a0c535cde6a39fa",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
-   "usr/sys/h/inode.h:45: warning: structure typed union member must be named"
+   "usr/sys/h/inode.h:45: warning: structure typed union member must be named",
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named",
+   "usr/sys/sys/sys4.c:105: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys4.c:106: warning: illegal member use: r_val2",
+   "usr/sys/sys/sys4.c:111: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys4.c:112: warning: illegal member use: r_val2",
+   "usr/sys/sys/sys4.c:287: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys4.c:369: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys4.c:396: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys4.c:83: warning: illegal member use: r_val1",
+   "usr/sys/sys/sys4.c:84: warning: illegal member use: r_val2"
   ]
  },
  "sys/sysent.c": {
   "az8": "ok",
   "errors": [],
-  "src": "96cab865d50f8de0",
+  "src": "03b33346d5a592f1",
   "status": "ok",
-  "warnings": []
+  "warnings": [
+   "usr/sys/h/user.h:29: warning: structure typed union member must be named"
+  ]
  }
 }

@@ -1,75 +1,79 @@
 {
  "conf/emulated.c": {
-  "asm": "b0e02f808f765f1b",
-  "src": "3ca0126b3adc82b1"
+  "asm": "8c1ebabc2e07cf85",
+  "src": "612c8b633f7b0a60"
  },
  "dev/cons.c": {
-  "asm": "aed5e91670f89f8c",
-  "src": "576621da9715ac93"
+  "asm": "0cebdf12bd6677ac",
+  "src": "c8a8c69eece2a6c5"
  },
  "dev/hd.c": {
-  "asm": "0a6a625ff51c899e",
-  "src": "c47be0844cdef130"
+  "asm": "c9def5bddd00d272",
+  "src": "3de29bb0ed567e95"
  },
  "dev/md.c": {
   "asm": "41a5a106e11ef119",
-  "src": "2f5031c0a3255273"
+  "src": "bb95c269e1aa39fb"
  },
  "dev/partab.c": {
   "asm": "440edcf28ba02467",
   "src": "bd9bb7ca70aa3c89"
  },
  "dev/tty.c": {
-  "asm": "72a4f927655e5101",
-  "src": "5e358bb9504b9c42"
+  "asm": "3098cb0b8bd1e7f7",
+  "src": "46cec56f87bbb09e"
  },
  "machine/cpu.c": {
   "asm": "5701d55177c0efed",
-  "src": "342c5c10d5f4f2cb"
+  "src": "0dcc9bfdf11be6b8"
  },
  "machine/fpe.c": {
-  "asm": "524e056c76ea1860",
-  "src": "526feaa554bedd61"
+  "asm": "faca796549a8c7dc",
+  "src": "53e56ac49b9ae067"
  },
  "machine/paged.c": {
-  "asm": "cbf8941527684e6f",
-  "src": "f2ef1c317b7f8d7e"
+  "asm": "722e74d75b91f979",
+  "src": "8c6c9e2b40acaa6e"
  },
  "machine/trap.c": {
-  "asm": "5f8e78c62c387a86",
-  "src": "cc945606746a7c20"
+  "asm": "77e805162b6f7d32",
+  "src": "f2536b03cd929b46"
  },
  "sys/alloc.c": {
   "asm": "ace5f2c84dff3ccd",
-  "src": "e83f31e56b576033"
+  "src": "ae834f3c7bb38478"
  },
  "sys/bio.c": {
-  "asm": "db9b254381ce50af",
-  "src": "6ce4f6e5b93906b3"
+  "asm": "1c137781b5ce4ee3",
+  "src": "50b77486d90457dd"
  },
  "sys/clock.c": {
-  "asm": "c21eef268c8563bb",
-  "src": "21f27d50a8a9f519"
+  "asm": "7b15948bcb0df8d0",
+  "src": "c5b1d382983d8838"
+ },
+ "sys/fakemx.c": {
+  "asm": "b464da64e0bb3925",
+  "src": "af4ad1f6c8ee2caf"
  },
  "sys/fio.c": {
-  "asm": "3259a11b232c46fd",
-  "src": "fa1ff77adff05b0d"
+  "asm": "125fbb5bede00e5f",
+  "src": "2d1fd7a1dd895718"
  },
  "sys/iget.c": {
-  "asm": "3f3bfc73560937a0",
-  "src": "adff131a6288aa85"
+  "asm": "7bfefe21b0167b10",
+  "src": "7c0f6888e1e28473"
  },
  "sys/main.c": {
-  "asm": "81a4a3425adf79be",
-  "src": "fdf797905ee0cab3"
+  "asm": "9772cd98f6e5a612",
+  "src": "a451d6c290c75654"
  },
  "sys/nami.c": {
-  "asm": "79482e60c332c77c",
-  "src": "a5b05a9c6f66c492"
+  "asm": "f9c8b000ad8bc127",
+  "src": "3dcc82ffd60ce9fd"
  },
  "sys/pipe.c": {
   "asm": "e66b2c852bfe440c",
-  "src": "cb8c961014a5d7d1"
+  "src": "50bba80103f53c87"
  },
  "sys/prf.c": {
   "asm": "a86d0d13b9847938",
@@ -80,39 +84,39 @@
   "src": "71ca2f7a3efd3485"
  },
  "sys/rdwri.c": {
-  "asm": "3fefd118ac6e3dd1",
-  "src": "9ac538e74b0dec23"
+  "asm": "9b3fbba3bf39e999",
+  "src": "fcb5efc3e4d2bd51"
  },
  "sys/sig.c": {
-  "asm": "c4e8fe00f01be99f",
-  "src": "d87a661e6688a8a1"
+  "asm": "9468083aa6409045",
+  "src": "8a0bfef7aa57f331"
  },
  "sys/slp.c": {
-  "asm": "0aced7a3347ae74f",
-  "src": "c9ba1356db348fd9"
+  "asm": "74d5cc43fe96f59d",
+  "src": "2945da8c3f3dc0af"
  },
  "sys/subr.c": {
-  "asm": "9c20125cd4278e65",
-  "src": "489d7014997294f8"
+  "asm": "b990431a6bc79bd0",
+  "src": "2698802f3c5dbef4"
  },
  "sys/sys1.c": {
-  "asm": "ed2f08621149c989",
-  "src": "640b8844c9def850"
+  "asm": "456a34369bf4bd0a",
+  "src": "1bc7675d5f6f8ceb"
  },
  "sys/sys2.c": {
-  "asm": "2e78fa1745d3da74",
-  "src": "e04633d41170db33"
+  "asm": "f31b77248a678330",
+  "src": "020e0c0147b2b423"
  },
  "sys/sys3.c": {
   "asm": "24d6f1132dc921b6",
-  "src": "f51b8c488c25d6be"
+  "src": "031cbd662acbf75f"
  },
  "sys/sys4.c": {
-  "asm": "f032dc20a806eeb5",
-  "src": "c724f80010829eb6"
+  "asm": "f94ab9ae44464e86",
+  "src": "1a0c535cde6a39fa"
  },
  "sys/sysent.c": {
-  "asm": "9e12e8c4b48727e5",
-  "src": "96cab865d50f8de0"
+  "asm": "a021d8061c136731",
+  "src": "03b33346d5a592f1"
  }
 }
