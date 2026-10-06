@@ -39,3 +39,12 @@ register char	*p;
 		putc(*(long *)p, file);
 	}
 }
+
+/* Narrow a numeric value, not the first two bytes of its host storage. */
+put16(file, value)
+FILE *file;
+long value;
+{
+	putc((unsigned)(value >> 8), file);
+	putc((unsigned)value, file);
+}

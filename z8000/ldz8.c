@@ -1,7 +1,15 @@
 #include <stdio.h>
-#include <ar.h>
 #include "b.out.h"
 
+/* Portable archives have a byte-defined format, independent of the host's
+ * ar.h (V7 Unix uses a different, binary archive header). */
+#define ARMAG "!<arch>\n"
+#define SARMAG 8
+#define ARFMAG "`\n"
+struct ar_hdr {
+	char ar_name[16], ar_date[12], ar_uid[6], ar_gid[6];
+	char ar_mode[8], ar_size[10], ar_fmag[2];
+};
 
 long	atol();
 char	*strcat();
@@ -17,6 +25,7 @@ char	*strcpy();
 #define	NSYM	4003
 #define	NSYMPR	4000
 #define TABSZ	700
+#define SYMBLOCK 32
 
 
 typedef struct symbol *symp;
@@ -59,7 +68,9 @@ arce arcelast = NULL;			/* last entry in this entry list */
 struct bhdr filhdr;			/* header file for current file */
 struct symbol cursym;			/* current symbol */
 char csymbuf[SYMLENGTH];		/* buffer for current symbol name */
-struct symbol symtab[NSYM];		/* actual symbols */
+/* Stable addresses, without reserving the maximum table in 16-bit data. */
+symp symblocks[(NSYM+SYMBLOCK-1)/SYMBLOCK];
+symp symbolat(), nextsym();
 symp lastsym;				/* last symbol entered */
 int symindex;				/* next available symbol table entry */
 symp hshtab[NSYM+2];			/* hash table for symbols */
@@ -340,6 +351,7 @@ int libflg;	/* 1 => loading a library, 0 else */
 	long endpos;	/* position after symbol table */
 	int savindex;	/* symbol table index on entry */
 	int ndef;	/* number of symbols defined */
+	symp sp;
 
 	readhdr(sloc);
 
@@ -370,7 +382,11 @@ int libflg;	/* 1 => loading a library, 0 else */
 	 * No symbols defined by this library member.
 	 * Rip out the hash table entries and reset the symbol table.
 	 */
-	while (symindex>savindex) *symtab[--symindex].shash = 0;
+	while (symindex>savindex) {
+		sp = symbolat(--symindex);
+		*sp->shash = 0;
+		free(sp->sname);
+	}
 	return(0);
 }
 /* sym1 -	Process pass1 symbol definitions.  This involves flushing
@@ -461,7 +477,7 @@ middle()
 	nund = 0;				/* no undefined initially */
 /*	ssize = size of local symbols to be entered in load2		*/
 	doffset = 0;				/* beginning of data seg */
-	for (sp = symtab; sp < &symtab[symindex]; sp++)  sym2(sp);
+	for (sp = symindex ? symbolat(0) : NULL; sp; sp = nextsym(sp)) sym2(sp);
 	bsize += csize;
 	/* Check before 16-bit a.out fields and relocations can truncate sizes. */
 	if (iflag && (rflag || nflag || torigin != 0))
@@ -479,7 +495,7 @@ common()
 	long val;
 
 	csize = 0;
-	for (sp = symtab; sp < &symtab[symindex]; sp++)
+	for (sp = symindex ? symbolat(0) : NULL; sp; sp = nextsym(sp))
 		if (sp->s.stype == EXTERN+UNDEF && ((val = sp->s.svalue) != 0))
 		{
 			val = (val + 1) & ~01;	/* word boundry */
@@ -590,14 +606,14 @@ setupout()
 		if ((drout = fopen(ofilename, "r+")) == NULL) fatal(e9);
 		fseek(drout, (long)RDATAPOS, 0);	/* to data reloc */
 	}
-	put68(tout, &filhdr.fmagic, 2);
-	put68(tout, &filhdr.tsize, 2);
-	put68(tout, &filhdr.dsize, 2);
-	put68(tout, &filhdr.bsize, 2);
-	put68(tout, &filhdr.ssize, 2);
-	put68(tout, &filhdr.entry, 2);
-	put68(tout, &filhdr.trsize, 2);
-	put68(tout, &filhdr.drsize, 2);
+	put16(tout, filhdr.fmagic);
+	put16(tout, filhdr.tsize);
+	put16(tout, filhdr.dsize);
+	put16(tout, filhdr.bsize);
+	put16(tout, filhdr.ssize);
+	put16(tout, filhdr.entry);
+	put16(tout, filhdr.trsize);
+	put16(tout, filhdr.drsize);
 }
 /* load2arg -	Load a named file or an archive */
 
@@ -861,7 +877,7 @@ finishout()
 		if (rflag) symoff += rtsize + rdsize;
 		fseek(tout, symoff, 0);
 	}
-	if (sflag == 0) for (sp = symtab; sp < &symtab[symindex]; sp++)
+	if (sflag == 0) for (sp = symindex ? symbolat(0) : NULL; sp; sp = nextsym(sp))
 	{
 		register int i;
 		register char *cp;
@@ -975,12 +991,33 @@ char *s;
 	return(lookup());
 }
 
+/* Symbol blocks retain stable pointers across allocation and archive rollback. */
+symp
+symbolat(index)
+unsigned index;
+{
+	unsigned block = index / SYMBLOCK;
+	if (index >= NSYM) fatal(e17);
+	if (symblocks[block] == NULL) {
+		symblocks[block] = (symp)calloc(SYMBLOCK, sizeof(struct symbol));
+		if (symblocks[block] == NULL) fatal(e17);
+	}
+	return(symblocks[block] + index % SYMBLOCK);
+}
+
+symp
+nextsym(sp)
+symp sp;
+{
+	if (sp->sindex + 1 >= symindex) return(NULL);
+	return(symbolat(sp->sindex + 1));
+}
+
 /* enter -	Make sure that cursym is installed in symbol table.
 		Called with a pointer to a symbol with the same name
 		or NULL if lookup failed.  Returns 1 if the symbol
 		was new, or 0 if it was already present.
 */
-
 enter(sp)
 register symp sp;
 {
@@ -989,7 +1026,7 @@ register symp sp;
 	{
 		hp = hash(cursym.sname);
 		if (symindex>=NSYM) fatal(e17);
-		lastsym = sp = &symtab[symindex];
+		lastsym = sp = symbolat(symindex);
 		if (*hp) bletch("hash table conflict");
 		*hp = sp;
 		if((sp->sname = (char *)calloc(1, cursym.snlength+1)) == NULL)
@@ -1199,4 +1236,13 @@ register char	*p;
 		putc(*(long *)p >> 8, file);
 		putc(*(long *)p, file);
 	}
+}
+
+/* Narrow a numeric value, not the first two bytes of its host storage. */
+put16(file, value)
+FILE *file;
+long value;
+{
+	putc((unsigned)(value >> 8), file);
+	putc((unsigned)value, file);
 }

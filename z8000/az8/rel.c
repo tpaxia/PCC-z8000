@@ -36,8 +36,10 @@ Rel_Header()
 	 * share one, with the data commands placed after the space the first
 	 * pass estimated for text; when the final pass emitted more text
 	 * commands than estimated, the two ran into each other. */
-	Concat(rname, Source_name, ".tmpr");
-	Concat(rdname, Source_name, ".tmpd");
+	/* V7 truncates directory names to 14 bytes. Appending .tmpr/.tmpd
+	 * to a source name can make these two files the same directory entry. */
+	sprintf(rname, "/tmp/ar%d", getpid());
+	sprintf(rdname, "/tmp/ad%d", getpid());
 	if ((rtout = fopen(rname, "w")) == NULL)
 		Sys_Error("open on output file %s failed", rname);
 	if ((rdout = fopen(rdname, "w")) == NULL)
@@ -52,14 +54,14 @@ Rel_Header()
 	filhdr.drsize = rdsize;
 
 	fseek(tout, 0L, 0);
-	put68(tout, &filhdr.fmagic, 2);
-	put68(tout, &filhdr.tsize, 2);
-	put68(tout, &filhdr.dsize, 2);
-	put68(tout, &filhdr.bsize, 2);
-	put68(tout, &filhdr.ssize, 2);
-	put68(tout, &filhdr.entry, 2);
-	put68(tout, &filhdr.trsize, 2);
-	put68(tout, &filhdr.drsize, 2);
+	put16(tout, filhdr.fmagic);
+	put16(tout, filhdr.tsize);
+	put16(tout, filhdr.dsize);
+	put16(tout, filhdr.bsize);
+	put16(tout, filhdr.ssize);
+	put16(tout, filhdr.entry);
+	put16(tout, filhdr.trsize);
+	put16(tout, filhdr.drsize);
 
 	fseek(tout, (long)(TEXTPOS), 0);	/* seek to start of text */
 	fseek(dout, (long)(DATAPOS), 0);
@@ -103,15 +105,15 @@ Fix_Rel()
 	filhdr.ssize = Sym_Write(fout);
 
 	/* now re-write header */
-	fseek(fout, 0, 0);
-	put68(tout, &filhdr.fmagic, 2);
-	put68(tout, &filhdr.tsize, 2);
-	put68(tout, &filhdr.dsize, 2);
-	put68(tout, &filhdr.bsize, 2);
-	put68(tout, &filhdr.ssize, 2);
-	put68(tout, &filhdr.entry, 2);
-	put68(tout, &filhdr.trsize, 2);
-	put68(tout, &filhdr.drsize, 2);
+	fseek(fout, 0L, 0);
+	put16(tout, filhdr.fmagic);
+	put16(tout, filhdr.tsize);
+	put16(tout, filhdr.dsize);
+	put16(tout, filhdr.bsize);
+	put16(tout, filhdr.ssize);
+	put16(tout, filhdr.entry);
+	put16(tout, filhdr.trsize);
+	put16(tout, filhdr.drsize);
 	fclose(fin);
 	unlink(rdname);
 }
@@ -187,7 +189,7 @@ Put_Text(code,length)
 /* Pad_Text -	Write zero bytes to pad out proper portion of file */
 
 Pad_Text(length)
- register length;
+ register long length;
  {
 	register FILE *f;
 	if (Pass != 2) return;
