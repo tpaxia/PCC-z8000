@@ -34,6 +34,7 @@ def main():
     parser.add_argument("--strict", action="store_true", help="expected failures also fail")
     parser.add_argument("--case", action="append", help="run named cases only")
     parser.add_argument("--build-dir", type=Path, default=HERE / "build")
+    parser.add_argument("--compact", action="store_true", help="test c2z8 size optimization and shared frames")
     args = parser.parse_args()
     build = args.build_dir.resolve()
     build.mkdir(parents=True, exist_ok=True)
@@ -82,6 +83,11 @@ def main():
     if not ok:
         print("Floating runtime compilation failed:\n" + detail)
         return 1
+    if args.compact:
+        optimized = subprocess.run([sys.executable, str(TARGET / "c2z8.py")],
+                                   input=soft.read_bytes(), capture_output=True, check=True)
+        soft.write_bytes(optimized.stdout)
+        runtime.append(("csv", TARGET / "lib" / "csv.az8"))
     runtime.append(("softfp", soft))
     for name, source in runtime:
         obj = build / (name + ".b")
@@ -110,7 +116,7 @@ def main():
             ("link", [build / "ldz8", "-x", shared[0], "-R", "8", obj,
                       *shared[1:], "-o", binary], None, None),
             ("run", [TEST / "run_emu", binary, "-e", str(value),
-                      "-c", "10000000" if name in ("float_vectors", "float_ops_vectors", "float_general") else "1000000"], None, None),
+                      "-c", "10000000" if name in ("float_vectors", "float_ops_vectors", "float_general", "float_convert_vectors") else "1000000"], None, None),
         ]
         if source.suffix == ".az8":
             assembly.write_bytes(source.read_bytes())
@@ -134,6 +140,10 @@ def main():
                     not re.search(codegen[name], assembly.read_text()):
                 failure = ("codegen", "incorrect initializer encoding")
                 break
+            if stage == "compile" and ok and args.compact:
+                optimized = subprocess.run([sys.executable, str(TARGET / "c2z8.py")],
+                                           input=assembly.read_bytes(), capture_output=True, check=True)
+                assembly.write_bytes(optimized.stdout)
             if not ok:
                 failure = (stage, detail)
                 break

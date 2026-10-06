@@ -3935,12 +3935,10 @@
   "warnings": []
  },
  "tail.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/tail.c:40: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "d68ffca271d6cb0c",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "tar/tar.c": {

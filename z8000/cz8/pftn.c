@@ -344,9 +344,9 @@ defid( q, class )  NODE *q; {
 		} else {
 		  int r = regvar&0377;
 		  if (szty(type) == 2) {
-		    if (r & 1) r--;  /* align to even for register pair */
+		    r = (r-1) & ~1;  /* both words must be at or below the free high register */
 		    p->offset = r;
-		    regvar = (r-2) | (regvar&~0377);
+		    regvar = (r-1) | (regvar&~0377);
 		  } else {
 		    p->offset = r;
 		    regvar = (r-1) | (regvar&~0377);
@@ -1558,7 +1558,9 @@ fixclass( class, type ) TWORD type; {
 		else if ( ISPTR(type) ) {
 		  if( ((regvar>>8)&0377) >= MINRVAR && cisreg( type ) ) return( class );
 		} else {
-		  if( (regvar&0377) >= MINRVAR && cisreg( type ) ) return( class );
+		  if( ((type==LONG || type==ULONG) ?
+		      (((regvar&0377)-1)&~1) : (regvar&0377)) >= MINRVAR &&
+		      cisreg( type ) ) return( class );
 		}
 		if( blevel == 1 ) return( PARAM );
 		else return( AUTO );

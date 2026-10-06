@@ -40,7 +40,7 @@
   "src": "5b6f362c9c66acfb"
  },
  "main.c": {
-  "asm": "a171afd4123f544e",
+  "asm": "bcb66bd68612429f",
   "src": "89ccffbd056ca1d1"
  },
  "msg.c": {
@@ -48,7 +48,7 @@
   "src": "f1dbcc2fc07f98fa"
  },
  "name.c": {
-  "asm": "d68c61f52a1f8ad0",
+  "asm": "60ac753596292b81",
   "src": "9e5af3e388b4e6d1"
  },
  "print.c": {
@@ -76,7 +76,7 @@
   "src": "03e4cfb8ed99707b"
  },
  "xec.c": {
-  "asm": "4e29d941d0e84a60",
+  "asm": "bf677444d8aa290b",
   "src": "351fd349029d0965"
  }
 }

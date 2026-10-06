@@ -1,6 +1,4 @@
 # include "mfile1"
-#include <stdint.h>
-#include <string.h>
 
 
 /*	this file contains code which is dependent on the target machine */
@@ -227,19 +225,30 @@ fincode( d, sz ) double d; {
 	/* inoff is updated to have the proper final value */
 	/* on the target machine, write it out in octal! */
 
-	uint64_t bits;
-	uint32_t fb;
-	float f;
+	/* Host and target use IEEE float/double. Read their representation as
+	 * bytes so native builds need neither 64-bit integers nor modern headers.
+	 * Emit most-significant bytes first on either host byte order. */
+	union { double d; float f; unsigned char b[sizeof(double)]; } value;
+	union { long n; unsigned char b[sizeof(long)]; } endian;
+	int i, count, first, second;
+	unsigned word;
+
+	endian.n = 1;
 	if( sz==SZDOUBLE ) {
-		memcpy(&bits, &d, sizeof bits);
-		printf("\t.word\t%u,%u,%u,%u\n",
-		 (unsigned)(bits>>48), (unsigned)((bits>>32)&65535),
-		 (unsigned)((bits>>16)&65535), (unsigned)(bits&65535));
+		value.d = d;
+		count = sizeof(double);
 	} else {
-		f = (float)d;
-		memcpy(&fb, &f, sizeof fb);
-		printf("\t.word\t%u,%u\n", (unsigned)(fb>>16), (unsigned)(fb&65535));
+		value.f = (float)d;
+		count = sizeof(float);
 	}
+	printf("\t.word\t");
+	for( i=0; i<count; i+=2 ) {
+		first = endian.b[0] ? count-1-i : i;
+		second = endian.b[0] ? first-1 : first+1;
+		word = ((unsigned)value.b[first]<<8) | value.b[second];
+		printf(i ? ",%u" : "%u", word);
+	}
+	printf("\n");
 	inoff += sz;
 	}
 

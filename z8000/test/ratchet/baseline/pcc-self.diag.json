@@ -9,14 +9,14 @@
  "az8/init.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3070b413f82b4bbc",
+  "src": "68bda68f31912f69",
   "status": "ok",
   "warnings": []
  },
  "az8/ins.c": {
   "az8": "ok",
   "errors": [],
-  "src": "982097a7b42194d3",
+  "src": "26e6664afb9a6000",
   "status": "ok",
   "warnings": []
  },
@@ -42,12 +42,10 @@
   "warnings": []
  },
  "az8/scan.c": {
-  "az8": "skipped",
-  "errors": [
-   "z8000/az8/scan.c:417: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "a993466bb508e68c",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "az8/sdi.c": {
@@ -88,7 +86,7 @@
  "cz8/code.c": {
   "az8": "ok",
   "errors": [],
-  "src": "2aa1bde0be792958",
+  "src": "d57407167ef68cfd",
   "status": "ok",
   "warnings": []
  },
@@ -100,12 +98,10 @@
   "warnings": []
  },
  "cz8/local.c": {
-  "az8": "skipped",
-  "errors": [
-   "cpp: /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/sys/cdefs.h:1068:2: error: Unsupported architecture"
-  ],
-  "src": null,
-  "status": "cpp",
+  "az8": "ok",
+  "errors": [],
+  "src": "f534ca048ea33f96",
+  "status": "ok",
   "warnings": []
  },
  "cz8/local2.c": {
@@ -137,12 +133,10 @@
   "warnings": []
  },
  "cz8/pftn.c": {
-  "az8": "skipped",
-  "errors": [
-   "z8000/cz8/pftn.c:1085: compiler error: expression causes compiler loop: try simplifying"
-  ],
-  "src": "1db2512a94aafbc7",
-  "status": "error",
+  "az8": "ok",
+  "errors": [],
+  "src": "5d830857fec9b359",
+  "status": "ok",
   "warnings": []
  },
  "cz8/reader.c": {
@@ -162,7 +156,7 @@
  "cz8/table.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a407d3c6a3a21403",
+  "src": "4a7a53c8998c3618",
   "status": "ok",
   "warnings": []
  },
@@ -183,9 +177,9 @@
  "ldz8.c": {
   "az8": "skipped",
   "errors": [
-   "z8000/ldz8.c:295: SARMAG undefined"
+   "z8000/ldz8.c:297: SARMAG undefined"
   ],
-  "src": "b6d63296ffb896d6",
+  "src": "cef843098b316d7d",
   "status": "error",
   "warnings": []
  },

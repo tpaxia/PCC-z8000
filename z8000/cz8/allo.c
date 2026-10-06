@@ -304,6 +304,7 @@ reclaim( p, rw, cookie ) NODE *p; {
 
 	/* get back stuff */
 
+# ifndef BUG4
 	if( rdebug ){
 		printf( "reclaim( %o, ", p );
 		rwprint( rw );
@@ -311,6 +312,7 @@ reclaim( p, rw, cookie ) NODE *p; {
 		prcook( cookie );
 		printf( " )\n" );
 		}
+# endif
 
 	if( rw == RNOP || ( p->in.op==FREE && rw==RNULL ) ) return;  /* do nothing */
 

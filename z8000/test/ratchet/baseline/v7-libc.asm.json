@@ -12,7 +12,7 @@
   "src": "7a382fc623b05a55"
  },
  "gen/atol.c": {
-  "asm": "93e54d59634d5c84",
+  "asm": "96a3525f8f39d5ae",
   "src": "413d51f67dce42cf"
  },
  "gen/calloc.c": {
@@ -24,7 +24,7 @@
   "src": "e9d17c54b2e3c8cf"
  },
  "gen/ctime.c": {
-  "asm": "756529121776e9bb",
+  "asm": "ec528ec3cc59b73f",
   "src": "1d316665fdd7f16d"
  },
  "gen/ctype_.c": {
@@ -48,7 +48,7 @@
   "src": "f74c614ff84980db"
  },
  "gen/getlogin.c": {
-  "asm": "830f33c5e848905c",
+  "asm": "cdbcdec1760d4dee",
   "src": "e918fa73d7189932"
  },
  "gen/index.c": {
@@ -92,7 +92,7 @@
   "src": "8eb85ef6a93c2026"
  },
  "gen/rand.c": {
-  "asm": "02c05bc0758d4aaa",
+  "asm": "bb672d0aeda3a6ec",
   "src": "5f3a0466b78ada5c"
  },
  "gen/rindex.c": {
@@ -164,7 +164,7 @@
   "src": "756b35fe4f1fbbdc"
  },
  "stdio/doscan.c": {
-  "asm": "3afeba97761cfaa6",
+  "asm": "be6bc7bc29895ca7",
   "src": "2e604fab5ea6d468"
  },
  "stdio/endopen.c": {
@@ -216,7 +216,7 @@
   "src": "fe208b3253902432"
  },
  "stdio/fseek.c": {
-  "asm": "fe1d7470aedcdf9c",
+  "asm": "dd9d5a28fe51037b",
   "src": "c0f68511b7f3ef0a"
  },
  "stdio/ftell.c": {
@@ -344,11 +344,11 @@
   "src": "e9fbd8e25383640c"
  },
  "v6/lseek.c": {
-  "asm": "347d11d516843d34",
+  "asm": "0a950790cf9b7299",
   "src": "f06ac48c5d55c83f"
  },
  "v6/stat.c": {
-  "asm": "85dc9b4db8d11a81",
+  "asm": "88d094307509d568",
   "src": "a417cf78f96cfc49"
  }
 }

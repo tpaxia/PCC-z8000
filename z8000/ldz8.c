@@ -92,6 +92,7 @@ int	Sflag;		/* discard all except locals and globals*/
 int	rflag;		/* preserve relocation bits, don't define common */
 int	sflag;		/* discard all symbols */
 int	dflag;		/* define common even with rflag */
+int	iflag;		/* separate I/D, 0411 */
 int	nflag = 0;	/* create a 410 file */
 
 /* used after pass 1 */
@@ -252,6 +253,7 @@ char **argv;
 	case 's': sflag++; xflag++; break;
 	case 'd': dflag++; break;
 	case 'n': nflag++; break;
+	case 'i': iflag++; break;
 	default:	error(e2, c);
 	}
 }
@@ -448,7 +450,8 @@ middle()
 	 * Now set symbols to their final value
 	 */
 	tsize = (tsize + 1) & ~01;		/* move to word boundry */
-	if (nflag) dorigin = torigin+(tsize+(PAGESIZE - 1)) & ~(PAGESIZE - 1);
+	if (iflag) dorigin = 0;
+	else if (nflag) dorigin = torigin+(tsize+(PAGESIZE - 1)) & ~(PAGESIZE - 1);
 	else dorigin = torigin + tsize;
 	dsize = (dsize + 1) & ~01;		/* move to word boundry */
 	corigin = dorigin + dsize;		/* common after data */
@@ -460,6 +463,12 @@ middle()
 	doffset = 0;				/* beginning of data seg */
 	for (sp = symtab; sp < &symtab[symindex]; sp++)  sym2(sp);
 	bsize += csize;
+	/* Check before 16-bit a.out fields and relocations can truncate sizes. */
+	if (iflag && (rflag || nflag || torigin != 0))
+		fatal("-i requires origin zero and cannot be combined with -r or -n");
+	if (rflag == 0 && (tsize > 65535L || dsize > 65535L || bsize > 65535L ||
+	    (iflag ? dsize+bsize > 65536L : dorigin+dsize+bsize > 65536L)))
+		fatal("executable exceeds 16-bit address space");
 }
 /* common -	Set up the common area.
  */
@@ -555,7 +564,8 @@ int  type;			/* its type */
 
 setupout()
 {
-	if (nflag) filhdr.fmagic = NMAGIC;
+	if (iflag) filhdr.fmagic = IMAGIC;
+	else if (nflag) filhdr.fmagic = NMAGIC;
 	else filhdr.fmagic = FMAGIC;
 	filhdr.tsize = tsize;
 	filhdr.dsize = dsize;
@@ -600,7 +610,7 @@ char *cp;
 	{
 	case FMAGIC:			/* normal file */
 	{
-		short tmp;
+		unsigned short tmp;
 		get68(text, &tmp, 2); filhdr.fmagic = tmp;
 		get68(text, &tmp, 2); filhdr.tsize = tmp;
 		get68(text, &tmp, 2); filhdr.dsize = tmp;
@@ -615,7 +625,7 @@ char *cp;
 	case ARCMAGIC:			/* archive */
 		for(entry=arclist->arc_e_list; entry; entry=entry->arc_e_next)
 		{
-			short tmp;
+			unsigned short tmp;
 			position = entry->arc_offs;
 			fseek(text, position, 0);
 			get68(text, &tmp, 2); filhdr.fmagic = tmp;
@@ -855,7 +865,8 @@ finishout()
 	{
 		register int i;
 		register char *cp;
-		short n_type, n_value;
+		short n_type;
+		unsigned short n_value;
 		char n_name[8];
 
 		/* Write 8-char name, NUL-padded */
@@ -1037,7 +1048,7 @@ readhdr(pos)
 long pos;
 {
 	register long st, sd;
-	short tmp;
+	unsigned short tmp;
 	fseek(text, pos, 0);
 	get68(text, &tmp, 2); filhdr.fmagic = tmp;
 	get68(text, &tmp, 2); filhdr.tsize = tmp;
@@ -1062,7 +1073,8 @@ long pos;
 long getsym()
 {
 	register int i;
-	short n_type, n_value;
+	short n_type;
+	unsigned short n_value;
 	char n_name[8];
 
 	/* Read 8-byte name */

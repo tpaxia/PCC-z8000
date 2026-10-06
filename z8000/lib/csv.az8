@@ -1,0 +1,33 @@
+! Shared PCC function entry/return for c2z8.py output.
+! R8 holds frame size; R9 receives the helper return address.
+! Both are call-clobbered. R0-R3 (including long/double return values)
+! are untouched. FP and all callee-saved slots retain the standard ABI.
+	.text
+	.globl	csv
+	.globl	cret
+csv:
+	pop	r9,@sp
+	push	@sp,r13
+	ld	r13,sp
+	sub	sp,r8
+	ld	-2(r13),r4
+	ld	-4(r13),r5
+	ld	-6(r13),r6
+	ld	-8(r13),r7
+	ld	-10(r13),r10
+	ld	-12(r13),r11
+	ld	-14(r13),r12
+	ld	-16(r13),r14
+	jp	@r9
+cret:
+	ld	r4,-2(r13)
+	ld	r5,-4(r13)
+	ld	r6,-6(r13)
+	ld	r7,-8(r13)
+	ld	r10,-10(r13)
+	ld	r11,-12(r13)
+	ld	r12,-14(r13)
+	ld	r14,-16(r13)
+	ld	sp,r13
+	pop	r13,@sp
+	ret

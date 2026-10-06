@@ -350,7 +350,8 @@ genswitch(p,n) register struct sw *p;{
 		printf( "	ld	r1,@r1\n" );
 		printf( "	jp	@r1\n" );
 
-		/* output table */
+		/* Data loads use D space, even when code and data are separated. */
+		locctr(DATA);
 
 		printf( ".L%d:\n", swlab );
 
@@ -360,6 +361,7 @@ genswitch(p,n) register struct sw *p;{
 				p[i++].slab : dlab );
 			}
 
+		locctr(PROG);
 		if( p->slab< 0 ) deflab( dlab );
 		return;
 

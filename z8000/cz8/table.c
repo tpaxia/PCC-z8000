@@ -931,16 +931,16 @@ SCONV,	INTAREG,
 SCONV,	INTAREG|INAREG,
 	EA|STAREG|STBREG,	TINT|TSHORT,
 	SANY,	TLONG|TULONG,
-		NAREG|NASR,	RESC1,
+		NAREG|NASL,	RESC1,
 		"	ld	U1,AL\n	exts	ZD\n",
 
 /* uint -> ulong: zero extend word to long pair */
-/* clear pair, then load source into low reg */
+/* Copy before clearing the high word: the source may share this pair. */
 SCONV,	INTAREG|INAREG,
 	EA|STAREG|STBREG,	TUNSIGNED|TUSHORT|TPOINT,
 	SANY,	TLONG|TULONG,
-		NAREG|NASR,	RESC1,
-		"	subl	ZD,ZD\n	ld	U1,AL\n",
+		NAREG|NASL,	RESC1,
+		"	ld	U1,AL\n	ld	A1,#0\n",
 
 /* long -> int/word: truncate (take low word) */
 SCONV,	INTAREG|INAREG,
