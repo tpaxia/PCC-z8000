@@ -3,7 +3,7 @@ CZ8 = ../cz8/cz8
 AZ8 = ../az8/az8
 
 .PHONY: all
-all: arith.b float.b softfp.b exit.b
+all: arith.b float.b softfp.b exit.b csv.b
 
 $(CZ8):
 	$(MAKE) -C ../cz8

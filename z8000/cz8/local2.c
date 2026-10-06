@@ -37,21 +37,8 @@ eobl2(){
 	/* epilogue */
 	printf( ".L%d:\n", retlab );
 
-	/* restore only the callee-saved registers that were actually used */
-	if( savemask ){
-		if( savemask & (1<<4) ) printf( "	ld	r4,-2(r13)\n" );
-		if( savemask & (1<<5) ) printf( "	ld	r5,-4(r13)\n" );
-		if( savemask & (1<<6) ) printf( "	ld	r6,-6(r13)\n" );
-		if( savemask & (1<<7) ) printf( "	ld	r7,-8(r13)\n" );
-		if( savemask & (1<<10) ) printf( "	ld	r10,-10(r13)\n" );
-		if( savemask & (1<<11) ) printf( "	ld	r11,-12(r13)\n" );
-		if( savemask & (1<<12) ) printf( "	ld	r12,-14(r13)\n" );
-		if( savemask & (1<<14) ) printf( "	ld	r14,-16(r13)\n" );
-	}
-
-	printf( "	ld	sp,r13\n" );
-	printf( "	pop	r13,@sp\n" );
-	printf( "	ret\n" );
+	/* Shared return restores the fixed slots without disturbing R0-R3. */
+	printf( "\tjp\tcret\n" );
 	printf( "_F%d = %ld\n", ftnno, spoff );
 	printf( "_S%d = %d\n", ftnno, savemask );
 	printf( "! M%d = %d\n", ftnno, maxtoff );

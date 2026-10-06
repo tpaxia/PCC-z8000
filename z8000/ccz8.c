@@ -216,9 +216,9 @@ passa:
 	}
 	if (eflag) exit(eflag);
 # ifdef TWOPASS
-	/* No native optimizer or profiling startup objects are installed yet. */
-	if (oflag || proflag || noflflag) {
-		error("-O, -p and -f are not available in the two-pass driver", (char *)NULL);
+	/* No alternate profiling/no-FP startup objects are installed yet. */
+	if (proflag || noflflag) {
+		error("-p and -f are not available in the two-pass driver", (char *)NULL);
 		exit(1);
 	}
 # endif
@@ -315,7 +315,7 @@ passa:
 # ifdef TWOPASS
 		av[0] = PASS2;
 		av[1] = 0;
-		if (callsys(pass2, av, tmp1, tmp3)) {
+		if (callsys(pass2, av, tmp1, oflag ? tmp5 : tmp3)) {
 			cflag++;
 			eflag++;
 			continue;

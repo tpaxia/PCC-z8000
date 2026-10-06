@@ -11,7 +11,7 @@
  "dev/cons.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e73fabc20f5c01f3",
+  "src": "576621da9715ac93",
   "status": "ok",
   "warnings": [
    "usr/sys/h/tty.h:59: warning: structure typed union member must be named"
@@ -20,14 +20,14 @@
  "dev/hd.c": {
   "az8": "ok",
   "errors": [],
-  "src": "7cb95d7c008ac32d",
+  "src": "c47be0844cdef130",
   "status": "ok",
   "warnings": []
  },
  "dev/md.c": {
   "az8": "ok",
   "errors": [],
-  "src": "dc748fc64bf9d73b",
+  "src": "2f5031c0a3255273",
   "status": "ok",
   "warnings": []
  },
@@ -41,7 +41,7 @@
  "dev/tty.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5c6a61dfaaaf4e04",
+  "src": "5e358bb9504b9c42",
   "status": "ok",
   "warnings": [
    "usr/sys/dev/tty.c:187: warning: illegal member use: t_eofc",
@@ -71,7 +71,7 @@
  "sys/alloc.c": {
   "az8": "ok",
   "errors": [],
-  "src": "57ded9fb2c94249b",
+  "src": "e83f31e56b576033",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -82,21 +82,21 @@
  "sys/bio.c": {
   "az8": "ok",
   "errors": [],
-  "src": "0ff77502829b90da",
+  "src": "6ce4f6e5b93906b3",
   "status": "ok",
   "warnings": []
  },
  "sys/clock.c": {
   "az8": "ok",
   "errors": [],
-  "src": "9c9363e046dc22da",
+  "src": "21f27d50a8a9f519",
   "status": "ok",
   "warnings": []
  },
  "sys/fio.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ed159089efa02816",
+  "src": "fa1ff77adff05b0d",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -105,10 +105,17 @@
    "usr/sys/sys/fio.c:61: warning: illegal member use: i_rdev"
   ]
  },
+ "sys/fpe.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "526feaa554bedd61",
+  "status": "ok",
+  "warnings": []
+ },
  "sys/iget.c": {
   "az8": "ok",
   "errors": [],
-  "src": "8e89fea1624afb93",
+  "src": "adff131a6288aa85",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -123,7 +130,7 @@
  "sys/machdep.c": {
   "az8": "ok",
   "errors": [],
-  "src": "83fe4d844ba19804",
+  "src": "0630aa87ac2fc9a4",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -133,7 +140,7 @@
  "sys/main.c": {
   "az8": "ok",
   "errors": [],
-  "src": "4704afeb600d864d",
+  "src": "aa7895f1a103acb7",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -143,7 +150,7 @@
  "sys/nami.c": {
   "az8": "ok",
   "errors": [],
-  "src": "f7610aaea0a5861f",
+  "src": "a5b05a9c6f66c492",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -153,7 +160,7 @@
  "sys/pipe.c": {
   "az8": "ok",
   "errors": [],
-  "src": "019339c07c67bbd9",
+  "src": "cb8c961014a5d7d1",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -179,7 +186,7 @@
  "sys/rdwri.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b7b1174a8e247cf2",
+  "src": "9ac538e74b0dec23",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -193,14 +200,14 @@
  "sys/sig.c": {
   "az8": "ok",
   "errors": [],
-  "src": "782102fec3f384bb",
+  "src": "d87a661e6688a8a1",
   "status": "ok",
   "warnings": []
  },
  "sys/slp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ba8096692cb3e77f",
+  "src": "89f64bfe7acd2ee0",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -210,7 +217,7 @@
  "sys/subr.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b38439443136ebe4",
+  "src": "489d7014997294f8",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -225,7 +232,7 @@
  "sys/sys1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "98c077a4e6c01001",
+  "src": "640b8844c9def850",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -235,7 +242,7 @@
  "sys/sys2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "d5680227bb83df4d",
+  "src": "e04633d41170db33",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -246,7 +253,7 @@
  "sys/sys3.c": {
   "az8": "ok",
   "errors": [],
-  "src": "02db94b05fa5b379",
+  "src": "f51b8c488c25d6be",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -258,7 +265,7 @@
  "sys/sys4.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ee18a74dff85769b",
+  "src": "c724f80010829eb6",
   "status": "ok",
   "warnings": [
    "usr/sys/h/inode.h:41: warning: structure typed union member must be named",
@@ -268,14 +275,14 @@
  "sys/sysent.c": {
   "az8": "ok",
   "errors": [],
-  "src": "c818bf1d0bd9a72e",
+  "src": "96cab865d50f8de0",
   "status": "ok",
   "warnings": []
  },
  "sys/trap.c": {
   "az8": "ok",
   "errors": [],
-  "src": "923ba5e35619868a",
+  "src": "cc945606746a7c20",
   "status": "ok",
   "warnings": []
  }

@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Compact PCC Z8002 C assembly using shared frames and local peepholes.
 
-Reads stdin and writes stdout. Link output with lib/csv.az8. The frame layout
+Reference implementation for oz8.c and converter for older assembly.
+New compiler output already uses shared frames; conversion of old inline
+frames is retained for older assembly. Reads stdin and writes stdout.
+Link output with lib/csv.az8. The frame layout
 and C calling convention are unchanged. Intended for compiler-generated C,
 not arbitrary hand-written assembly (C calls do not return condition codes).
 """
@@ -14,8 +17,8 @@ pro=re.compile(r'\tpush\t@sp,r13\n\tld\tr13,sp\n\tsub\tsp,#(_F\d+)\n'+re.escape(
 epi=re.compile(r'(?:\tld\tr(?:4|5|6|7|10|11|12|14),-\d+\(r13\)\n)*\tld\tsp,r13\n\tpop\tr13,@sp\n\tret\n')
 def compact(s):
  s,n=pro.subn(lambda m:'\tld\tr8,#'+m[1]+'\n\tcall\tcsv\n',s)
- if not n: return s
- s=epi.sub('\tjp\tcret\n',s)
+ if not n and not re.search(r"\tcall\tcsv\n",s): return s
+ if n: s=epi.sub('\tjp\tcret\n',s)
  lines=s.splitlines()
  for turn in range(8):
   before=lines[:]

@@ -34,7 +34,7 @@ def main():
     parser.add_argument("--strict", action="store_true", help="expected failures also fail")
     parser.add_argument("--case", action="append", help="run named cases only")
     parser.add_argument("--build-dir", type=Path, default=HERE / "build")
-    parser.add_argument("--compact", action="store_true", help="test c2z8 size optimization and shared frames")
+    parser.add_argument("--compact", action="store_true", help="test the native oz8 assembly optimizer")
     args = parser.parse_args()
     build = args.build_dir.resolve()
     build.mkdir(parents=True, exist_ok=True)
@@ -59,6 +59,7 @@ def main():
         ["make", "-C", TARGET / "cz8"],
         ["make", "-C", TARGET / "az8"],
         ["make", "-C", TEST, "run_emu"],
+        ["make", "-C", TEST, "../oz8"],
         [sys.executable, HERE / "check_softfp.py"],
         ["cc", "-O", "-w", "-Wno-implicit-int",
          "-Wno-implicit-function-declaration", "-Wno-int-conversion",
@@ -84,10 +85,10 @@ def main():
         print("Floating runtime compilation failed:\n" + detail)
         return 1
     if args.compact:
-        optimized = subprocess.run([sys.executable, str(TARGET / "c2z8.py")],
+        optimized = subprocess.run([str(TARGET / "oz8")],
                                    input=soft.read_bytes(), capture_output=True, check=True)
         soft.write_bytes(optimized.stdout)
-        runtime.append(("csv", TARGET / "lib" / "csv.az8"))
+    runtime.append(("csv", TARGET / "lib" / "csv.az8"))
     runtime.append(("softfp", soft))
     for name, source in runtime:
         obj = build / (name + ".b")
@@ -138,10 +139,10 @@ def main():
                 break
             if stage == "compile" and ok and name in codegen and \
                     not re.search(codegen[name], assembly.read_text()):
-                failure = ("codegen", "incorrect initializer encoding")
+                failure = ("codegen", "unexpected assembly encoding")
                 break
             if stage == "compile" and ok and args.compact:
-                optimized = subprocess.run([sys.executable, str(TARGET / "c2z8.py")],
+                optimized = subprocess.run([str(TARGET / "oz8")],
                                            input=assembly.read_bytes(), capture_output=True, check=True)
                 assembly.write_bytes(optimized.stdout)
             if not ok:

@@ -76,7 +76,7 @@ def multifile(shared, build):
     for name, inputs in [("multifile", objects), ("archive", [objects[1], archive])]:
         binary = directory / (name + ".bout")
         argv = [shared / "ldz8", "-x", shared / "crt0.b", "-R", "8", *inputs,
-                shared / "exit.b", shared / "liblong.b", "-o", binary]
+                shared / "exit.b", shared / "liblong.b", shared / "csv.b", "-o", binary]
         ok, detail = regress.command(argv, directory / (name + "-link.log"), cwd=directory)
         if "ldz8: Undefined -" in detail:
             ok = False
@@ -116,7 +116,7 @@ def main():
             ("compile", [TARGET / "cz8" / "cz8"], source.read_bytes(), assembly),
             ("assemble", [TARGET / "az8" / "az8", "-o", obj.name, assembly.name], None, None),
             ("link", [shared / "ldz8", "-x", shared / "crt0.b", "-R", "8", obj,
-                      shared / "exit.b", shared / "liblong.b", shared / "libfloat.b",
+                      shared / "exit.b", shared / "liblong.b", shared / "csv.b", shared / "libfloat.b",
                       shared / "softfp.b", "-o", binary], None, None),
             ("run", [HERE.parent / "run_emu", binary, "-e", "0"], None, None),
         ]

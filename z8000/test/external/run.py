@@ -126,7 +126,7 @@ def main():
             ("compile", [TARGET / "cz8/cz8"], preprocessed, assembly),
             ("assemble", [TARGET / "az8/az8", "-o", obj.name, assembly.name], None, None),
             ("link", [shared / "ldz8", "-x", shared / "crt0.b", "-R", "8", obj,
-                      exit_obj, shared / "liblong.b", shared / "libfloat.b",
+                      exit_obj, shared / "liblong.b", shared / "csv.b", shared / "libfloat.b",
                       shared / "softfp.b", "-o", binary], None, None),
             ("run", [TEST / "run_emu", binary, "-e", "0", "-c", "2000000"], None, None),
         ]

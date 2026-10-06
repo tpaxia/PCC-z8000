@@ -1,18 +1,18 @@
 {
  "args.c": {
-  "asm": "5857bea4b375ad84",
+  "asm": "60a3dcf47281e360",
   "src": "cbc69facc28ee241"
  },
  "blok.c": {
-  "asm": "a4884939dd6f464e",
+  "asm": "886231bd7d730f6e",
   "src": "4f04d027d10a49f0"
  },
  "builtin.c": {
-  "asm": "a522664d1f90a045",
+  "asm": "4e42220ead5094d4",
   "src": "bf4b16f0c83f5073"
  },
  "cmd.c": {
-  "asm": "0b59f56e28acf453",
+  "asm": "529b4503c047aa72",
   "src": "ffe6ccb1e032a34e"
  },
  "ctype.c": {
@@ -20,27 +20,27 @@
   "src": "51134f7d3f8ce1c7"
  },
  "error.c": {
-  "asm": "f0ec0fa937fce73c",
+  "asm": "9d3b99d2c768daa9",
   "src": "4b6a6bb5a829513d"
  },
  "expand.c": {
-  "asm": "2407914f3f4ca5df",
+  "asm": "be7e94cf5f3ba937",
   "src": "2db1cb52c249b6e1"
  },
  "fault.c": {
-  "asm": "b6e7473fc7fc0d53",
+  "asm": "dc37212c493db47f",
   "src": "b6c4496e5cdc8629"
  },
  "io.c": {
-  "asm": "d7467b967f4c9f59",
+  "asm": "224f25473908136f",
   "src": "d172be4842b6d06e"
  },
  "macro.c": {
-  "asm": "32f855ffb9f21fb4",
+  "asm": "918982c3dd72f8b9",
   "src": "5b6f362c9c66acfb"
  },
  "main.c": {
-  "asm": "bcb66bd68612429f",
+  "asm": "463ac592a7b2da0c",
   "src": "89ccffbd056ca1d1"
  },
  "msg.c": {
@@ -48,35 +48,35 @@
   "src": "f1dbcc2fc07f98fa"
  },
  "name.c": {
-  "asm": "60ac753596292b81",
+  "asm": "5d217605a61fba75",
   "src": "9e5af3e388b4e6d1"
  },
  "print.c": {
-  "asm": "9310852eed8657e7",
+  "asm": "1d63ad36dcaa70e7",
   "src": "5e51c21efc3a44e3"
  },
  "service.c": {
-  "asm": "782e0ccaab66e807",
+  "asm": "b16342bcc806d565",
   "src": "c34f375a16bde61e"
  },
  "setbrk.c": {
-  "asm": "66c0847fc69accc0",
+  "asm": "3746059320e5754d",
   "src": "efb1ec25013a3baa"
  },
  "stak.c": {
-  "asm": "2cabe824d12357d2",
+  "asm": "d5ce79d44e217aa5",
   "src": "32ef271d4aa893e8"
  },
  "string.c": {
-  "asm": "c2c0a3892ba54a84",
+  "asm": "9746817e58c144f4",
   "src": "0031b2edc8cdf65e"
  },
  "word.c": {
-  "asm": "bb496f72c08eb59a",
+  "asm": "5f68ab0776c6e3e6",
   "src": "03e4cfb8ed99707b"
  },
  "xec.c": {
-  "asm": "bf677444d8aa290b",
+  "asm": "1cf97dd11aa89c5a",
   "src": "351fd349029d0965"
  }
 }

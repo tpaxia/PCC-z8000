@@ -1,4 +1,4 @@
-! Shared PCC function entry/return for c2z8.py output.
+! Shared PCC function entry/return for compiler-generated C.
 ! R8 holds frame size; R9 receives the helper return address.
 ! Both are call-clobbered. R0-R3 (including long/double return values)
 ! are untouched. FP and all callee-saved slots retain the standard ABI.

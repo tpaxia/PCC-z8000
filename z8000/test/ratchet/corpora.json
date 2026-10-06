@@ -32,7 +32,7 @@
   "name": "pcc-self",
   "root": "pcc",
   "base": "z8000",
-  "globs": ["cz8/*.c", "az8/*.c", "lib/*.c", "ldz8.c", "ccz8.c"],
+  "globs": ["cz8/*.c", "az8/*.c", "lib/*.c", "ldz8.c", "ccz8.c", "oz8.c"],
   "include": ["{dir}", "{v7}/usr/include"]
  }
 ]

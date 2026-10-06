@@ -8,6 +8,7 @@ TOOLDIR   = ..
 CZ8       = $(TOOLDIR)/cz8/cz8
 AZ8       = $(TOOLDIR)/az8/az8
 LDZ8      = $(TOOLDIR)/ldz8
+OZ8       = $(TOOLDIR)/oz8
 
 EMU_DIR   = ../../z8000_emu
 # The emulator is a CMake project: the library headers are under lib/include
@@ -40,7 +41,7 @@ pcc_optim_EXPECT  = 0
 # Build artifacts
 BOUTS     = $(TESTS:%=%.bout)
 
-.PHONY: all clean test regress regress-strict external compare68k ratchet knr parser-sync gate
+.PHONY: all clean test regress regress-strict external compare68k ratchet knr parser-sync optimizer gate
 
 all: test
 
@@ -77,12 +78,19 @@ parser-sync:
 	python3 ../cz8/regen_cgram.py --check
 
 # Everything a compiler change must pass before it is accepted.
-gate: parser-sync test regress-strict compare68k external ratchet knr
+gate: parser-sync test regress-strict compare68k external ratchet knr optimizer
+
+optimizer:
+	python3 optimizer/run.py
+	python3 regress/run.py --strict --compact
 
 # The linker is K&R C; without this rule make's built-in rule compiles it with
 # default flags, which a modern host compiler rejects.
 $(LDZ8): $(TOOLDIR)/ldz8.c
 	cc -O -w -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -o $@ $<
+
+$(OZ8): $(TOOLDIR)/oz8.c
+	cc -std=gnu89 -O -w -Wno-return-mismatch -Wno-int-conversion -o $@ $<
 
 # Build the emulator library if needed
 $(EMU_LIB):
@@ -95,6 +103,9 @@ run_emu: run_emu.cpp $(EMU_LIB)
 
 # Assemble crt0
 crt0.b: $(TOOLDIR)/crt0.az8 $(AZ8)
+	$(AZ8) -o $@ $<
+
+csv.b: $(TOOLDIR)/lib/csv.az8 $(AZ8)
 	$(AZ8) -o $@ $<
 
 # Assemble exit stub
@@ -122,8 +133,8 @@ softfp.az8: $(TOOLDIR)/lib/softfp.c $(CZ8)
 # Link: crt0 first (so _start is at origin), then test, then exit
 # -R 8 = text origin at 0x0008 (after 6-byte PSAP reset vector area)
 # -x = discard local symbols
-%.bout: crt0.b %.b liblong.b libfloat.b softfp.b exit.b $(LDZ8)
-	$(LDZ8) -x crt0.b -R 8 $*.b liblong.b libfloat.b softfp.b exit.b -o $@
+%.bout: crt0.b %.b liblong.b libfloat.b softfp.b exit.b csv.b $(LDZ8)
+	$(LDZ8) -x crt0.b -R 8 $*.b liblong.b libfloat.b softfp.b exit.b csv.b -o $@
 
 # Run all tests
 test: run_emu $(BOUTS)

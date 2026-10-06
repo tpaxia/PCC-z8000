@@ -16,14 +16,14 @@
  "az8/ins.c": {
   "az8": "ok",
   "errors": [],
-  "src": "26e6664afb9a6000",
+  "src": "8e04a9d04c69c7ee",
   "status": "ok",
   "warnings": []
  },
  "az8/ioz8.c": {
   "az8": "ok",
   "errors": [],
-  "src": "1324ce3c9083de02",
+  "src": "0f44151755051dab",
   "status": "ok",
   "warnings": []
  },
@@ -37,7 +37,7 @@
  "az8/rel.c": {
   "az8": "ok",
   "errors": [],
-  "src": "0bdafdb53e99f545",
+  "src": "cd1ee1428e92cd60",
   "status": "ok",
   "warnings": []
  },
@@ -65,7 +65,7 @@
  "ccz8.c": {
   "az8": "ok",
   "errors": [],
-  "src": "d98f028d35a9a73e",
+  "src": "db64d862a9680a6a",
   "status": "ok",
   "warnings": []
  },
@@ -86,7 +86,7 @@
  "cz8/code.c": {
   "az8": "ok",
   "errors": [],
-  "src": "d57407167ef68cfd",
+  "src": "319717136691e279",
   "status": "ok",
   "warnings": []
  },
@@ -107,7 +107,7 @@
  "cz8/local2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "544806b05293e36a",
+  "src": "90b632e596c2e333",
   "status": "ok",
   "warnings": []
  },
@@ -175,18 +175,23 @@
   "warnings": []
  },
  "ldz8.c": {
-  "az8": "skipped",
-  "errors": [
-   "z8000/ldz8.c:297: SARMAG undefined"
-  ],
-  "src": "cef843098b316d7d",
-  "status": "error",
+  "az8": "ok",
+  "errors": [],
+  "src": "19904c334ad8d6b7",
+  "status": "ok",
   "warnings": []
  },
  "lib/softfp.c": {
   "az8": "ok",
   "errors": [],
   "src": "7c877fb8ca11c8a7",
+  "status": "ok",
+  "warnings": []
+ },
+ "oz8.c": {
+  "az8": "ok",
+  "errors": [],
+  "src": "186ffb01119c932d",
   "status": "ok",
   "warnings": []
  }

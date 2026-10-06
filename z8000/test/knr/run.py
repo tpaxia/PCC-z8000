@@ -69,6 +69,7 @@ def build_runtime(build):
                ("exit", (TARGET / "lib" / "exit.az8").read_bytes()),
                ("liblong", (TARGET / "lib" / "arith.az8").read_bytes()),
                ("libfloat", (TARGET / "lib" / "float.az8").read_bytes()),
+               ("csv", (TARGET / "lib" / "csv.az8").read_bytes()),
                ("softfp", soft)]
     objects = []
     for name, data in sources:

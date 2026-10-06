@@ -144,21 +144,10 @@ bfcode( a, n ) int a[]; {
 		printf( "	.data\n.L%d:	.word 0\n	.text\n", plab );
 		}
 
-	/* routine prolog */
-	/* push R13, ld R13,SP, sub SP,#framesize */
-
-	printf( "	push	@sp,r13\n" );
-	printf( "	ld	r13,sp\n" );
-	printf( "	sub	sp,#_F%d\n", ftnno );
-	/* save callee-saved regs at fixed offsets from FP (R13) */
-	printf( "	ld	-2(r13),r4\n" );
-	printf( "	ld	-4(r13),r5\n" );
-	printf( "	ld	-6(r13),r6\n" );
-	printf( "	ld	-8(r13),r7\n" );
-	printf( "	ld	-10(r13),r10\n" );
-	printf( "	ld	-12(r13),r11\n" );
-	printf( "	ld	-14(r13),r12\n" );
-	printf( "	ld	-16(r13),r14\n" );
+	/* Shared entry preserves the standard fixed frame and argument offsets.
+	 * R8/R9 are call-clobbered; csv leaves R0-R3 untouched. */
+	printf( "\tld\tr8,#_F%d\n", ftnno );
+	printf( "\tcall\tcsv\n" );
 	usedregs = 0;
 
 	off = ARGINIT;

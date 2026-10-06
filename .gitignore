@@ -5,6 +5,8 @@ z8000/cz8/cz8
 z8000/az8/az8
 z8000/ccz8
 z8000/ldz8
+z8000/oz8
+z8000/test/optimizer/build/
 z8000/test/regress/build/
 z8000/lib/softfp.az8
 z8000/test/softfp.az8
