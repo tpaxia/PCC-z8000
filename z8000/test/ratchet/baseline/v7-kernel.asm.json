@@ -1,15 +1,15 @@
 {
  "conf/emulated.c": {
-  "asm": "8c1ebabc2e07cf85",
-  "src": "612c8b633f7b0a60"
+  "asm": "10a5d0714732ef35",
+  "src": "97dcabe92cc7a2fc"
  },
  "dev/cons.c": {
   "asm": "0cebdf12bd6677ac",
   "src": "c8a8c69eece2a6c5"
  },
  "dev/hd.c": {
-  "asm": "c9def5bddd00d272",
-  "src": "3de29bb0ed567e95"
+  "asm": "89e024a3eecb3b81",
+  "src": "e49b54ce8172ae34"
  },
  "dev/md.c": {
   "asm": "41a5a106e11ef119",
@@ -24,20 +24,20 @@
   "src": "46cec56f87bbb09e"
  },
  "machine/cpu.c": {
-  "asm": "5701d55177c0efed",
-  "src": "0dcc9bfdf11be6b8"
+  "asm": "2fa977187ca4a2d4",
+  "src": "bd9befeebb5f5c8c"
  },
  "machine/fpe.c": {
   "asm": "faca796549a8c7dc",
   "src": "53e56ac49b9ae067"
  },
  "machine/paged.c": {
-  "asm": "722e74d75b91f979",
-  "src": "8c6c9e2b40acaa6e"
+  "asm": "85576d6d85ea4b79",
+  "src": "ab43bdef912d6d7b"
  },
  "machine/trap.c": {
-  "asm": "77e805162b6f7d32",
-  "src": "f2536b03cd929b46"
+  "asm": "09e4b5a2a70f6732",
+  "src": "003a1437b8e7cc9b"
  },
  "sys/alloc.c": {
   "asm": "ace5f2c84dff3ccd",
@@ -64,8 +64,12 @@
   "src": "7c0f6888e1e28473"
  },
  "sys/main.c": {
-  "asm": "9772cd98f6e5a612",
-  "src": "a451d6c290c75654"
+  "asm": "0e50e478609be5a6",
+  "src": "31c61cb4818cbb09"
+ },
+ "sys/malloc.c": {
+  "asm": "dbd5838741bb2f76",
+  "src": "47f66887d4fa00ce"
  },
  "sys/nami.c": {
   "asm": "f9c8b000ad8bc127",
@@ -88,20 +92,20 @@
   "src": "fcb5efc3e4d2bd51"
  },
  "sys/sig.c": {
-  "asm": "9468083aa6409045",
-  "src": "8a0bfef7aa57f331"
+  "asm": "01f3e6edc7588e90",
+  "src": "517d4af20a739fab"
  },
  "sys/slp.c": {
-  "asm": "74d5cc43fe96f59d",
-  "src": "2945da8c3f3dc0af"
+  "asm": "8d1510a85a2731b0",
+  "src": "5acdac91ef37d846"
  },
  "sys/subr.c": {
   "asm": "b990431a6bc79bd0",
   "src": "2698802f3c5dbef4"
  },
  "sys/sys1.c": {
-  "asm": "456a34369bf4bd0a",
-  "src": "1bc7675d5f6f8ceb"
+  "asm": "47dbe41546384991",
+  "src": "0ef8228675cf1ab0"
  },
  "sys/sys2.c": {
   "asm": "f31b77248a678330",
@@ -118,5 +122,9 @@
  "sys/sysent.c": {
   "asm": "a021d8061c136731",
   "src": "03b33346d5a592f1"
+ },
+ "sys/text.c": {
+  "asm": "96bd1155fd03790a",
+  "src": "00c2162304f1ce9e"
  }
 }

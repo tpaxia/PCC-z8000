@@ -29,7 +29,7 @@ Defined in `corpora.json`.
 
 | Corpus | Source | Files |
 | --- | --- | --- |
-| `v7-kernel` | `usr/sys/sys`, `usr/sys/dev`, `usr/sys/machine`, `usr/sys/conf` | 30 |
+| `v7-kernel` | `usr/sys/sys`, `usr/sys/dev`, `usr/sys/machine`, `usr/sys/conf` | 32 |
 | `v7-sh` | `usr/src/cmd/sh` | 20 |
 | `v7-cmd` | the rest of `usr/src/cmd` | 523 |
 | `v7-libc` | `usr/src/libc` | 89 |
