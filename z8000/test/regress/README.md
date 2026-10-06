@@ -1,5 +1,9 @@
 # Z8002 compiler audit and regression tests
 
+The current strict suite reports **80 PASS, 0 XFAIL, 0 XPASS, 0 FAIL**, both
+with and without the native assembly optimizer. The counts below record
+earlier stages of the audit.
+
 This suite exercises the general K&R C compiler, beyond the subset used by Unix V7. The audit found failures in lexical validation, typedef handling, scalar conversions, long operations, initialization, register allocation, and the assembler/linker pipeline. It adds 45 C execution/code-emission cases, 3 assembly isolation cases, and 7 diagnostic cases. It also rebuilds and runs the existing tests.
 
 On upstream `main` at **510a0f5**, before these local fixes, 47 cases passed and 15 failed. All 15 failures are now fixed. That initial fixed suite reported **67 PASS, 0 XFAIL, 0 XPASS, 0 FAIL**, including five additional boundary/runtime/storage/vector cases and the pre-existing `larith.c`. The setup also checks the integer-only double adder against 100,000 deterministic host IEEE additions.

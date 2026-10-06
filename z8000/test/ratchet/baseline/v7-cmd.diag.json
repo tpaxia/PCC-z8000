@@ -207,7 +207,7 @@
  "ar.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b6c615a9e484dd29",
+  "src": "790bde4f3ffeb9ce",
   "status": "ok",
   "warnings": []
  },
@@ -1686,12 +1686,10 @@
   "warnings": []
  },
  "make/files.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/cmd/make/files.c:448: a_flag undefined"
-  ],
-  "src": "58fad31abbbe7e54",
-  "status": "error",
+  "az8": "ok",
+  "errors": [],
+  "src": "02eebd94fee432df",
+  "status": "ok",
   "warnings": []
  },
  "make/ident.c": {
@@ -5115,14 +5113,14 @@
  "yacc/y1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "882f652d3ca831db",
+  "src": "7f1b9889db7dfdfa",
   "status": "ok",
   "warnings": []
  },
  "yacc/y2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b0382e77c774078c",
+  "src": "89fe8efff7ceae44",
   "status": "ok",
   "warnings": []
  },
@@ -5136,7 +5134,7 @@
  "yacc/y4.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b5ad5082a090f4c6",
+  "src": "3ce2a019ec433dcf",
   "status": "ok",
   "warnings": []
  },

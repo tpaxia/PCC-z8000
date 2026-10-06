@@ -24,10 +24,12 @@ struct sdi {	/* information for span dependent instructions (sdi's) */
 
 struct blist {	/* length and bounds information for various forms of sdi's */
 	struct blist *b_next;	/* next element in list */
+	struct blist *b_pool;	/* all immutable, shared bounds nodes */
 	int b_length;		/* length of this form of the sdi */
 	long int b_lbound;	/* lower and upper bound on the span */
 	long int b_ubound;	/* for this form of the sdi */
 };
+static struct blist *bound_pool;
 
 /*
  * routine to create a sdi descriptor and insert it into the list
@@ -67,8 +69,9 @@ struct blist *bounds;	/* list of lengths & bounds for the sdi */
 }
 
 /*
- * insert a new blist element into a blist
- * The blist is sorted by increasing b_length
+ * Intern an immutable bounds list, sorted by increasing b_length.
+ * Hundreds of branches use the same two forms. Allocating two private
+ * bounds nodes for each branch exhausts a native 64K data space.
  */
 struct blist *sdi_bound(leng, lbound, ubound, next)
 int leng;		/* length of this form of the sdi */
@@ -76,19 +79,25 @@ long int lbound;	/* lower bound of span */
 long int ubound;	/* upper bound */
 struct blist *next;	/* target blist */
 {
-	register struct blist *b, **p;
+	register struct blist *b;
+
+	if (next && leng > next->b_length)
+		return sdi_bound(next->b_length, next->b_lbound,
+			next->b_ubound, sdi_bound(leng, lbound, ubound, next->b_next));
+	for (b = bound_pool; b; b = b->b_pool)
+		if (b->b_length == leng && b->b_lbound == lbound &&
+		    b->b_ubound == ubound && b->b_next == next)
+			return b;
 
 	if ((b = (struct blist *)calloc(1,sizeof *b)) == NULL)
 		Sys_Error("sdi bound list storage exceeded\n");
 	b->b_length = leng;
 	b->b_lbound = lbound;
 	b->b_ubound = ubound;
-	for (p = &next; *p; p = &(*p)->b_next)
-		if (leng <= (*p)->b_length)
-			break;
-	b->b_next = *p;
-	*p = b;
-	return(*p);
+	b->b_next = next;
+	b->b_pool = bound_pool;
+	bound_pool = b;
+	return b;
 }
 
 /*
@@ -192,25 +201,15 @@ long int offset;
 sdi_free()
 {
 	register struct sdi *s, *t;
+	struct blist *b, *next;
 	for (s = sdi_list; s; s = t) {
 		t = s->sdi_next;
-		b_free(s->sdi_bounds);
 		free(s);
 	}
 	sdi_list = (struct sdi *)0;
-}
-
-/*
- * release a bounds list
- */
-b_free(p)
-register struct blist *p;
-{
-	register struct blist *q;
-	while(p) {
-		q = p->b_next;
-		free(p);
-		p = q;
+	for (b = bound_pool; b; b = next) {
+		next = b->b_pool;
+		free(b);
 	}
+	bound_pool = (struct blist *)0;
 }
-

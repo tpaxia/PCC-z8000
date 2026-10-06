@@ -29,11 +29,11 @@ Defined in `corpora.json`.
 
 | Corpus | Source | Files |
 | --- | --- | --- |
-| `v7-kernel` | `usr/sys/sys`, `usr/sys/dev` | 27 |
+| `v7-kernel` | `usr/sys/sys`, `usr/sys/dev`, `usr/sys/machine`, `usr/sys/conf` | 29 |
 | `v7-sh` | `usr/src/cmd/sh` | 20 |
 | `v7-cmd` | the rest of `usr/src/cmd` | 523 |
 | `v7-libc` | `usr/src/libc` | 89 |
-| `pcc-self` | this toolchain: `cz8`, `az8`, `lib`, `ldz8.c`, `ccz8.c` | 27 |
+| `pcc-self` | this toolchain: `cz8`, `az8`, `lib`, `ldz8.c`, `ccz8.c`, `oz8.c` | 28 |
 
 The V7 corpora live outside this repository, in the adapted V7 tree of the
 `z8000_unix` project. The runner looks for it at `$V7_ROOT`, then `--v7-root`,

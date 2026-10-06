@@ -3,36 +3,70 @@
   "name": "v7-kernel",
   "root": "v7",
   "base": "usr/sys",
-  "globs": ["sys/*.c", "dev/*.c"],
-  "include": ["h"]
+  "globs": [
+   "sys/*.c",
+   "dev/*.c",
+   "machine/*.c",
+   "conf/*.c"
+  ],
+  "include": [
+   "h"
+  ]
  },
  {
   "name": "v7-sh",
   "root": "v7",
   "base": "usr/src/cmd/sh",
-  "globs": ["*.c"],
-  "include": [".", "{v7}/usr/include"]
+  "globs": [
+   "*.c"
+  ],
+  "include": [
+   ".",
+   "{v7}/usr/include"
+  ]
  },
  {
   "name": "v7-cmd",
   "root": "v7",
   "base": "usr/src/cmd",
-  "globs": ["**/*.c"],
-  "exclude": ["sh/*"],
-  "include": ["{dir}", "{v7}/usr/include"]
+  "globs": [
+   "**/*.c"
+  ],
+  "exclude": [
+   "sh/*"
+  ],
+  "include": [
+   "{dir}",
+   "{v7}/usr/include"
+  ]
  },
  {
   "name": "v7-libc",
   "root": "v7",
   "base": "usr/src/libc",
-  "globs": ["**/*.c"],
-  "include": ["{dir}", "{v7}/usr/include"]
+  "globs": [
+   "**/*.c"
+  ],
+  "include": [
+   "{dir}",
+   "{v7}/usr/include"
+  ]
  },
  {
   "name": "pcc-self",
   "root": "pcc",
   "base": "z8000",
-  "globs": ["cz8/*.c", "az8/*.c", "lib/*.c", "ldz8.c", "ccz8.c", "oz8.c"],
-  "include": ["{dir}", "{v7}/usr/include"]
+  "globs": [
+   "cz8/*.c",
+   "az8/*.c",
+   "lib/*.c",
+   "ldz8.c",
+   "ccz8.c",
+   "oz8.c"
+  ],
+  "include": [
+   "{dir}",
+   "{v7}/usr/include"
+  ]
  }
 ]

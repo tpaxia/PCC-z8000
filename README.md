@@ -12,6 +12,7 @@ z8000/
 ├── az8/          # assembler (builds to az8)
 ├── ccz8.c        # compiler driver
 ├── ldz8.c        # linker
+├── oz8.c         # native assembly optimizer
 ├── crt0.az8      # C runtime startup
 ├── b.out.h       # object file format header
 ├── include/      # target headers (varargs.h)
@@ -28,10 +29,10 @@ compile, assemble, link and execute on the Z8002 emulator:
 
 | Suite | Result | Documentation |
 | --- | --- | --- |
-| General regression, including the 15 core programs | 77 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
+| General regression, including the 15 core programs | 80 PASS, 0 FAIL | [Regression audit](z8000/test/regress/README.md) |
 | 68000 comparison probes | 54 PASS, 0 FAIL | [Compiler comparison](z8000/test/compare68k/README.md) |
 | Selected external GCC/PCC K&R tests | 58 PASS, 0 FAIL | [Sources, adaptations and results](z8000/test/external/README.md) |
-| No-regression ratchet: 686 real K&R source files, compile-only | 0 regressions | [Ratchet](z8000/test/ratchet/README.md) |
+| No-regression ratchet: 689 real K&R source files, compile-only | 0 regressions | [Ratchet](z8000/test/ratchet/README.md) |
 | K&R reference-manual probes | 58 PASS, 0 FAIL | [Coverage matrix](z8000/test/knr/MATRIX.md) |
 
 None of the suites has an expected-failure exemption; the K&R probes record
@@ -56,13 +57,26 @@ make -C z8000/lib
 ## Build
 
 ```bash
-cd z8000/cz8 && make          # compiler backend
-cd z8000/az8 && make          # assembler
-cd z8000 && cc -O -w -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -Wno-incompatible-function-pointer-types -o ccz8 ccz8.c
-cd z8000 && cc -O -w -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -o ldz8 ldz8.c
+make -C z8000/cz8            # compiler backend
+make -C z8000/az8            # assembler
+make -C z8000/test ../ldz8 ../oz8
+cc -O -w -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -Wno-incompatible-function-pointer-types -o z8000/ccz8 z8000/ccz8.c
 ```
 
 ## Current Status
+
+The Z8000 Unix integration now rebuilds the two-pass compiler and optimizer
+under Unix, with two successive native generations producing identical
+objects and executables. It also builds native make, ar, yacc, cpp, assembler,
+linker and libc. These integration tests and disk builders live in the parent
+`z8000_unix` repository under `tools/native-cc/`; they are separate from this
+repository's standalone emulator suites.
+
+Native programs use NONSEG 0407 combined-space or 0411 split-I/D executables.
+The linker reads portable ASCII archives; the Unix native archiver and make
+reader use the same format. Full segmented compilation/linking remains
+unimplemented. Unix floating arithmetic uses a separate Zilog software EPU
+service; standalone tests continue to use this repository's IEEE runtime.
 
 ### Completed (Phases 1-6)
 
@@ -152,9 +166,11 @@ inline-frame output. Run `make -C z8000/test optimizer` for optimizer checks.
 
 Floating arithmetic uses nearest/even rounding without floating exception flags
 or alternate rounding modes. The profiling runtime (`mcount`) is absent.
-The tests do not establish complete C conformance, every
-assembler encoding, or a rebuilt and booted Unix V7 kernel/userland. See the
-suite documentation for the exact verified scope and historical failures.
+The standalone tests do not establish complete C conformance or every
+assembler encoding. The Unix integration separately boots a PCC-built kernel
+and rebuilds the native development tools; a complete native rebuild of the
+kernel and all V7 commands remains outstanding. See the suite documentation
+for the exact verified scope and historical failures.
 
 **Medium priority — assembler encoding bugs (not emitted by compiler, affect hand-written assembly):**
 - **BIT/SET/RES register mode** — `bit_op()` uses IR-mode opcodes for R-mode operands; `bitb rl0,#0` → `2680` instead of correct `A680`

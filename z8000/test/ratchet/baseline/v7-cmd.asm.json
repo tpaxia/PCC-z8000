@@ -72,8 +72,8 @@
   "src": "a3cacbc3c4645ac0"
  },
  "ar.c": {
-  "asm": "902a87efb1865754",
-  "src": "b6c615a9e484dd29"
+  "asm": "b507075f6b994ba7",
+  "src": "790bde4f3ffeb9ce"
  },
  "arcv.c": {
   "asm": "472537228f0e6c8e",
@@ -478,6 +478,10 @@
  "make/dosys.c": {
   "asm": "883d2a516ac570d6",
   "src": "4d93b5a0e156d56d"
+ },
+ "make/files.c": {
+  "asm": "952843822a309f2a",
+  "src": "02eebd94fee432df"
  },
  "make/ident.c": {
   "asm": "e63e8a0f89e4f5bc",
@@ -1688,20 +1692,20 @@
   "src": "31c4954227c52cd2"
  },
  "yacc/y1.c": {
-  "asm": "036ca916626a90ce",
-  "src": "882f652d3ca831db"
+  "asm": "6b3888e3d747c67d",
+  "src": "7f1b9889db7dfdfa"
  },
  "yacc/y2.c": {
-  "asm": "27c6228da40b5b58",
-  "src": "b0382e77c774078c"
+  "asm": "524fc87755f72fa3",
+  "src": "89fe8efff7ceae44"
  },
  "yacc/y3.c": {
   "asm": "40be74b6e14328a1",
   "src": "6902d5bbd4ad1d04"
  },
  "yacc/y4.c": {
-  "asm": "f2a6c75b538dfd5e",
-  "src": "b5ad5082a090f4c6"
+  "asm": "31421ccb1866f6be",
+  "src": "3ce2a019ec433dcf"
  },
  "yes.c": {
   "asm": "8d5e2123f5c5a608",
