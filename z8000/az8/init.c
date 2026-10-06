@@ -207,6 +207,7 @@ struct ins_init { char *opstr; short opnum; } op_codes[] = {
 	"mres",	i_mres,
 	"mset",	i_mset,
 	"ldctl",	i_ldctl,
+	"ldctlb", i_ldctlb,
 	/* pseudo ops */
 	".long", i_long,
 	".word", i_word,
@@ -333,6 +334,7 @@ defregs[] = {
   "rq0", 48, "rq4", 52, "rq8", 56, "rq12", 60,
   "fcw", 64, "refresh", 65, "psapseg", 66, "psapoff", 67,
   "nspseg", 68, "nspoff", 69,
+  "flags", 70,
   0, 0
 },
 cdefregs[] = {

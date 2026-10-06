@@ -117,6 +117,7 @@ Instruction(opindex)
 	case i_ei:	di_ei(0x7C04); break;
 	case i_sc:	sc_op(); break;
 	case i_ldctl:	ldctl_op(); break;
+	case i_ldctlb:	ldctlb_op(); break;
 
 /* =================== Load instructions =================== */
 
@@ -442,6 +443,28 @@ ldctl_op()
 	Prog_Error(E_OPERAND);
 }
 
+
+/* Z8000 manual, LDCTLB: 10001100 Rb 1001 writes FLAGS; ...0001 reads.
+ * Only byte registers and FLAGS are accepted; this is unprivileged.
+ */
+ldctlb_op()
+{
+	register struct oper *dst, *src;
+	if (numops != 2) { Prog_Error(E_NUMOPS); return; }
+	dst = operands;
+	src = &operands[1];
+	if (dst->type_o == t_reg && dst->value_o == 70 &&
+	    src->type_o == t_reg && breg(src->value_o)) {
+		WCode[0] = 0x8C09 | (regfield(src->value_o) << 4);
+		return;
+	}
+	if (src->type_o == t_reg && src->value_o == 70 &&
+	    dst->type_o == t_reg && breg(dst->value_o)) {
+		WCode[0] = 0x8C01 | (regfield(dst->value_o) << 4);
+		return;
+	}
+	Prog_Error(E_OPERAND);
+}
 
 /* one_reg -- single register operand, e.g. neg, com, clr, test, tset, exts, extsb */
 one_reg(opr, size)
