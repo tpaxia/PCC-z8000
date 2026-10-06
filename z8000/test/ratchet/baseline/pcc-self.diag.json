@@ -79,12 +79,10 @@
   "warnings": []
  },
  "cz8/cgram.c": {
-  "az8": "skipped",
-  "errors": [
-   "z8000/cgram.y:751: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "063e9102f4a0558a",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "cz8/code.c": {
@@ -169,12 +167,10 @@
   "warnings": []
  },
  "cz8/trees.c": {
-  "az8": "skipped",
-  "errors": [
-   "z8000/cz8/trees.c:69: compiler error: expression causes compiler loop: try simplifying"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "16d1bb80104d4f84",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "cz8/xdefs.c": {

@@ -303,12 +303,10 @@
   "warnings": []
  },
  "stdio/doscan.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/libc/stdio/doscan.c:183: compiler error: no table entry for op REG"
-  ],
+  "az8": "ok",
+  "errors": [],
   "src": "2e604fab5ea6d468",
-  "status": "error",
+  "status": "ok",
   "warnings": []
  },
  "stdio/endopen.c": {

@@ -56,7 +56,6 @@ def build_runtime(build):
     """Assemble crt0 and the runtime library once; return the object list."""
     cz8, az8 = TARGET / "cz8" / "cz8", TARGET / "az8" / "az8"
     setup = [["make", "-C", TARGET / "cz8"], ["make", "-C", TARGET / "az8"],
-             ["make", "-C", TARGET.parent / "z8000_emu", "libz8000"],
              ["make", "-C", TEST, "run_emu"],
              ["cc", *CC_FLAGS, "-o", build / "ldz8", TARGET / "ldz8.c"]]
     for argv in setup:

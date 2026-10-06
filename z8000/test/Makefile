@@ -10,11 +10,13 @@ AZ8       = $(TOOLDIR)/az8/az8
 LDZ8      = $(TOOLDIR)/ldz8
 
 EMU_DIR   = ../../z8000_emu
-EMU_INC   = $(EMU_DIR)/include
-EMU_LIB   = $(EMU_DIR)/build/libz8000.a
+# The emulator is a CMake project: the library headers are under lib/include
+# (as <z8000/z8000.h>) and memory.h belongs to its front end in src.
+EMU_INC   = -I$(EMU_DIR)/lib/include -I$(EMU_DIR)/src
+EMU_LIB   = $(EMU_DIR)/build/lib/libz8000.a
 
 CXX       = c++
-CXXFLAGS  = -std=c++17 -Wall -Wextra -I$(EMU_INC) -O2
+CXXFLAGS  = -std=c++17 -Wall -Wextra $(EMU_INC) -O2
 
 # Test programs and their expected R0 values
 TESTS     = hello arith control switch bitfield shift larith \
@@ -84,7 +86,8 @@ $(LDZ8): $(TOOLDIR)/ldz8.c
 
 # Build the emulator library if needed
 $(EMU_LIB):
-	$(MAKE) -C $(EMU_DIR) libz8000
+	cmake -S $(EMU_DIR) -B $(EMU_DIR)/build -DCMAKE_BUILD_TYPE=Release
+	cmake --build $(EMU_DIR)/build --target z8000
 
 # Build the test driver
 run_emu: run_emu.cpp $(EMU_LIB)

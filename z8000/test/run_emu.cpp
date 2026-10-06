@@ -13,7 +13,7 @@
 #include <cstdlib>
 #include <cstdint>
 #include <cstring>
-#include "z8000.h"
+#include <z8000/z8000.h>
 #include "memory.h"
 
 /* Read a big-endian 32-bit integer from a byte buffer */

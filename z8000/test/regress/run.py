@@ -57,7 +57,6 @@ def main():
     setup = [
         ["make", "-C", TARGET / "cz8"],
         ["make", "-C", TARGET / "az8"],
-        ["make", "-C", TARGET.parent / "z8000_emu", "libz8000"],
         ["make", "-C", TEST, "run_emu"],
         [sys.executable, HERE / "check_softfp.py"],
         ["cc", "-O", "-w", "-Wno-implicit-int",
