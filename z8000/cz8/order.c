@@ -210,6 +210,12 @@ sucomp( p ) register NODE *p; {
 
 		gencase:
 		default:
+			/* A directly addressed long needs no register to form its
+			 * address.  Counting its value pair here invents a fifth
+			 * data register and repeatedly spills the same memory lhs. */
+			if( (p->in.type==LONG || p->in.type==ULONG) &&
+			    (p->in.left->in.op==NAME || p->in.left->in.op==OREG) )
+				sul = 0;
 			sur = zum( p->in.right, ZCHAR|ZLONG|ZFLOAT );
 			if( sur == 0 ){
 				if( sul == 0 ) p->in.su = nr;

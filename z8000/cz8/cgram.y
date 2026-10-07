@@ -721,7 +721,13 @@ term:		   term INCOP
 			={  $$=buildtree(CALL,$1,$2); }
 		|  term STROP NAME
 			={  if( $2 == DOT ){
-				if( notlval( $1 ) )uerror("structure reference must be addressable");
+				/* Structure calls produce an addressable result temporary.
+				 * It is not an lvalue for assignment, but DOT may read it. */
+				if( notlval( $1 ) &&
+				    !($1->in.op == UNARY MUL &&
+				      ($1->in.left->in.op == STCALL ||
+				       $1->in.left->in.op == UNARY STCALL)) )
+					uerror("structure reference must be addressable");
 				$1 = buildtree( UNARY AND, $1, NIL );
 				}
 			    idname = $3;

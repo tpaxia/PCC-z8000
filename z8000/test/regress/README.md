@@ -1,6 +1,6 @@
 # Z8002 compiler audit and regression tests
 
-The current strict suite reports **80 PASS, 0 XFAIL, 0 XPASS, 0 FAIL**, both
+The current strict suite reports **85 PASS, 0 XFAIL, 0 XPASS, 0 FAIL**, both
 with and without the native assembly optimizer. The counts below record
 earlier stages of the audit.
 

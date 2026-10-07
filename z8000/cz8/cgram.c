@@ -63,7 +63,7 @@ YYSTYPE yylval, yyval;
 	static char fakename[NCHNAM+1];
 # define YYERRCODE 256
 
-# line 798 "cgram.y"
+# line 804 "cgram.y"
 
 
 NODE *
@@ -1256,14 +1256,20 @@ case 165:
 case 166:
 # line 723 "cgram.y"
 {  if( yypvt[-1].intval == DOT ){
-				if( notlval( yypvt[-2].nodep ) )uerror("structure reference must be addressable");
+				/* Structure calls produce an addressable result temporary.
+				 * It is not an lvalue for assignment, but DOT may read it. */
+				if( notlval( yypvt[-2].nodep ) &&
+				    !(yypvt[-2].nodep->in.op == UNARY MUL &&
+				      (yypvt[-2].nodep->in.left->in.op == STCALL ||
+				       yypvt[-2].nodep->in.left->in.op == UNARY STCALL)) )
+					uerror("structure reference must be addressable");
 				yypvt[-2].nodep = buildtree( UNARY AND, yypvt[-2].nodep, NIL );
 				}
 			    idname = yypvt[-0].intval;
 			    yyval.nodep = buildtree( STREF, yypvt[-2].nodep, buildtree( NAME, NIL, NIL ) );
 			    } break;
 case 167:
-# line 731 "cgram.y"
+# line 737 "cgram.y"
 {  idname = yypvt[-0].intval;
 			    /* recognize identifiers in initializations */
 			    if( blevel==0 && stab[idname].stype == UNDEF ) {
@@ -1277,25 +1283,25 @@ case 167:
 			    stab[yypvt[-0].intval].suse = -lineno;
 			} break;
 case 168:
-# line 744 "cgram.y"
+# line 750 "cgram.y"
 {  yyval.nodep=bcon(0);
 			    yyval.nodep->tn.lval = lastcon;
 			    yyval.nodep->tn.rval = NONAME;
 			    if( yypvt[-0].intval ) yyval.nodep->fn.csiz = yyval.nodep->in.type = ctype(LONG);
 			    } break;
 case 169:
-# line 750 "cgram.y"
+# line 756 "cgram.y"
 {  yyval.nodep=buildtree(FCON,NIL,NIL);
 			    yyval.nodep->fpn.dval = dcon;
 			    } break;
 case 170:
-# line 754 "cgram.y"
+# line 760 "cgram.y"
 {  yyval.nodep = getstr(); /* get string contents */ } break;
 case 171:
-# line 756 "cgram.y"
+# line 762 "cgram.y"
 { yyval.nodep=yypvt[-1].nodep; } break;
 case 172:
-# line 760 "cgram.y"
+# line 766 "cgram.y"
 {
 			yyval.nodep = tymerge( yypvt[-1].nodep, yypvt[-0].nodep );
 			yyval.nodep->in.op = NAME;
@@ -1304,28 +1310,28 @@ case 172:
 			stwart = instruct;
 			} break;
 case 173:
-# line 770 "cgram.y"
+# line 776 "cgram.y"
 { yyval.nodep = bdty( NAME, NIL, -1 ); } break;
 case 174:
-# line 772 "cgram.y"
+# line 778 "cgram.y"
 { yyval.nodep = bdty( UNARY CALL, bdty(NAME,NIL,-1),0); } break;
 case 175:
-# line 774 "cgram.y"
+# line 780 "cgram.y"
 {  yyval.nodep = bdty( UNARY CALL, yypvt[-3].nodep, 0 ); } break;
 case 176:
-# line 776 "cgram.y"
+# line 782 "cgram.y"
 {  goto umul; } break;
 case 177:
-# line 778 "cgram.y"
+# line 784 "cgram.y"
 {  goto uary; } break;
 case 178:
-# line 780 "cgram.y"
+# line 786 "cgram.y"
 {  goto bary;  } break;
 case 179:
-# line 782 "cgram.y"
+# line 788 "cgram.y"
 { yyval.nodep = yypvt[-1].nodep; } break;
 case 180:
-# line 786 "cgram.y"
+# line 792 "cgram.y"
 {  if( stab[yypvt[-1].intval].stype == UNDEF ){
 				register NODE *q;
 				q = block( FREE, NIL, NIL, FTN|INT, 0, INT );

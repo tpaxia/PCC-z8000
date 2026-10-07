@@ -433,7 +433,26 @@ lxcom(){
 		}
 	}
 
+/* V7 permits unsigned followed by an integer typedef (prof uses it).
+ * One token of lookahead distinguishes that from redeclaring the typedef
+ * name as an unsigned variable, which must remain legal. */
+static int lxqual, lxqueued, lxqstate;
+static YYSTYPE lxqvalue;
+
 yylex(){
+	int token;
+	if( lxqueued ){
+		token = lxqueued;
+		lxqueued = 0;
+		yylval = lxqvalue;
+		stwart = lxqstate;
+		}
+	else token = lxlex();
+	lxqual = token==TYPE && yylval.nodep->in.type==UNSIGNED;
+	return token;
+	}
+
+lxlex(){
 	for(;;){
 
 		register lxchar;
@@ -471,6 +490,22 @@ yylex(){
 				/* member name for struct/union */
 				(stwart&(INSTRUCT|INUNION|FUNNYNAME))?SMOS:0 );
 			sp = &stab[id];
+			if( sp->sclass == TYPEDEF && lxqual && stwart==SEENAME &&
+			    (sp->stype==INT || sp->stype==SHORT ||
+			     sp->stype==CHAR || sp->stype==LONG) ){
+				int state, next;
+				state = stwart;
+				lxqual = 0;
+				next = lxlex();
+				lxqueued = next;
+				lxqvalue = yylval;
+				lxqstate = stwart;
+				stwart = state;
+				if( next==NAME || next==MUL ){
+					yylval.nodep = mkty( sp->stype, sp->dimoff, sp->sizoff );
+					return TYPE;
+					}
+				}
 			if( sp->sclass == TYPEDEF && !stwart ){
 				stwart = instruct|SEENAME;
 				yylval.nodep = mkty( sp->stype, sp->dimoff, sp->sizoff );

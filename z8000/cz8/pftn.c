@@ -849,7 +849,7 @@ instk( id, t, d, s, off ) OFFSZ off; TWORD t; {
 		pstk->in_d =  d ;
 		pstk->in_s =  s ;
 		pstk->in_n = 0;  /* number seen */
-		pstk->in_x =  t==STRTY ?dimtab[s+1] : 0 ;
+		pstk->in_x =  (t==STRTY || t==UNIONTY) ?dimtab[s+1] : 0 ;
 		pstk->in_off =  off;   /* offset at the beginning of this element */
 		/* if t is an array, DECREF(t) can't be a field */
 		/* INS_sz has size of array elements, and -size for fields */
@@ -864,7 +864,7 @@ instk( id, t, d, s, off ) OFFSZ off; TWORD t; {
 			}
 
 		if( (iclass==AUTO || iclass == REGISTER ) &&
-			(ISARY(t) || t==STRTY) ) uerror( "no automatic aggregate initialization" );
+			(ISARY(t) || t==STRTY || t==UNIONTY) ) uerror( "no automatic aggregate initialization" );
 
 		/* now, if this is not a scalar, put on another element */
 
@@ -873,10 +873,10 @@ instk( id, t, d, s, off ) OFFSZ off; TWORD t; {
 			++d;
 			continue;
 			}
-		else if( t == STRTY ){
+		else if( t == STRTY || t == UNIONTY ){
 			id = dimtab[pstk->in_x];
 			p = &stab[id];
-			if( p->sclass != MOS && !(p->sclass&FIELD) ) cerror( "insane structure member list" );
+			if( p->sclass != MOS && p->sclass != MOU && !(p->sclass&FIELD) ) cerror( "insane structure member list" );
 			t = p->stype;
 			d = p->dimoff;
 			s = p->sizoff;
@@ -1075,6 +1075,9 @@ gotscal(){
 		
 		t = pstk->in_t;
 
+		/* A union initializes only its first member. */
+		if( t == UNIONTY ) continue;
+
 		if( t == STRTY ){
 			ix = ++pstk->in_x;
 			if( (id=dimtab[ix]) < 0 ) continue;
@@ -1110,7 +1113,7 @@ ilbrace(){ /* process an initializer's left brace */
 	for( ; pstk > instack; --pstk ){
 
 		t = pstk->in_t;
-		if( t != STRTY && !ISARY(t) ) continue; /* not an aggregate */
+		if( t != STRTY && t != UNIONTY && !ISARY(t) ) continue; /* not an aggregate */
 		if( pstk->in_fl ){ /* already associated with a { */
 			if( pstk->in_n ) uerror( "illegal {");
 			continue;

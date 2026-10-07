@@ -13,7 +13,7 @@ import sys
 
 regs=[4,5,6,7,10,11,12,14]
 saves=''.join('\tld\t-%d(r13),r%d\n'%(2*(i+1),r) for i,r in enumerate(regs))
-pro=re.compile(r'\tpush\t@sp,r13\n\tld\tr13,sp\n\tsub\tsp,#(_F\d+)\n'+re.escape(saves))
+pro=re.compile(r'\tpush\t@sp,r13\n\tld\tr13,sp\n\tsub\tsp,#([_.]F\d+)\n'+re.escape(saves))
 epi=re.compile(r'(?:\tld\tr(?:4|5|6|7|10|11|12|14),-\d+\(r13\)\n)*\tld\tsp,r13\n\tpop\tr13,@sp\n\tret\n')
 def compact(s):
  s,n=pro.subn(lambda m:'\tld\tr8,#'+m[1]+'\n\tcall\tcsv\n',s)

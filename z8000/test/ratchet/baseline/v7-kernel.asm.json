@@ -1,22 +1,22 @@
 {
  "conf/emulated.c": {
-  "asm": "97458992daa2dfa8",
+  "asm": "d88c2c94874dd1d3",
   "src": "c00ec5768760c968"
  },
  "dev/cons.c": {
-  "asm": "0cebdf12bd6677ac",
+  "asm": "3bd48f93385ddc12",
   "src": "54cdf1223bbcd1d6"
  },
  "dev/hd.c": {
-  "asm": "142e2bf2291981ed",
+  "asm": "1068df761ded76aa",
   "src": "f54e0721f667f30a"
  },
  "dev/md.c": {
-  "asm": "41a5a106e11ef119",
+  "asm": "765b8f8fed9662c7",
   "src": "a99c578b8d2317c2"
  },
  "dev/mem.c": {
-  "asm": "2ea1a2c87cb7a62f",
+  "asm": "af3c2b4f61c83bd1",
   "src": "d95b89b6bb21053c"
  },
  "dev/partab.c": {
@@ -24,119 +24,119 @@
   "src": "bd9bb7ca70aa3c89"
  },
  "dev/tty.c": {
-  "asm": "3098cb0b8bd1e7f7",
+  "asm": "1d03eec6f59f6455",
   "src": "823bf4366b93570b"
  },
  "machine/cpu.c": {
-  "asm": "bcd176aba2d161cd",
+  "asm": "6e744b11ca47d875",
   "src": "9c6fdd9212112f35"
  },
  "machine/fpe.c": {
-  "asm": "a3c3d49d835b51e9",
+  "asm": "28625d80d160ed88",
   "src": "16a033bc655acf80"
  },
  "machine/paged.c": {
-  "asm": "fed610100c2ed588",
+  "asm": "5bc51dfecebc67ff",
   "src": "2d1c2ea437fabb10"
  },
  "machine/trap.c": {
-  "asm": "1e585db78f71a228",
+  "asm": "fb0604829f09d138",
   "src": "68a444bbfa4e33e2"
  },
  "sys/acct.c": {
-  "asm": "3f57f57da4159f6a",
+  "asm": "cdfbab2b2851a7bb",
   "src": "f9ff72c12ce44006"
  },
  "sys/alloc.c": {
-  "asm": "ace5f2c84dff3ccd",
-  "src": "b399c3350b909ae7"
+  "asm": "aa00e3a0597c657d",
+  "src": "729d67338da67f31"
  },
  "sys/bio.c": {
-  "asm": "1c137781b5ce4ee3",
+  "asm": "fa1f3518d3c51682",
   "src": "a8dc2d5d36b4b11b"
  },
  "sys/clock.c": {
-  "asm": "2f4a2b974880f848",
+  "asm": "0af3275e4139d222",
   "src": "f0dce6e5afb77f14"
  },
  "sys/fakemx.c": {
-  "asm": "b464da64e0bb3925",
+  "asm": "a6115fbc67caed5f",
   "src": "d48e2151f877ec97"
  },
  "sys/fio.c": {
-  "asm": "38e35f798cd4b638",
-  "src": "24c3edb38ad1a9e5"
+  "asm": "eed971d7919ea6d7",
+  "src": "8f4c82e79206abcc"
  },
  "sys/iget.c": {
-  "asm": "7bfefe21b0167b10",
-  "src": "da39791547858d98"
+  "asm": "fdfaa0c82d484f8c",
+  "src": "bf76d43ef34881cf"
  },
  "sys/main.c": {
-  "asm": "34344b4620474767",
-  "src": "90661c1521656476"
+  "asm": "7b6c4718f3736a5c",
+  "src": "db55fa140b88db81"
  },
  "sys/malloc.c": {
-  "asm": "2aacd634704afe85",
+  "asm": "95b090a3be30a901",
   "src": "56725c19b8266e13"
  },
  "sys/nami.c": {
-  "asm": "f9c8b000ad8bc127",
+  "asm": "964bf2b95a333d8c",
   "src": "c57ec0b48f924402"
  },
  "sys/physio.c": {
-  "asm": "9c478f7a61ef6034",
+  "asm": "16f2d6c366ee95b7",
   "src": "a61e1a7fbf1e10bf"
  },
  "sys/pipe.c": {
-  "asm": "e66b2c852bfe440c",
+  "asm": "d4c520f41e07dd80",
   "src": "71e1135bb896ecce"
  },
  "sys/prf.c": {
-  "asm": "a86d0d13b9847938",
+  "asm": "26a0af7804e01293",
   "src": "6708f6ab5bf82491"
  },
  "sys/prim.c": {
-  "asm": "c85d8a446df1b804",
+  "asm": "ed5ac88763495aad",
   "src": "71ca2f7a3efd3485"
  },
  "sys/rdwri.c": {
-  "asm": "9b3fbba3bf39e999",
+  "asm": "6b3cc876b0fc9f3f",
   "src": "6150c7228dd43ab7"
  },
  "sys/sig.c": {
-  "asm": "fab75961007b06ed",
+  "asm": "99346545a8a0834b",
   "src": "b43eb88c37fe9c8b"
  },
  "sys/slp.c": {
-  "asm": "d22ac1a3d253a2e4",
+  "asm": "f4dbcddec9f1e736",
   "src": "7b678139607d9fa3"
  },
  "sys/subr.c": {
-  "asm": "b990431a6bc79bd0",
+  "asm": "252c02b5a7020ae4",
   "src": "eaad2bb1af5ecf4c"
  },
  "sys/sys1.c": {
-  "asm": "b5f73f736c86b394",
+  "asm": "f6d537aa9c4bb1d7",
   "src": "285ce6ab46900d5f"
  },
  "sys/sys2.c": {
-  "asm": "f31b77248a678330",
+  "asm": "2c01eb6dbd2478da",
   "src": "c5e4fe7ba09413c6"
  },
  "sys/sys3.c": {
-  "asm": "24d6f1132dc921b6",
-  "src": "8c55886b239f8a70"
+  "asm": "ef3e64651b9b4dd5",
+  "src": "c43a47060824252e"
  },
  "sys/sys4.c": {
-  "asm": "f94ab9ae44464e86",
+  "asm": "4362cfab2d7b10f3",
   "src": "c9fb9c657325a568"
  },
  "sys/sysent.c": {
-  "asm": "99b0eafa5dfc4731",
+  "asm": "1ae836415a14034b",
   "src": "c7a9cf58a83766ca"
  },
  "sys/text.c": {
-  "asm": "e909c442e40831df",
-  "src": "1248adf666b374c0"
+  "asm": "55993798af384197",
+  "src": "640480cb6fecef91"
  }
 }

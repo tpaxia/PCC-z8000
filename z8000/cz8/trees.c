@@ -1314,10 +1314,18 @@ opact( p )  NODE *p; {
 		break;
 
 	case ASG MOD:
+		if( mt12 & MINT ) return( LVAL+TYMATCH );
+		break;
 	case ASG AND:
 	case ASG OR:
 	case ASG ER:
 		if( mt12 & MINT ) return( LVAL+TYMATCH );
+		/* Ritchie's V7 compiler accepts pointer bits in integer
+		 * operations (tbl uses this with an array address). */
+		if( (mt1&MINT) && (mt2&MPTR) && SZPOINT==SZINT ){
+			werror( "pointer used as integer in bitwise assignment" );
+			return( LVAL+TYMATCH+RINT );
+			}
 		break;
 
 	case ASG PLUS:

@@ -146,7 +146,7 @@ bfcode( a, n ) int a[]; {
 
 	/* Shared entry preserves the standard fixed frame and argument offsets.
 	 * R8/R9 are call-clobbered; csv leaves R0-R3 untouched. */
-	printf( "\tld\tr8,#_F%d\n", ftnno );
+	printf( "\tld\tr8,#.F%d\n", ftnno );
 	printf( "\tcall\tcsv\n" );
 	usedregs = 0;
 

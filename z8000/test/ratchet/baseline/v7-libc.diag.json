@@ -147,12 +147,10 @@
   ]
  },
  "gen/nlist.c": {
-  "az8": "skipped",
-  "errors": [
-   "usr/src/libc/gen/nlist.c:30: a_flag undefined"
-  ],
-  "src": "7edb697797a2e023",
-  "status": "error",
+  "az8": "ok",
+  "errors": [],
+  "src": "92649f0a8bea92aa",
+  "status": "ok",
   "warnings": []
  },
  "gen/perror.c": {

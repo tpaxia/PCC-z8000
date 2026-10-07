@@ -39,8 +39,8 @@ eobl2(){
 
 	/* Shared return restores the fixed slots without disturbing R0-R3. */
 	printf( "\tjp\tcret\n" );
-	printf( "_F%d = %ld\n", ftnno, spoff );
-	printf( "_S%d = %d\n", ftnno, savemask );
+	printf( ".F%d = %ld\n", ftnno, spoff );
+	printf( ".S%d = %d\n", ftnno, savemask );
 	printf( "! M%d = %d\n", ftnno, maxtoff );
 	maxtoff = 0;
 	if( fltused ) {

@@ -843,6 +843,9 @@ stoarg( p, calltype ) register NODE *p; {
 	store(p);
 # ifndef NESTCALLS
 	if( callflag ){ /* prevent two calls from being active at once  */
+		/* STARG holds an address, not a scalar structure value.  Spill
+		 * that address before copying the returned object to the stack. */
+		if( p->in.op == STARG ) p = p->in.left;
 		SETSTO(p,INTEMP);
 		store(p); /* do again to preserve bottom up nature....  */
 		}
@@ -1282,4 +1285,3 @@ canon(p) NODE *p; {
 	walkf( p, sucomp );  /* do the Sethi-Ullman computation */
 
 	}
-

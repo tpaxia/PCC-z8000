@@ -1,42 +1,42 @@
 {
  "ac.c": {
-  "asm": "7dbc6c115186664f",
+  "asm": "a1f515b6e949de73",
   "src": "b8951936658d332d"
  },
  "accton.c": {
-  "asm": "2250629c4b7a1056",
+  "asm": "339de582e8186e38",
   "src": "5e49ae0b862eef00"
  },
  "adb/access.c": {
-  "asm": "ddbd98c8c14d11ba",
+  "asm": "8eb995eed3e6aa89",
   "src": "58b4fd8a2bea896a"
  },
  "adb/command.c": {
-  "asm": "505ec821186ef778",
+  "asm": "95cdfbc6eae71ebd",
   "src": "e85bd1b2dda7bfab"
  },
  "adb/dummy.c": {
-  "asm": "8a2d9ca865809694",
+  "asm": "3185f2439ed55f34",
   "src": "220f49423082a0b6"
  },
  "adb/expr.c": {
-  "asm": "b06d7c466f7ce793",
+  "asm": "b23b925bdb6b3130",
   "src": "31f6ad96bc3cf214"
  },
  "adb/findfn.c": {
-  "asm": "e3d0d737d3d11e98",
+  "asm": "61c9898c6b507f8e",
   "src": "e7f87159138b7409"
  },
  "adb/format.c": {
-  "asm": "83a8958cfdd80b03",
+  "asm": "3961ddc22a029246",
   "src": "80d8e62341140513"
  },
  "adb/input.c": {
-  "asm": "d7591146d2df5a07",
+  "asm": "bc6a57068d123693",
   "src": "354c4ea043e8e92e"
  },
  "adb/main.c": {
-  "asm": "a00e0762cb78c0c9",
+  "asm": "2b639e544b76ea9e",
   "src": "bf38cbc6b907633f"
  },
  "adb/message.c": {
@@ -44,71 +44,71 @@
   "src": "0a83f6e2c462b491"
  },
  "adb/opset.c": {
-  "asm": "d884ca24f9a6a3d8",
+  "asm": "59a6a83a9280b3cb",
   "src": "39d80051305ee2ee"
  },
  "adb/output.c": {
-  "asm": "5ecb5bd3fca71408",
+  "asm": "8edbcfbb6fa9849f",
   "src": "803f6fca99a4092c"
  },
  "adb/pcs.c": {
-  "asm": "d76f5af5d6a850b2",
+  "asm": "8f1d524ed94ae1c8",
   "src": "9bf28da0879dd2f8"
  },
  "adb/print.c": {
-  "asm": "35b7080ece53c62a",
+  "asm": "f292e036f73f6118",
   "src": "df84337e6919b360"
  },
  "adb/runpcs.c": {
-  "asm": "f5bb6d739162b919",
+  "asm": "976e120948ce529c",
   "src": "92bf90491c2d87ea"
  },
  "adb/setup.c": {
-  "asm": "b9303af980ad2874",
+  "asm": "dcde4b990d944360",
   "src": "0f6ca93838e524d9"
  },
  "adb/sym.c": {
-  "asm": "86016c025141fda7",
+  "asm": "7f80db79dce2fb1a",
   "src": "c7870499ee9d37c0"
  },
  "ar.c": {
-  "asm": "9fd06d0952f108b5",
+  "asm": "9e9419a20d58e3cd",
   "src": "636daa229ba00b35"
  },
  "arcv.c": {
-  "asm": "472537228f0e6c8e",
+  "asm": "32cea85a7d83f5b2",
   "src": "1bc1ab89d080eca2"
  },
  "at.c": {
-  "asm": "74e48d69ba94103d",
+  "asm": "0420477403cf7549",
   "src": "abf9bdffb9a312a9"
  },
  "atrun.c": {
-  "asm": "bb5454bd6c942738",
+  "asm": "550dc65a82efee56",
   "src": "ced8f39d0459e4b4"
  },
  "basename.c": {
-  "asm": "918e3e1c1c2e4e28",
+  "asm": "38d65247f05d7f16",
   "src": "fe2476a4ab1c415b"
  },
  "c/c00.c": {
-  "asm": "d28076e932900834",
+  "asm": "d705a9ced587a0e1",
   "src": "8521b5d51e58b6e2"
  },
  "c/c01.c": {
-  "asm": "e2aa1b0f929fdf77",
+  "asm": "2e1380bf7b679a03",
   "src": "f4c28af3086ec3eb"
  },
  "c/c02.c": {
-  "asm": "9fdb727a8e4d16d5",
+  "asm": "03ba6e8f12f9d258",
   "src": "ca1ebd55ef413585"
  },
  "c/c03.c": {
-  "asm": "d46903e4e9a15111",
+  "asm": "64c3c60b25e9eb47",
   "src": "ccde541aaaa2e07f"
  },
  "c/c04.c": {
-  "asm": "c1c6c79a02dc27f6",
+  "asm": "25c5b4f147eb8eee",
   "src": "be109a0039454602"
  },
  "c/c05.c": {
@@ -116,7 +116,7 @@
   "src": "b06b706773fc4bb7"
  },
  "c/c11.c": {
-  "asm": "56002fd654d9a38e",
+  "asm": "7bc9e9c398ceb593",
   "src": "37031d109d1aa047"
  },
  "c/c13.c": {
@@ -124,159 +124,159 @@
   "src": "040bca6ab34e17e4"
  },
  "c/c20.c": {
-  "asm": "8e3e1d93e69ac377",
+  "asm": "e5941cfdb582028b",
   "src": "fbd6ce957497abae"
  },
  "c/c21.c": {
-  "asm": "4eda2ddc3d5e342e",
+  "asm": "4f770711a9f202b1",
   "src": "fd0a8b93c1b80314"
  },
  "c/cvopt.c": {
-  "asm": "2c6ad6d63962d1f6",
+  "asm": "bb33fa7936869226",
   "src": "8538279f582d3637"
  },
  "cal.c": {
-  "asm": "785238e4c38473c6",
+  "asm": "706e0e70cdb5b65f",
   "src": "59027c50acf9b45e"
  },
  "calendar.c": {
-  "asm": "77774863a3ceef23",
+  "asm": "6fc5176ef196b194",
   "src": "a388bafeee630daf"
  },
  "cat.c": {
-  "asm": "8893c5c8b4bec84e",
+  "asm": "7924a30140cf4246",
   "src": "e8f8d4c801da5fc4"
  },
  "cb.c": {
-  "asm": "f6517f2aaba33095",
+  "asm": "bddfceb5057070fe",
   "src": "16fd0c8fa1fbc8cf"
  },
  "cc.c": {
-  "asm": "1c1c0fb84c643a51",
+  "asm": "227bc08da811902c",
   "src": "3dad36b71aeb6129"
  },
  "checkeq.c": {
-  "asm": "bb9248e9138f8e24",
+  "asm": "ed3ef6905d0a2952",
   "src": "5716adef1880f7ef"
  },
  "chgrp.c": {
-  "asm": "05e8a4b259328dae",
+  "asm": "165eaba7ad23c719",
   "src": "02256051a0f22155"
  },
  "chmod.c": {
-  "asm": "8e6c5e114e0e7a8a",
+  "asm": "abaef33d8a3e4e4e",
   "src": "cc3a465615f4fef0"
  },
  "chown.c": {
-  "asm": "788ef85ed05ce879",
+  "asm": "4b9ac175d200fc77",
   "src": "950448258f805a43"
  },
  "clri.c": {
-  "asm": "7826c94b907f591f",
+  "asm": "ccd345e4322a34f6",
   "src": "7cb07c6d72573244"
  },
  "cmp.c": {
-  "asm": "258cb8b6a59a8010",
+  "asm": "dac6c50dcc687624",
   "src": "7d570c2e3ad96f5d"
  },
  "col.c": {
-  "asm": "62e6d7193a429ccf",
+  "asm": "c5700cb44238b86d",
   "src": "05b233642274181d"
  },
  "comm.c": {
-  "asm": "00cc9bf8e137f2af",
+  "asm": "a516a790650d0bfc",
   "src": "50c3dd3196d40521"
  },
  "cp.c": {
-  "asm": "3de40ea4b5aaf008",
+  "asm": "6b86f1b0a37a542e",
   "src": "3f483742a842c942"
  },
  "cpp/cpp.c": {
-  "asm": "1731320655057bcf",
+  "asm": "311b4d7718ff97d7",
   "src": "3827919dfbaf8b0d"
  },
  "cron.c": {
-  "asm": "341b0204ea98107f",
+  "asm": "e8f3ec99e9f3b075",
   "src": "450fd22562753ab7"
  },
  "crypt.c": {
-  "asm": "8530cc6272959e48",
+  "asm": "afe22040874531ed",
   "src": "d0996d269ad9e968"
  },
  "cu.c": {
-  "asm": "b0b564efe1f6be56",
+  "asm": "b409ee0dc9d2a0dd",
   "src": "8334a2393d7d36e7"
  },
  "date.c": {
-  "asm": "c6ab324fc0a7f4b2",
+  "asm": "a0a0f5d5f325dc59",
   "src": "b48971d2848b0b8e"
  },
  "dc/dc.c": {
-  "asm": "fb4639264ef4a214",
-  "src": "7bf5940856de94bc"
+  "asm": "ad8a3e22aabcf8bb",
+  "src": "e34aad175c9a2ac5"
  },
  "dcheck.c": {
-  "asm": "efcbc17c42d089dc",
+  "asm": "2b097c36e1603e99",
   "src": "077408dbfe83a201"
  },
  "dd.c": {
-  "asm": "ab8e560d7da93bad",
+  "asm": "198f335108502030",
   "src": "30317d9b5bbbaeae"
  },
  "deroff.c": {
-  "asm": "e545f585cecad139",
+  "asm": "a03a2d13e788cd1a",
   "src": "46c906a06a0bfc8b"
  },
  "df.c": {
-  "asm": "2297ce5c491509f3",
+  "asm": "8a3d863cc43f1c1e",
   "src": "2de8821c37d9057f"
  },
  "diff.c": {
-  "asm": "d6c153a9693abd47",
+  "asm": "30e1cb60d01a8e04",
   "src": "5cfa6935e64d5aa5"
  },
  "diff3.c": {
-  "asm": "a4b9b28e4ace0ce8",
+  "asm": "ec3738bab2809341",
   "src": "32dc36acad33740f"
  },
  "diffh.c": {
-  "asm": "5deff356803a5fc3",
+  "asm": "7ee1ead464f3f006",
   "src": "8dddbe2d9b45da07"
  },
  "dmesg.c": {
-  "asm": "6141103e9a597246",
+  "asm": "62d3044c57949159",
   "src": "0b465aadc75ff49b"
  },
  "du.c": {
-  "asm": "466d9879d2059934",
+  "asm": "1a3437f1d0ab04e4",
   "src": "7ca2773e646b3898"
  },
  "dump.c": {
-  "asm": "ae02f84f84e0be54",
+  "asm": "54d5c8f4e4685e90",
   "src": "dacabe351ac4a6c7"
  },
  "dumpdir.c": {
-  "asm": "c82ef17b4cc42603",
+  "asm": "bd34e207381bbf4e",
   "src": "82b4a2f330c11f73"
  },
  "echo.c": {
-  "asm": "16af8f52bee90e23",
+  "asm": "eed3e0dd7819268a",
   "src": "dbe6365d413e58c9"
  },
  "ed.c": {
-  "asm": "051442ab0aa02660",
+  "asm": "8c4910435dc95d30",
   "src": "b5265c036d63faa7"
  },
  "eqn/eqnbox.c": {
-  "asm": "fd0cb98fad8851ac",
+  "asm": "3cffd20a64a88f9e",
   "src": "d01727c771315db7"
  },
  "eqn/font.c": {
-  "asm": "820ae03cafaef73c",
+  "asm": "d404faf9df96aa21",
   "src": "21b778ed6fdd243c"
  },
  "eqn/fromto.c": {
-  "asm": "35f2dfda3a86c080",
+  "asm": "0863e3d582caf508",
   "src": "ebb9d169ff136b48"
  },
  "eqn/glob.c": {
@@ -284,203 +284,203 @@
   "src": "3579e65a44079bfa"
  },
  "eqn/io.c": {
-  "asm": "38446808f03d4647",
+  "asm": "540889d48244437e",
   "src": "de4ce5e29a10b4c4"
  },
  "eqn/mark.c": {
-  "asm": "54706c0858f73e9f",
+  "asm": "63b6123cc0cba98b",
   "src": "1556a756ef326302"
  },
  "eqn/matrix.c": {
-  "asm": "600fab6377ee4d6c",
+  "asm": "a3e5ff64a242b527",
   "src": "120f6b46dbf5f7ea"
  },
  "eqn/over.c": {
-  "asm": "bb341c5353a7500a",
+  "asm": "535a7e679fd1c89b",
   "src": "e37f718ddf8de148"
  },
  "eqn/paren.c": {
-  "asm": "cc3568fa5aecc7e4",
+  "asm": "828b67eff1ede2de",
   "src": "a3ab04f8918f0062"
  },
  "eqn/pile.c": {
-  "asm": "176ad3966a87782a",
+  "asm": "5ec9c82ec5ea34bf",
   "src": "b97dfed62c221f4e"
  },
  "eqn/size.c": {
-  "asm": "befee670b49a3025",
+  "asm": "3a704e0e7e4bd693",
   "src": "e9152da8036d0f08"
  },
  "eqn/sqrt.c": {
-  "asm": "2d8eef09fc4bea5e",
+  "asm": "d4eb02ea7ddb8790",
   "src": "8756c9ad4e307db9"
  },
  "f77/malloc.c": {
-  "asm": "4b71e9e00b0f51a4",
+  "asm": "4b35d71ae7bd2ed6",
   "src": "c722ad8e328991a3"
  },
  "fgrep.c": {
-  "asm": "c96a3db113694ee3",
+  "asm": "512a054942f2859d",
   "src": "29f21f0a7dfe9dab"
  },
  "file.c": {
-  "asm": "37b68388688cfa74",
-  "src": "b76653fbfa8cccab"
+  "asm": "1d09cbc307d8ae89",
+  "src": "aaeb46152620ed42"
  },
  "find.c": {
-  "asm": "249592ee5124b7f0",
+  "asm": "6fd6d10d669c434d",
   "src": "0545d0f3826bc42a"
  },
  "getty.c": {
-  "asm": "8a392956cc27a3e6",
+  "asm": "17ae5c9685bbe684",
   "src": "fab102d33affce09"
  },
  "graph.c": {
-  "asm": "f6aeec22c47c7ea6",
+  "asm": "2dfa8b4c7a41f286",
   "src": "f88039de7e56112d"
  },
  "grep.c": {
-  "asm": "48b26ce7957d2db5",
+  "asm": "7dc98450c422cc25",
   "src": "ab28c3b7e9e6c0a6"
  },
  "icheck.c": {
-  "asm": "71562fc5534d27bf",
+  "asm": "ae86128efbf80b50",
   "src": "a2226916c0dd3509"
  },
  "init.c": {
-  "asm": "7909c18590a0fce4",
+  "asm": "6c98c85799e43aaf",
   "src": "e8d8c9cd0697210f"
  },
  "iostat.c": {
-  "asm": "33c249c98fe73154",
+  "asm": "ca08eef79d544242",
   "src": "db6645da559e3380"
  },
  "join.c": {
-  "asm": "b4e3a79b273c1298",
+  "asm": "22a3ed2bf135e28d",
   "src": "6a6c8d8210921d68"
  },
  "kill.c": {
-  "asm": "95220e49e6e154be",
+  "asm": "a5f40b2bf6bd5d54",
   "src": "c1960143da098310"
  },
  "ld.c": {
-  "asm": "f1dff2fd73aedbab",
+  "asm": "e703fd064f9546c3",
   "src": "8cee162ef057a192"
  },
  "learn/copy.c": {
-  "asm": "1f4867bf2b8358b3",
+  "asm": "32a9596accda8b46",
   "src": "7aabec5a3d3db727"
  },
  "learn/dounit.c": {
-  "asm": "2df6e0e7d2999611",
+  "asm": "6184ef42766725a5",
   "src": "067d20f724ae9467"
  },
  "learn/lcount.c": {
-  "asm": "829271b02873275e",
+  "asm": "19763f466a13288c",
   "src": "9af06be6b0851fb1"
  },
  "learn/learn.c": {
-  "asm": "35d5ec34a8cc494a",
+  "asm": "86d85b66b33b8112",
   "src": "9ab8588bc3471858"
  },
  "learn/list.c": {
-  "asm": "bfdaea699657fc1e",
+  "asm": "09489e434e9ce33b",
   "src": "75db22221991ed8f"
  },
  "learn/makpipe.c": {
-  "asm": "d9e1606cbd452e02",
+  "asm": "0d0d609e2d81d1d3",
   "src": "4dce24d9e98ff0b2"
  },
  "learn/maktee.c": {
-  "asm": "865245a66b956cce",
+  "asm": "81f92a9c33aeae72",
   "src": "d19cf91165e487b3"
  },
  "learn/mem.c": {
-  "asm": "34ac05f093c8c803",
+  "asm": "8a5f6a16af84dd98",
   "src": "bd77661644135912"
  },
  "learn/mysys.c": {
-  "asm": "77b8f0e80dccd6fd",
+  "asm": "90e923355857c331",
   "src": "d424eb78d93749a1"
  },
  "learn/selsub.c": {
-  "asm": "95e7e15801653796",
+  "asm": "d5d6fea1fe71581a",
   "src": "1cfbb7c21e0693b4"
  },
  "learn/selunit.c": {
-  "asm": "28a5d94873c11c44",
+  "asm": "fbb6db66dd32a6fd",
   "src": "cd040c8d15f300ec"
  },
  "learn/start.c": {
-  "asm": "3958b01080989761",
+  "asm": "a2b41bd2577eaa59",
   "src": "03d8c8c79bf5d070"
  },
  "learn/tee.c": {
-  "asm": "c69916be9ca0fe88",
+  "asm": "89473a4d35e58a95",
   "src": "8939144826f3cad3"
  },
  "learn/whatnow.c": {
-  "asm": "2a734416aa0ee816",
+  "asm": "ce24d5d344ea3075",
   "src": "365e066194ae4a03"
  },
  "learn/wrapup.c": {
-  "asm": "82bdfee9e4ae1f46",
+  "asm": "24b54f43e257a603",
   "src": "8855a8eb4c8df349"
  },
  "lex/lib/allprint.c": {
-  "asm": "73697ed502445a30",
+  "asm": "28ef0d88eef9ec81",
   "src": "5ce568e316cdc703"
  },
  "lex/lib/main.c": {
-  "asm": "063aa2e9611d6102",
+  "asm": "bb1cc9b1c2d7f55b",
   "src": "6e823fba68d348ff"
  },
  "lex/lib/reject.c": {
-  "asm": "35d20619bec2846a",
+  "asm": "e815d8d6022d133b",
   "src": "6b6e81ec1a0236df"
  },
  "lex/lib/yyless.c": {
-  "asm": "ce7eba6aaa018c3f",
+  "asm": "75086c0cc9e9987e",
   "src": "39d7fbec0c8e028c"
  },
  "lex/lib/yywrap.c": {
-  "asm": "52234fd556335b92",
+  "asm": "f2db46abe2a0e905",
   "src": "ae281268757e178e"
  },
  "ln.c": {
-  "asm": "a3df8bf85f3520f9",
+  "asm": "0d91846035c9b770",
   "src": "9a5512c2f6616c57"
  },
  "login.c": {
-  "asm": "f496bcedf9c66319",
+  "asm": "66eb4d11e164afe6",
   "src": "08ed98d677a05e82"
  },
  "look.c": {
-  "asm": "1998f21bdf38b76e",
+  "asm": "68ceda614c4a5ca9",
   "src": "6658e8cbec886f9b"
  },
  "ls.c": {
-  "asm": "6832f5896614d054",
+  "asm": "3ef4bcbd13327af8",
   "src": "3574e3f62fab80dc"
  },
  "m4/m4.c": {
-  "asm": "df6514e4c42bf520",
+  "asm": "78e12c939c1c0697",
   "src": "a5ef1a1663e71de2"
  },
  "mail.c": {
-  "asm": "b59942f6a61ae5ac",
+  "asm": "bf60fd966d0c2df7",
   "src": "6a718f1954f96ed0"
  },
  "make/doname.c": {
-  "asm": "73657803c56103f3",
+  "asm": "c31699dea2ba482d",
   "src": "640194d2cdfdd7ea"
  },
  "make/dosys.c": {
-  "asm": "883d2a516ac570d6",
+  "asm": "841f6da7b7b3719a",
   "src": "97ea647a1453cb88"
  },
  "make/files.c": {
-  "asm": "952843822a309f2a",
+  "asm": "fbe575665cb8caff",
   "src": "350552c97c3d0d80"
  },
  "make/ident.c": {
@@ -488,55 +488,55 @@
   "src": "d74ae66e98acf534"
  },
  "make/main.c": {
-  "asm": "0bd46c689ac27997",
+  "asm": "4d1934f74ae62e3f",
   "src": "b5c695792f2d9c12"
  },
  "make/misc.c": {
-  "asm": "c2660dcbba4141c2",
+  "asm": "4121c79f2ccef93c",
   "src": "f707ff0afbecf868"
  },
  "makekey.c": {
-  "asm": "dfdaa6b156c40542",
+  "asm": "ba3259bcac8b89f4",
   "src": "aec74005b6d0404b"
  },
  "mesg.c": {
-  "asm": "4f991dfe73d380e3",
+  "asm": "029b14b543a8514f",
   "src": "d3cce23369a81f37"
  },
  "mkdir.c": {
-  "asm": "fa7a92dfc89dd8f0",
+  "asm": "7c74b4378dfe2479",
   "src": "93380646facc115c"
  },
  "mkfs.c": {
-  "asm": "f12b8f5665244bc0",
+  "asm": "ef9dfe199196d5dc",
   "src": "c4c5c314b8bad8ea"
  },
  "mknod.c": {
-  "asm": "c8dbfa6b566181d4",
+  "asm": "469fba7a9f021ef2",
   "src": "5e4586da6b23ddfd"
  },
  "mount.c": {
-  "asm": "b86136f632f7833c",
+  "asm": "452f0ad708a2c2b3",
   "src": "f62c87e233c5d57a"
  },
  "mv.c": {
-  "asm": "96e6cb8b4b926a7b",
+  "asm": "56f3c7d26b103b4a",
   "src": "768b99faf28a19d1"
  },
  "ncheck.c": {
-  "asm": "b2879764c0ab7041",
+  "asm": "2e0791d472ca8b72",
   "src": "9cb89cff9b007f22"
  },
  "neqn/eqnbox.c": {
-  "asm": "597afeeccae62f8f",
+  "asm": "55a2b8fda0456c1b",
   "src": "c9c50fb1b2ca9443"
  },
  "neqn/font.c": {
-  "asm": "ef160837562de888",
+  "asm": "cc152f3324cd9f81",
   "src": "c63064fa5d215fa2"
  },
  "neqn/fromto.c": {
-  "asm": "a1a412471969b8a7",
+  "asm": "ebebe9eab65b3a2b",
   "src": "3d36c5a415661bc5"
  },
  "neqn/glob.c": {
@@ -544,55 +544,59 @@
   "src": "1683116c2ad55140"
  },
  "neqn/io.c": {
-  "asm": "60b432295a43b44a",
+  "asm": "24ee1529667993e3",
   "src": "a6ad15a833632142"
  },
  "neqn/mark.c": {
-  "asm": "54706c0858f73e9f",
+  "asm": "63b6123cc0cba98b",
   "src": "1556a756ef326302"
  },
  "neqn/matrix.c": {
-  "asm": "600fab6377ee4d6c",
+  "asm": "a3e5ff64a242b527",
   "src": "120f6b46dbf5f7ea"
  },
  "neqn/over.c": {
-  "asm": "5b929d5810085654",
+  "asm": "7f19065531f00078",
   "src": "75fc5dd385d63924"
  },
  "neqn/paren.c": {
-  "asm": "1017fd797e99bf53",
+  "asm": "f4a0eacf0306dffa",
   "src": "1c3f311be08dcef5"
  },
  "neqn/pile.c": {
-  "asm": "3f8f244ee29c8126",
+  "asm": "5760af687b43ecaf",
   "src": "fe6c561c9527b0a4"
  },
  "neqn/size.c": {
-  "asm": "befee670b49a3025",
+  "asm": "3a704e0e7e4bd693",
   "src": "e9152da8036d0f08"
  },
  "neqn/sqrt.c": {
-  "asm": "d9cf2ec780de2a6e",
+  "asm": "2f847e24ed50b915",
   "src": "1bf3aa2e77a71919"
  },
  "newgrp.c": {
-  "asm": "82d1f6660dc11e44",
+  "asm": "e2ac8746b186ca99",
   "src": "4de3c0649a9099ce"
  },
  "nice.c": {
-  "asm": "cda884ff26462a1f",
+  "asm": "033771301a17354f",
   "src": "fc0b6bed5aea76c6"
  },
+ "nm.c": {
+  "asm": "c84ec1933fde41a5",
+  "src": "63c2ddb6fe86307e"
+ },
  "od.c": {
-  "asm": "1472e7b2a1ddd01c",
+  "asm": "c5a3d15ca7a795ae",
   "src": "992719dfdd1d38e6"
  },
  "osh.c": {
-  "asm": "f3300efcf58927a9",
+  "asm": "a40e1bc160aa195f",
   "src": "182427353ce49464"
  },
  "passwd.c": {
-  "asm": "5216fcb376ac9f8b",
+  "asm": "577c968e3ff2faf5",
   "src": "3cbaef3ff21a61a4"
  },
  "plot/chrtab.c": {
@@ -600,151 +604,159 @@
   "src": "0faaace5b7dcca6e"
  },
  "plot/driver.c": {
-  "asm": "5e89ff64c6e6dac5",
+  "asm": "4227892482a08050",
   "src": "fdeaa59f3ce6cab1"
  },
  "plot/vplot.c": {
-  "asm": "b5f5aa187c5314ff",
+  "asm": "c44f1c75730cbb4f",
   "src": "aad8e694b769a128"
  },
  "pr.c": {
-  "asm": "3cc4931adad04e41",
+  "asm": "c90549a9e1ce194f",
   "src": "301b73ef9bae96b7"
  },
  "prep/prep0.c": {
-  "asm": "592d491f840132fd",
+  "asm": "5ecbf72132007737",
   "src": "b73c00c5182007ec"
  },
  "prep/prep1.c": {
-  "asm": "dcd71a26515c2948",
+  "asm": "cf42209991c9be04",
   "src": "4edbb05873cb76ae"
  },
  "prep/prep2.c": {
-  "asm": "c19691da4bab928f",
+  "asm": "2525b2f088b7a455",
   "src": "65b62f8df01ce955"
  },
+ "prof.c": {
+  "asm": "fb6487112c65f451",
+  "src": "485e28d4707a4542"
+ },
  "ps.c": {
-  "asm": "19f221a7adbb0160",
+  "asm": "d5eb25cf02ad3906",
   "src": "cc1eed6d69d33812"
  },
  "pstat.c": {
-  "asm": "1daec01c2447084a",
-  "src": "de1a1efa9527ba85"
+  "asm": "8010ec98711fcc53",
+  "src": "21147d1c988a462c"
  },
  "ptx.c": {
-  "asm": "25f2426ff9bc32fa",
+  "asm": "2e62ff12fcf94b41",
   "src": "a667968b12536a8d"
  },
  "pwd.c": {
-  "asm": "a95d4348404143c8",
+  "asm": "96981a64d3d07af8",
   "src": "7afb2edc86eca8ef"
  },
  "quot.c": {
-  "asm": "11df00c8ada39eb5",
+  "asm": "dea127f3a2eec6e6",
   "src": "1407d2da7e784359"
  },
  "random.c": {
-  "asm": "70bfda76f57dcbbb",
+  "asm": "85915f518093637d",
   "src": "b006d8378bf0528e"
  },
  "ratfor/rlook.c": {
-  "asm": "7cf139eeb93629b0",
+  "asm": "c9e81cd2dafbc275",
   "src": "69d5f54e13054cb5"
  },
  "refer/deliv1.c": {
-  "asm": "7498d2123d7ca8d5",
+  "asm": "591369bfcd8bb3a7",
   "src": "e1d8ee4e5b6619e4"
  },
  "refer/deliv2.c": {
-  "asm": "c21fe23bf49ca020",
+  "asm": "0b38856930c0b4d4",
   "src": "c7a5b270add9972b"
  },
  "refer/flagger.c": {
-  "asm": "e4f07f838ac12105",
+  "asm": "5808b68b6174993f",
   "src": "8ea7b8ab217037f1"
  },
+ "refer/glue1.c": {
+  "asm": "13f5916ffd834f3d",
+  "src": "b794e1a9b532e070"
+ },
  "refer/glue2.c": {
-  "asm": "32c4bb8fafd95a8c",
+  "asm": "458a0eae1096c529",
   "src": "e1b4160a38ade5f6"
  },
  "refer/glue3.c": {
-  "asm": "eb739df745b2cb34",
+  "asm": "df570b9a0e8163ff",
   "src": "3c3cc93659fa8c8b"
  },
  "refer/glue4.c": {
-  "asm": "ee332f20ec6b06e6",
+  "asm": "ef7064181e6ca79d",
   "src": "702f92d758617536"
  },
  "refer/glue5.c": {
-  "asm": "4dc2ee056dcfaa28",
+  "asm": "61b3e99694cf4dfc",
   "src": "b104acf75fdbcad4"
  },
  "refer/hunt1.c": {
-  "asm": "142be4cdfa441f26",
+  "asm": "36b8fd54d7c2b861",
   "src": "b68aec7441293315"
  },
  "refer/hunt2.c": {
-  "asm": "7f8bb4d75ea73b0c",
+  "asm": "453509f9fcabd01c",
   "src": "ede9fb4437475c22"
  },
  "refer/hunt3.c": {
-  "asm": "66fe19968ac40e58",
+  "asm": "f037c34121232bc1",
   "src": "fa0f7d7a86a19f2f"
  },
  "refer/hunt5.c": {
-  "asm": "462763fa35d5b837",
+  "asm": "61964abd62571191",
   "src": "f3f9c321a5d20673"
  },
  "refer/hunt6.c": {
-  "asm": "0277e2a8c3f4e3f9",
+  "asm": "87460d2a1644c085",
   "src": "805f41c4b12067be"
  },
  "refer/hunt7.c": {
-  "asm": "99972e6440cb7a11",
+  "asm": "c8400bbb52b7617d",
   "src": "d991ad9cd4c8ccfe"
  },
  "refer/hunt8.c": {
-  "asm": "4b94ba2c7072fc8e",
+  "asm": "89e42a859ae724a6",
   "src": "b09bd5b392eb9ce5"
  },
  "refer/hunt9.c": {
-  "asm": "6d61134a9cc4d369",
+  "asm": "7acfd480e595b79f",
   "src": "3224edc09a911759"
  },
  "refer/inv1.c": {
-  "asm": "cfce4e8368405751",
+  "asm": "7a8bca1bfb972e05",
   "src": "56031168f6a4929b"
  },
  "refer/inv2.c": {
-  "asm": "3a9304d0b616d844",
+  "asm": "ce9cfca055ab8ca2",
   "src": "67e306cf34e99d16"
  },
  "refer/inv3.c": {
-  "asm": "915786f9b5731067",
+  "asm": "4a99ed4cea7c4ecf",
   "src": "e4c6763c5979506d"
  },
  "refer/inv5.c": {
-  "asm": "429fa016bf4a407c",
+  "asm": "6e13d34433b4f8b3",
   "src": "a22290004bd5ecfd"
  },
  "refer/inv6.c": {
-  "asm": "bb8d2f2dbb6d27fe",
+  "asm": "fc9225280279cd3e",
   "src": "35688c876803d04d"
  },
  "refer/kaiser.c": {
-  "asm": "c74134a59ea3475d",
+  "asm": "e7031e4646079a7f",
   "src": "e5ec02f217928659"
  },
  "refer/mkey1.c": {
-  "asm": "a10a065455a017a6",
+  "asm": "5e9cf37c8f8e43e2",
   "src": "f6ebfbd7a9250ad1"
  },
  "refer/mkey2.c": {
-  "asm": "f12723218edaa908",
+  "asm": "16bc5a703677b1ff",
   "src": "7ad5916882667614"
  },
  "refer/mkey3.c": {
-  "asm": "443ee458da01116a",
+  "asm": "c6d2c319685c7108",
   "src": "e24e28179169634d"
  },
  "refer/refer..c": {
@@ -756,43 +768,43 @@
   "src": "7e634f84036f350a"
  },
  "refer/refer1.c": {
-  "asm": "8bcad7aba1b36062",
+  "asm": "9548a067d59777a3",
   "src": "2c748f6c9da4a1f1"
  },
  "refer/refer2.c": {
-  "asm": "b8bd7e8294ed3035",
+  "asm": "2c132fa618720c5a",
   "src": "5a3f9856deb4dc74"
  },
  "refer/refer3.c": {
-  "asm": "0e7a69087777a785",
+  "asm": "b81ddabd1cb03ee9",
   "src": "c6f7b5bed64d5123"
  },
  "refer/refer4.c": {
-  "asm": "0483c8aca19b7bdf",
+  "asm": "d5ab87b3d59b870c",
   "src": "57ed31aa2354f626"
  },
  "refer/refer5.c": {
-  "asm": "ddac29d4695e7264",
+  "asm": "b8aeb3b74eb5487f",
   "src": "007d9b6519762b64"
  },
  "refer/refer6.c": {
-  "asm": "3023adb24c53675c",
+  "asm": "7e4bff21598f8fbe",
   "src": "193832d3ad761911"
  },
  "refer/refer7.c": {
-  "asm": "193b977eaa52f00f",
+  "asm": "8c455bb56e7406f2",
   "src": "e6114966cdf5948b"
  },
  "refer/refer8.c": {
-  "asm": "d0aab522aa344607",
+  "asm": "a35913e2e928355c",
   "src": "2046bce50d9bf807"
  },
  "refer/shell.c": {
-  "asm": "8a0f7347a734ae5e",
+  "asm": "04b8e192f7b7ef1a",
   "src": "a9d20d7ea241899f"
  },
  "refer/thash.c": {
-  "asm": "a1edb13f7cfc903a",
+  "asm": "f8624990e5c98820",
   "src": "d3cb00aaaa357627"
  },
  "refer/types.c": {
@@ -804,167 +816,171 @@
   "src": "38e59b735a02b2d3"
  },
  "refer/what1.c": {
-  "asm": "84be88004a5cd941",
+  "asm": "f4af3bc1e4210a72",
   "src": "00b02fa6e647da56"
  },
  "refer/what2.c": {
-  "asm": "d0c87eb3e5a885d1",
+  "asm": "153b56e24c8c1bf2",
   "src": "4efbbf75f438d54c"
  },
  "refer/what3.c": {
-  "asm": "c8ea5ee599580f19",
+  "asm": "d060a331ea148fcb",
   "src": "addff6272524dbfb"
  },
  "refer/what4.c": {
-  "asm": "e89ed09ef7eeca47",
+  "asm": "26311070603e29a7",
   "src": "886f1c340a7d3d02"
  },
  "restor.c": {
-  "asm": "977f4aaaafc39bcf",
+  "asm": "812416006df4d0d3",
   "src": "efd961c9eea5e991"
  },
  "rev.c": {
-  "asm": "f26531502e523f7a",
+  "asm": "6c357008733df3c4",
   "src": "71b3fcd81ef052d7"
  },
  "rm.c": {
-  "asm": "c014e8de554e6cb0",
+  "asm": "e2217f459746dda7",
   "src": "1dc75c83cf8f0675"
  },
  "rmdir.c": {
-  "asm": "00cdacb413d44b67",
+  "asm": "00ba82f4e9dda932",
   "src": "6c00acf24cda86b6"
  },
  "sa.c": {
-  "asm": "cf02956df8628cc6",
+  "asm": "7bf0ce65c79b0841",
   "src": "75aeb6b9d56af3ed"
  },
  "sed/sed0.c": {
-  "asm": "d5c88c545f147f30",
+  "asm": "496bf23ce24b46fa",
   "src": "672a229cc24f1f33"
  },
  "sed/sed1.c": {
-  "asm": "817f51c1e6b0dd41",
+  "asm": "31f345215653e7b8",
   "src": "7bc3d7b621100b33"
  },
  "size.c": {
-  "asm": "179b370daa8e0b45",
+  "asm": "737edeab169fa3a8",
   "src": "56853525b695ab9f"
  },
  "sleep.c": {
-  "asm": "f5659b206e0a24ae",
+  "asm": "1941342d13a9944d",
   "src": "8d4fe81562eccb42"
  },
  "sort.c": {
-  "asm": "041dfed3bbb91b10",
+  "asm": "cc88e13d036e5c3a",
   "src": "9bc789b0582f7094"
  },
  "sp.c": {
-  "asm": "5906d739bc66caae",
+  "asm": "97d42e3d53207888",
   "src": "bcc1ca12231b8eb0"
  },
  "spell/spell.c": {
-  "asm": "d9c365d76dd654eb",
+  "asm": "7ae932934d3faf40",
   "src": "cbc699b96b563ede"
  },
  "spell/spellin.c": {
-  "asm": "ee76c65a6179d943",
+  "asm": "02f8a46171ef3742",
   "src": "a9ab027407fbe18e"
  },
  "spell/spellout.c": {
-  "asm": "e6d22e7e4d1e3576",
+  "asm": "5a990e69fa165535",
   "src": "112fa790618e9f49"
  },
  "spline.c": {
-  "asm": "d2c939bf2463f971",
+  "asm": "9a517dae15c7e06a",
   "src": "2ddaa8ae58c556d1"
  },
  "split.c": {
-  "asm": "8937a785c9148e01",
+  "asm": "c2eb4661800c8d29",
   "src": "98f7c7b6186fc7b2"
  },
  "standalone/boot.c": {
-  "asm": "53a3d2aaedca41ac",
+  "asm": "9ad2f8ef8c8af352",
   "src": "4b126274625ee487"
  },
  "standalone/cat.c": {
-  "asm": "2e0be33639aa3f60",
+  "asm": "bd769bca3fa30d63",
   "src": "f4fce190e359171d"
  },
  "standalone/conf.c": {
-  "asm": "dc9b202233427c34",
+  "asm": "274cc83b523ae3c9",
   "src": "172dc31d6a072883"
  },
  "standalone/dd.c": {
-  "asm": "f14a07eb2c66fe6a",
+  "asm": "ed6dbd01ef98868b",
   "src": "7fd49f31767f1603"
  },
  "standalone/good_rk.c": {
-  "asm": "8780c35c9cb641a7",
+  "asm": "7d2c0da6ede29a58",
   "src": "450280aebe10cf2d"
  },
  "standalone/hp.c": {
-  "asm": "f05d163c0d95cf95",
+  "asm": "7f7a28ba9c3110a5",
   "src": "c53402e27175324a"
  },
  "standalone/ht.c": {
-  "asm": "2426d7e72df52a4b",
+  "asm": "f14c473b3e5a1a03",
   "src": "da55a8918a530a9e"
  },
  "standalone/icheck.c": {
-  "asm": "71562fc5534d27bf",
+  "asm": "ae86128efbf80b50",
   "src": "a2226916c0dd3509"
  },
  "standalone/maketape.c": {
-  "asm": "550ff24ee3ed01c2",
+  "asm": "43be30859cea7ad4",
   "src": "efdc66ab1a0f92b7"
  },
  "standalone/mkfs.c": {
-  "asm": "f12b8f5665244bc0",
+  "asm": "ef9dfe199196d5dc",
   "src": "c4c5c314b8bad8ea"
  },
  "standalone/newrk.c": {
-  "asm": "5c268f189f97f6c8",
+  "asm": "84215b70a0b617c8",
   "src": "e675e9e21601f9f4"
  },
  "standalone/prf.c": {
-  "asm": "62a99676eb7059a1",
+  "asm": "3132e759cb04c6dd",
   "src": "bb2a6df212a4cdbe"
  },
  "standalone/restor.c": {
-  "asm": "977f4aaaafc39bcf",
+  "asm": "812416006df4d0d3",
   "src": "efd961c9eea5e991"
  },
  "standalone/rk.c": {
-  "asm": "5c268f189f97f6c8",
+  "asm": "84215b70a0b617c8",
   "src": "e675e9e21601f9f4"
  },
  "standalone/rl.c": {
-  "asm": "d004696faa29b3aa",
+  "asm": "8411c3799b0c1c62",
   "src": "d917612649b65940"
  },
  "standalone/rp.c": {
-  "asm": "a9709e9ed042bde6",
+  "asm": "89b0ada94a476810",
   "src": "c8cd81c7e7f675c3"
  },
  "standalone/tm.c": {
-  "asm": "df9c2afb521aff3f",
+  "asm": "716bea1ec276cc16",
   "src": "73c9f41106eb8f74"
  },
  "standalone/vt.c": {
-  "asm": "a6de7cd90958e028",
+  "asm": "2d92dee7286daceb",
   "src": "4706131227e451f5"
  },
  "standalone/vtcat.c": {
-  "asm": "87b8cb6dff776e6f",
+  "asm": "9f449d276bf40666",
   "src": "b69dae392816a9f4"
  },
+ "strip.c": {
+  "asm": "46b30b55ca0df1ca",
+  "src": "a6f9c060a3ab511e"
+ },
  "struct/0.alloc.c": {
-  "asm": "719e0026f93a0f38",
+  "asm": "e9ef1135d4ce43a3",
   "src": "5cddab170ff37142"
  },
  "struct/0.args.c": {
-  "asm": "39b505e43651cef7",
+  "asm": "501d04eefb0985a5",
   "src": "d8c28d14e90c2eea"
  },
  "struct/0.def.c": {
@@ -976,55 +992,55 @@
   "src": "55845d2504e42809"
  },
  "struct/0.graph.c": {
-  "asm": "dc93b6584fa0aa6e",
+  "asm": "0ace14b9a77c1f57",
   "src": "fc76792bd0393ae0"
  },
  "struct/0.list.c": {
-  "asm": "ac45312515a7ef71",
+  "asm": "b601c37e8a534084",
   "src": "58f308e8dd21605d"
  },
  "struct/0.parts.c": {
-  "asm": "c04edc3773a06a85",
+  "asm": "625498347062e721",
   "src": "4cfcd84d1316209c"
  },
  "struct/0.string.c": {
-  "asm": "5b66be427b06653d",
+  "asm": "f3ed1bbb44a1db3e",
   "src": "65f351fad0ee0516"
  },
  "struct/1.finish.c": {
-  "asm": "494371174c033e3c",
+  "asm": "a5c34385e9cf8716",
   "src": "aede13247a98fcb6"
  },
  "struct/1.form.c": {
-  "asm": "44fbc70c7acd2227",
+  "asm": "d76a19a44d21d7cc",
   "src": "130c5e58849292c1"
  },
  "struct/1.fort.c": {
-  "asm": "3b27be4f06652de3",
+  "asm": "0606165f57b494b4",
   "src": "04134de2a472e67a"
  },
  "struct/1.hash.c": {
-  "asm": "e211593a7573a222",
+  "asm": "af59b7c3b951e93e",
   "src": "be1ac7882043a216"
  },
  "struct/1.init.c": {
-  "asm": "b4561f872b14eca6",
+  "asm": "99f1615a06df7166",
   "src": "0ee357f60db24c8e"
  },
  "struct/1.line.c": {
-  "asm": "59fa6ddcad39cf8c",
+  "asm": "45c6d25da57fa550",
   "src": "523368cf72ea037b"
  },
  "struct/1.main.c": {
-  "asm": "2a7f2c2f1ffbc0f0",
+  "asm": "15ba3114149b6ef6",
   "src": "d721361c08cb2bc1"
  },
  "struct/1.node.c": {
-  "asm": "5d85faa254373b8f",
+  "asm": "88d7822f98e6b32e",
   "src": "3a6789dd3d4e32a3"
  },
  "struct/1.recog.c": {
-  "asm": "0863d3edee56bbd3",
+  "asm": "eb986a99f7701b8c",
   "src": "a22deac83c4a6278"
  },
  "struct/1.tables.c": {
@@ -1032,71 +1048,71 @@
   "src": "a365cb2602777796"
  },
  "struct/2.dfs.c": {
-  "asm": "c276eb45489aa28b",
+  "asm": "068f3bce4ab20c52",
   "src": "ccde2ac3bd7cc49b"
  },
  "struct/2.dom.c": {
-  "asm": "339fa599371e61d6",
+  "asm": "68b5ac14a63c10eb",
   "src": "67ee244ca9be539f"
  },
  "struct/2.head.c": {
-  "asm": "43b3699d29384d14",
+  "asm": "fb7b9254cac6ecce",
   "src": "79c65e6a218c13d1"
  },
  "struct/2.inarc.c": {
-  "asm": "ee7d25d02fbadfb9",
+  "asm": "5d08455b97ab84e2",
   "src": "450073019dc803ee"
  },
  "struct/2.main.c": {
-  "asm": "a6bde9fae0bdb358",
+  "asm": "3f2e92cc3b067353",
   "src": "abf45ade39f63049"
  },
  "struct/2.test.c": {
-  "asm": "1e1702b3e8d0f045",
+  "asm": "27e2c359276110d5",
   "src": "c6a136fe035d34ce"
  },
  "struct/2.tree.c": {
-  "asm": "1f7ff12b92fdc570",
+  "asm": "5fde8b2b043b5d7b",
   "src": "fba27ff048ab8aed"
  },
  "struct/3.branch.c": {
-  "asm": "ba380b720fc8ab7c",
+  "asm": "2b57deaa637f2159",
   "src": "51d1de759caeadfc"
  },
  "struct/3.flow.c": {
-  "asm": "4bcae4b96f8b1540",
+  "asm": "6af13f5455ba1fad",
   "src": "c4c246145942c834"
  },
  "struct/3.main.c": {
-  "asm": "f6037fe29d72e6b4",
+  "asm": "f4da1279e1e8cccf",
   "src": "c45236698f5f7cde"
  },
  "struct/3.reach.c": {
-  "asm": "36ccc05a644a705d",
+  "asm": "7a2fe431be45b786",
   "src": "002827afb6aef5fd"
  },
  "struct/3.test.c": {
-  "asm": "c29cfaa9b6c9be4a",
+  "asm": "122730942c5bbe75",
   "src": "f20aaeaad06685d5"
  },
  "struct/3.then.c": {
-  "asm": "35f4575fff7d26a8",
+  "asm": "837850983c16e977",
   "src": "2d96d450dda7237b"
  },
  "struct/4.brace.c": {
-  "asm": "7177d11dce54f7cc",
+  "asm": "17a16a6799a79b8f",
   "src": "10feee00ae27f99b"
  },
  "struct/4.form.c": {
-  "asm": "7884ed36a4a874e0",
+  "asm": "e3013c4ce064f13b",
   "src": "e267e4f971f51dc8"
  },
  "struct/4.main.c": {
-  "asm": "438828c3d2910984",
+  "asm": "a05ecc26b982ff23",
   "src": "5dd084f712ac220b"
  },
  "struct/4.out.c": {
-  "asm": "61a694c09c115732",
+  "asm": "f4745f648f07d876",
   "src": "c855e1a552d6ff77"
  },
  "struct/bdef.c": {
@@ -1104,35 +1120,35 @@
   "src": "de4e74322ed4eb89"
  },
  "struct/main.c": {
-  "asm": "5ba9011fdb5c024a",
+  "asm": "30d47e7726617221",
   "src": "16a337dc6dae1a29"
  },
  "stty.c": {
-  "asm": "863923fbbddc4081",
+  "asm": "395f8135eb6092da",
   "src": "1f58ed8b58d4d12e"
  },
  "su.c": {
-  "asm": "5c7d3bea99d4c2ab",
+  "asm": "9b8eb892506ab2e2",
   "src": "a2bc0f18f3b62929"
  },
  "sum.c": {
-  "asm": "8a02a89b525d43bf",
+  "asm": "c4f59a4bb25de147",
   "src": "884c4dd896fc5690"
  },
  "sync.c": {
-  "asm": "93c50ff5e5bd3ee8",
+  "asm": "a99107869c69e152",
   "src": "9b0a6ffaeb8d1d3d"
  },
  "tabs.c": {
-  "asm": "3d116547502c486a",
+  "asm": "b4857d171bd70ced",
   "src": "4e926524892b46ab"
  },
  "tail.c": {
-  "asm": "a553ea0c896fac14",
+  "asm": "6448c2e5a705114e",
   "src": "329293b4ab009978"
  },
  "tar/tar.c": {
-  "asm": "a5d2b11cf1fe86d9",
+  "asm": "c7d606b74ad7c707",
   "src": "f5be59d771f0e249"
  },
  "tbl/t..c": {
@@ -1144,99 +1160,103 @@
   "src": "23024f6f56dbef8e"
  },
  "tbl/t2.c": {
-  "asm": "e435d0711a37d064",
+  "asm": "45118b260c36047b",
   "src": "0783f5d3188a0dc0"
  },
  "tbl/t3.c": {
-  "asm": "aba159412eafa973",
+  "asm": "d1d48b89fd59fa3f",
   "src": "48b3bd82ca6e4acc"
  },
  "tbl/t4.c": {
-  "asm": "6000c5195e1578e7",
+  "asm": "cab583daf01b1571",
   "src": "09913c824fc446c2"
  },
  "tbl/t5.c": {
-  "asm": "ac87e36e84e029c4",
+  "asm": "f42378ee995cd5cb",
   "src": "6686275134290adc"
  },
  "tbl/t6.c": {
-  "asm": "0932d21d80aa8eb1",
+  "asm": "777a8f1e80f51397",
   "src": "bf56c0521d63662e"
  },
  "tbl/t7.c": {
-  "asm": "9223a637f30244d8",
+  "asm": "463a73e03920e652",
   "src": "8d2dcd61efadb0d4"
  },
+ "tbl/t8.c": {
+  "asm": "e88e7081740026b6",
+  "src": "cfd5ab7c79ae9757"
+ },
  "tbl/t9.c": {
-  "asm": "ff4ae6b0e19f1328",
+  "asm": "62ef47e1ce7a3547",
   "src": "4137e061d619719b"
  },
  "tbl/tb.c": {
-  "asm": "6d1e1793ca02de15",
+  "asm": "e352b2de9bff4285",
   "src": "f7cdbb4b47fa659c"
  },
  "tbl/tc.c": {
-  "asm": "03401f55eea5462e",
+  "asm": "8b98a19dd52b8626",
   "src": "36f9e9cd8144deb9"
  },
  "tbl/te.c": {
-  "asm": "99eaef977a71cc69",
+  "asm": "8a26698b94ed26f7",
   "src": "fe276736b95b483c"
  },
  "tbl/tf.c": {
-  "asm": "4a256292b43832f9",
+  "asm": "ce7e87479f8ca495",
   "src": "2185771be9ac8a3a"
  },
  "tbl/tg.c": {
-  "asm": "17429cba0dc55cb6",
+  "asm": "906abac25639fc7d",
   "src": "dce9b3f1db6b56d1"
  },
  "tbl/ti.c": {
-  "asm": "be9ea937897e52d1",
+  "asm": "4b6bc6383bffd829",
   "src": "460c0e22db422626"
  },
  "tbl/tm.c": {
-  "asm": "8821f06349994f4f",
+  "asm": "cfd36013faf51f15",
   "src": "5f9418824421b74f"
  },
  "tbl/ts.c": {
-  "asm": "e88a09c9edbaafc6",
+  "asm": "13394a409344c4ff",
   "src": "a2d15ffbbc0d1527"
  },
  "tbl/tt.c": {
-  "asm": "e285274a184fb83d",
+  "asm": "9aac88f07e37c403",
   "src": "6faacc24f661c2b2"
  },
  "tbl/tu.c": {
-  "asm": "7c48bfc003c8939d",
+  "asm": "a12a3e1d1efcf612",
   "src": "dfa811eabe6b8d30"
  },
  "tbl/tv.c": {
-  "asm": "53905ff521a53a0e",
+  "asm": "33c14df9174a7e02",
   "src": "17bb1eb218f3bcc3"
  },
  "tc.c": {
-  "asm": "f29b27755b388bc1",
+  "asm": "7f9db46c6bee8069",
   "src": "0d2d688389cb4700"
  },
  "tee.c": {
-  "asm": "77ac479f1f025d23",
+  "asm": "c7dc3480c0f29a0f",
   "src": "4f58b8a3d3f5a617"
  },
  "test.c": {
-  "asm": "59e382245f249b02",
+  "asm": "04d1d4f93eee00d0",
   "src": "7a5db1f22f864da7"
  },
  "time.c": {
-  "asm": "fe5d8f210d21b09e",
+  "asm": "cdbe8572d99f2899",
   "src": "661bd83a426a4e2b"
  },
  "tk.c": {
-  "asm": "43d3d3c08c1111a7",
+  "asm": "7bcaeb8b7123516c",
   "src": "400d44946c357332"
  },
  "touch.c": {
-  "asm": "9cc9e8f25e1f63fc",
+  "asm": "846d6a827905e6ae",
   "src": "ef2704d1360e9741"
  },
  "tp/tp0.c": {
@@ -1244,23 +1264,23 @@
   "src": "82dfbf7ddf92a2e3"
  },
  "tp/tp1.c": {
-  "asm": "64761056aec961fb",
+  "asm": "a9494fc7249351fd",
   "src": "5498228dbf6c9bfe"
  },
  "tp/tp2.c": {
-  "asm": "d0ca0c0e6ea66f25",
+  "asm": "601c38cf47d70805",
   "src": "5a61494f24b64677"
  },
  "tp/tp3.c": {
-  "asm": "6626ff123ff377a0",
+  "asm": "0bdc46af6ea468f4",
   "src": "9f91ab03e2f0c5d3"
  },
  "tr.c": {
-  "asm": "7addc285a7152043",
+  "asm": "f752d9e3528bb970",
   "src": "caa68d7f763e7a2a"
  },
  "troff/font/chars.c": {
-  "asm": "3019580826d2edeb",
+  "asm": "4a950dad75b273e0",
   "src": "49eb9b6073376200"
  },
  "troff/font/ftB.c": {
@@ -1364,7 +1384,7 @@
   "src": "3a17b85f85c7506c"
  },
  "troff/font/mkfont.c": {
-  "asm": "a89d2b0ee03cabbf",
+  "asm": "4578811272f3999f",
   "src": "2e7a49f061c94821"
  },
  "troff/font/mkfont1.c": {
@@ -1376,35 +1396,35 @@
   "src": "5125772210217924"
  },
  "troff/n1.c": {
-  "asm": "c74c8f58e0ef4944",
+  "asm": "bd7a24ebffe9dda6",
   "src": "f160f2e8c38fb939"
  },
  "troff/n2.c": {
-  "asm": "8ee45f5f263e212c",
+  "asm": "8e1b679003eabebd",
   "src": "880987f618e2abdc"
  },
  "troff/n3.c": {
-  "asm": "a948a8e57ae645dd",
+  "asm": "75518e05498a5e50",
   "src": "3268794fae6c3b70"
  },
  "troff/n4.c": {
-  "asm": "b4eb013f9c641adf",
+  "asm": "15a4672f9eb34ac9",
   "src": "6799e64687db477c"
  },
  "troff/n5.c": {
-  "asm": "6343e6668430a53d",
+  "asm": "56d747df307cceec",
   "src": "f03fabe8347d4500"
  },
  "troff/n7.c": {
-  "asm": "4ec2ff412c8f4f90",
+  "asm": "c1e019bb7b63cf98",
   "src": "1ddb6b6146df67fe"
  },
  "troff/n8.c": {
-  "asm": "5d377787540374a6",
+  "asm": "3ca8a8d0ea91ff62",
   "src": "eee4876b8828bdb7"
  },
  "troff/n9.c": {
-  "asm": "02c607d45c7e735d",
+  "asm": "cb13f9ad033fc66c",
   "src": "4916456a1966b0b6"
  },
  "troff/ni.c": {
@@ -1424,11 +1444,11 @@
   "src": "697c6c24f319cd91"
  },
  "troff/t10.c": {
-  "asm": "4ab5dfff8276ddb9",
+  "asm": "295230532badb833",
   "src": "fae064d26e092030"
  },
  "troff/t6.c": {
-  "asm": "3b1dcd714f0785e1",
+  "asm": "fa953a1405b361f9",
   "src": "d7f4ac8cea3171c2"
  },
  "troff/tab3.c": {
@@ -1484,231 +1504,231 @@
   "src": "a27de91cbc5d7039"
  },
  "tsort.c": {
-  "asm": "0439dfdb7206b71f",
+  "asm": "8006a40d5bbe7fa2",
   "src": "c91801770b8e489d"
  },
  "tty.c": {
-  "asm": "097e4891a4e79e4e",
+  "asm": "7c77f8ea929af376",
   "src": "bae35eeb0847097a"
  },
  "umount.c": {
-  "asm": "ac5180ada5de4ce3",
+  "asm": "f6e2118b060d3b93",
   "src": "74a2831e5719bf5f"
  },
  "uniq.c": {
-  "asm": "cc89a58e206bfaa5",
+  "asm": "4c6a94f5b313e871",
   "src": "d2b10dc090f0ffea"
  },
  "units.c": {
-  "asm": "fcba4fa0217a2b16",
+  "asm": "db2e9f356365d869",
   "src": "5fd99a67d5fd04fa"
  },
  "update.c": {
-  "asm": "24d072355905de79",
+  "asm": "955700364fda2796",
   "src": "fc4b01959c899ae8"
  },
  "uucp/anlwrk.c": {
-  "asm": "41c86c5ce6bbff9e",
+  "asm": "b4c3f01bcaefa198",
   "src": "0b03aa7a6845f82d"
  },
  "uucp/chkpth.c": {
-  "asm": "62b60ba5f0970eae",
+  "asm": "4feec1cce9ba033c",
   "src": "1ee0b3200fbc51f8"
  },
  "uucp/cico.c": {
-  "asm": "5810e296a4cfea81",
+  "asm": "4dbfc454161e00d1",
   "src": "b249e681d99d4d97"
  },
  "uucp/cntrl.c": {
-  "asm": "c263548361b636b1",
+  "asm": "3064a651cea3794f",
   "src": "42d9b582fce3d8a0"
  },
  "uucp/conn.c": {
-  "asm": "0dcb888bb8eaed7e",
+  "asm": "efd19c462b0fb6ce",
   "src": "2ec96e8c994c194a"
  },
  "uucp/cpmv.c": {
-  "asm": "74a22fea9f5cd39c",
+  "asm": "a979c587aca5155c",
   "src": "88fbabbe1c503c21"
  },
  "uucp/expfile.c": {
-  "asm": "10aa39ce692ce9fa",
+  "asm": "bd479626d3f13e98",
   "src": "1055e436f14f5fc0"
  },
  "uucp/gename.c": {
-  "asm": "d3ded3142dadd78b",
+  "asm": "1ad6dde54d7ed0b2",
   "src": "9f7eb6c9bbe21358"
  },
  "uucp/getargs.c": {
-  "asm": "9fe7b14f9914242a",
+  "asm": "2d554aa0889f8eea",
   "src": "f7fc27442e0fc86e"
  },
  "uucp/getprm.c": {
-  "asm": "97671b3141f90ee4",
+  "asm": "72d1698ecfd57c0a",
   "src": "4a865d76dc4cda86"
  },
  "uucp/getpwinfo.c": {
-  "asm": "fb636a443a2a2bbc",
+  "asm": "81d5d6181ce2ab29",
   "src": "e8d9db76d40e4c42"
  },
  "uucp/gio.c": {
-  "asm": "14fac806fffea73a",
+  "asm": "0fe3977defb7e576",
   "src": "fa85ce06b9763639"
  },
  "uucp/gnamef.c": {
-  "asm": "a67e5af32eed127b",
+  "asm": "b1ce096c42d0a05f",
   "src": "ce7a6cde8af9d6a0"
  },
  "uucp/gnsys.c": {
-  "asm": "f0fd96ee6e05b04d",
+  "asm": "718215af838fa635",
   "src": "8fa287270870ffe2"
  },
  "uucp/gnxseq.c": {
-  "asm": "1ee4cb64f6e500fa",
+  "asm": "ab06b36022be7052",
   "src": "59f2746dfea3e45d"
  },
  "uucp/gwd.c": {
-  "asm": "18dab7f0d04f47f6",
+  "asm": "55503c705f84bebf",
   "src": "80054669f108e15d"
  },
  "uucp/imsg.c": {
-  "asm": "264af3f468f20acc",
+  "asm": "ef22928d2c33d2c2",
   "src": "e91bb4383f5dd5f1"
  },
  "uucp/index.c": {
-  "asm": "ab55112501ba6f11",
+  "asm": "3f048587c3dcb256",
   "src": "bd4a3b50c3514684"
  },
  "uucp/ioctl.c": {
-  "asm": "230a36676a532f10",
+  "asm": "95b5b803d1a0052f",
   "src": "f7151f88f83ae21a"
  },
  "uucp/lastpart.c": {
-  "asm": "b4aa5497ac2e3d6a",
+  "asm": "4c74410ce3b03a9e",
   "src": "0bcbeb6c37b92fbe"
  },
  "uucp/logent.c": {
-  "asm": "4ce1f40095c14da5",
+  "asm": "8e9812a231907268",
   "src": "a4a79293f0087dac"
  },
  "uucp/pk0.c": {
-  "asm": "32874e21bd50a393",
+  "asm": "a1986b74884c2d62",
   "src": "2b3d5131202dff4c"
  },
  "uucp/pk1.c": {
-  "asm": "3efa8bb06cf25316",
+  "asm": "69c4b91ee89c137f",
   "src": "645126235d968785"
  },
  "uucp/pkon.c": {
-  "asm": "5aa66cc591093d3c",
+  "asm": "bc638a346bc0ef5d",
   "src": "73343b3d3cb64f04"
  },
  "uucp/prefix.c": {
-  "asm": "b6bd7a115b2df5bf",
+  "asm": "ba831d0a2cc03240",
   "src": "5a4b0b93cba97efb"
  },
  "uucp/sdmail.c": {
-  "asm": "83dd712cde161b0f",
+  "asm": "6308b5b3851b1d75",
   "src": "79e3031678157cd3"
  },
  "uucp/shio.c": {
-  "asm": "984b67e9cd501926",
+  "asm": "6e7d8a8f9a50918a",
   "src": "e04556f1332378ba"
  },
  "uucp/sysacct.c": {
-  "asm": "df48eb2830799d80",
+  "asm": "61fb97206e7d0b4e",
   "src": "2737f47a7eaa723d"
  },
  "uucp/systat.c": {
-  "asm": "f1e11dc54ca4c711",
+  "asm": "331ab5eef3f86617",
   "src": "ee2706199466451c"
  },
  "uucp/ulockf.c": {
-  "asm": "cb03cf65210b4d6e",
+  "asm": "e4803b7dd2ab8572",
   "src": "5fb9b70d182a0a87"
  },
  "uucp/uuclean.c": {
-  "asm": "c35eb65de2641f78",
+  "asm": "11f503885a2e957b",
   "src": "ec3d1b44ea716db4"
  },
  "uucp/uucp.c": {
-  "asm": "023657c08ff67e8f",
+  "asm": "5aed3185a1c21856",
   "src": "8dd0ec2977c8ba56"
  },
  "uucp/uulog.c": {
-  "asm": "4af99e02dba7720f",
+  "asm": "f90a12a38ee0edd2",
   "src": "fce3b9a79631cc61"
  },
  "uucp/uux.c": {
-  "asm": "26f27a2b62661226",
+  "asm": "8880613c00b6770f",
   "src": "4b3328678068fcf7"
  },
  "uucp/uuxqt.c": {
-  "asm": "dd56c269b43b8928",
+  "asm": "abb04c588cfac964",
   "src": "a587f7a44cf31aef"
  },
  "uucp/versys.c": {
-  "asm": "e41aa1e0c30876fe",
+  "asm": "809ab0aac5c650ab",
   "src": "aafa752245f2a987"
  },
  "uucp/xqt.c": {
-  "asm": "cd02f35281e18e92",
+  "asm": "b12b34c24c860a0b",
   "src": "b3019b3f0fa1f41c"
  },
  "vpr.c": {
-  "asm": "25d84a86650c9c42",
+  "asm": "d991a6e0f83d81a9",
   "src": "da4e7fc05f5b0739"
  },
  "wall.c": {
-  "asm": "9df71ae20b9a69cb",
+  "asm": "c471037e15a6f9b1",
   "src": "b44d69fd0e76d2c4"
  },
  "wc.c": {
-  "asm": "61ff643aee87ba27",
+  "asm": "4db8fbb24dc63e3e",
   "src": "d63938c06cd48473"
  },
  "who.c": {
-  "asm": "643503d7bf5f8f43",
+  "asm": "e7a994036d0c8304",
   "src": "cedab7293c29b9a5"
  },
  "write.c": {
-  "asm": "706573db9172a76d",
+  "asm": "a8d23379b0bb7568",
   "src": "4094f981d018a853"
  },
  "xsend/enroll.c": {
-  "asm": "9307eddaa18020b7",
+  "asm": "28ef5401c02d546c",
   "src": "0d989217486bd9df"
  },
  "xsend/lib.c": {
-  "asm": "f046c9aa66737753",
+  "asm": "a2df5acf7976ad81",
   "src": "2faa7545200523da"
  },
  "xsend/xget.c": {
-  "asm": "6d6d8a8083827981",
+  "asm": "467f37b75177fc87",
   "src": "ad1093b6c018d800"
  },
  "xsend/xsend.c": {
-  "asm": "f3600c3a104c8921",
+  "asm": "28ae7234782dd9b6",
   "src": "2c7b04e8cc824a38"
  },
  "yacc/y1.c": {
-  "asm": "6b3888e3d747c67d",
+  "asm": "6885b395974324ec",
   "src": "7f1b9889db7dfdfa"
  },
  "yacc/y2.c": {
-  "asm": "524fc87755f72fa3",
+  "asm": "f98bf5afe9616316",
   "src": "89fe8efff7ceae44"
  },
  "yacc/y3.c": {
-  "asm": "40be74b6e14328a1",
+  "asm": "3fc253c49ec62d96",
   "src": "6902d5bbd4ad1d04"
  },
  "yacc/y4.c": {
-  "asm": "31421ccb1866f6be",
+  "asm": "321be67d6a286dbf",
   "src": "3ce2a019ec433dcf"
  },
  "yes.c": {
-  "asm": "8d5e2123f5c5a608",
+  "asm": "9990d86a7e8cb8e9",
   "src": "a71239cedb6d5b77"
  }
 }

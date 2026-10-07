@@ -79,14 +79,14 @@
  "cz8/cgram.c": {
   "az8": "ok",
   "errors": [],
-  "src": "063e9102f4a0558a",
+  "src": "b796b4d253321955",
   "status": "ok",
   "warnings": []
  },
  "cz8/code.c": {
   "az8": "ok",
   "errors": [],
-  "src": "319717136691e279",
+  "src": "7d1520cad3268b82",
   "status": "ok",
   "warnings": []
  },
@@ -107,7 +107,7 @@
  "cz8/local2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "90b632e596c2e333",
+  "src": "8e5687b480cb414e",
   "status": "ok",
   "warnings": []
  },
@@ -128,28 +128,28 @@
  "cz8/order.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b208265161052eb8",
+  "src": "46b703531bef02dc",
   "status": "ok",
   "warnings": []
  },
  "cz8/pftn.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5d830857fec9b359",
+  "src": "7b6fc54ca08bbe72",
   "status": "ok",
   "warnings": []
  },
  "cz8/reader.c": {
   "az8": "ok",
   "errors": [],
-  "src": "7854d36340042517",
+  "src": "9462083726ffb61d",
   "status": "ok",
   "warnings": []
  },
  "cz8/scan.c": {
   "az8": "ok",
   "errors": [],
-  "src": "7a6bd772ea6c215c",
+  "src": "9cce616423d83378",
   "status": "ok",
   "warnings": []
  },
@@ -163,7 +163,7 @@
  "cz8/trees.c": {
   "az8": "ok",
   "errors": [],
-  "src": "16d1bb80104d4f84",
+  "src": "fc18e47052db6eb2",
   "status": "ok",
   "warnings": []
  },
