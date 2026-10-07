@@ -1,7 +1,7 @@
 {
  "ac.c": {
   "asm": "7dbc6c115186664f",
-  "src": "7cdfd0ad82bfbfe1"
+  "src": "b8951936658d332d"
  },
  "accton.c": {
   "asm": "2250629c4b7a1056",
@@ -9,11 +9,11 @@
  },
  "adb/access.c": {
   "asm": "ddbd98c8c14d11ba",
-  "src": "428dd192023c307b"
+  "src": "58b4fd8a2bea896a"
  },
  "adb/command.c": {
   "asm": "505ec821186ef778",
-  "src": "3ffe355724044f67"
+  "src": "e85bd1b2dda7bfab"
  },
  "adb/dummy.c": {
   "asm": "8a2d9ca865809694",
@@ -21,23 +21,23 @@
  },
  "adb/expr.c": {
   "asm": "b06d7c466f7ce793",
-  "src": "46a2b7effc103276"
+  "src": "31f6ad96bc3cf214"
  },
  "adb/findfn.c": {
   "asm": "e3d0d737d3d11e98",
-  "src": "defe05e13db44544"
+  "src": "e7f87159138b7409"
  },
  "adb/format.c": {
   "asm": "83a8958cfdd80b03",
-  "src": "864924395e714a32"
+  "src": "80d8e62341140513"
  },
  "adb/input.c": {
   "asm": "d7591146d2df5a07",
-  "src": "05b6f60a5a9d2700"
+  "src": "354c4ea043e8e92e"
  },
  "adb/main.c": {
   "asm": "a00e0762cb78c0c9",
-  "src": "1caf18b9c80bd20e"
+  "src": "bf38cbc6b907633f"
  },
  "adb/message.c": {
   "asm": "3373a2a62ebcad33",
@@ -45,35 +45,35 @@
  },
  "adb/opset.c": {
   "asm": "d884ca24f9a6a3d8",
-  "src": "8ef5e563ce28b6b7"
+  "src": "39d80051305ee2ee"
  },
  "adb/output.c": {
   "asm": "5ecb5bd3fca71408",
-  "src": "1744548c584870b8"
+  "src": "803f6fca99a4092c"
  },
  "adb/pcs.c": {
   "asm": "d76f5af5d6a850b2",
-  "src": "87fdbe9a43ba5796"
+  "src": "9bf28da0879dd2f8"
  },
  "adb/print.c": {
   "asm": "35b7080ece53c62a",
-  "src": "45bc415669449f76"
+  "src": "df84337e6919b360"
  },
  "adb/runpcs.c": {
   "asm": "f5bb6d739162b919",
-  "src": "74e64acbfdb2e319"
+  "src": "92bf90491c2d87ea"
  },
  "adb/setup.c": {
-  "asm": "58a3994f6a1204bb",
-  "src": "171b68b9ff3d7d59"
+  "asm": "b9303af980ad2874",
+  "src": "0f6ca93838e524d9"
  },
  "adb/sym.c": {
   "asm": "86016c025141fda7",
-  "src": "a3cacbc3c4645ac0"
+  "src": "c7870499ee9d37c0"
  },
  "ar.c": {
   "asm": "b507075f6b994ba7",
-  "src": "790bde4f3ffeb9ce"
+  "src": "fc44063eacdf6dc9"
  },
  "arcv.c": {
   "asm": "472537228f0e6c8e",
@@ -85,7 +85,7 @@
  },
  "atrun.c": {
   "asm": "bb5454bd6c942738",
-  "src": "567fa29511167823"
+  "src": "ced8f39d0459e4b4"
  },
  "basename.c": {
   "asm": "918e3e1c1c2e4e28",
@@ -145,7 +145,7 @@
  },
  "cat.c": {
   "asm": "8893c5c8b4bec84e",
-  "src": "58fae06a269c3f62"
+  "src": "e8f8d4c801da5fc4"
  },
  "cb.c": {
   "asm": "f6517f2aaba33095",
@@ -161,19 +161,19 @@
  },
  "chgrp.c": {
   "asm": "05e8a4b259328dae",
-  "src": "487a81d0e1eacf2b"
+  "src": "02256051a0f22155"
  },
  "chmod.c": {
   "asm": "8e6c5e114e0e7a8a",
-  "src": "4917814439af72e4"
+  "src": "cc3a465615f4fef0"
  },
  "chown.c": {
   "asm": "788ef85ed05ce879",
-  "src": "3e55f8c97a25dabd"
+  "src": "950448258f805a43"
  },
  "clri.c": {
   "asm": "7826c94b907f591f",
-  "src": "88aa5ec3c68e0766"
+  "src": "7cb07c6d72573244"
  },
  "cmp.c": {
   "asm": "258cb8b6a59a8010",
@@ -189,7 +189,7 @@
  },
  "cp.c": {
   "asm": "3de40ea4b5aaf008",
-  "src": "3bf14fe83502dd66"
+  "src": "3f483742a842c942"
  },
  "cpp/cpp.c": {
   "asm": "1731320655057bcf",
@@ -197,7 +197,7 @@
  },
  "cron.c": {
   "asm": "341b0204ea98107f",
-  "src": "ee2686f6b6ebc8a9"
+  "src": "450fd22562753ab7"
  },
  "crypt.c": {
   "asm": "8530cc6272959e48",
@@ -209,7 +209,7 @@
  },
  "date.c": {
   "asm": "c6ab324fc0a7f4b2",
-  "src": "3a6b51d89054233f"
+  "src": "b48971d2848b0b8e"
  },
  "dc/dc.c": {
   "asm": "fb4639264ef4a214",
@@ -217,7 +217,7 @@
  },
  "dcheck.c": {
   "asm": "efcbc17c42d089dc",
-  "src": "a6edf4963e30c14e"
+  "src": "077408dbfe83a201"
  },
  "dd.c": {
   "asm": "ab8e560d7da93bad",
@@ -229,11 +229,11 @@
  },
  "df.c": {
   "asm": "2297ce5c491509f3",
-  "src": "5b65efed12791970"
+  "src": "2de8821c37d9057f"
  },
  "diff.c": {
   "asm": "d6c153a9693abd47",
-  "src": "1d2f23845e662d0d"
+  "src": "5cfa6935e64d5aa5"
  },
  "diff3.c": {
   "asm": "a4b9b28e4ace0ce8",
@@ -241,23 +241,23 @@
  },
  "diffh.c": {
   "asm": "5deff356803a5fc3",
-  "src": "a155600bd0df71b3"
+  "src": "8dddbe2d9b45da07"
  },
  "dmesg.c": {
   "asm": "6141103e9a597246",
-  "src": "3544676544860076"
+  "src": "0b465aadc75ff49b"
  },
  "du.c": {
   "asm": "466d9879d2059934",
-  "src": "417fdd6e3e74a70f"
+  "src": "7ca2773e646b3898"
  },
  "dump.c": {
   "asm": "ae02f84f84e0be54",
-  "src": "44e034b136f50b75"
+  "src": "dacabe351ac4a6c7"
  },
  "dumpdir.c": {
   "asm": "c82ef17b4cc42603",
-  "src": "406932869ee39847"
+  "src": "82b4a2f330c11f73"
  },
  "echo.c": {
   "asm": "16af8f52bee90e23",
@@ -325,11 +325,11 @@
  },
  "file.c": {
   "asm": "37b68388688cfa74",
-  "src": "60da0fe112777698"
+  "src": "b76653fbfa8cccab"
  },
  "find.c": {
   "asm": "249592ee5124b7f0",
-  "src": "12980aad3bcb4702"
+  "src": "0545d0f3826bc42a"
  },
  "getty.c": {
   "asm": "8a392956cc27a3e6",
@@ -341,15 +341,15 @@
  },
  "grep.c": {
   "asm": "48b26ce7957d2db5",
-  "src": "c7a44601c9891827"
+  "src": "ab28c3b7e9e6c0a6"
  },
  "icheck.c": {
   "asm": "71562fc5534d27bf",
-  "src": "862da550ded6e5ae"
+  "src": "a2226916c0dd3509"
  },
  "init.c": {
   "asm": "7909c18590a0fce4",
-  "src": "948565d6f1a15d46"
+  "src": "e8d8c9cd0697210f"
  },
  "iostat.c": {
   "asm": "33c249c98fe73154",
@@ -365,7 +365,7 @@
  },
  "ld.c": {
   "asm": "f1dff2fd73aedbab",
-  "src": "51eeb838bad9bf48"
+  "src": "8cee162ef057a192"
  },
  "learn/copy.c": {
   "asm": "1f4867bf2b8358b3",
@@ -449,11 +449,11 @@
  },
  "ln.c": {
   "asm": "a3df8bf85f3520f9",
-  "src": "8444a4c617b53f8f"
+  "src": "9a5512c2f6616c57"
  },
  "login.c": {
   "asm": "f496bcedf9c66319",
-  "src": "140d677b63238881"
+  "src": "08ed98d677a05e82"
  },
  "look.c": {
   "asm": "1998f21bdf38b76e",
@@ -461,7 +461,7 @@
  },
  "ls.c": {
   "asm": "6832f5896614d054",
-  "src": "dbdc3b0077269182"
+  "src": "3574e3f62fab80dc"
  },
  "m4/m4.c": {
   "asm": "df6514e4c42bf520",
@@ -469,7 +469,7 @@
  },
  "mail.c": {
   "asm": "b59942f6a61ae5ac",
-  "src": "56aec6dab38356a5"
+  "src": "6a718f1954f96ed0"
  },
  "make/doname.c": {
   "asm": "73657803c56103f3",
@@ -477,11 +477,11 @@
  },
  "make/dosys.c": {
   "asm": "883d2a516ac570d6",
-  "src": "4d93b5a0e156d56d"
+  "src": "97ea647a1453cb88"
  },
  "make/files.c": {
   "asm": "952843822a309f2a",
-  "src": "02eebd94fee432df"
+  "src": "350552c97c3d0d80"
  },
  "make/ident.c": {
   "asm": "e63e8a0f89e4f5bc",
@@ -501,7 +501,7 @@
  },
  "mesg.c": {
   "asm": "4f991dfe73d380e3",
-  "src": "5954ddc12e8cf67f"
+  "src": "d3cce23369a81f37"
  },
  "mkdir.c": {
   "asm": "fa7a92dfc89dd8f0",
@@ -509,7 +509,7 @@
  },
  "mkfs.c": {
   "asm": "f12b8f5665244bc0",
-  "src": "df2d0ad9da44c8c5"
+  "src": "c4c5c314b8bad8ea"
  },
  "mknod.c": {
   "asm": "c8dbfa6b566181d4",
@@ -521,11 +521,11 @@
  },
  "mv.c": {
   "asm": "96e6cb8b4b926a7b",
-  "src": "5532dc5fab8f0845"
+  "src": "768b99faf28a19d1"
  },
  "ncheck.c": {
   "asm": "b2879764c0ab7041",
-  "src": "bde4254cee0ed9d4"
+  "src": "9cb89cff9b007f22"
  },
  "neqn/eqnbox.c": {
   "asm": "597afeeccae62f8f",
@@ -609,7 +609,7 @@
  },
  "pr.c": {
   "asm": "3cc4931adad04e41",
-  "src": "69bd35ebe46ad860"
+  "src": "301b73ef9bae96b7"
  },
  "prep/prep0.c": {
   "asm": "592d491f840132fd",
@@ -624,12 +624,12 @@
   "src": "65b62f8df01ce955"
  },
  "ps.c": {
-  "asm": "4105c396d4c4fc20",
-  "src": "9555c2cd263ec1da"
+  "asm": "19f221a7adbb0160",
+  "src": "cc1eed6d69d33812"
  },
  "pstat.c": {
-  "asm": "9162ce0c9d9807cd",
-  "src": "766747d5ffb1def9"
+  "asm": "1daec01c2447084a",
+  "src": "de1a1efa9527ba85"
  },
  "ptx.c": {
   "asm": "25f2426ff9bc32fa",
@@ -637,11 +637,11 @@
  },
  "pwd.c": {
   "asm": "a95d4348404143c8",
-  "src": "ff02f3f11335f54a"
+  "src": "7afb2edc86eca8ef"
  },
  "quot.c": {
   "asm": "11df00c8ada39eb5",
-  "src": "393c2423d72bf093"
+  "src": "1407d2da7e784359"
  },
  "random.c": {
   "asm": "70bfda76f57dcbbb",
@@ -693,7 +693,7 @@
  },
  "refer/hunt5.c": {
   "asm": "462763fa35d5b837",
-  "src": "30f109469e87aecd"
+  "src": "f3f9c321a5d20673"
  },
  "refer/hunt6.c": {
   "asm": "0277e2a8c3f4e3f9",
@@ -801,11 +801,11 @@
  },
  "refer/what..c": {
   "asm": "86ae71e81919437a",
-  "src": "23106c8795a2f8b9"
+  "src": "38e59b735a02b2d3"
  },
  "refer/what1.c": {
   "asm": "84be88004a5cd941",
-  "src": "a2abe2c0fdf1ea99"
+  "src": "00b02fa6e647da56"
  },
  "refer/what2.c": {
   "asm": "d0c87eb3e5a885d1",
@@ -813,15 +813,15 @@
  },
  "refer/what3.c": {
   "asm": "c8ea5ee599580f19",
-  "src": "6b0dee2127ac562a"
+  "src": "addff6272524dbfb"
  },
  "refer/what4.c": {
   "asm": "e89ed09ef7eeca47",
-  "src": "b327707ddffaf347"
+  "src": "886f1c340a7d3d02"
  },
  "restor.c": {
   "asm": "977f4aaaafc39bcf",
-  "src": "ade69a1900a67994"
+  "src": "efd961c9eea5e991"
  },
  "rev.c": {
   "asm": "f26531502e523f7a",
@@ -829,15 +829,15 @@
  },
  "rm.c": {
   "asm": "c014e8de554e6cb0",
-  "src": "a2ac8f58847d4037"
+  "src": "1dc75c83cf8f0675"
  },
  "rmdir.c": {
   "asm": "00cdacb413d44b67",
-  "src": "255e9bba8466d1c9"
+  "src": "6c00acf24cda86b6"
  },
  "sa.c": {
   "asm": "cf02956df8628cc6",
-  "src": "392f6f6e4cabc3e7"
+  "src": "75aeb6b9d56af3ed"
  },
  "sed/sed0.c": {
   "asm": "d5c88c545f147f30",
@@ -857,7 +857,7 @@
  },
  "sort.c": {
   "asm": "041dfed3bbb91b10",
-  "src": "2d6f923e90a85c4e"
+  "src": "9bc789b0582f7094"
  },
  "sp.c": {
   "asm": "5906d739bc66caae",
@@ -885,7 +885,7 @@
  },
  "standalone/boot.c": {
   "asm": "53a3d2aaedca41ac",
-  "src": "e286433fb52e3229"
+  "src": "4b126274625ee487"
  },
  "standalone/cat.c": {
   "asm": "2e0be33639aa3f60",
@@ -893,7 +893,7 @@
  },
  "standalone/conf.c": {
   "asm": "dc9b202233427c34",
-  "src": "a40392a216a67917"
+  "src": "172dc31d6a072883"
  },
  "standalone/dd.c": {
   "asm": "f14a07eb2c66fe6a",
@@ -901,19 +901,19 @@
  },
  "standalone/good_rk.c": {
   "asm": "8780c35c9cb641a7",
-  "src": "64fb8a95ecbe668d"
+  "src": "450280aebe10cf2d"
  },
  "standalone/hp.c": {
   "asm": "f05d163c0d95cf95",
-  "src": "c16478e10f1b765a"
+  "src": "c53402e27175324a"
  },
  "standalone/ht.c": {
   "asm": "2426d7e72df52a4b",
-  "src": "b2f205fced7ac2a8"
+  "src": "da55a8918a530a9e"
  },
  "standalone/icheck.c": {
   "asm": "71562fc5534d27bf",
-  "src": "862da550ded6e5ae"
+  "src": "a2226916c0dd3509"
  },
  "standalone/maketape.c": {
   "asm": "550ff24ee3ed01c2",
@@ -921,11 +921,11 @@
  },
  "standalone/mkfs.c": {
   "asm": "f12b8f5665244bc0",
-  "src": "df2d0ad9da44c8c5"
+  "src": "c4c5c314b8bad8ea"
  },
  "standalone/newrk.c": {
   "asm": "5c268f189f97f6c8",
-  "src": "657fbbe14b856460"
+  "src": "e675e9e21601f9f4"
  },
  "standalone/prf.c": {
   "asm": "62a99676eb7059a1",
@@ -933,27 +933,27 @@
  },
  "standalone/restor.c": {
   "asm": "977f4aaaafc39bcf",
-  "src": "ade69a1900a67994"
+  "src": "efd961c9eea5e991"
  },
  "standalone/rk.c": {
   "asm": "5c268f189f97f6c8",
-  "src": "657fbbe14b856460"
+  "src": "e675e9e21601f9f4"
  },
  "standalone/rl.c": {
   "asm": "d004696faa29b3aa",
-  "src": "5896355bde3bf945"
+  "src": "d917612649b65940"
  },
  "standalone/rp.c": {
   "asm": "a9709e9ed042bde6",
-  "src": "e3628474a834066f"
+  "src": "c8cd81c7e7f675c3"
  },
  "standalone/tm.c": {
   "asm": "df9c2afb521aff3f",
-  "src": "0e5aaea3645083cb"
+  "src": "73c9f41106eb8f74"
  },
  "standalone/vt.c": {
   "asm": "a6de7cd90958e028",
-  "src": "e42445877fdad1a5"
+  "src": "4706131227e451f5"
  },
  "standalone/vtcat.c": {
   "asm": "87b8cb6dff776e6f",
@@ -1129,11 +1129,11 @@
  },
  "tail.c": {
   "asm": "a553ea0c896fac14",
-  "src": "d68ffca271d6cb0c"
+  "src": "329293b4ab009978"
  },
  "tar/tar.c": {
   "asm": "a5d2b11cf1fe86d9",
-  "src": "14137b8deadc5574"
+  "src": "f5be59d771f0e249"
  },
  "tbl/t..c": {
   "asm": "86ae71e81919437a",
@@ -1221,15 +1221,15 @@
  },
  "tee.c": {
   "asm": "77ac479f1f025d23",
-  "src": "5cd225b89f1eeb40"
+  "src": "4f58b8a3d3f5a617"
  },
  "test.c": {
   "asm": "59e382245f249b02",
-  "src": "b09414368fd8f22a"
+  "src": "7a5db1f22f864da7"
  },
  "time.c": {
   "asm": "fe5d8f210d21b09e",
-  "src": "4b1c77e7d72d6d30"
+  "src": "661bd83a426a4e2b"
  },
  "tk.c": {
   "asm": "43d3d3c08c1111a7",
@@ -1237,7 +1237,7 @@
  },
  "touch.c": {
   "asm": "9cc9e8f25e1f63fc",
-  "src": "36c4a77ca803502b"
+  "src": "ef2704d1360e9741"
  },
  "tp/tp0.c": {
   "asm": "2ec05f5bd87593c7",
@@ -1249,7 +1249,7 @@
  },
  "tp/tp2.c": {
   "asm": "d0ca0c0e6ea66f25",
-  "src": "5af037348b0b1677"
+  "src": "5a61494f24b64677"
  },
  "tp/tp3.c": {
   "asm": "6626ff123ff377a0",
@@ -1377,7 +1377,7 @@
  },
  "troff/n1.c": {
   "asm": "c74c8f58e0ef4944",
-  "src": "265a829f32d77af4"
+  "src": "f160f2e8c38fb939"
  },
  "troff/n2.c": {
   "asm": "8ee45f5f263e212c",
@@ -1509,11 +1509,11 @@
  },
  "uucp/anlwrk.c": {
   "asm": "41c86c5ce6bbff9e",
-  "src": "3e747207603e67d9"
+  "src": "0b03aa7a6845f82d"
  },
  "uucp/chkpth.c": {
   "asm": "62b60ba5f0970eae",
-  "src": "e8ca06ad41f6bfb9"
+  "src": "1ee0b3200fbc51f8"
  },
  "uucp/cico.c": {
   "asm": "5810e296a4cfea81",
@@ -1521,11 +1521,11 @@
  },
  "uucp/cntrl.c": {
   "asm": "c263548361b636b1",
-  "src": "10fd9e6e35be1e6e"
+  "src": "42d9b582fce3d8a0"
  },
  "uucp/conn.c": {
   "asm": "0dcb888bb8eaed7e",
-  "src": "05b89c003bcd2b5a"
+  "src": "2ec96e8c994c194a"
  },
  "uucp/cpmv.c": {
   "asm": "74a22fea9f5cd39c",
@@ -1533,7 +1533,7 @@
  },
  "uucp/expfile.c": {
   "asm": "10aa39ce692ce9fa",
-  "src": "837b8fbb5d30330a"
+  "src": "1055e436f14f5fc0"
  },
  "uucp/gename.c": {
   "asm": "d3ded3142dadd78b",
@@ -1553,11 +1553,11 @@
  },
  "uucp/gio.c": {
   "asm": "14fac806fffea73a",
-  "src": "e51466aaab4624ee"
+  "src": "fa85ce06b9763639"
  },
  "uucp/gnamef.c": {
   "asm": "a67e5af32eed127b",
-  "src": "47908c4411fe7c38"
+  "src": "ce7a6cde8af9d6a0"
  },
  "uucp/gnsys.c": {
   "asm": "f0fd96ee6e05b04d",
@@ -1565,7 +1565,7 @@
  },
  "uucp/gnxseq.c": {
   "asm": "1ee4cb64f6e500fa",
-  "src": "ff8442905bc59096"
+  "src": "59f2746dfea3e45d"
  },
  "uucp/gwd.c": {
   "asm": "18dab7f0d04f47f6",
@@ -1589,15 +1589,15 @@
  },
  "uucp/logent.c": {
   "asm": "4ce1f40095c14da5",
-  "src": "72911d3f70b12b35"
+  "src": "a4a79293f0087dac"
  },
  "uucp/pk0.c": {
   "asm": "32874e21bd50a393",
-  "src": "385027d2e3012c6d"
+  "src": "2b3d5131202dff4c"
  },
  "uucp/pk1.c": {
   "asm": "3efa8bb06cf25316",
-  "src": "8ebc10b6a97ad815"
+  "src": "645126235d968785"
  },
  "uucp/pkon.c": {
   "asm": "5aa66cc591093d3c",
@@ -1617,27 +1617,27 @@
  },
  "uucp/sysacct.c": {
   "asm": "df48eb2830799d80",
-  "src": "3e781549546e6c74"
+  "src": "2737f47a7eaa723d"
  },
  "uucp/systat.c": {
   "asm": "f1e11dc54ca4c711",
-  "src": "89e37fcf63223c82"
+  "src": "ee2706199466451c"
  },
  "uucp/ulockf.c": {
   "asm": "cb03cf65210b4d6e",
-  "src": "ae0b9fedff15a940"
+  "src": "5fb9b70d182a0a87"
  },
  "uucp/uuclean.c": {
   "asm": "c35eb65de2641f78",
-  "src": "07ee2fe3726bf867"
+  "src": "ec3d1b44ea716db4"
  },
  "uucp/uucp.c": {
   "asm": "023657c08ff67e8f",
-  "src": "e5e8417dbb9efab9"
+  "src": "8dd0ec2977c8ba56"
  },
  "uucp/uulog.c": {
   "asm": "4af99e02dba7720f",
-  "src": "b33e388ee5d9dfe4"
+  "src": "fce3b9a79631cc61"
  },
  "uucp/uux.c": {
   "asm": "26f27a2b62661226",
@@ -1645,7 +1645,7 @@
  },
  "uucp/uuxqt.c": {
   "asm": "dd56c269b43b8928",
-  "src": "bb103c05be62ebe1"
+  "src": "a587f7a44cf31aef"
  },
  "uucp/versys.c": {
   "asm": "e41aa1e0c30876fe",
@@ -1673,11 +1673,11 @@
  },
  "write.c": {
   "asm": "706573db9172a76d",
-  "src": "b3da8214e4852605"
+  "src": "4094f981d018a853"
  },
  "xsend/enroll.c": {
   "asm": "9307eddaa18020b7",
-  "src": "0a90ca5fafde4b36"
+  "src": "0d989217486bd9df"
  },
  "xsend/lib.c": {
   "asm": "f046c9aa66737753",
@@ -1685,11 +1685,11 @@
  },
  "xsend/xget.c": {
   "asm": "6d6d8a8083827981",
-  "src": "6e23f62932a3b4e0"
+  "src": "ad1093b6c018d800"
  },
  "xsend/xsend.c": {
   "asm": "f3600c3a104c8921",
-  "src": "31c4954227c52cd2"
+  "src": "2c7b04e8cc824a38"
  },
  "yacc/y1.c": {
   "asm": "6b3888e3d747c67d",

@@ -25,7 +25,7 @@
  },
  "gen/ctime.c": {
   "asm": "91fffe4a95468b1b",
-  "src": "1d316665fdd7f16d"
+  "src": "9f119ab80535dbd0"
  },
  "gen/ctype_.c": {
   "asm": "85533aa2f5bea483",
@@ -77,7 +77,7 @@
  },
  "gen/mpx.c": {
   "asm": "2a5d5aa8a47085ef",
-  "src": "fbe127d3a35c8058"
+  "src": "d26f1b953957311f"
  },
  "gen/perror.c": {
   "asm": "9f15fcb06bf257e5",
@@ -149,7 +149,7 @@
  },
  "gen/ttyname.c": {
   "asm": "531c1a9ae8070e79",
-  "src": "2eeed094ce9113e1"
+  "src": "0e9ba11b1784f02a"
  },
  "gen/ttyslot.c": {
   "asm": "78e495a4fdd92873",
@@ -325,7 +325,7 @@
  },
  "v6/access.c": {
   "asm": "9d88ac107f0bbbdb",
-  "src": "fc8734d447f922b0"
+  "src": "8589eea8169fb128"
  },
  "v6/chown.c": {
   "asm": "b1834d74d1acb693",
@@ -337,7 +337,7 @@
  },
  "v6/ftime.c": {
   "asm": "c5f65da3cef53c17",
-  "src": "09340d85e1739587"
+  "src": "abf2ec679da378ee"
  },
  "v6/gtty.c": {
   "asm": "2d23fe371c8815b8",
@@ -349,6 +349,6 @@
  },
  "v6/stat.c": {
   "asm": "a974a78f4e12e0cc",
-  "src": "a417cf78f96cfc49"
+  "src": "4ce8d237482de809"
  }
 }

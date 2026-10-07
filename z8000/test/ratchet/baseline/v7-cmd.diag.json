@@ -2,7 +2,7 @@
  "ac.c": {
   "az8": "ok",
   "errors": [],
-  "src": "7cdfd0ad82bfbfe1",
+  "src": "b8951936658d332d",
   "status": "ok",
   "warnings": []
  },
@@ -16,19 +16,19 @@
  "adb/access.c": {
   "az8": "ok",
   "errors": [],
-  "src": "428dd192023c307b",
+  "src": "58b4fd8a2bea896a",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named"
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named"
   ]
  },
  "adb/command.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3ffe355724044f67",
+  "src": "e85bd1b2dda7bfab",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/command.c:26: warning: old-fashioned initialization: use =",
    "usr/src/cmd/adb/command.c:27: warning: old-fashioned initialization: use =",
    "usr/src/cmd/adb/command.c:33: warning: old-fashioned initialization: use ="
@@ -44,29 +44,29 @@
  "adb/expr.c": {
   "az8": "ok",
   "errors": [],
-  "src": "46a2b7effc103276",
+  "src": "31f6ad96bc3cf214",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/expr.c:213: warning: old-fashioned assignment operator"
   ]
  },
  "adb/findfn.c": {
   "az8": "ok",
   "errors": [],
-  "src": "defe05e13db44544",
+  "src": "e7f87159138b7409",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named"
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named"
   ]
  },
  "adb/format.c": {
   "az8": "ok",
   "errors": [],
-  "src": "864924395e714a32",
+  "src": "80d8e62341140513",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/format.c:106: warning: struct/union or struct/union pointer required",
    "usr/src/cmd/adb/format.c:107: warning: struct/union or struct/union pointer required",
    "usr/src/cmd/adb/format.c:196: warning: struct/union or struct/union pointer required",
@@ -77,20 +77,20 @@
  "adb/input.c": {
   "az8": "ok",
   "errors": [],
-  "src": "05b6f60a5a9d2700",
+  "src": "354c4ea043e8e92e",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/input.c:14: warning: old-fashioned initialization: use ="
   ]
  },
  "adb/main.c": {
   "az8": "ok",
   "errors": [],
-  "src": "1caf18b9c80bd20e",
+  "src": "bf38cbc6b907633f",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/main.c:109: warning: illegal pointer/integer combination, op =",
    "usr/src/cmd/adb/main.c:119: warning: illegal pointer/integer combination, op ="
   ]
@@ -105,10 +105,10 @@
  "adb/opset.c": {
   "az8": "ok",
   "errors": [],
-  "src": "8ef5e563ce28b6b7",
+  "src": "39d80051305ee2ee",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/opset.c:134: warning: old-fashioned initialization: use =",
    "usr/src/cmd/adb/opset.c:201: warning: old-fashioned initialization: use =",
    "usr/src/cmd/adb/opset.c:329: warning: illegal pointer/integer combination, op =",
@@ -118,10 +118,10 @@
  "adb/output.c": {
   "az8": "ok",
   "errors": [],
-  "src": "1744548c584870b8",
+  "src": "803f6fca99a4092c",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/output.c:100: warning: illegal pointer combination, op =",
    "usr/src/cmd/adb/output.c:109: warning: illegal pointer combination, op =",
    "usr/src/cmd/adb/output.c:109: warning: illegal pointer combination, op =",
@@ -137,10 +137,10 @@
  "adb/pcs.c": {
   "az8": "ok",
   "errors": [],
-  "src": "87fdbe9a43ba5796",
+  "src": "9bf28da0879dd2f8",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/pcs.c:64: warning: illegal pointer/integer combination, op =",
    "usr/src/cmd/adb/pcs.c:65: warning: illegal pointer/integer combination, op =="
   ]
@@ -148,10 +148,10 @@
  "adb/print.c": {
   "az8": "ok",
   "errors": [],
-  "src": "45bc415669449f76",
+  "src": "df84337e6919b360",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/print.c:308: warning: struct/union or struct/union pointer required",
    "usr/src/cmd/adb/print.c:310: warning: struct/union or struct/union pointer required",
    "usr/src/cmd/adb/print.c:311: warning: struct/union or struct/union pointer required",
@@ -164,10 +164,10 @@
  "adb/runpcs.c": {
   "az8": "ok",
   "errors": [],
-  "src": "74e64acbfdb2e319",
+  "src": "92bf90491c2d87ea",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/runpcs.c:249: warning: illegal pointer/integer combination, op <",
    "usr/src/cmd/adb/runpcs.c:249: warning: illegal pointer/integer combination, op =",
    "usr/src/cmd/adb/runpcs.c:249: warning: struct/union or struct/union pointer required",
@@ -177,10 +177,10 @@
  "adb/setup.c": {
   "az8": "ok",
   "errors": [],
-  "src": "171b68b9ff3d7d59",
+  "src": "0f6ca93838e524d9",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/setup.c:104: warning: struct/union or struct/union pointer required",
    "usr/src/cmd/adb/setup.c:35: warning: old-fashioned initialization: use =",
    "usr/src/cmd/adb/setup.c:37: warning: old-fashioned initialization: use =",
@@ -197,17 +197,17 @@
  "adb/sym.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a3cacbc3c4645ac0",
+  "src": "c7870499ee9d37c0",
   "status": "ok",
   "warnings": [
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/adb/sym.c:25: warning: old-fashioned initialization: use ="
   ]
  },
  "ar.c": {
   "az8": "ok",
   "errors": [],
-  "src": "790bde4f3ffeb9ce",
+  "src": "fc44063eacdf6dc9",
   "status": "ok",
   "warnings": []
  },
@@ -228,7 +228,7 @@
  "atrun.c": {
   "az8": "ok",
   "errors": [],
-  "src": "567fa29511167823",
+  "src": "ced8f39d0459e4b4",
   "status": "ok",
   "warnings": []
  },
@@ -752,7 +752,7 @@
  "cat.c": {
   "az8": "ok",
   "errors": [],
-  "src": "58fae06a269c3f62",
+  "src": "e8f8d4c801da5fc4",
   "status": "ok",
   "warnings": []
  },
@@ -780,28 +780,28 @@
  "chgrp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "487a81d0e1eacf2b",
+  "src": "02256051a0f22155",
   "status": "ok",
   "warnings": []
  },
  "chmod.c": {
   "az8": "ok",
   "errors": [],
-  "src": "4917814439af72e4",
+  "src": "cc3a465615f4fef0",
   "status": "ok",
   "warnings": []
  },
  "chown.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3e55f8c97a25dabd",
+  "src": "950448258f805a43",
   "status": "ok",
   "warnings": []
  },
  "clri.c": {
   "az8": "ok",
   "errors": [],
-  "src": "88aa5ec3c68e0766",
+  "src": "7cb07c6d72573244",
   "status": "ok",
   "warnings": []
  },
@@ -829,7 +829,7 @@
  "cp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3bf14fe83502dd66",
+  "src": "3f483742a842c942",
   "status": "ok",
   "warnings": []
  },
@@ -852,7 +852,7 @@
  "cron.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ee2686f6b6ebc8a9",
+  "src": "450fd22562753ab7",
   "status": "ok",
   "warnings": []
  },
@@ -873,7 +873,7 @@
  "date.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3a6b51d89054233f",
+  "src": "b48971d2848b0b8e",
   "status": "ok",
   "warnings": []
  },
@@ -889,7 +889,7 @@
  "dcheck.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a6edf4963e30c14e",
+  "src": "077408dbfe83a201",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -913,14 +913,14 @@
  "df.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5b65efed12791970",
+  "src": "2de8821c37d9057f",
   "status": "ok",
   "warnings": []
  },
  "diff.c": {
   "az8": "ok",
   "errors": [],
-  "src": "1d2f23845e662d0d",
+  "src": "5cfa6935e64d5aa5",
   "status": "ok",
   "warnings": []
  },
@@ -934,28 +934,28 @@
  "diffh.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a155600bd0df71b3",
+  "src": "8dddbe2d9b45da07",
   "status": "ok",
   "warnings": []
  },
  "dmesg.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3544676544860076",
+  "src": "0b465aadc75ff49b",
   "status": "ok",
   "warnings": []
  },
  "du.c": {
   "az8": "ok",
   "errors": [],
-  "src": "417fdd6e3e74a70f",
+  "src": "7ca2773e646b3898",
   "status": "ok",
   "warnings": []
  },
  "dump.c": {
   "az8": "ok",
   "errors": [],
-  "src": "44e034b136f50b75",
+  "src": "dacabe351ac4a6c7",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -965,7 +965,7 @@
  "dumpdir.c": {
   "az8": "ok",
   "errors": [],
-  "src": "406932869ee39847",
+  "src": "82b4a2f330c11f73",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -1157,7 +1157,7 @@
   "errors": [
    "usr/src/cmd/f77/defines:18: illegal initialization"
   ],
-  "src": "890a208c1b29c265",
+  "src": "bc1000bf5a464dec",
   "status": "error",
   "warnings": []
  },
@@ -1334,14 +1334,14 @@
  "file.c": {
   "az8": "ok",
   "errors": [],
-  "src": "60da0fe112777698",
+  "src": "b76653fbfa8cccab",
   "status": "ok",
   "warnings": []
  },
  "find.c": {
   "az8": "ok",
   "errors": [],
-  "src": "12980aad3bcb4702",
+  "src": "0545d0f3826bc42a",
   "status": "ok",
   "warnings": []
  },
@@ -1362,14 +1362,14 @@
  "grep.c": {
   "az8": "ok",
   "errors": [],
-  "src": "c7a44601c9891827",
+  "src": "ab28c3b7e9e6c0a6",
   "status": "ok",
   "warnings": []
  },
  "icheck.c": {
   "az8": "ok",
   "errors": [],
-  "src": "862da550ded6e5ae",
+  "src": "a2226916c0dd3509",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -1383,7 +1383,7 @@
  "init.c": {
   "az8": "ok",
   "errors": [],
-  "src": "948565d6f1a15d46",
+  "src": "e8d8c9cd0697210f",
   "status": "ok",
   "warnings": []
  },
@@ -1411,7 +1411,7 @@
  "ld.c": {
   "az8": "ok",
   "errors": [],
-  "src": "51eeb838bad9bf48",
+  "src": "8cee162ef057a192",
   "status": "ok",
   "warnings": []
  },
@@ -1632,14 +1632,14 @@
  "ln.c": {
   "az8": "ok",
   "errors": [],
-  "src": "8444a4c617b53f8f",
+  "src": "9a5512c2f6616c57",
   "status": "ok",
   "warnings": []
  },
  "login.c": {
   "az8": "ok",
   "errors": [],
-  "src": "140d677b63238881",
+  "src": "08ed98d677a05e82",
   "status": "ok",
   "warnings": []
  },
@@ -1653,7 +1653,7 @@
  "ls.c": {
   "az8": "ok",
   "errors": [],
-  "src": "dbdc3b0077269182",
+  "src": "3574e3f62fab80dc",
   "status": "ok",
   "warnings": []
  },
@@ -1667,7 +1667,7 @@
  "mail.c": {
   "az8": "ok",
   "errors": [],
-  "src": "56aec6dab38356a5",
+  "src": "6a718f1954f96ed0",
   "status": "ok",
   "warnings": []
  },
@@ -1681,14 +1681,14 @@
  "make/dosys.c": {
   "az8": "ok",
   "errors": [],
-  "src": "4d93b5a0e156d56d",
+  "src": "97ea647a1453cb88",
   "status": "ok",
   "warnings": []
  },
  "make/files.c": {
   "az8": "ok",
   "errors": [],
-  "src": "02eebd94fee432df",
+  "src": "350552c97c3d0d80",
   "status": "ok",
   "warnings": []
  },
@@ -1723,7 +1723,7 @@
  "mesg.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5954ddc12e8cf67f",
+  "src": "d3cce23369a81f37",
   "status": "ok",
   "warnings": []
  },
@@ -1890,7 +1890,7 @@
  "mkfs.c": {
   "az8": "ok",
   "errors": [],
-  "src": "df2d0ad9da44c8c5",
+  "src": "c4c5c314b8bad8ea",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -1958,14 +1958,14 @@
  "mv.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5532dc5fab8f0845",
+  "src": "768b99faf28a19d1",
   "status": "ok",
   "warnings": []
  },
  "ncheck.c": {
   "az8": "ok",
   "errors": [],
-  "src": "bde4254cee0ed9d4",
+  "src": "9cb89cff9b007f22",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -2288,7 +2288,7 @@
  "pr.c": {
   "az8": "ok",
   "errors": [],
-  "src": "69bd35ebe46ad860",
+  "src": "301b73ef9bae96b7",
   "status": "ok",
   "warnings": []
  },
@@ -2316,32 +2316,32 @@
  "prof.c": {
   "az8": "skipped",
   "errors": [
-   "usr/src/cmd/prof.c:97: compiler error: no table entry for op REG"
+   "usr/src/cmd/prof.c:109: a_flag undefined"
   ],
-  "src": "75abc465e5c3e397",
+  "src": "73ffb31d5d137bd6",
   "status": "error",
   "warnings": []
  },
  "ps.c": {
   "az8": "ok",
   "errors": [],
-  "src": "9555c2cd263ec1da",
+  "src": "cc1eed6d69d33812",
   "status": "ok",
   "warnings": [
    "usr/include/sys/tty.h:59: warning: structure typed union member must be named",
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named"
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named"
   ]
  },
  "pstat.c": {
   "az8": "ok",
   "errors": [],
-  "src": "766747d5ffb1def9",
+  "src": "de1a1efa9527ba85",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
    "usr/include/sys/inode.h:45: warning: structure typed union member must be named",
    "usr/include/sys/tty.h:59: warning: structure typed union member must be named",
-   "usr/include/sys/user.h:38: warning: structure typed union member must be named",
+   "usr/include/sys/user.h:31: warning: structure typed union member must be named",
    "usr/src/cmd/pstat.c:144: warning: illegal member use: i_rdev",
    "usr/src/cmd/pstat.c:144: warning: illegal member use: i_rdev"
   ]
@@ -2356,14 +2356,14 @@
  "pwd.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ff02f3f11335f54a",
+  "src": "7afb2edc86eca8ef",
   "status": "ok",
   "warnings": []
  },
  "quot.c": {
   "az8": "ok",
   "errors": [],
-  "src": "393c2423d72bf093",
+  "src": "1407d2da7e784359",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -2626,7 +2626,7 @@
  "refer/hunt5.c": {
   "az8": "ok",
   "errors": [],
-  "src": "30f109469e87aecd",
+  "src": "f3f9c321a5d20673",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/refer/hunt5.c:16: warning: struct/union or struct/union pointer required",
@@ -2968,14 +2968,14 @@
  "refer/what..c": {
   "az8": "ok",
   "errors": [],
-  "src": "23106c8795a2f8b9",
+  "src": "38e59b735a02b2d3",
   "status": "ok",
   "warnings": []
  },
  "refer/what1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a2abe2c0fdf1ea99",
+  "src": "00b02fa6e647da56",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/refer/what1.c:128: warning: old-fashioned initialization: use =",
@@ -3009,14 +3009,14 @@
  "refer/what3.c": {
   "az8": "ok",
   "errors": [],
-  "src": "6b0dee2127ac562a",
+  "src": "addff6272524dbfb",
   "status": "ok",
   "warnings": []
  },
  "refer/what4.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b327707ddffaf347",
+  "src": "886f1c340a7d3d02",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/refer/what4.c:11: warning: old-fashioned initialization: use =",
@@ -3031,7 +3031,7 @@
  "restor.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ade69a1900a67994",
+  "src": "efd961c9eea5e991",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3053,21 +3053,21 @@
  "rm.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a2ac8f58847d4037",
+  "src": "1dc75c83cf8f0675",
   "status": "ok",
   "warnings": []
  },
  "rmdir.c": {
   "az8": "ok",
   "errors": [],
-  "src": "255e9bba8466d1c9",
+  "src": "6c00acf24cda86b6",
   "status": "ok",
   "warnings": []
  },
  "sa.c": {
   "az8": "ok",
   "errors": [],
-  "src": "392f6f6e4cabc3e7",
+  "src": "75aeb6b9d56af3ed",
   "status": "ok",
   "warnings": []
  },
@@ -3229,7 +3229,7 @@
  "sort.c": {
   "az8": "ok",
   "errors": [],
-  "src": "2d6f923e90a85c4e",
+  "src": "9bc789b0582f7094",
   "status": "ok",
   "warnings": []
  },
@@ -3280,14 +3280,14 @@
   "errors": [
    "usr/src/cmd/standalone/SYS.c:153: redeclaration of dlook"
   ],
-  "src": "7d0940bed4fea6bb",
+  "src": "410288cdf7833ad4",
   "status": "error",
   "warnings": []
  },
  "standalone/boot.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e286433fb52e3229",
+  "src": "4b126274625ee487",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3307,14 +3307,14 @@
   "errors": [
    "usr/src/cmd/standalone/compress.c:277: devsw undefined"
   ],
-  "src": "b40ddac169d596bf",
+  "src": "0dc8a7b79ff4ee5c",
   "status": "error",
   "warnings": []
  },
  "standalone/conf.c": {
   "az8": "ok",
   "errors": [],
-  "src": "a40392a216a67917",
+  "src": "172dc31d6a072883",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3332,7 +3332,7 @@
  "standalone/good_rk.c": {
   "az8": "ok",
   "errors": [],
-  "src": "64fb8a95ecbe668d",
+  "src": "450280aebe10cf2d",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3342,7 +3342,7 @@
  "standalone/hp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "c16478e10f1b765a",
+  "src": "c53402e27175324a",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3352,7 +3352,7 @@
  "standalone/ht.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b2f205fced7ac2a8",
+  "src": "da55a8918a530a9e",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3364,7 +3364,7 @@
  "standalone/icheck.c": {
   "az8": "ok",
   "errors": [],
-  "src": "862da550ded6e5ae",
+  "src": "a2226916c0dd3509",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3385,7 +3385,7 @@
  "standalone/mkfs.c": {
   "az8": "ok",
   "errors": [],
-  "src": "df2d0ad9da44c8c5",
+  "src": "c4c5c314b8bad8ea",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3448,7 +3448,7 @@
  "standalone/newrk.c": {
   "az8": "ok",
   "errors": [],
-  "src": "657fbbe14b856460",
+  "src": "e675e9e21601f9f4",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3468,7 +3468,7 @@
  "standalone/restor.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ade69a1900a67994",
+  "src": "efd961c9eea5e991",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3483,7 +3483,7 @@
  "standalone/rk.c": {
   "az8": "ok",
   "errors": [],
-  "src": "657fbbe14b856460",
+  "src": "e675e9e21601f9f4",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3493,7 +3493,7 @@
  "standalone/rl.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5896355bde3bf945",
+  "src": "d917612649b65940",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3503,7 +3503,7 @@
  "standalone/rp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e3628474a834066f",
+  "src": "c8cd81c7e7f675c3",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3513,7 +3513,7 @@
  "standalone/tm.c": {
   "az8": "ok",
   "errors": [],
-  "src": "0e5aaea3645083cb",
+  "src": "73c9f41106eb8f74",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3523,7 +3523,7 @@
  "standalone/vt.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e42445877fdad1a5",
+  "src": "4706131227e451f5",
   "status": "ok",
   "warnings": [
    "usr/include/sys/inode.h:41: warning: structure typed union member must be named",
@@ -3935,14 +3935,14 @@
  "tail.c": {
   "az8": "ok",
   "errors": [],
-  "src": "d68ffca271d6cb0c",
+  "src": "329293b4ab009978",
   "status": "ok",
   "warnings": []
  },
  "tar/tar.c": {
   "az8": "ok",
   "errors": [],
-  "src": "14137b8deadc5574",
+  "src": "f5be59d771f0e249",
   "status": "ok",
   "warnings": []
  },
@@ -4151,21 +4151,21 @@
  "tee.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5cd225b89f1eeb40",
+  "src": "4f58b8a3d3f5a617",
   "status": "ok",
   "warnings": []
  },
  "test.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b09414368fd8f22a",
+  "src": "7a5db1f22f864da7",
   "status": "ok",
   "warnings": []
  },
  "time.c": {
   "az8": "ok",
   "errors": [],
-  "src": "4b1c77e7d72d6d30",
+  "src": "661bd83a426a4e2b",
   "status": "ok",
   "warnings": []
  },
@@ -4179,7 +4179,7 @@
  "touch.c": {
   "az8": "ok",
   "errors": [],
-  "src": "36c4a77ca803502b",
+  "src": "ef2704d1360e9741",
   "status": "ok",
   "warnings": []
  },
@@ -4200,7 +4200,7 @@
  "tp/tp2.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5af037348b0b1677",
+  "src": "5a61494f24b64677",
   "status": "ok",
   "warnings": []
  },
@@ -4485,7 +4485,7 @@
  "troff/n1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "265a829f32d77af4",
+  "src": "f160f2e8c38fb939",
   "status": "ok",
   "warnings": []
  },
@@ -4758,14 +4758,14 @@
  "uucp/anlwrk.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3e747207603e67d9",
+  "src": "0b03aa7a6845f82d",
   "status": "ok",
   "warnings": []
  },
  "uucp/chkpth.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e8ca06ad41f6bfb9",
+  "src": "1ee0b3200fbc51f8",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/uucp/chkpth.c:128: warning: illegal pointer combination, op =",
@@ -4782,14 +4782,14 @@
  "uucp/cntrl.c": {
   "az8": "ok",
   "errors": [],
-  "src": "10fd9e6e35be1e6e",
+  "src": "42d9b582fce3d8a0",
   "status": "ok",
   "warnings": []
  },
  "uucp/conn.c": {
   "az8": "ok",
   "errors": [],
-  "src": "05b89c003bcd2b5a",
+  "src": "2ec96e8c994c194a",
   "status": "ok",
   "warnings": []
  },
@@ -4803,7 +4803,7 @@
  "uucp/expfile.c": {
   "az8": "ok",
   "errors": [],
-  "src": "837b8fbb5d30330a",
+  "src": "1055e436f14f5fc0",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/uucp/expfile.c:83: warning: illegal pointer/integer combination, op ="
@@ -4844,14 +4844,14 @@
  "uucp/gio.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e51466aaab4624ee",
+  "src": "fa85ce06b9763639",
   "status": "ok",
   "warnings": []
  },
  "uucp/gnamef.c": {
   "az8": "ok",
   "errors": [],
-  "src": "47908c4411fe7c38",
+  "src": "ce7a6cde8af9d6a0",
   "status": "ok",
   "warnings": []
  },
@@ -4865,7 +4865,7 @@
  "uucp/gnxseq.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ff8442905bc59096",
+  "src": "59f2746dfea3e45d",
   "status": "ok",
   "warnings": []
  },
@@ -4907,14 +4907,14 @@
  "uucp/logent.c": {
   "az8": "ok",
   "errors": [],
-  "src": "72911d3f70b12b35",
+  "src": "a4a79293f0087dac",
   "status": "ok",
   "warnings": []
  },
  "uucp/pk0.c": {
   "az8": "ok",
   "errors": [],
-  "src": "385027d2e3012c6d",
+  "src": "2b3d5131202dff4c",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/uucp/pk0.c:342: warning: illegal pointer/integer combination, op ="
@@ -4923,7 +4923,7 @@
  "uucp/pk1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "8ebc10b6a97ad815",
+  "src": "645126235d968785",
   "status": "ok",
   "warnings": []
  },
@@ -4960,42 +4960,42 @@
  "uucp/sysacct.c": {
   "az8": "ok",
   "errors": [],
-  "src": "3e781549546e6c74",
+  "src": "2737f47a7eaa723d",
   "status": "ok",
   "warnings": []
  },
  "uucp/systat.c": {
   "az8": "ok",
   "errors": [],
-  "src": "89e37fcf63223c82",
+  "src": "ee2706199466451c",
   "status": "ok",
   "warnings": []
  },
  "uucp/ulockf.c": {
   "az8": "ok",
   "errors": [],
-  "src": "ae0b9fedff15a940",
+  "src": "5fb9b70d182a0a87",
   "status": "ok",
   "warnings": []
  },
  "uucp/uuclean.c": {
   "az8": "ok",
   "errors": [],
-  "src": "07ee2fe3726bf867",
+  "src": "ec3d1b44ea716db4",
   "status": "ok",
   "warnings": []
  },
  "uucp/uucp.c": {
   "az8": "ok",
   "errors": [],
-  "src": "e5e8417dbb9efab9",
+  "src": "8dd0ec2977c8ba56",
   "status": "ok",
   "warnings": []
  },
  "uucp/uulog.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b33e388ee5d9dfe4",
+  "src": "fce3b9a79631cc61",
   "status": "ok",
   "warnings": []
  },
@@ -5018,7 +5018,7 @@
  "uucp/uuxqt.c": {
   "az8": "ok",
   "errors": [],
-  "src": "bb103c05be62ebe1",
+  "src": "a587f7a44cf31aef",
   "status": "ok",
   "warnings": []
  },
@@ -5067,14 +5067,14 @@
  "write.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b3da8214e4852605",
+  "src": "4094f981d018a853",
   "status": "ok",
   "warnings": []
  },
  "xsend/enroll.c": {
   "az8": "ok",
   "errors": [],
-  "src": "0a90ca5fafde4b36",
+  "src": "0d989217486bd9df",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/xsend/enroll.c:13: warning: illegal pointer/integer combination, op =",
@@ -5091,7 +5091,7 @@
  "xsend/xget.c": {
   "az8": "ok",
   "errors": [],
-  "src": "6e23f62932a3b4e0",
+  "src": "ad1093b6c018d800",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/xsend/xget.c:22: warning: illegal pointer/integer combination, op =",
@@ -5101,7 +5101,7 @@
  "xsend/xsend.c": {
   "az8": "ok",
   "errors": [],
-  "src": "31c4954227c52cd2",
+  "src": "2c7b04e8cc824a38",
   "status": "ok",
   "warnings": [
    "usr/src/cmd/xsend/xsend.c:24: warning: illegal pointer/integer combination, op =",
