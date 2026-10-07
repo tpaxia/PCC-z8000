@@ -1,7 +1,7 @@
 {
  "conf/emulated.c": {
-  "asm": "8918362c27c618de",
-  "src": "64cfd0f961db249c"
+  "asm": "97458992daa2dfa8",
+  "src": "c00ec5768760c968"
  },
  "dev/cons.c": {
   "asm": "0cebdf12bd6677ac",
@@ -14,6 +14,10 @@
  "dev/md.c": {
   "asm": "41a5a106e11ef119",
   "src": "a99c578b8d2317c2"
+ },
+ "dev/mem.c": {
+  "asm": "2ea1a2c87cb7a62f",
+  "src": "d95b89b6bb21053c"
  },
  "dev/partab.c": {
   "asm": "440edcf28ba02467",
