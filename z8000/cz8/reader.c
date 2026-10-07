@@ -216,7 +216,7 @@ p2compile( p ) NODE *p; {
 	/* first pass will do it... */
 	}
 
-p2bbeg( aoff, myreg ) {
+p2bbeg( aoff, myreg ) OFFSZ aoff; {
 	static int myftn = -1;
 	tmpoff = baseoff = aoff;
 	maxtreg = myreg;

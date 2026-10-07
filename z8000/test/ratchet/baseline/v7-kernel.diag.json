@@ -118,11 +118,11 @@
  "machine/trap.c": {
   "az8": "ok",
   "errors": [],
-  "src": "68a444bbfa4e33e2",
+  "src": "851fe273f3356569",
   "status": "ok",
   "warnings": [
    "usr/sys/h/user.h:29: warning: structure typed union member must be named",
-   "usr/sys/machine/trap.c:261: warning: illegal pointer combination, op ==",
+   "usr/sys/machine/trap.c:263: warning: illegal pointer combination, op ==",
    "usr/sys/machine/trap.c:54: warning: illegal member use: r_val1",
    "usr/sys/machine/trap.c:55: warning: illegal member use: r_val2",
    "usr/sys/machine/trap.c:83: warning: illegal member use: r_val1",

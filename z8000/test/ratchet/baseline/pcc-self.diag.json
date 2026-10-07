@@ -51,7 +51,7 @@
  "az8/sdi.c": {
   "az8": "ok",
   "errors": [],
-  "src": "641e84479ba5edca",
+  "src": "c6b6df6a113e232b",
   "status": "ok",
   "warnings": []
  },
@@ -79,28 +79,28 @@
  "cz8/cgram.c": {
   "az8": "ok",
   "errors": [],
-  "src": "b796b4d253321955",
+  "src": "62bb682a675c4591",
   "status": "ok",
   "warnings": []
  },
  "cz8/code.c": {
   "az8": "ok",
   "errors": [],
-  "src": "7d1520cad3268b82",
+  "src": "eff36a94296d80d5",
   "status": "ok",
   "warnings": []
  },
  "cz8/comm1.c": {
   "az8": "ok",
   "errors": [],
-  "src": "5858cc5e4a019a1c",
+  "src": "0c8ff1178aead04e",
   "status": "ok",
   "warnings": []
  },
  "cz8/local.c": {
   "az8": "ok",
   "errors": [],
-  "src": "f534ca048ea33f96",
+  "src": "1659ae4c21d20991",
   "status": "ok",
   "warnings": []
  },
@@ -121,7 +121,7 @@
  "cz8/optim.c": {
   "az8": "ok",
   "errors": [],
-  "src": "975dc2b8a0b9af5e",
+  "src": "1fc2f3971595661d",
   "status": "ok",
   "warnings": []
  },
@@ -135,21 +135,21 @@
  "cz8/pftn.c": {
   "az8": "ok",
   "errors": [],
-  "src": "7b6fc54ca08bbe72",
+  "src": "36e7dc31b7ba1dd6",
   "status": "ok",
   "warnings": []
  },
  "cz8/reader.c": {
   "az8": "ok",
   "errors": [],
-  "src": "9462083726ffb61d",
+  "src": "3185f6549a4a4b1b",
   "status": "ok",
   "warnings": []
  },
  "cz8/scan.c": {
   "az8": "ok",
   "errors": [],
-  "src": "9cce616423d83378",
+  "src": "1a3b9eaf98a6b818",
   "status": "ok",
   "warnings": []
  },
@@ -163,14 +163,14 @@
  "cz8/trees.c": {
   "az8": "ok",
   "errors": [],
-  "src": "fc18e47052db6eb2",
+  "src": "837581bcad8859cc",
   "status": "ok",
   "warnings": []
  },
  "cz8/xdefs.c": {
   "az8": "ok",
   "errors": [],
-  "src": "dfcdeaa8d56333ee",
+  "src": "32523d8b86abad9d",
   "status": "ok",
   "warnings": []
  },

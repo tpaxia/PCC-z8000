@@ -22,11 +22,11 @@ int	curclass,	  /* current storage class */
 	blevel,		/* block level: 0 for extern, 1 for ftn args, >=2 inside function */
 	curdim;		/* current offset into the dimension table */
 	
-int	dimtab[ DIMTABSZ ];
+OFFSZ	dimtab[ DIMTABSZ ];
 
-int	paramstk[ PARAMSZ ];  /* used in the definition of function parameters */
+OFFSZ	paramstk[ PARAMSZ ];  /* used in the definition of function parameters */
 int	paramno;	  /* the number of parameters */
-int	autooff,	/* the next unused automatic offset */
+OFFSZ	autooff,	/* the next unused automatic offset */
 	argoff,	/* the next unused argument offset */
 	strucoff;	/*  the next structure offset position */
 int	regvar;		/* the next free register for register variables */
@@ -62,8 +62,8 @@ int retstat;
 
 /* save array for break, continue labels, and flostat */
 
-int asavbc[BCSZ];
-int *psavbc = asavbc ;
+OFFSZ asavbc[BCSZ];
+OFFSZ *psavbc = asavbc ;
 
 # ifndef BUG1
 static char *

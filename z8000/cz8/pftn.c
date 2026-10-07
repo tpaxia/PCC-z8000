@@ -1,9 +1,9 @@
 # include "mfile1"
 
-unsigned int offsz;
+OFFSZ offsz;
 
 struct instk {
-	int in_sz;   /* size of array element */
+	OFFSZ in_sz;   /* size of array element */
 	int in_x;    /* current index for structure member in structure initializations */
 	int in_n;    /* number of initializations seen */
 	int in_s;    /* sizoff */
@@ -161,7 +161,7 @@ defid( q, class )  NODE *q; {
 	case LABEL:
 		if( scl == ULABEL ){
 			p->sclass = LABEL;
-			deflab( p->offset );
+			deflab( (int)p->offset );
 			return;
 			}
 		break;
@@ -227,7 +227,7 @@ defid( q, class )  NODE *q; {
 	/* allow nonunique structure/union member names */
 
 	if( class==MOU || class==MOS || class & FIELD ){/* make a new entry */
-		int * memp;
+		OFFSZ * memp;
 		p->sflags |= SNONUNIQ;  /* old entry is nonunique */
 		/* determine if name has occurred in this structure/union */
 		for( memp = &paramstk[paramno-1];
@@ -314,7 +314,7 @@ defid( q, class )  NODE *q; {
 		p->slevel = 2;
 		if( class == LABEL ){
 			locctr( PROG );
-			deflab( p->offset );
+			deflab( (int)p->offset );
 			}
 		break;
 
@@ -363,12 +363,12 @@ defid( q, class )  NODE *q; {
 	FIXDEF(p);
 
 # ifndef BUG1
-	if( ddebug ) printf( "	dimoff, sizoff, offset: %d, %d, %d\n", p->dimoff, p->sizoff, p->offset );
+	if( ddebug ) printf( "	dimoff, sizoff, offset: %d, %d, %ld\n", p->dimoff, p->sizoff, p->offset );
 # endif
 
 	}
 
-psave( i ){
+psavel( i ) OFFSZ i; {
 	if( paramno >= PARAMSZ ){
 		cerror( "parameter stack overflow");
 		}
@@ -508,7 +508,8 @@ bstruct( idn, soru ){ /* begining of structure or union declaration */
 NODE *
 dclstruct( oparam ){
 	register struct symtab *p;
-	register i, al, sa, j, sz, szindex;
+	register i, al, sa, j, szindex;
+	OFFSZ sz;
 	register TWORD temp;
 	register high, low;
 
@@ -596,12 +597,12 @@ dclstruct( oparam ){
 	FIXSTRUCT( szindex, oparam ); /* local hook, eg. for sym debugger */
 # ifndef BUG1
 	if( ddebug>1 ){
-		printf( "\tdimtab[%d,%d,%d,%d] = %d,%d,%d,%d\n",
+		printf( "\tdimtab[%d,%d,%d,%d] = %ld,%ld,%ld,%ld\n",
 			szindex,szindex+1,szindex+2,szindex+3,
 			dimtab[szindex],dimtab[szindex+1],dimtab[szindex+2],
 			dimtab[szindex+3] );
 		for( i = dimtab[szindex+1]; dimtab[i] >= 0; ++i ){
-			printf( "\tmember %.8s(%d)\n", stab[dimtab[i]].sname, dimtab[i] );
+			printf( "\tmember %.8s(%ld)\n", stab[dimtab[i]].sname, dimtab[i] );
 			}
 		}
 # endif
@@ -729,7 +730,7 @@ tsize( ty, d, s )  TWORD ty; {
 		uerror( "unknown size");
 		return( SZINT );
 		}
-	return( (unsigned int) dimtab[ s ] * mult );
+	return( dimtab[ s ] * mult );
 	}
 
 inforce( n ) OFFSZ n; {  /* force inoff to have the value n */
@@ -772,7 +773,7 @@ inforce( n ) OFFSZ n; {  /* force inoff to have the value n */
 
 	}
 
-vfdalign( n ){ /* make inoff have the offset the next alignment of n */
+vfdalign( n ) OFFSZ n; { /* make inoff have the offset the next alignment of n */
 	OFFSZ m;
 
 	m = inoff;
@@ -835,7 +836,7 @@ instk( id, t, d, s, off ) OFFSZ off; TWORD t; {
 
 	for(;;){
 # ifndef BUG1
-		if( idebug ) printf( "instk((%d, %o,%d,%d, %d)\n", id, t, d, s, off );
+		if( idebug ) printf( "instk((%d, %o,%d,%d, %ld)\n", id, t, d, s, off );
 # endif
 
 		/* save information on the stack */
@@ -901,14 +902,14 @@ getstr(){ /* decide if the string is external or an initializer, and get the con
 		inforce( pstk->in_off );
 		/* if the array is inflexible (not top level), pass in the size and
 			be prepared to throw away unwanted initializers */
-		lxstr((pstk-1)!=instack?dimtab[(pstk-1)->in_d]:0);  /* get the contents */
+		lxstr((pstk-1)!=instack?(int)dimtab[(pstk-1)->in_d]:0);  /* get the contents */
 		irbrace();  /* simulate } */
 		return( NIL );
 		}
 	else { /* make a label, and get the contents and stash them away */
 		if( iclass != SNULL ){ /* initializing */
 			/* fill out previous word, to permit pointer */
-			vfdalign( ALPOINT );
+			vfdalign( (OFFSZ)ALPOINT );
 			}
 		temp = locctr( blevel==0?ISTRNG:STRNG ); /* set up location counter */
 		deflab( l = getlab() );
@@ -934,7 +935,7 @@ endinit(){
 	register d, s, n, d1;
 
 # ifndef BUG1
-	if( idebug ) printf( "endinit(), inoff = %d\n", inoff );
+	if( idebug ) printf( "endinit(), inoff = %ld\n", inoff );
 # endif
 
 	switch( iclass ){
@@ -976,7 +977,7 @@ endinit(){
 	else inforce( tsize(t,d,s) );
 
 	paramno = 0;
-	vfdalign( AL_INIT );
+	vfdalign( (OFFSZ)AL_INIT );
 	inoff = 0;
 	iclass = SNULL;
 
@@ -1156,12 +1157,13 @@ irbrace(){
 
 	}
 
-upoff( size, alignment, poff ) register alignment, *poff; {
+OFFSZ
+upoff( size, alignment, poff ) OFFSZ size, *poff; register alignment; {
 	/* update the offset pointed to by poff; return the
 	/* offset of a value of size `size', alignment `alignment',
 	/* given that off is increasing */
 
-	register off;
+	OFFSZ off;
 
 	off = *poff;
 	SETOFF( off, alignment );
@@ -1173,10 +1175,10 @@ upoff( size, alignment, poff ) register alignment, *poff; {
 	return( off );
 	}
 
-oalloc( p, poff ) register struct symtab *p; register *poff; {
+oalloc( p, poff ) register struct symtab *p; OFFSZ *poff; {
 	/* allocate p with offset *poff, and update *poff */
-	register al, off, tsz;
-	int noff;
+	register al;
+	OFFSZ off, tsz, noff;
 
 	al = talign( p->stype, p->sizoff );
 	noff = off = *poff;
@@ -1191,7 +1193,7 @@ oalloc( p, poff ) register struct symtab *p; register *poff; {
 	else
 #endif
 		if( (p->sclass==PARAM || p->sclass==REGISTER) && ( tsz < SZINT ) ){
-			off = upoff( SZINT, ALINT, &noff );
+			off = upoff( (OFFSZ)SZINT, ALINT, &noff );
 # ifndef RTOLBYTES
 			off = noff - tsz;
 #endif

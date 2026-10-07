@@ -40,8 +40,8 @@
   "src": "2d1c2ea437fabb10"
  },
  "machine/trap.c": {
-  "asm": "fb0604829f09d138",
-  "src": "68a444bbfa4e33e2"
+  "asm": "43e3a6a1034dd716",
+  "src": "851fe273f3356569"
  },
  "sys/acct.c": {
   "asm": "cdfbab2b2851a7bb",

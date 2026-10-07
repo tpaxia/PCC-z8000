@@ -98,7 +98,7 @@ bdty( op, p, v ) NODE *p; {
 	return( q );
 	}
 
-dstash( n ){ /* put n into the dimension table */
+dstashl( n ) OFFSZ n; { /* put n into the dimension table */
 	if( curdim >= DIMTABSZ-1 ){
 		cerror( "dimension table overflow");
 		}
@@ -1028,7 +1028,7 @@ case 109:
 			    lblname( yypvt[-1].intval );
 			    defid( q, ULABEL );
 			    stab[idname].suse = -lineno;
-			    branch( stab[idname].offset );
+			    branch( (int)stab[idname].offset );
 			    goto rch;
 			    } break;
 case 114:

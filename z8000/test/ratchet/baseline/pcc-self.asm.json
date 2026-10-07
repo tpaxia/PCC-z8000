@@ -28,8 +28,8 @@
   "src": "a993466bb508e68c"
  },
  "az8/sdi.c": {
-  "asm": "a423f37d25861887",
-  "src": "641e84479ba5edca"
+  "asm": "af94c9c52dd08a2d",
+  "src": "c6b6df6a113e232b"
  },
  "az8/sym.c": {
   "asm": "00f5c309ea39c054",
@@ -44,20 +44,20 @@
   "src": "604a37977df606e7"
  },
  "cz8/cgram.c": {
-  "asm": "5bd4fbea813d23f0",
-  "src": "b796b4d253321955"
+  "asm": "de7cdfb16155b5c0",
+  "src": "62bb682a675c4591"
  },
  "cz8/code.c": {
-  "asm": "4512f8560d46582c",
-  "src": "7d1520cad3268b82"
+  "asm": "c2bf542063e824fa",
+  "src": "eff36a94296d80d5"
  },
  "cz8/comm1.c": {
-  "asm": "d428e8bf5f990d94",
-  "src": "5858cc5e4a019a1c"
+  "asm": "433c2ad772fadc1f",
+  "src": "0c8ff1178aead04e"
  },
  "cz8/local.c": {
-  "asm": "5eb7640e9ad8a2eb",
-  "src": "f534ca048ea33f96"
+  "asm": "b5e4adeb72ee0078",
+  "src": "1659ae4c21d20991"
  },
  "cz8/local2.c": {
   "asm": "183de0acab3245c6",
@@ -68,36 +68,36 @@
   "src": "3d76613d0533a71c"
  },
  "cz8/optim.c": {
-  "asm": "2abcc7bbfe7438a9",
-  "src": "975dc2b8a0b9af5e"
+  "asm": "177786e06df8685c",
+  "src": "1fc2f3971595661d"
  },
  "cz8/order.c": {
   "asm": "7ada56e768a9a66a",
   "src": "46b703531bef02dc"
  },
  "cz8/pftn.c": {
-  "asm": "91fc0c0a07cf67f1",
-  "src": "7b6fc54ca08bbe72"
+  "asm": "8c5272ae60763643",
+  "src": "36e7dc31b7ba1dd6"
  },
  "cz8/reader.c": {
-  "asm": "97b85e160f86f8ad",
-  "src": "9462083726ffb61d"
+  "asm": "d16882a57126df74",
+  "src": "3185f6549a4a4b1b"
  },
  "cz8/scan.c": {
-  "asm": "969aa44cc5ff6619",
-  "src": "9cce616423d83378"
+  "asm": "1558c58da4f696c6",
+  "src": "1a3b9eaf98a6b818"
  },
  "cz8/table.c": {
   "asm": "9966313fa219d070",
   "src": "4a7a53c8998c3618"
  },
  "cz8/trees.c": {
-  "asm": "bb956cb13c39a0dc",
-  "src": "fc18e47052db6eb2"
+  "asm": "611a9272f307141a",
+  "src": "837581bcad8859cc"
  },
  "cz8/xdefs.c": {
-  "asm": "2eb832ee123e9781",
-  "src": "dfcdeaa8d56333ee"
+  "asm": "c986c4fe95cec26a",
+  "src": "32523d8b86abad9d"
  },
  "ldz8.c": {
   "asm": "1a144fb88c6744a4",

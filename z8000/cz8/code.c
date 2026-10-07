@@ -120,13 +120,13 @@ efcode(){
 	p2bend();
 	}
 
-bfcode( a, n ) int a[]; {
+bfcode( a, n ) OFFSZ a[]; {
 	/* code for the beginning of a function; a is an array of
 		indices in stab for the arguments; n is the number */
 	register i;
 	register temp;
 	register struct symtab *p;
-	int off;
+	OFFSZ off;
 
 	locctr( PROG );
 	p = &stab[curftn];
@@ -162,12 +162,12 @@ bfcode( a, n ) int a[]; {
 			/* load param into register */
 			if (p->stype==CHAR || p->stype==UCHAR)
 				printf( "	ldb	%s,%d(r13)\n",
-				  rnames[temp], p->offset/SZCHAR );
+				  rnames[temp], (int)(p->offset/SZCHAR) );
 			else
 				printf( "	ld	%s,%d(r13)\n",
-				  rnames[temp], p->offset/SZCHAR );
+				  rnames[temp], (int)(p->offset/SZCHAR) );
 			if(p->stype==LONG || p->stype==ULONG) {
-				printf("\tld\t%s,%d(r13)\n",rnames[temp+1],p->offset/SZCHAR+2);
+				printf("\tld\t%s,%d(r13)\n",rnames[temp+1],(int)(p->offset/SZCHAR)+2);
 				usedregs |= 1<<(temp+1);
 			}
 			usedregs |= 1<<temp;
@@ -179,7 +179,7 @@ bfcode( a, n ) int a[]; {
 			}
 
 		}
-	printf("! A%d = %d\n", ftnno, off/SZCHAR);
+	printf("! A%d = %d\n", ftnno, (int)(off/SZCHAR));
 	}
 
 bccode(){ /* called just before the first executable statment */
@@ -212,7 +212,7 @@ defnam( p ) register struct symtab *p; {
 	if( p->sclass == EXTDEF ){
 		printf( "	.globl	%s\n", exname( p->sname ) );
 		}
-	if( p->sclass == STATIC && p->slevel>1 ) deflab( p->offset );
+	if( p->sclass == STATIC && p->slevel>1 ) deflab( (int)p->offset );
 	else printf( "%s:\n", exname( p->sname ) );
 
 	}

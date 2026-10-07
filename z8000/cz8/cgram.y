@@ -521,7 +521,7 @@ statement:	   e   SM
 			    lblname( $2 );
 			    defid( q, ULABEL );
 			    stab[idname].suse = -lineno;
-			    branch( stab[idname].offset );
+			    branch( (int)stab[idname].offset );
 			    goto rch;
 			    }
 		|   SM
@@ -835,7 +835,7 @@ bdty( op, p, v ) NODE *p; {
 	return( q );
 	}
 
-dstash( n ){ /* put n into the dimension table */
+dstashl( n ) OFFSZ n; { /* put n into the dimension table */
 	if( curdim >= DIMTABSZ-1 ){
 		cerror( "dimension table overflow");
 		}

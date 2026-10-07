@@ -70,7 +70,7 @@ struct symtab {
 	char sclass;  /* storage class */
 	char slevel;  /* scope level */
 	char sflags;  /* flags for set, use, hidden, mos, etc. */
-	int offset;  /* offset or value */
+	OFFSZ offset;  /* offset or value */
 	short dimoff; /* offset into the dimension table */
 	short sizoff; /* offset into the size table */
 	short suse;  /* line number of last use of the variable */
@@ -148,10 +148,10 @@ extern struct symtab stab[];
 extern int curftn;
 extern int curclass;
 extern int curdim;
-extern int dimtab[];
-extern int paramstk[];
+extern OFFSZ dimtab[];
+extern OFFSZ paramstk[];
 extern int paramno;
-extern int autooff, argoff, strucoff;
+extern OFFSZ autooff, argoff, strucoff;
 extern int regvar;
 extern int minrvar;
 extern int brkflag;
@@ -178,7 +178,7 @@ extern int contlab;
 extern int flostat;
 extern int retlab;
 extern int retstat;
-extern int asavbc[], *psavbc;
+extern OFFSZ asavbc[], *psavbc;
 
 /*	flags used in structures/unions */
 
@@ -235,7 +235,11 @@ extern NODE
 	*strargs(),
 	*clocal();
 
-OFFSZ	tsize(),
+/* K&R calls need explicit widening of mixed-purpose table entries. */
+#define psave(n) psavel((OFFSZ)(n))
+#define dstash(n) dstashl((OFFSZ)(n))
+
+OFFSZ	upoff(), tsize(),
 	psize();
 
 TWORD	types();

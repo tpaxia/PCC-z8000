@@ -316,7 +316,7 @@ buildtree( o, l, r ) register NODE *l, *r; {
 					else werror( "struct/union or struct/union pointer required" );
 					}
 				else if( (j=l->fn.csiz+1)<0 ) cerror( "undefined structure or union" );
-				else if( !chkstr( i, dimtab[j], DECREF(l->in.type) ) ){
+				else if( !chkstr( i, (int)dimtab[j], DECREF(l->in.type) ) ){
 					werror( "illegal member use: %.8s", stab[i].sname );
 					}
 				}
@@ -517,7 +517,7 @@ chkstr( i, j, type ) TWORD type; {
 			case STRTY:
 			case UNIONTY:
 				if( type == STRTY ) continue;  /* no recursive looking for strs */
-				if( hflag && chkstr( i, dimtab[stab[kk].sizoff+1], stab[kk].stype ) ){
+				if( hflag && chkstr( i, (int)dimtab[stab[kk].sizoff+1], stab[kk].stype ) ){
 					if( stab[kk].sname[0] == '$' ) return(0);  /* $FAKE */
 					werror(
 					"illegal member use: perhaps %.8s.%.8s?",

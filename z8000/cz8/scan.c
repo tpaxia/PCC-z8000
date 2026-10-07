@@ -50,14 +50,14 @@ char yytext[LXTSZ];
 char * lxgcp;
 
 
-unsigned caloff();
+OFFSZ caloff();
 	/* ARGSUSED */
 mainp1( argc, argv ) int argc; char *argv[]; {  /* control multiple files */
 
 	register i;
 	register char *cp;
 	extern int idebug, bdebug, tdebug, edebug, ddebug, xdebug;
-	extern unsigned int offsz;
+	extern OFFSZ offsz;
 
 	offsz = caloff();
 	for( i=1; i<argc; ++i ){
