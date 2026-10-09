@@ -115,6 +115,9 @@ clocal(p) NODE *p; {
 			}
 		if( p->in.left->in.op == ICON ){ /* simulate the conversion here */
 			CONSZ val;
+			/* A symbolic address needs a word relocation before truncation. */
+			if( p->in.left->tn.rval != NONAME && (m==CHAR || m==UCHAR) )
+				break;
 			val = p->in.left->tn.lval;
 			switch( m ){
 			case CHAR:

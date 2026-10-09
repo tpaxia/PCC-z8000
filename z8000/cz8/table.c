@@ -963,6 +963,13 @@ SCONV,	INAREG|INTAREG,
 		0,	RLEFT,
 		"ZT",
 
+/* symbolic address -> char: relocate the complete word, use its low byte */
+SCONV,	INAREG|INTAREG,
+	SCON,	TWORD,
+	SANY,	TCHAR|TUCHAR,
+		NAREG|NASR,	RESC1,
+		"\tld\tA1,AL\n",
+
 /* int/word -> char: no code, just use low byte */
 SCONV,	INAREG|INTAREG,
 	EA,	TWORD,
