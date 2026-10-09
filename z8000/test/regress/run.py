@@ -117,7 +117,7 @@ def main():
             ("link", [build / "ldz8", "-x", shared[0],  obj,
                       *shared[1:], "-o", binary], None, None),
             ("run", [TEST / "run_emu", binary, "-e", str(value),
-                      "-c", "10000000" if name in ("float_vectors", "float_ops_vectors", "float_general", "float_convert_vectors") else "1000000"], None, None),
+                      "-c", "10000000" if name in ("aggregate_wide", "float_vectors", "float_ops_vectors", "float_general", "float_convert_vectors") else "1000000"], None, None),
         ]
         if source.suffix == ".az8":
             assembly.write_bytes(source.read_bytes())

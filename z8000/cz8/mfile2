@@ -207,6 +207,7 @@ extern OFFSZ tmpoff;
 extern OFFSZ maxoff;
 extern OFFSZ baseoff;
 extern OFFSZ maxtemp;
+extern OFFSZ freetemp();
 extern int maxtreg;
 extern int ftnno;
 extern int rtyflg;

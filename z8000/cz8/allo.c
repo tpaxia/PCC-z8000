@@ -62,7 +62,7 @@ allo( p, q ) NODE *p; struct optab *q; {
 		resc[i].in.op = OREG;
 		resc[i].tn.rval = TMPREG;
 		if( p->in.op == STCALL || p->in.op == STARG || p->in.op == UNARY STCALL || p->in.op == STASG ){
-			resc[i].tn.lval = freetemp( (SZCHAR*p->stn.stsize + (SZINT-1))/SZINT );
+			resc[i].tn.lval = freetemp( (int)(((OFFSZ)SZCHAR*p->stn.stsize + (SZINT-1))/SZINT) );
 			}
 		else {
 			resc[i].tn.lval = freetemp( (n&NTMASK)/NTEMP );
@@ -83,25 +83,26 @@ allo( p, q ) NODE *p; struct optab *q; {
 
 	}
 
+OFFSZ
 freetemp( k ){ /* allocate k integers worth of temp space */
 	/* we also make the convention that, if the number of words is more than 1,
 	/* it must be aligned for storing doubles... */
 
 # ifndef BACKTEMP
-	int t;
+	OFFSZ t;
 
 	if( k>1 ){
 		SETOFF( tmpoff, ALDOUBLE );
 		}
 
 	t = tmpoff;
-	tmpoff += k*SZINT;
+	tmpoff += (OFFSZ)k*SZINT;
 	if( tmpoff > maxoff ) maxoff = tmpoff;
 	if( tmpoff-baseoff > maxtemp ) maxtemp = tmpoff-baseoff;
 	return(t);
 
 # else
-	tmpoff += k*SZINT;
+	tmpoff += (OFFSZ)k*SZINT;
 	if( k>1 ) {
 		SETOFF( tmpoff, ALDOUBLE );
 		}

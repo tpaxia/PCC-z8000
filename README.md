@@ -45,7 +45,7 @@ make -C z8000/lib
 never by editing the output. The original 68000 backend is compiled for
 comparison, but its generated code is not executed.
 
-Current s.out pipeline checks pass 15 core programs, 87 strict regression
+Current s.out pipeline checks pass 15 core programs, 89 strict regression
 cases, 54 comparison cases and 58 external cases; all 58 K&R probes pass.
 Optimizer checks cover comparison with the host implementation, saturated
 jump-map execution and oversized-line rejection. The standalone Z8002 runner
@@ -63,5 +63,9 @@ segmented C process ABI.
 
 Unix floating operations use the separately mapped Zilog software EPU service.
 Standalone compiler tests retain this repository's IEEE runtime so they can
-execute without the Unix trap service. The static-result structure-return ABI
-remains a limitation documented in the parent repository.
+execute without the Unix trap service. Structure/union calls pass a hidden first
+pointer to caller-owned frame storage; the callee copies there and returns its
+address in R0. Ordinary aggregate-function arguments begin at 6(R13), while
+scalar functions retain their ABI. Rebuild affected callers and callees together.
+The parent repository documents this ABI and tests forced signal re-entry
+halfway through a native aggregate return copy in combined and split I/D.

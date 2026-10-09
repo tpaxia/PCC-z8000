@@ -4,16 +4,16 @@
   "src": "f8cc57df67ccb1e3"
  },
  "cz8/allo.c": {
-  "asm": "006f792f36f5419f",
-  "src": "604a37977df606e7"
+  "asm": "25b0926424c89de2",
+  "src": "f55ede8de238afb6"
  },
  "cz8/cgram.c": {
   "asm": "de7cdfb16155b5c0",
   "src": "62bb682a675c4591"
  },
  "cz8/code.c": {
-  "asm": "c2bf542063e824fa",
-  "src": "eff36a94296d80d5"
+  "asm": "3c520e6ce17456a3",
+  "src": "26c470bcbeab6fd8"
  },
  "cz8/comm1.c": {
   "asm": "433c2ad772fadc1f",
@@ -24,36 +24,36 @@
   "src": "9f56b2886a8abedd"
  },
  "cz8/local2.c": {
-  "asm": "183de0acab3245c6",
-  "src": "8e5687b480cb414e"
+  "asm": "5c3fb38761d89864",
+  "src": "54ff33e6cfbe3452"
  },
  "cz8/match.c": {
-  "asm": "b609bf72fe459478",
-  "src": "3d76613d0533a71c"
+  "asm": "f631f70a054275c3",
+  "src": "413b712f328dc93c"
  },
  "cz8/optim.c": {
   "asm": "177786e06df8685c",
   "src": "1fc2f3971595661d"
  },
  "cz8/order.c": {
-  "asm": "7ada56e768a9a66a",
-  "src": "46b703531bef02dc"
+  "asm": "fd1e7b8e947cd52a",
+  "src": "df3526e4fdba1b26"
  },
  "cz8/pftn.c": {
   "asm": "8c5272ae60763643",
   "src": "36e7dc31b7ba1dd6"
  },
  "cz8/reader.c": {
-  "asm": "d16882a57126df74",
-  "src": "3185f6549a4a4b1b"
+  "asm": "6b3608d41ecb6505",
+  "src": "9f10da7f6669173c"
  },
  "cz8/scan.c": {
   "asm": "1558c58da4f696c6",
   "src": "1a3b9eaf98a6b818"
  },
  "cz8/table.c": {
-  "asm": "0414b6cfe2c4da22",
-  "src": "6e4151da64199215"
+  "asm": "148d2da97ded4a7e",
+  "src": "c41d4608652ffd16"
  },
  "cz8/trees.c": {
   "asm": "611a9272f307141a",

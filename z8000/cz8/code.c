@@ -77,7 +77,6 @@ efcode(){
 
 	if( strftn ){  /* copy output (in r0) to caller */
 		register struct symtab *p;
-		register int stlab;
 		register int i;
 		int size;
 
@@ -86,11 +85,10 @@ efcode(){
 		deflab( retlab );
 		retlab = getlab();
 
-		stlab = getlab();
-		/* r0 has pointer to return value area from caller */
-		/* copy struct to static area, return pointer in r0 */
+		/* R0 addresses the expression; the hidden first argument
+		 * addresses storage owned by this invocation's caller. */
 		printf( "	ld	r8,r0\n" );  /* src ptr */
-		printf( "	ld	r9,#.L%d\n" , stlab );  /* dst ptr */
+		printf( "	ld	r9,4(r13)\n" );  /* dst ptr */
 		size = tsize( DECREF(p->stype), p->dimoff, p->sizoff ) / SZCHAR;
 		if( size > 4 ){
 			printf( "	ld	r0,#%d\n", size/2 );
@@ -111,8 +109,7 @@ efcode(){
 				}
 			}
 		}
-		printf( "	ld	r0,#.L%d\n", stlab );
-		printf( "	.bss\n	.even\n.L%d:	.=.+%d\n	.text\n", stlab, size );
+		printf( "	ld	r0,4(r13)\n" );
 		/* turn off strftn flag, so return sequence will be generated */
 		strftn = 0;
 		}
@@ -150,7 +147,7 @@ bfcode( a, n ) OFFSZ a[]; {
 	printf( "\tcall\tcsv\n" );
 	usedregs = 0;
 
-	off = ARGINIT;
+	off = ARGINIT + (strftn ? SZPOINT : 0);
 
 	for( i=0; i<n; ++i ){
 		p = &stab[a[i]];
@@ -175,6 +172,8 @@ bfcode( a, n ) OFFSZ a[]; {
 			p->sclass = REGISTER;   /* remember that it is a register */
 			}
 		else {
+			/* Declaration allocation predates the hidden return argument. */
+			if( strftn ) p->offset = NOOFFSET;
 			if( oalloc( p, &off ) ) cerror( "bad argument" );
 			}
 

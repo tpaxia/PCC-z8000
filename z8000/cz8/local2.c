@@ -686,6 +686,12 @@ gencall( p, cookie ) register NODE *p; {
 	/* generate the call given by p */
 	register temp;
 	register m;
+	OFFSZ result;
+	int aggregate;
+
+	aggregate = p->in.op == STCALL || p->in.op == UNARY STCALL;
+	if( aggregate )
+		result = freetemp( (int)(((OFFSZ)p->stn.stsize*SZCHAR+SZINT-1)/SZINT) );
 
 	if( p->in.right ) temp = argsize( p->in.right );
 	else temp = 0;
@@ -696,6 +702,15 @@ gencall( p, cookie ) register NODE *p; {
 
 	if( !shltype( p->in.left->in.op, p->in.left ) ) {
 		order( p->in.left, INBREG|SOREG );
+		}
+	if( aggregate ) {
+		/* Preserve R8 even when it holds the indirect callee; exchange
+		 * leaves the result pointer as the hidden first argument. */
+		printf( "\tpush\t@sp,r8\n\tld\tr8,r13\n\tsub\tr8,#%ld\n\tex\tr8,@sp\n",
+			-result/SZCHAR );
+		temp += SZPOINT/SZCHAR;
+		toff += SZPOINT/SZCHAR;
+		if( toff > maxtoff ) maxtoff = toff;
 		}
 
 	p->in.op = UNARY CALL;
