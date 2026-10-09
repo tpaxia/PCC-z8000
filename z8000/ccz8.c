@@ -48,6 +48,11 @@ char	pass1[64] = "/lib/oz8";
 char	passp[64] = "/lib/cpp";
 char	libdr[64];
 char	*ldrel = NULL;	/* -R argument for loader */
+#ifdef SOUT
+int zflag = 1;
+#else
+int zflag;
+#endif
 # ifndef z8000		/* cross-compiling from PDP11, VAX, or 68000 */
 char	pref[64]  = "/projects/nunix/lib/crt0.b";
 char	incld[64] = "-I/projects/nunix/include";
@@ -92,6 +97,9 @@ char *argv[];
 		case 'S':
 			sflag++;
 			cflag++;
+			break;
+		case 'z':
+			zflag = 1;
 			break;
 		case 'R':
 			if (++i < argc)
@@ -338,15 +346,17 @@ passa:
 		if (sflag)
 			continue;
 assemble:
-		av[0] = "az8";
-		av[1] = "-o";
-		av[2] = setsuf(clist[i], "b");
-		av[3] = assource;
-		av[4] = 0;
+		j = 0;
+		av[j++] = zflag ? "asz8k" : "az8";
+		if (zflag) av[j++] = "-zc";
+		av[j++] = "-o";
+		av[j++] = setsuf(clist[i], "b");
+		av[j++] = assource;
+		av[j++] = 0;
 		cunlink(tmp1);
 		cunlink(tmp2);
 		cunlink(tmp4);
-		if (callsys(az8, av, 0, 0)) {
+		if (callsys(zflag ? "/bin/asz8k" : az8, av, 0, 0)) {
 			cflag++;
 			eflag++;
 			continue;
@@ -360,12 +370,17 @@ nocom:
 		av[0] = "ldz8";
 		av[1] = "-x";
 		av[2] = pref;
-		av[3] = "-R";
-		if(ldrel != NULL)
-			av[4] = ldrel;
-		else
-			av[4] = "0";	/* Z8000: default load at address 0 */
-		j = 5;
+		j = 3;
+		if (zflag) {
+			if (ldrel && strcmp(ldrel,"0")) {
+				error("s.out does not support a nonzero -R origin", NULL);
+				dexit();
+			}
+			av[j++] = "-z";
+		} else {
+			av[j++] = "-R";
+			av[j++] = ldrel ? ldrel : "0";
+		}
 
 		if (outfile) {
 			av[j++] = "-o";
