@@ -10,6 +10,8 @@ import sys
 HERE = Path(__file__).resolve().parent
 TEST = HERE.parent
 TARGET = TEST.parent
+sys.path.insert(0, str(TEST))
+from toolchain import AS, LD, setup_commands
 
 
 def command(argv, log, *, source=None, output=None, cwd=None):
@@ -43,7 +45,7 @@ def main():
     codegen = json.loads((HERE / "codegen.json").read_text())
     cases = [(p.stem, p, 0) for p in sorted(HERE.glob("*.c"))]
     cases += [(p.stem, p, 0) for p in sorted(HERE.glob("*.az8"))]
-    # Existing tests go through the same fresh pipeline, without using old .bout files.
+    # Existing tests go through the same fresh pipeline, without using old .sout files.
     cases += [(p.stem, p, {"hello": 42, "arith": 120}.get(p.stem, 0))
               for p in sorted(TEST.glob("*.c"))]
     cases += [("reject_" + p.stem, p, None)
@@ -57,13 +59,11 @@ def main():
 
     setup = [
         ["make", "-C", TARGET / "cz8"],
-        ["make", "-C", TARGET / "az8"],
+        *setup_commands(),
         ["make", "-C", TEST, "run_emu"],
         ["make", "-C", TEST, "../oz8"],
         [sys.executable, HERE / "check_softfp.py"],
-        ["cc", "-O", "-w", "-Wno-implicit-int",
-         "-Wno-implicit-function-declaration", "-Wno-int-conversion",
-         "-Wno-return-mismatch", "-o", build / "ldz8", TARGET / "ldz8.c"],
+        ["cp", LD, build / "ldz8"],
     ]
     for i, argv in enumerate(setup):
         ok, detail = command(argv, build / ("setup-%d.log" % i))
@@ -71,7 +71,7 @@ def main():
             print("Setup failed:\n" + detail)
             return 1
     cz8 = TARGET / "cz8" / "cz8"
-    az8 = TARGET / "az8" / "az8"
+    az8 = AS
     shared = []
     runtime = [("crt0", TARGET / "crt0.az8"), ("exit", TARGET / "lib" / "exit.az8")]
     # Every case links the complete integer and double-addition runtime.
@@ -94,7 +94,7 @@ def main():
         obj = build / (name + ".b")
         local = build / (name + ".az8")
         local.write_bytes(source.read_bytes())
-        ok, detail = command([az8, "-o", obj.name, local.name],
+        ok, detail = command([az8, "-c", "-o", obj.name, local.name],
                              build / (name + ".log"), cwd=build)
         if not ok:
             print("Runtime assembly failed:\n" + detail)
@@ -105,16 +105,16 @@ def main():
     for name, source, value in cases:
         directory = build / name
         directory.mkdir(exist_ok=True)
-        for filename in ("test.az8", "test.b", "test.bout", "compile.log",
+        for filename in ("test.az8", "test.b", "test.sout", "compile.log",
                          "assemble.log", "link.log", "run.log"):
             (directory / filename).unlink(missing_ok=True)
         assembly = directory / "test.az8"
         obj = directory / "test.b"
-        binary = directory / "test.bout"
+        binary = directory / "test.sout"
         stages = [
             ("compile", [cz8], source.read_bytes(), assembly),
-            ("assemble", [az8, "-o", obj.name, assembly.name], None, None),
-            ("link", [build / "ldz8", "-x", shared[0], "-R", "8", obj,
+            ("assemble", [az8, "-c", "-o", obj.name, assembly.name], None, None),
+            ("link", [build / "ldz8", "-x", shared[0],  obj,
                       *shared[1:], "-o", binary], None, None),
             ("run", [TEST / "run_emu", binary, "-e", str(value),
                       "-c", "10000000" if name in ("float_vectors", "float_ops_vectors", "float_general", "float_convert_vectors") else "1000000"], None, None),
@@ -126,10 +126,6 @@ def main():
         for stage, argv, stdin, output in stages:
             ok, detail = command(argv, directory / (stage + ".log"),
                                  source=stdin, output=output, cwd=directory)
-            # This linker currently reports unresolved symbols but exits zero.
-            # Do not execute the resulting incomplete image.
-            if stage == "link" and "ldz8: Undefined -" in detail:
-                ok = False
             if value is None:
                 diagnostic = diagnostics[source.stem]
                 if ok:

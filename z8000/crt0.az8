@@ -14,11 +14,11 @@
 	.globl	_end
 
 _start:
-	! Set up stack pointer (SP = R15)
+	! Set up stack pointer (sp = R15)
 	! Stack is set by loader or hardware; assume already valid
 
 	! Set up frame pointer
-	LD	R14, SP
+	LD	R14, sp
 
 	! Zero BSS segment
 	! From _edata to _end
@@ -36,14 +36,14 @@ _start:
 	! Call main(argc, argv, envp)
 	! For standalone: argc=0, argv=NULL, envp=NULL
 	CLR	R0
-	PUSH	@SP, R0		! envp = NULL
-	PUSH	@SP, R0		! argv = NULL
-	PUSH	@SP, R0		! argc = 0
+	PUSH	@sp, R0		! envp = NULL
+	PUSH	@sp, R0		! argv = NULL
+	PUSH	@sp, R0		! argc = 0
 	CALL	_main
-	INC	SP, #6		! clean up args
+	INC	sp, #6		! clean up args
 
 	! Call exit with return value from main (in R0)
-	PUSH	@SP, R0
+	PUSH	@sp, R0
 	CALL	_exit
 
 	! Should not return, but just in case

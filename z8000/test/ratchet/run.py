@@ -23,6 +23,8 @@ import sys
 HERE = Path(__file__).resolve().parent
 TEST = HERE.parent
 TARGET = TEST.parent
+sys.path.insert(0, str(TEST))
+from toolchain import AS, LD, setup_commands
 REPO = TARGET.parent
 BASELINE = HERE / "baseline"
 DIAG = re.compile(r'^(?:"(?P<file>[^"]*)"[^,]*)?, line (?P<line>\d+): (?P<msg>.*)$')
@@ -131,11 +133,11 @@ def compile_one(corpus, rel, cz8, az8, build):
     if rec["status"] != "ok":
         return rec, None
     rec["asm"] = sha(asm)
-    # az8 keeps file names in a 32-byte buffer, so use short names in its cwd.
-    stem = "f" + sha(rel.encode())[:10]
+    # The shared assembler accepts V7 basenames of at most 14 characters.
+    stem = "f" + sha(rel.encode())[:8]
     work = build / corpus.name
     (work / (stem + ".az8")).write_bytes(asm)
-    rc, out, err = run([az8, "-o", stem + ".b", stem + ".az8"], cwd=work)
+    rc, out, err = run([az8, "-c", "-o", stem + ".b", stem + ".az8"], cwd=work)
     rec["az8"] = "ok" if rc == 0 else "fail"
     if rc != 0:
         (work / (stem + ".log")).write_bytes(out + err)
@@ -214,7 +216,7 @@ def main():
                     help="adapted V7 tree (default: $V7_ROOT, else ../v7z8000 beside this repository)")
     ap.add_argument("--corpus", action="append", help="run the named corpus only (repeatable)")
     ap.add_argument("--cz8", type=Path, default=TARGET / "cz8" / "cz8", help="compiler under test")
-    ap.add_argument("--az8", type=Path, default=TARGET / "az8" / "az8")
+    ap.add_argument("--az8", type=Path, default=AS)
     ap.add_argument("--build-dir", type=Path, default=HERE / "build")
     ap.add_argument("--jobs", type=int, default=os.cpu_count() or 4)
     ap.add_argument("--no-asm", action="store_true", help="skip the assembly comparison")
@@ -241,6 +243,8 @@ def main():
         if not (roots[spec["root"]] / spec["base"]).is_dir():
             sys.exit("corpus %s: %s not found. Set V7_ROOT or pass --v7-root; a missing "
                      "corpus is a failure, not a skip." % (spec["name"], roots[spec["root"]] / spec["base"]))
+    for argv in setup_commands():
+        subprocess.run(list(map(str, argv)), check=True)
     for tool in (args.cz8, args.az8):
         if not tool.exists():
             sys.exit("%s not built" % tool)

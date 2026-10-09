@@ -1,71 +1,8 @@
 {
- "az8/error.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "36cfd560e3509807",
-  "status": "ok",
-  "warnings": []
- },
- "az8/init.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "68bda68f31912f69",
-  "status": "ok",
-  "warnings": []
- },
- "az8/ins.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "8e04a9d04c69c7ee",
-  "status": "ok",
-  "warnings": []
- },
- "az8/ioz8.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "0f44151755051dab",
-  "status": "ok",
-  "warnings": []
- },
- "az8/ps.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "84aedaae58859399",
-  "status": "ok",
-  "warnings": []
- },
- "az8/rel.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "cd1ee1428e92cd60",
-  "status": "ok",
-  "warnings": []
- },
- "az8/scan.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "a993466bb508e68c",
-  "status": "ok",
-  "warnings": []
- },
- "az8/sdi.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "c6b6df6a113e232b",
-  "status": "ok",
-  "warnings": []
- },
- "az8/sym.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "790c6e9bc9a091c2",
-  "status": "ok",
-  "warnings": []
- },
  "ccz8.c": {
   "az8": "ok",
   "errors": [],
-  "src": "db64d862a9680a6a",
+  "src": "f8cc57df67ccb1e3",
   "status": "ok",
   "warnings": []
  },
@@ -100,7 +37,7 @@
  "cz8/local.c": {
   "az8": "ok",
   "errors": [],
-  "src": "1659ae4c21d20991",
+  "src": "9f56b2886a8abedd",
   "status": "ok",
   "warnings": []
  },
@@ -156,7 +93,7 @@
  "cz8/table.c": {
   "az8": "ok",
   "errors": [],
-  "src": "4a7a53c8998c3618",
+  "src": "6e4151da64199215",
   "status": "ok",
   "warnings": []
  },
@@ -171,13 +108,6 @@
   "az8": "ok",
   "errors": [],
   "src": "32523d8b86abad9d",
-  "status": "ok",
-  "warnings": []
- },
- "ldz8.c": {
-  "az8": "ok",
-  "errors": [],
-  "src": "19904c334ad8d6b7",
   "status": "ok",
   "warnings": []
  },

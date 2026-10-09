@@ -6,8 +6,9 @@
 
 TOOLDIR   = ..
 CZ8       = $(TOOLDIR)/cz8/cz8
-AZ8       = $(TOOLDIR)/az8/az8
-LDZ8      = $(TOOLDIR)/ldz8
+SOUT_ROOT ?= ../../..
+AZ8       = $(SOUT_ROOT)/tests/build/asz8k-host/asz8k
+LDZ8      = $(SOUT_ROOT)/tests/build/ldz8-host/ldz8
 OZ8       = $(TOOLDIR)/oz8
 
 EMU_DIR   = ../../z8000_emu
@@ -39,7 +40,7 @@ pcc_scope_EXPECT  = 0
 pcc_optim_EXPECT  = 0
 
 # Build artifacts
-BOUTS     = $(TESTS:%=%.bout)
+BOUTS     = $(TESTS:%=%.sout)
 
 .PHONY: all clean test regress regress-strict external compare68k ratchet knr parser-sync optimizer gate
 
@@ -84,10 +85,13 @@ optimizer:
 	python3 optimizer/run.py
 	python3 regress/run.py --strict --compact
 
-# The linker is K&R C; without this rule make's built-in rule compiles it with
-# default flags, which a modern host compiler rejects.
-$(LDZ8): $(TOOLDIR)/ldz8.c
-	cc -O -w -Wno-implicit-int -Wno-implicit-function-declaration -Wno-return-mismatch -Wno-int-conversion -o $@ $<
+# Reuse the Unix port's host/native s.out tool sources.
+.PHONY: sout-tools
+sout-tools:
+	$(MAKE) -C $(SOUT_ROOT)/tools/asz8k
+	$(MAKE) -C $(SOUT_ROOT)/tools/ldz8
+
+$(AZ8) $(LDZ8): | sout-tools
 
 $(OZ8): $(TOOLDIR)/oz8.c
 	cc -std=gnu89 -O -w -Wno-return-mismatch -Wno-int-conversion -o $@ $<
@@ -103,22 +107,22 @@ run_emu: run_emu.cpp $(EMU_LIB)
 
 # Assemble crt0
 crt0.b: $(TOOLDIR)/crt0.az8 $(AZ8)
-	$(AZ8) -o $@ $<
+	$(AZ8) -c -o $@ $<
 
 csv.b: $(TOOLDIR)/lib/csv.az8 $(AZ8)
-	$(AZ8) -o $@ $<
+	$(AZ8) -c -o $@ $<
 
 # Assemble exit stub
 exit.b: $(TOOLDIR)/lib/exit.az8 $(AZ8)
-	$(AZ8) -o $@ $<
+	$(AZ8) -c -o $@ $<
 
 # Assemble arithmetic library (named liblong.b to avoid clash with arith.c test)
 liblong.b: $(TOOLDIR)/lib/arith.az8 $(AZ8)
-	$(AZ8) -o $@ $<
+	$(AZ8) -c -o $@ $<
 
 # Floating runtime used by the general regression tests and user programs.
 libfloat.b: $(TOOLDIR)/lib/float.az8 $(AZ8)
-	$(AZ8) -o $@ $<
+	$(AZ8) -c -o $@ $<
 
 softfp.az8: $(TOOLDIR)/lib/softfp.c $(CZ8)
 	$(CZ8) < $< > $@
@@ -128,13 +132,15 @@ softfp.az8: $(TOOLDIR)/lib/softfp.c $(CZ8)
 	$(CZ8) < $< > $@
 
 %.b: %.az8 $(AZ8)
-	$(AZ8) -o $@ $<
+	mkdir -p $*.work
+	cp $< $*.work/input.az8
+	cd $*.work && $(abspath $(AZ8)) -c -o ../$@ input.az8
 
 # Link: crt0 first (so _start is at origin), then test, then exit
-# -R 8 = text origin at 0x0008 (after 6-byte PSAP reset vector area)
+# The test driver resets before loading code at address zero.
 # -x = discard local symbols
-%.bout: crt0.b %.b liblong.b libfloat.b softfp.b exit.b csv.b $(LDZ8)
-	$(LDZ8) -x crt0.b -R 8 $*.b liblong.b libfloat.b softfp.b exit.b csv.b -o $@
+%.sout: crt0.b %.b liblong.b libfloat.b softfp.b exit.b csv.b $(LDZ8)
+	$(LDZ8) -x crt0.b $*.b liblong.b libfloat.b softfp.b exit.b csv.b -o $@
 
 # Run all tests
 test: run_emu $(BOUTS)
@@ -146,7 +152,7 @@ test: run_emu $(BOUTS)
 	            pcc_union:$(pcc_union_EXPECT) pcc_ptr:$(pcc_ptr_EXPECT) \
 	            pcc_scope:$(pcc_scope_EXPECT) pcc_optim:$(pcc_optim_EXPECT); do \
 		t=$${pair%%:*}; exp=$${pair##*:}; \
-		if ./run_emu $$t.bout -e $$exp; then \
+		if ./run_emu $$t.sout -e $$exp; then \
 			pass=$$((pass + 1)); \
 		else \
 			fail=$$((fail + 1)); \
@@ -155,6 +161,7 @@ test: run_emu $(BOUTS)
 	echo ""; \
 	echo "Results: $$pass passed, $$fail failed out of $(words $(TESTS)) tests"; \
 	[ $$fail -eq 0 ]
+	python3 formats.py
 
 clean:
-	rm -f run_emu *.az8 *.b *.bout
+	rm -f run_emu *.az8 *.b *.sout

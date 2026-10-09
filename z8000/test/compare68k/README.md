@@ -40,7 +40,9 @@ Current complete logs, assembly and results are under `build/`. `results.json` i
 
 `double_increment` fails compilation in both backends. The original compiler is not a complete correctness oracle.
 
-Both linkers report undefined symbols but finish with `exit(0)`: see [ldz8.c](../../ldz8.c), `main` and `middle`, and `68000/ld68.c`. The test runners explicitly treat these diagnostics as failures. This inherited behavior can otherwise make incomplete images look like successful builds.
+The Z8000 suites link through the shared s.out linker, which rejects undefined
+symbols with a nonzero exit status. The original `68000/ld68.c` retains its
+historical diagnostic/exit behavior; its output is not executed here.
 
 ## Floating support differences before the fixes
 

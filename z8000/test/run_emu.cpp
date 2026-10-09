@@ -1,10 +1,10 @@
 /*
- * run_emu.cpp -- Z8002 emulator test driver for PCC b.out binaries
+ * run_emu.cpp -- Z8002 emulator test driver for PCC s.out binaries
  *
- * Loads a b.out executable, sets up the Z8002 emulator, runs the
+ * Loads a combined NONSEG s.out executable, sets up the Z8002 emulator, runs the
  * program, and reports the return value (R0 after HALT).
  *
- * Usage: run_emu [-t] [-e <expected>] <file.bout>
+ * Usage: run_emu [-t] [-e <expected>] <file.sout>
  *   -t            enable instruction tracing
  *   -e <expected> check R0 against expected value (decimal)
  */
@@ -16,28 +16,23 @@
 #include <z8000/z8000.h>
 #include "memory.h"
 
-/* Read a big-endian 32-bit integer from a byte buffer */
-static uint32_t read_be32(const uint8_t *p)
+static uint16_t read_be16(const uint8_t *p)
 {
-    return ((uint32_t)p[0] << 24) |
-           ((uint32_t)p[1] << 16) |
-           ((uint32_t)p[2] <<  8) |
-           ((uint32_t)p[3]);
+    return (uint16_t(p[0]) << 8) | p[1];
 }
 
-/* b.out header: 8 big-endian 32-bit fields = 32 bytes */
-struct bout_hdr {
-    uint32_t fmagic;
-    uint32_t tsize;
-    uint32_t dsize;
-    uint32_t bsize;
-    uint32_t ssize;
-    uint32_t rtsize;
-    uint32_t rdsize;
-    uint32_t entry;
+static uint32_t read_be32(const uint8_t *p)
+{
+    return (uint32_t(read_be16(p)) << 16) | read_be16(p + 2);
+}
+
+struct sout_hdr {
+    uint32_t tsize, dsize, bsize, entry;
 };
 
-static int load_bout(const char *path, bout_hdr *hdr,
+/* The standalone Z8002 has one flat address space. Split/SEG executable
+ * testing belongs to the Unix MMU runner, not this loader. */
+static int load_sout(const char *path, sout_hdr *hdr,
                      uint8_t **text_out, uint8_t **data_out)
 {
     FILE *f = fopen(path, "rb");
@@ -45,76 +40,46 @@ static int load_bout(const char *path, bout_hdr *hdr,
         fprintf(stderr, "run_emu: cannot open %s\n", path);
         return -1;
     }
-
-    /* Current a.out uses 8 big-endian 16-bit fields. Older b.out images
-     * use 8 big-endian 32-bit fields; retain support for existing fixtures. */
-    uint8_t raw[32];
-    if (fread(raw, 1, 16, f) != 16) {
-        fprintf(stderr, "run_emu: short header in %s\n", path);
+    uint8_t raw[40];
+    if (fread(raw, 1, sizeof(raw), f) != sizeof(raw)) {
+        fprintf(stderr, "run_emu: short s.out header in %s\n", path);
         fclose(f);
         return -1;
     }
-
-    uint16_t magic16 = ((uint16_t)raw[0] << 8) | raw[1];
-    if (magic16 == 0407 || magic16 == 0405 ||
-        magic16 == 0410 || magic16 == 0411) {
-        uint16_t fields[8];
-        for (int i = 0; i < 8; ++i)
-            fields[i] = ((uint16_t)raw[2*i] << 8) | raw[2*i+1];
-        hdr->fmagic = fields[0];
-        hdr->tsize = fields[1];
-        hdr->dsize = fields[2];
-        hdr->bsize = fields[3];
-        hdr->ssize = fields[4];
-        hdr->entry = fields[5];
-        hdr->rtsize = fields[6];
-        hdr->rdsize = fields[7];
-    } else {
-        if (fread(raw + 16, 1, 16, f) != 16) {
-            fprintf(stderr, "run_emu: short header in %s\n", path);
-            fclose(f);
-            return -1;
-        }
-        hdr->fmagic = read_be32(&raw[0]);
-        hdr->tsize  = read_be32(&raw[4]);
-        hdr->dsize  = read_be32(&raw[8]);
-        hdr->bsize  = read_be32(&raw[12]);
-        hdr->ssize  = read_be32(&raw[16]);
-        hdr->rtsize = read_be32(&raw[20]);
-        hdr->rdsize = read_be32(&raw[24]);
-        hdr->entry  = read_be32(&raw[28]);
-    }
-
-    /* Validate magic */
-    if (hdr->fmagic != 0407 && hdr->fmagic != 0405 &&
-        hdr->fmagic != 0410 && hdr->fmagic != 0411) {
-        fprintf(stderr, "run_emu: bad magic 0%o in %s\n", hdr->fmagic, path);
+    hdr->tsize = read_be16(raw + 28);
+    hdr->dsize = read_be16(raw + 30);
+    hdr->bsize = read_be16(raw + 32);
+    hdr->entry = read_be16(raw + 16);
+    uint32_t image = hdr->tsize + hdr->dsize;
+    uint16_t attrs = read_be16(raw + 34);
+    uint16_t symbols = read_be16(raw + 12);
+    if (read_be16(raw) != 0xe707 || read_be16(raw + 10) != 16 ||
+        read_be16(raw + 14) || read_be16(raw + 18) != 1 ||
+        read_be32(raw + 20) || read_be32(raw + 24) || read_be32(raw + 36) ||
+        read_be32(raw + 2) != image || read_be32(raw + 6) != hdr->bsize ||
+        symbols % 14 || (attrs & ~7) || !(attrs & 1) ||
+        (hdr->dsize && !(attrs & 2)) || (hdr->bsize && !(attrs & 4)) ||
+        !hdr->tsize || (hdr->tsize & 1) || (hdr->entry & 1) ||
+        hdr->entry >= hdr->tsize || image + hdr->bsize > 0xfffe) {
+        fprintf(stderr, "run_emu: unsupported or invalid s.out in %s\n", path);
         fclose(f);
         return -1;
     }
-
-    /* Read text segment */
-    *text_out = NULL;
-    *data_out = NULL;
-    if (hdr->tsize > 0) {
-        *text_out = (uint8_t *)malloc(hdr->tsize);
-        if (fread(*text_out, 1, hdr->tsize, f) != hdr->tsize) {
-            fprintf(stderr, "run_emu: short text in %s\n", path);
-            fclose(f);
-            return -1;
-        }
+    if (fseek(f, 0, SEEK_END) || ftell(f) != long(40 + image + symbols) ||
+        fseek(f, 40, SEEK_SET)) {
+        fprintf(stderr, "run_emu: invalid s.out length in %s\n", path);
+        fclose(f);
+        return -1;
     }
-
-    /* Read data segment */
-    if (hdr->dsize > 0) {
-        *data_out = (uint8_t *)malloc(hdr->dsize);
-        if (fread(*data_out, 1, hdr->dsize, f) != hdr->dsize) {
-            fprintf(stderr, "run_emu: short data in %s\n", path);
-            fclose(f);
-            return -1;
-        }
+    *text_out = static_cast<uint8_t *>(malloc(hdr->tsize));
+    *data_out = hdr->dsize ? static_cast<uint8_t *>(malloc(hdr->dsize)) : nullptr;
+    if (!*text_out || (hdr->dsize && !*data_out) ||
+        fread(*text_out, 1, hdr->tsize, f) != hdr->tsize ||
+        (hdr->dsize && fread(*data_out, 1, hdr->dsize, f) != hdr->dsize)) {
+        fprintf(stderr, "run_emu: cannot read s.out image in %s\n", path);
+        fclose(f);
+        return -1;
     }
-
     fclose(f);
     return 0;
 }
@@ -145,26 +110,26 @@ int main(int argc, char **argv)
         } else if (argv[i][0] != '-') {
             path = argv[i];
         } else {
-            fprintf(stderr, "usage: run_emu [-t] [-e expected] [-c cycles] <file.bout>\n");
+            fprintf(stderr, "usage: run_emu [-t] [-e expected] [-c cycles] <file.sout>\n");
             return 1;
         }
     }
 
     if (!path) {
-        fprintf(stderr, "usage: run_emu [-t] [-e expected] [-c cycles] <file.bout>\n");
+        fprintf(stderr, "usage: run_emu [-t] [-e expected] [-c cycles] <file.sout>\n");
         return 1;
     }
 
     /* Load binary */
-    bout_hdr hdr;
+    sout_hdr hdr;
     uint8_t *text_data = NULL;
     uint8_t *data_data = NULL;
-    if (load_bout(path, &hdr, &text_data, &data_data) < 0)
+    if (load_sout(path, &hdr, &text_data, &data_data) < 0)
         return 1;
 
     if (trace) {
-        fprintf(stderr, "b.out: magic=0%o text=%u data=%u bss=%u entry=0x%04X\n",
-                hdr.fmagic, hdr.tsize, hdr.dsize, hdr.bsize, hdr.entry);
+        fprintf(stderr, "s.out: text=%u data=%u bss=%u entry=0x%04X\n",
+                hdr.tsize, hdr.dsize, hdr.bsize, hdr.entry);
     }
 
     /* Set up emulator */
@@ -187,9 +152,12 @@ int main(int argc, char **argv)
     mem.write_word(0x0002, 0x4000);
     mem.write_word(0x0004, (uint16_t)(hdr.entry & 0xFFFF));
 
-    /* Load text segment at entry address */
+    /* Reset before loading: text at zero replaces the PSAP scratch vector. */
+    cpu.reset();
+
+    /* Load sections at their combined-space addresses, independent of entry. */
     if (text_data && hdr.tsize > 0) {
-        if (!mem.load(hdr.entry, text_data, hdr.tsize)) {
+        if (!mem.load(0, text_data, hdr.tsize)) {
             fprintf(stderr, "run_emu: failed to load text at 0x%04X\n", hdr.entry);
             return 1;
         }
@@ -197,15 +165,12 @@ int main(int argc, char **argv)
 
     /* Load data segment immediately after text */
     if (data_data && hdr.dsize > 0) {
-        uint32_t data_addr = hdr.entry + hdr.tsize;
+        uint32_t data_addr = hdr.tsize;
         if (!mem.load(data_addr, data_data, hdr.dsize)) {
             fprintf(stderr, "run_emu: failed to load data at 0x%04X\n", data_addr);
             return 1;
         }
     }
-
-    /* Reset CPU -- reads FCW and PC from PSAP at address 0 */
-    cpu.reset();
 
     /* Set stack pointer (R15) -- crt0 assumes SP is already valid */
     cpu.set_reg(15, 0xFFFE);

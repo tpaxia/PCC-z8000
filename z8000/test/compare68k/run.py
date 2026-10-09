@@ -14,6 +14,9 @@ import shutil
 HERE = Path(__file__).resolve().parent
 REGRESS = HERE.parent / "regress"
 TARGET = HERE.parent.parent
+TEST = HERE.parent
+sys.path.insert(0, str(TEST))
+from toolchain import AS, LD, setup_commands
 spec = importlib.util.spec_from_file_location("regress", REGRESS / "run.py")
 regress = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(regress)
@@ -59,7 +62,7 @@ def multifile(shared, build):
         obj = directory / (name + ".b")
         for stage, argv, stdin, output in [
             ("compile", [TARGET / "cz8" / "cz8"], source.read_bytes(), assembly),
-            ("assemble", [TARGET / "az8" / "az8", "-o", obj.name, assembly.name], None, None),
+            ("assemble", [AS, "-c", "-o", obj.name, assembly.name], None, None),
         ]:
             ok, detail = regress.command(argv, directory / (name + "-" + stage + ".log"),
                                          source=stdin, output=output, cwd=directory)
@@ -74,12 +77,10 @@ def multifile(shared, build):
     archive.write_bytes(b"!<arch>\n" + header + data + (b"\n" if len(data)&1 else b""))
     results = {}
     for name, inputs in [("multifile", objects), ("archive", [objects[1], archive])]:
-        binary = directory / (name + ".bout")
-        argv = [shared / "ldz8", "-x", shared / "crt0.b", "-R", "8", *inputs,
+        binary = directory / (name + ".sout")
+        argv = [shared / "ldz8", "-x", shared / "crt0.b",  *inputs,
                 shared / "exit.b", shared / "liblong.b", shared / "csv.b", "-o", binary]
         ok, detail = regress.command(argv, directory / (name + "-link.log"), cwd=directory)
-        if "ldz8: Undefined -" in detail:
-            ok = False
         if not ok:
             results[name] = {"status": "FAIL", "stage": "link", "detail": detail.strip()}
             continue
@@ -111,11 +112,11 @@ def main():
                                          "detail": detail68.strip()}
         assembly = directory / "test.az8"
         obj = directory / "test.b"
-        binary = directory / "test.bout"
+        binary = directory / "test.sout"
         stages = [
             ("compile", [TARGET / "cz8" / "cz8"], source.read_bytes(), assembly),
-            ("assemble", [TARGET / "az8" / "az8", "-o", obj.name, assembly.name], None, None),
-            ("link", [shared / "ldz8", "-x", shared / "crt0.b", "-R", "8", obj,
+            ("assemble", [AS, "-c", "-o", obj.name, assembly.name], None, None),
+            ("link", [shared / "ldz8", "-x", shared / "crt0.b",  obj,
                       shared / "exit.b", shared / "liblong.b", shared / "csv.b", shared / "libfloat.b",
                       shared / "softfp.b", "-o", binary], None, None),
             ("run", [HERE.parent / "run_emu", binary, "-e", "0"], None, None),
@@ -123,8 +124,6 @@ def main():
         for stage, argv, stdin, output in stages:
             ok, detail = regress.command(argv, directory / (stage + ".log"),
                                          source=stdin, output=output, cwd=directory)
-            if stage == "link" and "ldz8: Undefined -" in detail:
-                ok = False
             if not ok:
                 results[source.stem] = {"status": "FAIL", "stage": stage, "detail": detail.strip()}
                 break

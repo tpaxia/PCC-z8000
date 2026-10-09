@@ -7,6 +7,8 @@ import sys
 sys.dont_write_bytecode = True
 TARGET = Path(__file__).resolve().parents[2]
 TEST = TARGET / 'test'
+sys.path.insert(0, str(TEST))
+from toolchain import AS, LD, setup_commands
 WORK = Path(__file__).resolve().parent / 'build'
 WORK.mkdir(exist_ok=True)
 subprocess.run(['make', '-C', str(TEST), '../oz8', 'run_emu', 'crt0.b', 'csv.b', 'exit.b'], check=True)
@@ -31,15 +33,16 @@ for name, source in fixtures.items():
     (WORK / (name + '.az8')).write_text(result.stdout)
     print('PASS reference', name)
 
-# More aliases than the jump map can hold: optimization must remain correct.
-source = entry + '\tjr\t.L2999\n'
-source += ''.join('.L%d:\n\tjr\t.L9999\n' % i for i in range(3000))
+# More aliases than the jump map can hold, within the shared assembler
+# symbol-store limit: saturation must still preserve executable code.
+source = entry + '\tjr\t.L999\n'
+source += ''.join('.L%d:\n\tjr\t.L9999\n' % i for i in range(1000))
 source += '.L9999:\n' + finish
 result = subprocess.run([str(TARGET / 'oz8')], input=source, text=True, capture_output=True, check=True)
-assert '.L2999:' in result.stdout
+assert '.L999:' in result.stdout
 (WORK / 'bounded.az8').write_text(result.stdout)
-subprocess.run([str(TARGET / 'az8/az8'), '-o', 'bounded.b', 'bounded.az8'], cwd=WORK, check=True)
-subprocess.run(list(map(str, [TARGET / 'ldz8', '-x', TEST / 'crt0.b', '-R', '8', WORK / 'bounded.b',
+subprocess.run([str(AS), '-c', '-o', 'bounded.b', 'bounded.az8'], cwd=WORK, check=True)
+subprocess.run(list(map(str, [LD, '-x', TEST / 'crt0.b',  WORK / 'bounded.b',
                               TEST / 'csv.b', TEST / 'exit.b', '-o', WORK / 'bounded.out'])), check=True)
 subprocess.run(list(map(str, [TEST / 'run_emu', WORK / 'bounded.out', '-e', '0'])), check=True)
 print('PASS bounded-map execution')

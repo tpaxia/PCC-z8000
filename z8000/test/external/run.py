@@ -16,6 +16,8 @@ import sys
 HERE = Path(__file__).resolve().parent
 TEST = HERE.parent
 TARGET = TEST.parent
+sys.path.insert(0, str(TEST))
+from toolchain import AS, LD, setup_commands
 REGRESS = TEST / "regress"
 spec = importlib.util.spec_from_file_location("regress", REGRESS / "run.py")
 regress = importlib.util.module_from_spec(spec)
@@ -88,7 +90,7 @@ def main():
     exit_source = build / "exit.az8"
     exit_obj = build / "exit.b"
     exit_source.write_text("\t.text\n\t.globl\t_exit\n_exit:\n\tld\tr0,2(sp)\n\thalt\n")
-    ok, detail = regress.command([TARGET / "az8/az8", "-o", exit_obj.name, exit_source.name],
+    ok, detail = regress.command([AS, "-c", "-o", exit_obj.name, exit_source.name],
                                  build / "exit-assemble.log", cwd=build)
     if not ok:
         print("Exit stub assembly failed:\n" + detail)
@@ -106,7 +108,7 @@ def main():
         name = case["name"]
         directory = build / name
         directory.mkdir(exist_ok=True)
-        for filename in ("input.c", "test.i", "test.az8", "test.b", "test.bout",
+        for filename in ("input.c", "test.i", "test.az8", "test.b", "test.sout",
                          "preprocess.log", "compile.log", "assemble.log", "link.log", "run.log"):
             (directory / filename).unlink(missing_ok=True)
         source = directory / "input.c"
@@ -119,13 +121,13 @@ def main():
         preprocessed = directory / "test.i"
         assembly = directory / "test.az8"
         obj = directory / "test.b"
-        binary = directory / "test.bout"
+        binary = directory / "test.sout"
         stages = [
             ("preprocess", ["cc", "-E", "-P", "-undef", "-nostdinc", "-x", "c", source],
              None, preprocessed),
             ("compile", [TARGET / "cz8/cz8"], preprocessed, assembly),
-            ("assemble", [TARGET / "az8/az8", "-o", obj.name, assembly.name], None, None),
-            ("link", [shared / "ldz8", "-x", shared / "crt0.b", "-R", "8", obj,
+            ("assemble", [AS, "-c", "-o", obj.name, assembly.name], None, None),
+            ("link", [shared / "ldz8", "-x", shared / "crt0.b",  obj,
                       exit_obj, shared / "liblong.b", shared / "csv.b", shared / "libfloat.b",
                       shared / "softfp.b", "-o", binary], None, None),
             ("run", [TEST / "run_emu", binary, "-e", "0", "-c", "2000000"], None, None),
@@ -134,8 +136,6 @@ def main():
             ok, detail = regress.command(argv, directory / (stage + ".log"),
                                          source=stdin.read_bytes() if stdin else None,
                                          output=output, cwd=directory)
-            if stage == "link" and "ldz8: Undefined -" in detail:
-                ok = False
             if not ok:
                 results[name] = dict(status="FAIL", stage=stage, detail=detail.strip())
                 break

@@ -17,6 +17,8 @@ import sys
 HERE = Path(__file__).resolve().parent
 TEST = HERE.parent
 TARGET = TEST.parent
+sys.path.insert(0, str(TEST))
+from toolchain import AS, LD, setup_commands
 PROBES = HERE / "probes"
 CC_FLAGS = ["-O", "-w", "-Wno-implicit-int", "-Wno-implicit-function-declaration",
             "-Wno-int-conversion", "-Wno-return-mismatch"]
@@ -54,10 +56,10 @@ def load_probes(known_items):
 
 def build_runtime(build):
     """Assemble crt0 and the runtime library once; return the object list."""
-    cz8, az8 = TARGET / "cz8" / "cz8", TARGET / "az8" / "az8"
-    setup = [["make", "-C", TARGET / "cz8"], ["make", "-C", TARGET / "az8"],
+    cz8, az8 = TARGET / "cz8" / "cz8", AS
+    setup = [["make", "-C", TARGET / "cz8"], *setup_commands(),
              ["make", "-C", TEST, "run_emu"],
-             ["cc", *CC_FLAGS, "-o", build / "ldz8", TARGET / "ldz8.c"]]
+             ["cp", LD, build / "ldz8"]]
     for argv in setup:
         rc, out, err = run(argv)
         if rc != 0:
@@ -74,7 +76,7 @@ def build_runtime(build):
     objects = []
     for name, data in sources:
         (build / (name + ".az8")).write_bytes(data)
-        rc, out, err = run([az8, "-o", name + ".b", name + ".az8"], cwd=build)
+        rc, out, err = run([az8, "-c", "-o", name + ".b", name + ".az8"], cwd=build)
         if rc != 0:
             sys.exit("runtime %s does not assemble:\n%s" % (name, (out + err).decode()))
         objects.append(build / (name + ".b"))
@@ -95,18 +97,15 @@ def run_probe(probe, cz8, az8, objects, build):
         detail = errors[0] if errors else "cz8 exit %d" % rc
         return "FAIL compile: " + re.sub(r"^[^,]*, ", "", detail)
     (work / "t.az8").write_bytes(asm)
-    rc, out, err = run([az8, "-o", "t.b", "t.az8"], cwd=work)
+    rc, out, err = run([az8, "-c", "-o", "t.b", "t.az8"], cwd=work)
     if rc != 0:
         return "FAIL assemble: " + first_line(out + err)
-    rc, out, err = run([build / "ldz8", "-x", objects[0], "-R", "8", "t.b", *objects[1:],
-                        "-o", "t.bout"], cwd=work)
+    rc, out, err = run([build / "ldz8", "-x", objects[0],  "t.b", *objects[1:],
+                        "-o", "t.sout"], cwd=work)
     text = (out + err).decode(errors="replace")
-    # ldz8 reports undefined and multiply defined symbols and bad relocations
-    # but still exits zero and writes an image; never run that image.
-    complaints = [l for l in text.splitlines() if l.startswith("ldz8:")]
-    if rc != 0 or complaints:
-        return "FAIL link: " + re.sub(r" in file \S+", "", (complaints[-1] if complaints else first_line(out + err))[6:])
-    rc, out, err = run([TEST / "run_emu", "t.bout", "-e", "0", "-c", "20000000"], cwd=work)
+    if rc != 0:
+        return "FAIL link: " + first_line(out + err)
+    rc, out, err = run([TEST / "run_emu", "t.sout", "-e", "0", "-c", "20000000"], cwd=work)
     (work / "run.log").write_bytes(out + err)
     if rc == 0:
         return "PASS"
