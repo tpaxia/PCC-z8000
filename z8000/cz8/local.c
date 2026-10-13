@@ -75,8 +75,26 @@ clocal(p) NODE *p; {
 			p->in.op += (ULT-LT);
 			}
 		break;
-
+# ifdef Z8001_SEG
+	case INCR:
+	case DECR:
+	case PLUS:
+	case MINUS:
+	case ASG PLUS:
+	case ASG MINUS:
+		if(o==MINUS && ISPTR(p->in.left->in.type) && ISPTR(p->in.right->in.type)) {
+			p->in.type=LONG; p->fn.cdim=0; p->fn.csiz=LONG;
+		}
+		if(ISPTR(p->in.type) && !ISPTR(p->in.right->in.type))
+			p->in.right=makety(p->in.right,ULONG,0,ULONG);
+		break;
+# endif
 	case PCONV:
+# ifdef Z8001_SEG
+		if( !ISPTR(p->in.left->in.type) && p->in.left->in.type!=LONG && p->in.left->in.type!=ULONG && p->in.left->in.op!=ICON ) {
+			p->in.op=SCONV; return clocal(p);
+		}
+# else
 		if( p->in.left->in.op == ICON ){
 			/* a constant keeps the pointer's own type information,
 			   e.g. (struct user *)0xF000 where 0xF000 is a long */
@@ -86,6 +104,7 @@ clocal(p) NODE *p; {
 		else if(!ISPTR(p->in.left->in.type) && (p->in.left->in.type==LONG || p->in.left->in.type==ULONG || p->in.left->in.type==CHAR || p->in.left->in.type==UCHAR)) {
 			p->in.op=SCONV; return clocal(p);
 		}
+# endif
 		/* pointer conversions are trivial on Z8000 since ptrs = ints = 16 bits */
 		/* just inherit the type */
 		p->in.left->in.type = p->in.type;
@@ -107,12 +126,21 @@ clocal(p) NODE *p; {
 
 		m = p->in.type;
 		ml = p->in.left->in.type;
+# ifdef Z8001_SEG
+		if( ISPTR(m) ) m=ULONG;
+		if( ISPTR(ml) ) ml=ULONG;
+# endif
 		/* Widen bytes through a word before allocating a long pair. */
 		if( (m==LONG || m==ULONG) && (ml==CHAR || ml==UCHAR) && p->in.left->in.op!=ICON ){
 			int wt = ml==CHAR ? INT : UNSIGNED;
 			p->in.left = makety( p->in.left, wt, 0, wt );
 			break;
 			}
+# ifdef Z8001_SEG
+		if(p->in.left->in.op==ICON && p->in.left->tn.rval!=NONAME && ISPTR(p->in.left->in.type)) {
+			if(m==LONG || m==ULONG) break; /* materialize the segmented address */
+		}
+# endif
 		if( p->in.left->in.op == ICON ){ /* simulate the conversion here */
 			CONSZ val;
 			/* A symbolic address needs a word relocation before truncation. */
@@ -147,6 +175,15 @@ clocal(p) NODE *p; {
 		return( p->in.left );  /* conversion gets clobbered */
 
 	case PVCONV:
+# ifdef Z8001_SEG
+		if(p->in.left->in.op==MINUS && ISPTR(p->in.left->in.left->in.type)) {
+			NODE *difference;
+			p->in.left->in.type=LONG;
+			difference=buildtree(DIV,p->in.left,p->in.right);
+			p->in.op=FREE;
+			return makety(difference,INT,0,INT);
+		}
+# endif
 	case PMCONV:
 		if( p->in.right->in.op != ICON ) cerror( "bad conversion", 0);
 		p->in.op = FREE;

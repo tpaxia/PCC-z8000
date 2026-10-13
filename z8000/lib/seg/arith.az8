@@ -1,0 +1,248 @@
+! Segmented form of ../arith.az8, preserving its multiply/divide algorithms.
+! Binary arguments: SP+4 a_high, SP+6 a_low, SP+8 b_high, SP+10 b_low.
+! Return RR0. Clobber R0-R3/R8-R9; preserve R4-R7/R10-R13.
+! SEG return addresses and pointers each occupy four bytes.
+	.text
+
+! ============================================================
+! lmul / ulmul -- 32-bit multiply
+! ============================================================
+! Algorithm: a*b = al*bl + (ah*bl + al*bh) << 16
+! Low 32 bits are identical for signed and unsigned.
+! For al*bl: use signed MULT with unsigned correction --
+!   if al has bit 15 set, add bl to high word of result
+!   if bl has bit 15 set, add al to high word of result
+
+	.globl	lmul
+	.globl	ulmul
+lmul:
+ulmul:
+	ld	r0, rr14(#6)	! al
+	ld	r1, rr14(#10)	! bl
+	ld	r3, r0		! R3 = al (multiplicand for MULT RR2)
+	ld	r8, r1		! R8 = bl (saved for unsigned correction)
+	mult	rr2, r1		! R3(al) * R1(bl) -> RR2 (signed 32-bit)
+	! Unsigned correction for al*bl
+	test	r0		! test al
+	jr	pl, .Lm1
+	add	r2, r8		! al bit 15 set: add bl to high word
+.Lm1:
+	test	r8		! test bl
+	jr	pl, .Lm2
+	add	r2, r0		! bl bit 15 set: add al to high word
+.Lm2:
+	! RR2 = unsigned(al * bl) -- full 32-bit product
+	! Cross term 1: ah * bl (only low 16 bits contribute)
+	ld	r9, rr14(#4)	! R9 = ah (for MULT RR8: R9 * src -> RR8)
+	mult	rr8, r1		! ah * bl -> RR8; R9 = low 16 bits
+	add	r2, r9		! add to result high word
+	! Cross term 2: bh * al (only low 16 bits contribute)
+	ld	r9, rr14(#8)	! R9 = bh
+	mult	rr8, r0		! bh * al -> RR8; R9 = low 16 bits
+	add	r2, r9		! add to result high word
+	! Move result to return register
+	ld	r0, r2
+	ld	r1, r3
+	ret
+
+! ============================================================
+! ldiv -- signed 32-bit divide (quotient)
+! ============================================================
+! Uses hardware DIVL: sign-extend dividend to 64-bit, divide.
+! DIVL RQ0, RR8: R0:R1:R2:R3 / R8:R9 -> R2:R3 quot, R0:R1 rem
+
+	.globl	ldiv
+ldiv:
+	ld	r2, rr14(#4)	! a_high (dividend)
+	ld	r3, rr14(#6)	! a_low
+	! Sign-extend RR2 (32-bit) to RQ0 (64-bit)
+	! EXTS RR0 sets R0 = sign(R1), so copy R2 to R1 first
+	ld	r1, r2		! R1 = a_high (for sign extension)
+	exts	rr0		! R0 = sign(R1) = sign of dividend
+	ld	r1, r0		! R1 = R0 = sign extension word
+	! Now RQ0 = R0:R1:R2:R3 = sign-extended 64-bit dividend
+	ld	r8, rr14(#8)	! b_high (divisor)
+	ld	r9, rr14(#10)	! b_low
+	divl	rq0, rr8	! quotient in R2:R3, remainder in R0:R1
+	ld	r0, r2		! move quotient to return register
+	ld	r1, r3
+	ret
+
+! ============================================================
+! lrem -- signed 32-bit remainder
+! ============================================================
+
+	.globl	lrem
+lrem:
+	ld	r2, rr14(#4)	! a_high (dividend)
+	ld	r3, rr14(#6)	! a_low
+	! Sign-extend RR2 to RQ0 (same as ldiv)
+	ld	r1, r2
+	exts	rr0
+	ld	r1, r0
+	ld	r8, rr14(#8)	! b_high (divisor)
+	ld	r9, rr14(#10)	! b_low
+	divl	rq0, rr8	! quotient in R2:R3, remainder in R0:R1
+	! Remainder already in R0:R1
+	ret
+
+! ============================================================
+! uldiv -- unsigned 32-bit divide (quotient)
+! ============================================================
+! Fast path: divisor high word = 0 AND low word < 32768
+!   -> two hardware DIV instructions
+! Slow path: binary long division, 32 iterations
+
+	.globl	uldiv
+uldiv:
+	push	@rr14, r4
+	push	@rr14, r5
+	! SP adjusted by 4 from saves
+	ld	r0, rr14(#8)	! a_high (dividend)
+	ld	r1, rr14(#10)	! a_low
+	ld	r4, rr14(#12)	! b_high (divisor)
+	ld	r5, rr14(#14)	! b_low
+	! Fast path check
+	test	r4
+	jr	ne,.Lud_slow
+	test	r5
+	jr	mi, .Lud_slow	! bl >= 32768: not safe for signed DIV
+	! Fast path: unsigned 32/16 via two signed DIV instructions
+	! Step 1: divide a_high by divisor
+	ld	r8, r1		! save a_low in R8
+	ld	r1, r0		! R1 = a_high
+	clr	r0		! RR0 = 0:a_high (positive 32-bit)
+	div	rr0, r5		! R1 = q_high, R0 = r_high
+	ld	r9, r1		! save q_high
+	! Step 2: divide (r_high:a_low) by divisor
+	ld	r1, r8		! R1 = a_low, RR0 = r_high:a_low
+	div	rr0, r5		! R1 = q_low, R0 = r_low
+	ld	r0, r9		! R0 = q_high
+	! Result: R0:R1 = quotient
+	pop	r5, @rr14
+	pop	r4, @rr14
+	ret
+
+.Lud_slow:
+	! Binary long division
+	! R0:R1 = dividend (shifts out) -> quotient (shifts in)
+	! R2:R3 = remainder (starts at 0)
+	! R4:R5 = divisor (callee-saved)
+	! R8 = loop counter
+	clr	r2
+	clr	r3
+	ld	r8, #32
+.Lud_loop:
+	! Shift 64-bit {R2:R3:R0:R1} left by 1
+	sll	r1, #1		! dividend low: MSB -> carry
+	rlc	r0, #1		! dividend high: carry in, MSB -> carry
+	rlc	r3, #1		! remainder low: carry in, MSB -> carry
+	rlc	r2, #1		! remainder high: carry in, MSB -> carry
+	! If carry out from remainder, it overflows 32 bits -- always >= divisor
+	jr	c, .Lud_sub	! carry set means remainder >= 2^32 > divisor
+	cpl	rr2, rr4	! compare remainder with divisor
+	jr	ult, .Lud_skip	! if remainder < divisor, skip subtraction
+.Lud_sub:
+	subl	rr2, rr4	! remainder -= divisor
+	or	r1, #1		! set quotient bit
+.Lud_skip:
+	dec	r8, #1
+	jr	ne,.Lud_loop
+	! Result: R0:R1 = quotient
+	pop	r5, @rr14
+	pop	r4, @rr14
+	ret
+
+! ============================================================
+! ulrem -- unsigned 32-bit remainder
+! ============================================================
+! Same algorithm as uldiv but returns remainder instead of quotient.
+
+	.globl	ulrem
+ulrem:
+	push	@rr14, r4
+	push	@rr14, r5
+	! SP adjusted by 4 from saves
+	ld	r0, rr14(#8)	! a_high (dividend)
+	ld	r1, rr14(#10)	! a_low
+	ld	r4, rr14(#12)	! b_high (divisor)
+	ld	r5, rr14(#14)	! b_low
+	! Fast path check
+	test	r4
+	jr	ne,.Lur_slow
+	test	r5
+	jr	mi, .Lur_slow
+	! Fast path: unsigned 32/16 via two signed DIV instructions
+	ld	r8, r1		! save a_low
+	ld	r1, r0		! R1 = a_high
+	clr	r0		! RR0 = 0:a_high
+	div	rr0, r5		! R1 = q_high, R0 = r_high
+	ld	r1, r8		! R1 = a_low, RR0 = r_high:a_low
+	div	rr0, r5		! R1 = q_low, R0 = r_low
+	! Remainder = R0 (16-bit, since divisor < 32768)
+	ld	r1, r0
+	clr	r0		! R0:R1 = 0:remainder
+	pop	r5, @rr14
+	pop	r4, @rr14
+	ret
+
+.Lur_slow:
+	! Binary long division (same loop as uldiv)
+	clr	r2
+	clr	r3
+	ld	r8, #32
+.Lur_loop:
+	sll	r1, #1
+	rlc	r0, #1
+	rlc	r3, #1
+	rlc	r2, #1
+	jr	c, .Lur_sub
+	cpl	rr2, rr4
+	jr	ult, .Lur_skip
+.Lur_sub:
+	subl	rr2, rr4
+	or	r1, #1
+.Lur_skip:
+	dec	r8, #1
+	jr	ne,.Lur_loop
+	! Result: R2:R3 = remainder
+	ld	r0, r2
+	ld	r1, r3
+	pop	r5, @rr14
+	pop	r4, @rr14
+	ret
+
+
+! Assignment operations: return address 4 bytes, pointer 4 bytes, rhs 4 bytes.
+.globl almul,aulmul,aldiv,auldiv,alrem,aulrem
+almul:
+aulmul:
+ lda rr8,lmul
+ jr .Lasg
+aldiv:
+ lda rr8,ldiv
+ jr .Lasg
+auldiv:
+ lda rr8,uldiv
+ jr .Lasg
+alrem:
+ lda rr8,lrem
+ jr .Lasg
+aulrem:
+ lda rr8,ulrem
+.Lasg:
+ pushl @rr14,rr4
+ ld r4,rr14(#8)
+ ld r5,rr14(#10)
+ ld r0,@rr4
+ ld r1,rr4(#2)
+ ld r2,rr14(#12)
+ ld r3,rr14(#14)
+ pushl @rr14,rr2
+ pushl @rr14,rr0
+ call @rr8
+ add r15,#8
+ ld @rr4,r0
+ ld rr4(#2),r1
+ popl rr4,@rr14
+ ret

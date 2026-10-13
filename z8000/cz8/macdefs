@@ -2,8 +2,13 @@
 
 # define makecc(val,i)  lastcon = i ? (val<<8)|lastcon : val
 
+# ifdef Z8001_SEG
+# define ARGINIT 64 /* saved RR12 and segmented return address */
+# define AUTOINIT (6*SZINT)
+# else
 # define  ARGINIT 32
 # define  AUTOINIT (8*SZINT)	/* reserve 16 bytes for callee-saved reg saves */
+# endif
 
 # define  SZCHAR 8
 # define  SZINT 16
@@ -11,7 +16,13 @@
 # define  SZDOUBLE 64
 # define  SZLONG 32
 # define  SZSHORT 16
-# define  SZPOINT 16
+# ifdef Z8001_SEG
+# define SZPOINT 32
+# define STACKADDR "rr14"
+# else
+# define SZPOINT 16
+# define STACKADDR "sp"
+# endif
 
 # define ALCHAR 8
 # define ALINT 16
@@ -42,8 +53,13 @@
 /* register cookie for stack pointer */
 /* R13 is frame pointer, used for both stack and arg access */
 
-# define  STKREG 13
+# ifdef Z8001_SEG
+# define STKREG 12
+# define ARGREG 12
+# else
+# define STKREG 13
 # define ARGREG 13
+# endif
 
 /*	maximum and minimum register variables */
 

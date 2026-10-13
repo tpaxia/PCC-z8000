@@ -1,9 +1,30 @@
 # include "mfile2"
 
+# ifdef Z8001_SEG
+# define TSCALAR TCHAR|TUCHAR|TSHORT|TUSHORT|TINT|TUNSIGNED
+# define TWORD TINT|TUNSIGNED|TSHORT|TUSHORT
+# define ARITH ((EA) & ~SOREG)
+# define ARITHMEM SNAME|STARNM
+# define TUINT TUNSIGNED|TUSHORT
+# define CMPIMM SNAME|SAREG|SBREG
+# define LONGCON SNCON
+# define STRUCTADDR SBREG
+# else
 # define TSCALAR TCHAR|TUCHAR|TSHORT|TUSHORT|TINT|TUNSIGNED|TPOINT
 # define TWORD TINT|TUNSIGNED|TSHORT|TUSHORT|TPOINT
+# define ARITH EA
+# define ARITHMEM SNAME|SOREG|STARNM
+# define TUINT TUNSIGNED|TUSHORT|TPOINT
+# define CMPIMM SNAME|SOREG|SAREG|SBREG
+# define LONGCON SCON
+# define STRUCTADDR SCON|SBREG
+# endif
 # define EA SNAME|SOREG|SCON|SAREG|SBREG|STARNM
+# ifdef Z8001_SEG
+# define EAA SNAME|SAREG|STARNM
+# else
 # define EAA SNAME|SOREG|SAREG|STARNM
+# endif
 
 struct optab  table[] = {
 
@@ -102,6 +123,12 @@ ASSIGN,	INAREG|FOREFF,
 		0,	RLEFT|RRIGHT,
 		"	ld	AL,AR\n	ld	UL,UR\n",
 
+# ifdef Z8001_SEG
+/* A pair used as the memory base must be read before either word changes. */
+ASSIGN, INAREG|INBREG|FOREFF,
+ SAREG|SBREG,TPOINT|TLONG|TULONG, SNAME|SOREG|STARNM,TPOINT|TLONG|TULONG,
+ 0,RLEFT|RRIGHT,"Zj",
+# endif
 /* assign long: reg = mem */
 ASSIGN,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
@@ -116,6 +143,11 @@ ASSIGN,	INAREG|FOREFF,
 		0,	RLEFT|RRIGHT,
 		"	ld	AL,AR\n	ld	UL,UR\n",
 
+# ifdef Z8001_SEG
+ASSIGN, INTAREG|INAREG|FOREFF,
+	SNAME|SOREG|SAREG|SBREG,TPOINT, SCON,TPOINT,
+		NAREG,RESC1,"Za\tld\tAL,A1\n\tld\tUL,U1\n",
+# endif
 /* assign long: reg = const (word by word) */
 ASSIGN,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
@@ -137,7 +169,7 @@ ASSIGN, INTAREG|INAREG|FOREFF,
 	SFLD,	TANY,
 	SAREG|STAREG,	TANY,
 		NAREG,	RRIGHT,
-		"F	push	@sp,AR\n	ld	A1,#H\n	sda	AR,A1\n	and	AR,#M\n	ld	A1,AL\n	and	A1,#N\n	or	A1,AR\n	ld	AL,A1\nF	pop	AR,@sp\n",
+		"F	push	@" STACKADDR ",AR\n	ld	A1,#H\n	sda	AR,A1\n	and	AR,#M\n	ld	A1,AL\n	and	A1,#N\n	or	A1,AR\n	ld	AL,A1\nF	pop	AR,@" STACKADDR "\n",
 
 /* === UNARY MUL (indirect load) === */
 
@@ -204,6 +236,14 @@ OPLTYPE,	FORCC,
 		0,	RESCC,
 		"	test	AR\n",
 
+# ifdef Z8001_SEG
+OPLTYPE, FORCC,
+	SANY,TANY, SOREG,TWORD|TCHAR|TUCHAR,
+		NAREG,RESCC,"\tldZB\tA1,AR\n\ttestZB\tA1\n",
+OPLTYPE, FORCC,
+	SANY,TANY, SOREG,TLONG|TULONG,
+		NAREG,RESCC,"\tld\tA1,AR\n\tld\tU1,UR\n\tor\tA1,U1\n",
+# endif
 OPLTYPE,	FORCC,
 	SANY,	TANY,
 	SNAME|SOREG,	TWORD,
@@ -223,6 +263,12 @@ OPLTYPE,	FORCC,
 		0,	RESCC,
 		"	or	AR,UR\n",
 
+# ifdef Z8001_SEG
+/* Testing a register variable must not destroy its high word. */
+OPLTYPE, FORCC,
+ SANY,TANY, SAREG|SBREG,TLONG|TULONG,
+ NAREG|NWORD,RESCC,"\tld\tA1,AR\n\tor\tA1,UR\n",
+# endif
 /* test long in memory: load high, or with low */
 OPLTYPE,	FORCC,
 	SANY,	TANY,
@@ -237,6 +283,17 @@ OPLTYPE,	INTAREG|INAREG,
 		NAREG|NASR,	RESC1,
 		"	clrZB	A1\n",
 
+# ifdef Z8001_SEG
+OPLTYPE, INTAREG|INAREG|INTBREG|INBREG,
+	SANY, TANY,
+	SCON, TPOINT,
+		NAREG|NASR, RESC1, "Za",
+
+OPLTYPE, INTBREG|INBREG,
+	SANY,TANY, EA,TPOINT,
+		NBREG|NBSR,RESC1,"Zp",
+# endif
+
 /* load word/byte value into data register */
 OPLTYPE,	INTAREG|INAREG,
 	SANY,	TANY,
@@ -244,6 +301,11 @@ OPLTYPE,	INTAREG|INAREG,
 		NAREG|NASR,	RESC1,
 		"	ldZB	A1,AR\n",
 
+# ifdef Z8001_SEG
+OPLTYPE, INTAREG|INAREG,
+ SANY,TANY, SNAME|SOREG|STARNM,TPOINT|TLONG|TULONG,
+ NAREG|NASR,RESC1,"Zp",
+# endif
 /* load long value into data register (word by word) */
 OPLTYPE,	INTAREG|INAREG,
 	SANY,	TANY,
@@ -293,74 +355,79 @@ OPLTYPE,	INTEMP,
 		NTEMP+NTEMP,	RESC1,
 		"	ld	r0,AR\n	ld	A1,r0\n	ld	r0,UR\n	ld	U1,r0\n",
 
+# ifdef Z8001_SEG
+OPLTYPE, FORARG,
+	SANY,TANY, SCON,TPOINT,
+		NAREG,RNULL,"Za\tpush\t@" STACKADDR ",U1\n\tpush\t@" STACKADDR ",A1\nZ-Z-",
+# endif
 /* push word argument - register source */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	SAREG|SBREG,	TWORD,
 		0,	RNULL,
-		"	push	@sp,AR\nZ-",
+		"	push	@" STACKADDR ",AR\nZ-",
 
 /* push word argument - constant source */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	SCON,	TWORD,
 		0,	RNULL,
-		"	push	@sp,AR\nZ-",
+		"	push	@" STACKADDR ",AR\nZ-",
 
 /* push word argument - memory source (load then push) */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	SNAME|SOREG|STARNM,	TWORD,
 		0,	RNULL,
-		"	ld	r0,AR\n	push	@sp,r0\nZ-",
+		"	ld	r0,AR\n	push	@" STACKADDR ",r0\nZ-",
 
 /* push char argument - sign extend to word then push */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	EA,	TCHAR,
 		0,	RNULL,
-		"	ldb	rl0,AR\n	extsb	r0\n	push	@sp,r0\nZ-",
+		"	ldb	rl0,AR\n	extsb	r0\n	push	@" STACKADDR ",r0\nZ-",
 
 /* push unsigned char argument - zero extend to word then push */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	EA,	TUCHAR,
 		0,	RNULL,
-		"	clr	r0\n	ldb	rl0,AR\n	push	@sp,r0\nZ-",
+		"	clr	r0\n	ldb	rl0,AR\n	push	@" STACKADDR ",r0\nZ-",
 
 /* push long argument (high word first to stack, so push low then high) */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	SAREG,	TLONG|TULONG,
 		0,	RNULL,
-		"	push	@sp,UR\n	push	@sp,AR\nZ-Z-",
+		"	push	@" STACKADDR ",UR\n	push	@" STACKADDR ",AR\nZ-Z-",
 
 /* push long argument from memory */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	SNAME|SOREG|STARNM,	TLONG|TULONG,
 		0,	RNULL,
-		"	ld	r0,UR\n	push	@sp,r0\n	ld	r0,AR\n	push	@sp,r0\nZ-Z-",
+		"	ld	r0,UR\n	push	@" STACKADDR ",r0\n	ld	r0,AR\n	push	@" STACKADDR ",r0\nZ-Z-",
 
 /* push long constant */
 OPLTYPE,	FORARG,
 	SANY,	TANY,
 	SCON,	TLONG|TULONG,
 		0,	RNULL,
-		"	push	@sp,UR\n	push	@sp,AR\nZ-Z-",
+		"	push	@" STACKADDR ",UR\n	push	@" STACKADDR ",AR\nZ-Z-",
 
 /* === OPLOG (comparison) === */
 
 /* compare word: reg vs anything */
 OPLOG,	FORCC,
 	SAREG|STAREG|SBREG|STBREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RESCC,
 		"	cp	AL,AR\nZI",
 
 /* compare word: mem vs const */
 OPLOG,	FORCC,
-	SNAME|SOREG|SAREG|SBREG,	TWORD,
+	CMPIMM,	TWORD,
 	SCON,	TWORD,
 		0,	RESCC,
 		"	cp	AL,AR\nZI",
@@ -368,7 +435,7 @@ OPLOG,	FORCC,
 /* compare byte: reg vs anything */
 OPLOG,	FORCC,
 	SAREG|STAREG,	TCHAR|TUCHAR,
-	EA,	TCHAR|TUCHAR,
+	ARITH,	TCHAR|TUCHAR,
 		0,	RESCC,
 		"	cpb	AL,AR\nZI",
 
@@ -382,14 +449,14 @@ OPLOG,	FORCC,
 /* compare long: reg vs mem */
 OPLOG,	FORCC,
 	SAREG|STAREG,	TLONG|TULONG,
-	SNAME|SOREG|STARNM,	TLONG|TULONG,
+	ARITHMEM,	TLONG|TULONG,
 		0,	RESCC,
 		"ZLZI",
 
 /* compare long: reg vs const */
 OPLOG,	FORCC,
 	SAREG|STAREG,	TLONG|TULONG,
-	SCON,	TLONG|TULONG,
+	LONGCON,	TLONG|TULONG,
 		0,	RESCC,
 		"ZLZI",
 
@@ -473,26 +540,26 @@ DECR,	INTAREG|INAREG|FOREFF,
 
 /* post-increment with general constant - memory dest, effect only */
 INCR,	FOREFF,
-	SNAME|SOREG|STARNM,	TSCALAR,
+	ARITHMEM,	TSCALAR,
 	SCON,	TSCALAR,
 		NAREG,	RESC1,
 		"	ld	A1,AL\n	add	A1,AR\n	ld	AL,A1\n",
 
 DECR,	FOREFF,
-	SNAME|SOREG|STARNM,	TSCALAR,
+	ARITHMEM,	TSCALAR,
 	SCON,	TSCALAR,
 		NAREG,	RESC1,
 		"	ld	A1,AL\n	sub	A1,AR\n	ld	AL,A1\n",
 
 /* post-increment with general constant - memory dest, need old value */
 INCR,	INTAREG|INAREG,
-	SNAME|SOREG|STARNM,	TSCALAR,
+	ARITHMEM,	TSCALAR,
 	SCON,	TSCALAR,
 		NAREG+NAREG,	RESC1,
 		"	ld	A1,AL\n	ld	A2,A1\n	add	A2,AR\n	ld	AL,A2\n",
 
 DECR,	INTAREG|INAREG,
-	SNAME|SOREG|STARNM,	TSCALAR,
+	ARITHMEM,	TSCALAR,
 	SCON,	TSCALAR,
 		NAREG+NAREG,	RESC1,
 		"	ld	A1,AL\n	ld	A2,A1\n	sub	A2,AR\n	ld	AL,A2\n",
@@ -540,51 +607,51 @@ ASG MINUS,	INAREG|FOREFF,
 /* add/sub: reg op= src */
 ASG PLUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RLEFT,
 		"	add	AL,AR\n",
 
 ASG PLUS,	INBREG|FOREFF,
 	SBREG|STBREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RLEFT,
 		"	add	AL,AR\n",
 
 ASG MINUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RLEFT,
 		"	sub	AL,AR\n",
 
 ASG MINUS,	INBREG|FOREFF,
 	SBREG|STBREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RLEFT,
 		"	sub	AL,AR\n",
 
 /* add/sub byte */
 ASG PLUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TCHAR|TUCHAR,
-	EA,	TCHAR|TUCHAR,
+	ARITH,	TCHAR|TUCHAR,
 		0,	RLEFT,
 		"	addb	AL,AR\n",
 
 ASG MINUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TCHAR|TUCHAR,
-	EA,	TCHAR|TUCHAR,
+	ARITH,	TCHAR|TUCHAR,
 		0,	RLEFT,
 		"	subb	AL,AR\n",
 
 /* add/sub: mem op= src (Z8000 add/sub are reg-dest only, use load/op/store) */
 ASG PLUS,	INAREG|FOREFF,
-	SNAME|SOREG|STARNM,	TWORD,
-	EA,	TWORD,
+	ARITHMEM,	TWORD,
+	ARITH,	TWORD,
 		NAREG,	RLEFT,
 		"	ld	A1,AL\n	add	A1,AR\n	ld	AL,A1\n",
 
 ASG MINUS,	INAREG|FOREFF,
-	SNAME|SOREG|STARNM,	TWORD,
-	EA,	TWORD,
+	ARITHMEM,	TWORD,
+	ARITH,	TWORD,
 		NAREG,	RLEFT,
 		"	ld	A1,AL\n	sub	A1,AR\n	ld	AL,A1\n",
 
@@ -604,26 +671,26 @@ ASG MINUS,	INAREG|FOREFF,
 /* add/sub long: reg op= mem (adc/sbc are reg-only, need temp for high word) */
 ASG PLUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	SNAME|SOREG|STARNM,	TLONG|TULONG,
+	ARITHMEM,	TLONG|TULONG,
 		NAREG,	RLEFT,
 		"	add	UL,UR\n	ld	A1,AR\n	adc	AL,A1\n",
 
 ASG MINUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	SNAME|SOREG|STARNM,	TLONG|TULONG,
+	ARITHMEM,	TLONG|TULONG,
 		NAREG,	RLEFT,
 		"	sub	UL,UR\n	ld	A1,AR\n	sbc	AL,A1\n",
 
 /* add/sub long: reg op= const (adc/sbc are reg-only, need temp for high word) */
 ASG PLUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	SCON,	TLONG|TULONG,
+	LONGCON,	TLONG|TULONG,
 		NAREG,	RLEFT,
 		"	add	UL,UR\n	ld	A1,AR\n	adc	AL,A1\n",
 
 ASG MINUS,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	SCON,	TLONG|TULONG,
+	LONGCON,	TLONG|TULONG,
 		NAREG,	RLEFT,
 		"	sub	UL,UR\n	ld	A1,AR\n	sbc	AL,A1\n",
 
@@ -632,21 +699,21 @@ ASG MINUS,	INAREG|FOREFF,
 /* and long: reg op= src (word by word) */
 ASG AND,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	EA,	TLONG|TULONG,
+	ARITH,	TLONG|TULONG,
 		0,	RLEFT,
 		"	and	AL,AR\n	and	UL,UR\n",
 
 /* or long: reg op= src (word by word) */
 ASG OR,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	EA,	TLONG|TULONG,
+	ARITH,	TLONG|TULONG,
 		0,	RLEFT,
 		"	or	AL,AR\n	or	UL,UR\n",
 
 /* xor long: reg op= src (word by word) */
 ASG ER,	INAREG|FOREFF,
 	SAREG|STAREG,	TLONG|TULONG,
-	EA,	TLONG|TULONG,
+	ARITH,	TLONG|TULONG,
 		0,	RLEFT,
 		"	xor	AL,AR\n	xor	UL,UR\n",
 
@@ -654,13 +721,13 @@ ASG ER,	INAREG|FOREFF,
 /* xor: reg op= src */
 ASG ER,	INAREG|FOREFF,
 	SAREG|STAREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RLEFT,
 		"	xor	AL,AR\n",
 
 /* xor: mem op= src (Z8000 has no mem-dest xor, use load/op/store) */
 ASG ER,	INAREG|FOREFF,
-	SNAME|SOREG|STARNM,	TWORD,
+	ARITHMEM,	TWORD,
 	SCON|SAREG|STAREG,	TWORD,
 		NAREG,	RLEFT,
 		"	ld	A1,AL\n	xor	A1,AR\n	ld	AL,A1\n",
@@ -668,13 +735,13 @@ ASG ER,	INAREG|FOREFF,
 /* or/and: reg op= src */
 ASG OPSIMP,	INAREG|FOREFF,
 	SAREG|STAREG,	TWORD,
-	EA,	TWORD,
+	ARITH,	TWORD,
 		0,	RLEFT,
 		"	OI	AL,AR\n",
 
 /* or/and: mem op= src (Z8000 has no mem-dest and/or, use load/op/store) */
 ASG OPSIMP,	INAREG|FOREFF,
-	SNAME|SOREG|STARNM,	TWORD,
+	ARITHMEM,	TWORD,
 	SCON|SAREG|STAREG,	TWORD,
 		NAREG,	RLEFT,
 		"	ld	A1,AL\n	OI	A1,AR\n	ld	AL,A1\n",
@@ -682,13 +749,13 @@ ASG OPSIMP,	INAREG|FOREFF,
 /* byte variants */
 ASG ER,	INAREG|FOREFF,
 	SAREG|STAREG,	TCHAR|TUCHAR,
-	EA,	TCHAR|TUCHAR,
+	ARITH,	TCHAR|TUCHAR,
 		0,	RLEFT,
 		"	xorb	AL,AR\n",
 
 ASG OPSIMP,	INAREG|FOREFF,
 	SAREG|STAREG,	TCHAR|TUCHAR,
-	EA,	TCHAR|TUCHAR,
+	ARITH,	TCHAR|TUCHAR,
 		0,	RLEFT,
 		"	OIb	AL,AR\n",
 
@@ -806,79 +873,79 @@ ASG RS, INAREG|FOREFF,
 /* signed multiply: move AL to r1, r1 * src -> rr0, result in r1 */
 MUL,	INAREG|INTAREG,
 	SAREG|STAREG,	TINT|TSHORT,
-	EA,	TINT|TSHORT,
+	ARITH,	TINT|TSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	mult	rr0,AR\nZH",
 
 /* unsigned multiply */
 MUL,	INAREG|INTAREG,
 	SAREG|STAREG,	TINT|TSHORT|TUNSIGNED|TUSHORT,
-	EA,	TINT|TSHORT|TUNSIGNED|TUSHORT,
+	ARITH,	TINT|TSHORT|TUNSIGNED|TUSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	mult	rr0,AR\nZH",
 
 /* signed divide: move AL to r1, sign extend, divide */
 DIV,	INAREG|INTAREG,
 	SAREG|STAREG,	TINT|TSHORT,
-	EA,	TINT|TSHORT,
+	ARITH,	TINT|TSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	exts	rr0\n	div	rr0,AR\nZH",
 
 /* unsigned divide: clear r0, move AL to r1, divide */
 DIV,	INAREG|INTAREG,
 	SAREG|STAREG,	TINT|TSHORT|TUNSIGNED|TUSHORT,
-	EA,	TINT|TSHORT|TUNSIGNED|TUSHORT,
+	ARITH,	TINT|TSHORT|TUNSIGNED|TUSHORT,
 		0,	RLEFT,
 		"ZVZH",
 
 /* signed modulus: move AL to r1, sign extend, divide, remainder r0 -> r1 */
 MOD,	INAREG|INTAREG,
 	SAREG|STAREG,	TINT|TSHORT,
-	EA,	TINT|TSHORT,
+	ARITH,	TINT|TSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	exts	rr0\n	div	rr0,AR\n	ld	r1,r0\nZH",
 
 /* unsigned modulus: clear r0, move AL to r1, divide, remainder r0 -> r1 */
 MOD,	INAREG|INTAREG,
 	SAREG|STAREG,	TINT|TSHORT|TUNSIGNED|TUSHORT,
-	EA,	TINT|TSHORT|TUNSIGNED|TUSHORT,
+	ARITH,	TINT|TSHORT|TUNSIGNED|TUSHORT,
 		0,	RLEFT,
 		"ZVZH",
 
 /* ASG MUL/DIV/MOD */
 ASG MUL,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT,
-	EA,	TINT|TSHORT,
+	ARITH,	TINT|TSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	mult	rr0,AR\n	ld	AL,r1\nZH",
 
 ASG MUL,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT|TUNSIGNED|TUSHORT,
-	EA,	TINT|TSHORT|TUNSIGNED|TUSHORT,
+	ARITH,	TINT|TSHORT|TUNSIGNED|TUSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	mult	rr0,AR\n	ld	AL,r1\nZH",
 
 ASG DIV,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT,
-	EA,	TINT|TSHORT,
+	ARITH,	TINT|TSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	exts	rr0\n	div	rr0,AR\n	ld	AL,r1\nZH",
 
 ASG DIV,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT|TUNSIGNED|TUSHORT,
-	EA,	TINT|TSHORT|TUNSIGNED|TUSHORT,
+	ARITH,	TINT|TSHORT|TUNSIGNED|TUSHORT,
 		0,	RLEFT,
 		"ZVZH",
 
 ASG MOD,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT,
-	EA,	TINT|TSHORT,
+	ARITH,	TINT|TSHORT,
 		0,	RLEFT,
 		"	ld	r1,AL\n	exts	rr0\n	div	rr0,AR\n	ld	r1,r0\n	ld	AL,r1\nZH",
 
 ASG MOD,	INAREG,
 	SAREG|STAREG,	TINT|TSHORT|TUNSIGNED|TUSHORT,
-	EA,	TINT|TSHORT|TUNSIGNED|TUSHORT,
+	ARITH,	TINT|TSHORT|TUNSIGNED|TUSHORT,
 		0,	RLEFT,
 		"ZVZH",
 
@@ -894,7 +961,11 @@ UNARY CALL,	INTAREG,
 	SAREG,	TANY,
 	SANY,	TANY,
 		NAREG|NASL,	RESC1,
+		# ifdef Z8001_SEG
+		"ZC\nZ0",
+# else
 		"	ld	r8,AL\n	call	@r8\nZ0",
+# endif
 
 /* === SCONV (type conversions) === */
 
@@ -937,7 +1008,7 @@ SCONV,	INTAREG|INAREG,
 /* uint -> ulong: zero extend word to long pair */
 /* Copy before clearing the high word: the source may share this pair. */
 SCONV,	INTAREG|INAREG,
-	EA|STAREG|STBREG,	TUNSIGNED|TUSHORT|TPOINT,
+	EA|STAREG|STBREG,	TUINT,
 	SANY,	TLONG|TULONG,
 		NAREG|NASL,	RESC1,
 		"	ld	U1,AL\n	ld	A1,#0\n",
@@ -995,7 +1066,7 @@ SCONV,	INTAREG,
 
 STASG,	FOREFF,
 	SNAME|SOREG,	TANY,
-	SCON|SBREG,	TANY,
+	STRUCTADDR,	TANY,
 		0,	RNOP,
 		"ZS",
 
@@ -1007,7 +1078,7 @@ STASG,	INTBREG|INBREG,
 
 STASG, INBREG|INTBREG,
 	SNAME|SOREG,	TANY,
-	SCON|SBREG,	TANY,
+	STRUCTADDR,	TANY,
 		NBREG,	RESC1,
 		"ZS	ld	A1,AR\n",
 
@@ -1015,7 +1086,7 @@ STASG, INBREG|INTBREG,
 
 INIT,	FOREFF,
 	SCON,	TANY,
-	SANY,	TINT|TUNSIGNED|TPOINT|TSHORT|TUSHORT,
+	SANY,	TWORD,
 		0,	RNOP,
 		"	.word	CL\n",
 

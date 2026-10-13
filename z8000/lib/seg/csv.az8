@@ -1,0 +1,26 @@
+! Shared segmented PCC entry/exit; arguments start at FP+8.
+! R8 = frame size. RR2 holds csv's return PC; R0-R3/R8-R9 are caller scratch.
+.text
+.globl csv,cret
+csv:
+ popl rr2,@rr14
+ pushl @rr14,rr12
+ ldl rr12,rr14
+ sub r15,r8
+ ld rr12(#-2),r4
+ ld rr12(#-4),r5
+ ld rr12(#-6),r6
+ ld rr12(#-8),r7
+ ld rr12(#-10),r10
+ ld rr12(#-12),r11
+ jp @rr2
+cret:
+ ld r4,rr12(#-2)
+ ld r5,rr12(#-4)
+ ld r6,rr12(#-6)
+ ld r7,rr12(#-8)
+ ld r10,rr12(#-10)
+ ld r11,rr12(#-12)
+ ldl rr14,rr12
+ popl rr12,@rr14
+ ret

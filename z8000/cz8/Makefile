@@ -58,3 +58,12 @@ allo.o: manifest mfile2 mac2defs macdefs allo.c
 
 clean:
 	rm -f *.o cz8
+
+# Experimental segmented Z8001 ABI; leave the normal compiler untouched.
+SEG_BUILD ?= ../../../tests/build/cz8-seg
+SEG_SOURCES = cgram.c xdefs.c scan.c pftn.c trees.c optim.c code.c local.c reader.c local2.c order.c match.c allo.c comm1.c table.c
+seg: $(SEG_BUILD)/cz8
+$(SEG_BUILD)/cz8: $(SEG_SOURCES) manifest macdefs mac2defs mfile1 mfile2 common
+	mkdir -p $(SEG_BUILD)
+	cc $(XCFLAGS) -fcommon -DZ8001_SEG $(SEG_SOURCES) -o $@
+.PHONY: seg

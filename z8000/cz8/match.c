@@ -78,8 +78,7 @@ tshape( p, shape ) NODE *p; {
 	case NAME:
 		return( shape&SNAME );
 	case ICON:
-		mask = SCON;
-		return( shape & mask );
+		return( shape & SCON );
 
 	case FLD:
 		if( shape & SFLD ){
@@ -108,6 +107,12 @@ tshape( p, shape ) NODE *p; {
 		*/
 		mask = isbreg( p->tn.rval ) ? SBREG : SAREG;
 		if( istreg( p->tn.rval ) && busy[p->tn.rval]<=1 ) mask |= mask==SAREG ? STAREG : STBREG;
+		# ifdef Z8001_SEG
+		if(isbreg(p->tn.rval) && p->tn.rval<=FP) {
+			mask |= SAREG;
+			if(istreg(p->tn.rval) && busy[p->tn.rval]<=1) mask |= STAREG;
+		}
+# endif
 		return( shape & mask );
 
 	case OREG:
@@ -140,6 +145,9 @@ ttype( t, tword ) TWORD t; {
 			   in structure references... */
 		return( ttype( t, tword&(~TPTRTO) ) );
 		}
+	# ifdef Z8001_SEG
+	if( ISPTR(t) ) return( tword & (TPOINT|TULONG) );
+# endif
 	if( t != BTYPE(t) ) return( tword & TPOINT ); /* TPOINT means not simple! */
 	if( tword & TPTRTO ) return(0);
 

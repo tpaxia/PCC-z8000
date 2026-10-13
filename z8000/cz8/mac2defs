@@ -15,7 +15,11 @@
 # define R11 11
 # define R12 12
 # define R13 13
+# ifdef Z8001_SEG
+# define FP 12
+# else
 # define FP 13
+# endif
 # define SP 15
 
 # define SAVEREGION 8 /* number of bytes for save area */
@@ -46,3 +50,5 @@
 extern int fltused;
 	/* Z8000 does NOT have nestable calls via link/unlink like 68000 */
 	/* no NESTCALLS - args tracked via toff */
+
+# define SNCON (SPECIAL+104) /* numeric constant, no symbol relocation */

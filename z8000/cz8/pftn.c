@@ -43,7 +43,6 @@ defid( q, class )  NODE *q; {
 
 	if( idp < 0 ) cerror( "tyreduce" );
 	p = &stab[idp];
-
 # ifndef BUG1
 	if( ddebug ){
 		printf( "defid( %.8s (%d), ", p->sname, idp );
@@ -59,7 +58,6 @@ defid( q, class )  NODE *q; {
 
 	stp = p->stype;
 	slev = p->slevel;
-
 # ifndef BUG1
 	if( ddebug ){
 		printf( "	modified to " );
@@ -113,7 +111,6 @@ defid( q, class )  NODE *q; {
 		}
 
 	scl = ( p->sclass );
-
 # ifndef BUG1
 	if( ddebug ){
 		printf( "	previous class: %s\n", scnames(scl) );
@@ -260,7 +257,6 @@ defid( q, class )  NODE *q; {
 	return;
 
 	enter:  /* make a new entry */
-
 # ifndef BUG1
 	if( ddebug ) printf( "	new entry made\n" );
 # endif
@@ -337,8 +333,13 @@ defid( q, class )  NODE *q; {
 		break;
 	case REGISTER:
 		if ( ISPTR(type) ) {
+# ifdef Z8001_SEG
+		  p->offset = ((regvar>>8)+7)&~1;
+		  regvar = (regvar&0377) | ((p->offset-9)<<8);
+# else
 		  p->offset = (regvar>>8)+8;
 		  regvar -= 1<<8;
+# endif
 		  if ((regvar&~0377) < (minrvar&~0377))
 		    { minrvar &= 0377; minrvar |= regvar&~0377; }
 		} else {
@@ -361,7 +362,6 @@ defid( q, class )  NODE *q; {
 	/* user-supplied routine to fix up new definitions */
 
 	FIXDEF(p);
-
 # ifndef BUG1
 	if( ddebug ) printf( "	dimoff, sizoff, offset: %d, %d, %ld\n", p->dimoff, p->sizoff, p->offset );
 # endif
@@ -393,7 +393,11 @@ ftnend(){ /* end of function */
 	psavbc = &asavbc[0];
 	paramno = 0;
 	autooff = AUTOINIT;
+# ifdef Z8001_SEG
+	minrvar = regvar = MAXRVAR | (3<<8); /* RR10 is the only address variable pair */
+# else
 	minrvar = regvar = MAXRVAR | ((MAXRVAR-3)<<8);	/* addr regs: R12,R11,R10 (skip R13=FP) */
+# endif
 	reached = 1;
 	swx = 0;
 	swp = swtab;
@@ -534,7 +538,6 @@ dclstruct( oparam ){
 	else {
 		szindex = stab[i].sizoff;
 		}
-
 # ifndef BUG1
 	if( ddebug ){
 		printf( "dclstruct( %.8s ), szindex = %d\n", (i>=0)? stab[i].sname : "??", szindex );
@@ -577,7 +580,6 @@ dclstruct( oparam ){
 
 	if( temp == ENUMTY ){
 		register TWORD ty;
-
 # ifdef ENUMSIZE
 		ty = ENUMSIZE(high,low);
 # else
@@ -793,7 +795,6 @@ int ilocctr = 0;  /* location counter for current initialization */
 beginit(curid){
 	/* beginning of initilization; set location ctr and set type */
 	register struct symtab *p;
-
 # ifndef BUG1
 	if( idebug >= 3 ) printf( "beginit(), curid = %d\n", curid );
 # endif
@@ -933,7 +934,6 @@ putbyte( v ){ /* simulate byte v appearing in a list of integer values */
 endinit(){
 	register TWORD t;
 	register d, s, n, d1;
-
 # ifndef BUG1
 	if( idebug ) printf( "endinit(), inoff = %ld\n", inoff );
 # endif
@@ -1017,7 +1017,6 @@ doinit( p ) register NODE *p; {
 		uerror( "} expected");
 		goto leave;
 		}
-
 # ifndef BUG1
 	if( idebug > 1 ) printf( "doinit(%o)\n", p );
 # endif
@@ -1133,7 +1132,6 @@ ilbrace(){ /* process an initializer's left brace */
 
 irbrace(){
 	/* called when a '}' is seen */
-
 # ifndef BUG1
 	if( idebug ) printf( "irbrace(): paramno = %d on entry\n", paramno );
 # endif
@@ -1398,7 +1396,6 @@ tymerge( typ, idp ) NODE *typ, *idp; {
 
 	if( typ->in.op != TYPE ) cerror( "tymerge: arg 1" );
 	if(idp == NIL ) return( NIL );
-
 # ifndef BUG1
 	if( ddebug > 2 ) fwalk( idp, eprint, 0 );
 # endif
@@ -1561,7 +1558,13 @@ fixclass( class, type ) TWORD type; {
 	case REGISTER:
 		if( blevel == 0 ) uerror( "illegal register declaration" );
 		else if ( ISPTR(type) ) {
-		  if( ((regvar>>8)&0377) >= MINRVAR && cisreg( type ) ) return( class );
+		  if(
+# ifdef Z8001_SEG
+		      ((regvar>>8)&0377) >= 3
+# else
+		      ((regvar>>8)&0377) >= MINRVAR
+# endif
+		      && cisreg( type ) ) return( class );
 		} else {
 		  if( ((type==LONG || type==ULONG) ?
 		      (((regvar&0377)-1)&~1) : (regvar&0377)) >= MINRVAR &&

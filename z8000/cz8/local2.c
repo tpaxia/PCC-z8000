@@ -38,7 +38,11 @@ eobl2(){
 	printf( ".L%d:\n", retlab );
 
 	/* Shared return restores the fixed slots without disturbing R0-R3. */
+# ifdef Z8001_SEG
+	printf("\tjp\tcret\n");
+# else
 	printf( "\tjp\tcret\n" );
+# endif
 	printf( ".F%d = %ld\n", ftnno, spoff );
 	printf( ".S%d = %d\n", ftnno, savemask );
 	printf( "! M%d = %d\n", ftnno, maxtoff );
@@ -82,6 +86,17 @@ rnames[]= {  /* keyed to register number tokens */
 	"r8", "r9", "r10", "r11", "r12", "r13", "r14", "sp"
 	};
 
+# ifdef Z8001_SEG
+int rstatus[] = {
+ SAREG|STAREG,SAREG|STAREG,
+ SAREG|STAREG|SBREG|STBREG,SAREG|STAREG|SBREG|STBREG,
+ SAREG|STAREG|SBREG|STBREG,SAREG|STAREG|SBREG|STBREG,
+ SAREG|STAREG|SBREG|STBREG,SAREG|STAREG|SBREG|STBREG,
+ SAREG|STAREG|SBREG|STBREG,SAREG|STAREG|SBREG|STBREG,
+ SAREG|STAREG|SBREG|STBREG,SAREG|STAREG|SBREG|STBREG,
+ SAREG|SBREG,SBREG,SBREG,SBREG
+};
+# else
 int rstatus[] = {
 	SAREG|STAREG, SAREG|STAREG,	/* R0, R1: scratch data */
 	SAREG|STAREG, SAREG|STAREG,	/* R2, R3: scratch data */
@@ -94,6 +109,8 @@ int rstatus[] = {
 	SBREG,	      SBREG,		/* R14 (reserved), R15 (SP): not allocatable */
 	};
 
+# endif
+
 NODE *brnode;
 int brcase;
 
@@ -104,6 +121,16 @@ zzzcode( p, c ) NODE *p; {
 	switch( c ){
 
 	case 'C':
+# ifdef Z8001_SEG
+		if(p->in.left->in.op==REG) {
+			printf("\tldl\trr8,rr%d\n\tcall\t@rr8",p->in.left->tn.rval); return;
+		}
+		if(p->in.left->in.op==NAME || p->in.left->in.op==OREG) {
+			printf("\tld\tr8,"); adrput(p->in.left);
+			printf("\n\tld\tr9,"); upput(p->in.left);
+			printf("\n\tcall\t@rr8"); return;
+		}
+# endif
 		/* function call */
 		switch (p->in.left->in.op) {
 		  case ICON:	printf("\tcall\t");
@@ -186,10 +213,18 @@ zzzcode( p, c ) NODE *p; {
 		switch( p->in.op ){
 		case NAME:
 		case OREG:
-			if( m == CHAR || m == UCHAR )
-				p->tn.lval += 1;  /* byte 1 of word */
+			if( m == CHAR || m == UCHAR ) {
+				p->tn.lval += 1;
+# ifdef Z8001_SEG
+				if(szty(p->in.type)==2) p->tn.lval += 2;
+# endif
+			}  /* byte 1 of word */
 			/* for short/int from long, add 2 to get low word */
-			else if( p->in.type == LONG || p->in.type == ULONG )
+			else if( p->in.type == LONG || p->in.type == ULONG
+# ifdef Z8001_SEG
+			    || ISPTR(p->in.type)
+# endif
+			    )
 				p->tn.lval += 2;
 			return;
 		case REG:
@@ -220,7 +255,7 @@ zzzcode( p, c ) NODE *p; {
 			int large = getlab(), less = getlab(), done = getlab();
 			/* Preserve the scratch address register; capture RHS before
 			 * moving the dividend into the fixed division register. */
-			expand(p, FOREFF, "\tpush\t@sp,r9\n\tld\tr9,AR\n\tld\tr1,AL\n");
+			expand(p, FOREFF, "\tpush\t@" STACKADDR ",r9\n\tld\tr9,AR\n\tld\tr1,AL\n");
 			printf("\ttest\tr9\n\tjr mi,.L%d\n", large);
 			printf("\tclr\tr0\n\tdiv\trr0,r9\n\tjr\t.L%d\n", done);
 			deflab(large);
@@ -231,7 +266,7 @@ zzzcode( p, c ) NODE *p; {
 			deflab(done);
 			if(p->in.op==MOD || p->in.op==ASG MOD)
 				printf("\tld\tr1,r0\n");
-			printf("\tpop\tr9,@sp\n");
+			printf("\tpop\tr9,@" STACKADDR "\n");
 			if(asgop(p->in.op)) expand(p, FOREFF, "\tld\tAL,r1\n");
 		}
 		return;
@@ -246,7 +281,7 @@ zzzcode( p, c ) NODE *p; {
 			int k, words = src->in.type==FLOAT ? 2 : 4;
 			for(k=0;k<words;k++) {
 				if(c=='G') {
-					printf("\tpush\t@sp,"); fpword(src,words-1-k); printf("\n");
+					printf("\tpush\t@" STACKADDR ","); fpword(src,words-1-k); printf("\n");
 				} else if(src->in.op!=REG && dst->in.op!=REG) {
 					printf("\tld\t%s,",rnames[getlr(p,'1')->tn.rval]);
 					fpword(src,k); printf("\n\tld\t"); fpword(dst,k);
@@ -271,8 +306,28 @@ zzzcode( p, c ) NODE *p; {
 		}
 		return;
 
+	case 'p': /* full pair load: form the memory address before changing either word */
+		printf("\tldl\trr%d,",getlr(p,'1')->tn.rval);
+		if(getlr(p,'R')->in.op==REG) printf("rr%d",getlr(p,'R')->tn.rval);
+		else adrput(getlr(p,'R'));
+		printf("\n"); return;
+	case 'j':
+		printf("\tldl\trr%d,",getlr(p,'L')->tn.rval);
+		adrput(getlr(p,'R')); printf("\n"); return;
+
+	case 'a': /* segmented symbolic pointer value */
+		if(!getlr(p,'R')->in.name[0]) {
+			printf("\tld\t"); adrput(getlr(p,'1')); printf(","); adrput(getlr(p,'R'));
+			printf("\n\tld\t"); upput(getlr(p,'1')); printf(","); upput(getlr(p,'R')); printf("\n"); return;
+		}
+		printf("\tlda\trr%d,",getlr(p,'1')->tn.rval);
+		acon(getlr(p,'R')); printf("\n"); return;
+
 	case 'J': /* high and low words of a long static initializer */
 		if( p->in.left->in.name[0] ) {
+# ifdef Z8001_SEG
+			printf("\t.long\t"); acon(p->in.left); printf("\n"); return;
+# endif
 			/* an address: it is 16 bits wide, so the high word is 0 */
 			printf("\t.word\t0\n\t.word\t");
 			acon(p->in.left);
@@ -346,11 +401,11 @@ zzzcode( p, c ) NODE *p; {
 						}
 					} else {
 						if( i == 2 )
-							printf( "\tpush\t@sp,r0\n" );
+							printf( "\tpush\t@" STACKADDR ",r0\n" );
 						else {
 							/* push byte as word */
 							printf( "\textsb\tr0\n" );
-							printf( "\tpush\t@sp,r0\n" );
+							printf( "\tpush\t@" STACKADDR ",r0\n" );
 						}
 					}
 					size -= i;
@@ -424,6 +479,12 @@ setregs(){ /* set up temporary registers */
 		rstatus[i] = i<fregs ? SAREG|STAREG : SAREG;
 	for( i=MINRVAR; i<=MAXRVAR; i++ )
 		rstatus[i+8] = i<naregs ? SBREG|STBREG : SBREG;
+# ifdef Z8001_SEG
+	for(i=2;i<8;i++) rstatus[i] |= SBREG | ((rstatus[i]&STAREG)?STBREG:0);
+	for(i=8;i<12;i++) rstatus[i] = SAREG|SBREG | (i-8<=naregs ? STAREG|STBREG : 0);
+	rstatus[12] = SAREG|SBREG;
+	rstatus[13] = rstatus[14] = rstatus[15] = SBREG;
+# endif
 	rstatus[13] = SBREG;	/* R13 (FP): never allocatable */
 	rstatus[15] = SBREG;	/* R15 (SP): never allocatable */
 	}
@@ -432,6 +493,9 @@ szty(t) TWORD t; { /* size, in words, needed to hold thing of type t */
 	/* really is the number of registers to hold type t */
 	/* on Z8000: LONG and FLOAT need 2 regs (register pair) */
 	/* DOUBLE uses a quad; arithmetic is implemented by library calls. */
+# ifdef Z8001_SEG
+	if( ISPTR(t) ) return(2);
+# endif
 	switch(t) {
 	case DOUBLE:
 		return(4);
@@ -476,7 +540,7 @@ spsz( t, v ) TWORD t; CONSZ v; {
 	if( !ISPTR(t) ) return( 0 );
 	t = DECREF(t);
 
-	if( ISPTR(t) ) return( v == 2 );  /* pointer to pointer: 2 bytes */
+	if( ISPTR(t) ) return( v == SZPOINT/SZCHAR );  /* pointer to pointer: 2 bytes */
 
 	switch( t ){
 
@@ -504,7 +568,11 @@ spsz( t, v ) TWORD t; CONSZ v; {
 
 indexreg( p ) register NODE *p; {
 	/* R1-R15 can be index registers, R0 cannot */
-	if ( p->in.op==REG && p->tn.rval>=R1 && p->tn.rval<=SP) return(1);
+	if ( p->in.op==REG && p->tn.rval>=R1 && p->tn.rval<=SP
+# ifdef Z8001_SEG
+	    && !(p->tn.rval&1)
+# endif
+	    ) return(1);
 	return(0);
 }
 
@@ -578,10 +646,17 @@ upput( p ) NODE *p; {
 			if( p->in.name[0] != '\0' ) werror( "bad arg temp" );
 			}
 		if( p->tn.lval != 0 || p->in.name[0] != '\0' ) {
-			acon( p );
-			printf( "(%s)", rnames[p->tn.rval] );
+# ifdef Z8001_SEG
+			printf("rr%d(#",p->tn.rval); acon(p); printf(")");
+# else
+			acon(p); printf( "(%s)", rnames[p->tn.rval] );
+# endif
 		} else {
+# ifdef Z8001_SEG
+			printf("@rr%d",p->tn.rval);
+# else
 			printf( "@%s", rnames[p->tn.rval] );
+# endif
 		}
 		usedregs |= 1<<p->tn.rval;
 		break;
@@ -637,10 +712,17 @@ adrput( p ) register NODE *p; {
 		/* Z8000 addressing: offset(Rn) or @Rn */
 		usedregs |= 1<<p->tn.rval;
 		if( p->tn.lval != 0 || p->in.name[0] != '\0' ) {
-			acon( p );
-			printf( "(%s)", rnames[p->tn.rval] );
+# ifdef Z8001_SEG
+			printf("rr%d(#",p->tn.rval); acon(p); printf(")");
+# else
+			acon(p); printf( "(%s)", rnames[p->tn.rval] );
+# endif
 		} else {
+# ifdef Z8001_SEG
+			printf("@rr%d",p->tn.rval);
+# else
 			printf( "@%s", rnames[p->tn.rval] );
+# endif
 		}
 		return;
 
@@ -648,7 +730,11 @@ adrput( p ) register NODE *p; {
 		/* STARNM found (no STARREG on Z8000) */
 		if( tshape(p, STARNM) ) {
 			printf( "@" );
+# ifdef Z8001_SEG
+			printf("rr%d",p->in.left->tn.rval);
+# else
 			adrput( p->in.left);
+# endif
 			}
 		else {
 			cerror( "bad UNARY MUL in adrput" );
@@ -704,10 +790,16 @@ gencall( p, cookie ) register NODE *p; {
 		order( p->in.left, INBREG|SOREG );
 		}
 	if( aggregate ) {
+# ifdef Z8001_SEG
+		if(p->in.left->in.op==REG && !isbreg(p->in.left->tn.rval))
+			order(p->in.left,INBREG|INTBREG);
+		printf("\tldl\trr0,rr12\n\tsub\tr1,#%ld\n\tpushl\t@rr14,rr0\n",-result/SZCHAR);
+# else
 		/* Preserve R8 even when it holds the indirect callee; exchange
 		 * leaves the result pointer as the hidden first argument. */
-		printf( "\tpush\t@sp,r8\n\tld\tr8,r13\n\tsub\tr8,#%ld\n\tex\tr8,@sp\n",
+		printf( "\tpush\t@" STACKADDR ",r8\n\tld\tr8,r13\n\tsub\tr8,#%ld\n\tex\tr8,@" STACKADDR "\n",
 			-result/SZCHAR );
+# endif
 		temp += SZPOINT/SZCHAR;
 		toff += SZPOINT/SZCHAR;
 		if( toff > maxtoff ) maxtoff = toff;
@@ -914,7 +1006,11 @@ hardops(p)  register NODE *p; {
 
 				q->in.right->in.op = ICON;
 				q->in.right->in.rall = NOPREF;
+# ifdef Z8001_SEG
+				q->in.right->in.type = ULONG;
+# else
 				q->in.right->in.type = INT;
+# endif
 				q->in.right->in.name[0] = '\0';
 				q->in.right->tn.lval = p->in.left->tn.lval;
 				q->in.right->tn.rval = 0;
@@ -1038,7 +1134,22 @@ NODE *p;
 	}
 }
 
+# ifdef Z8001_SEG
+segabsolute(p) NODE *p; {
+	NODE *q;
+	if(p->in.op!=NAME || p->in.name[0]) return;
+	/* An absolute C pointer carries a segment. A bare assembler address
+	 * cannot express that value; materialize the pair and dereference it. */
+	q=talloc(); *q=*p;
+	q->in.op=ICON; q->in.type=INCREF(p->in.type);
+	p->in.op=UNARY MUL; p->in.left=q; p->in.right=NIL;
+}
+# endif
+
 myreader(p) register NODE *p; {
+# ifdef Z8001_SEG
+	walkf(p,segabsolute);
+# endif
 	walkf( p, optim2 );
 	walkf( p, hardops );	/* convert ops to function calls */
 	canon( p );		/* expands r-vals for fields */
@@ -1049,6 +1160,8 @@ special( p, shape ) register NODE *p; {
 	/* special shape matching routine */
 
 	switch( shape ) {
+	case SNCON:
+		return(p->in.op==ICON && !p->in.name[0]);
 
 	case SCCON:
 		if( p->in.op == ICON && p->in.name[0]=='\0' && p->tn.lval>= -128 && p->tn.lval <=127 ) return( 1 );
@@ -1069,7 +1182,6 @@ special( p, shape ) register NODE *p; {
 
 	return( 0 );
 	}
-
 # ifndef ONEPASS
 main( argc, argv ) char *argv[]; {
 	return( mainp2( argc, argv ) );

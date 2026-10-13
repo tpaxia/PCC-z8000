@@ -1247,7 +1247,11 @@ oreg2( p ) register NODE *p; {
 #endif
 
 		if( (q->in.op==PLUS || q->in.op==MINUS) && qr->in.op == ICON &&
-				ql->in.op==REG && szty(qr->in.type)==1) {
+				ql->in.op==REG && (szty(qr->in.type)==1
+# ifdef Z8001_SEG
+			    || (!qr->in.name[0] && qr->tn.lval>=-32768 && qr->tn.lval<=32767)
+# endif
+			    )) {
 			temp = qr->tn.lval;
 			if( q->in.op == MINUS ) temp = -temp;
 			r = ql->tn.rval;

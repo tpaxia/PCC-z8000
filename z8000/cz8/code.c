@@ -84,7 +84,15 @@ efcode(){
 
 		deflab( retlab );
 		retlab = getlab();
-
+# ifdef Z8001_SEG
+		printf("\tldl\trr8,rr0\n\tld\tr10,rr12(#8)\n\tld\tr11,rr12(#10)\n");
+		size = tsize(DECREF(p->stype),p->dimoff,p->sizoff)/SZCHAR;
+		if(size>=2) {
+			printf("\tld\tr0,#%d\n\tldir\t@rr10,@rr8,r0\n",size/2);
+		}
+		if(size&1) printf("\tldb\trl0,@rr8\n\tldb\t@rr10,rl0\n");
+		printf("\tld\tr0,rr12(#8)\n\tld\tr1,rr12(#10)\n");
+# else
 		/* R0 addresses the expression; the hidden first argument
 		 * addresses storage owned by this invocation's caller. */
 		printf( "	ld	r8,r0\n" );  /* src ptr */
@@ -110,6 +118,7 @@ efcode(){
 			}
 		}
 		printf( "	ld	r0,4(r13)\n" );
+# endif
 		/* turn off strftn flag, so return sequence will be generated */
 		strftn = 0;
 		}
@@ -143,8 +152,12 @@ bfcode( a, n ) OFFSZ a[]; {
 
 	/* Shared entry preserves the standard fixed frame and argument offsets.
 	 * R8/R9 are call-clobbered; csv leaves R0-R3 untouched. */
+# ifdef Z8001_SEG
+	printf("\tld\tr8,#.F%d\n\tcall\tcsv\n",ftnno);
+# else
 	printf( "\tld\tr8,#.F%d\n", ftnno );
 	printf( "\tcall\tcsv\n" );
+# endif
 	usedregs = 0;
 
 	off = ARGINIT + (strftn ? SZPOINT : 0);
@@ -157,6 +170,17 @@ bfcode( a, n ) OFFSZ a[]; {
 			p->offset = NOOFFSET;
 			oalloc( p, &off );
 			/* load param into register */
+# ifdef Z8001_SEG
+			if(p->stype==CHAR || p->stype==UCHAR)
+				printf("\tldb\t%s,rr12(#%d)\n",rnames[temp],(int)(p->offset/SZCHAR));
+			else {
+				int k;
+				for(k=0;k<szty(p->stype);k++) {
+					printf("\tld\t%s,rr12(#%d)\n",rnames[temp+k],(int)(p->offset/SZCHAR)+2*k);
+					usedregs |= 1<<(temp+k);
+				}
+			}
+# else
 			if (p->stype==CHAR || p->stype==UCHAR)
 				printf( "	ldb	%s,%d(r13)\n",
 				  rnames[temp], (int)(p->offset/SZCHAR) );
@@ -167,6 +191,7 @@ bfcode( a, n ) OFFSZ a[]; {
 				printf("\tld\t%s,%d(r13)\n",rnames[temp+1],(int)(p->offset/SZCHAR)+2);
 				usedregs |= 1<<(temp+1);
 			}
+# endif
 			usedregs |= 1<<temp;
 			p->offset = temp;  /* remember register number */
 			p->sclass = REGISTER;   /* remember that it is a register */
@@ -316,7 +341,11 @@ genswitch(p,n) register struct sw *p;{
 	}
 	range = p[n].sval-p[1].sval;
 
-	if( range>0 && range <= 3*n && n>=4 ){ /* implement a direct switch */
+	if( range>0 && range <= 3*n && n>=4
+# ifdef Z8001_SEG
+	    && 0 /* word jump tables cannot hold segmented targets */
+# endif
+	    ){ /* implement a direct switch */
 
 		dlab = p->slab >= 0 ? p->slab : getlab();
 

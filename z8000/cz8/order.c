@@ -60,7 +60,11 @@ notoff( t, r, off, cp) TWORD t; CONSZ off; char *cp; {
 	/* resulting thing had type t */
 
 	/* Z8000: R1-R15 can be base/index registers, R0 cannot */
-	if ( off>=-32768 && off<=32767 && *cp=='\0' && r>=R1 && r<=SP )
+	if ( off>=-32768 && off<=32767 && *cp=='\0' && r>=R1 && r<=SP
+# ifdef Z8001_SEG
+	    && !(r&1)
+# endif
+ )
 	  return(0);	/* YES */
 	return( 1 );  /* NO */
 	}
@@ -437,6 +441,17 @@ setbin( p ) register NODE *p; {
 
 	r = p->in.right;
 	l = p->in.left;
+# ifdef Z8001_SEG
+	if(logop(p->in.op) && (r->in.op==OREG ||
+	    (r->in.op==ICON && ISPTR(r->in.type) && r->in.name[0]))) {
+		/* A call on the left needs every scratch register. Evaluate it
+		 * before materializing the non-addressable BA operand on the right. */
+		if(l->in.op!=REG && l->in.su) {
+			order(l,INAREG|INTAREG|INBREG|INTBREG); return(1);
+		}
+		order(r,INAREG|INTAREG); return(1);
+	}
+# endif
 
 	if( p->in.right->in.su == 0 ){ /* rhs is addressable */
 		if( logop( p->in.op ) ){
@@ -550,6 +565,13 @@ setasg( p ) register NODE *p; {
 
 setasop( p ) register NODE *p; {
 	/* setup for =ops */
+# ifdef Z8001_SEG
+	/* Arithmetic instructions have no BA form; load a frame operand first. */
+	if(p->in.right->in.op==OREG ||
+	    (p->in.right->in.op==ICON && ISPTR(p->in.right->in.type) && p->in.right->in.name[0])) {
+		order(p->in.right,INAREG|INTAREG); return(1);
+	}
+# endif
 	register sul, sur;
 
 	sul = p->in.left->in.su;
@@ -666,7 +688,7 @@ genargs( p) register NODE *p; {
 		/* Z8000: must load through register, then push */
 		for( ; size>0; size -= 2 ){
 			p->tn.lval -= 2;
-			expand( p, RNOP, "\tld\tr0,AR\n\tpush\t@sp,r0\n" );
+			expand( p, RNOP, "\tld\tr0,AR\n\tpush\t@" STACKADDR ",r0\n" );
 			toff += 2;
 			}
 		reclaim( p, RNULL, 0 );
@@ -697,7 +719,11 @@ argsize( p ) register NODE *p; {
 		SETOFF( t, p->stn.stalign );  /* alignment */
 		return( t + p->stn.stsize );  /* size */
 		}
-	else if( p->in.type == LONG || p->in.type == ULONG ){
+	else if( p->in.type == LONG || p->in.type == ULONG
+# ifdef Z8001_SEG
+	    || ISPTR(p->in.type)
+# endif
+	    ){
 		SETOFF( t, 2 );
 		return( t+4 );
 		}
