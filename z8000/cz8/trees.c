@@ -193,7 +193,24 @@ buildtree( o, l, r ) register NODE *l, *r; {
 		chkpun(p);
 		}
 
+# ifdef Z8001_SEG
+	/* Pointer scaling must retain the index's range and signedness.
+	 * The original word-pointer targets normalize it to INT first; on
+	 * Z8001 that turns unsigned offsets >=32768 into negative long values,
+	 * and can overflow a word before the element-size multiplication.
+	 */
+	if ((actions&RINT) && (actions&CVTR)) {
+		TWORD t = ISUNSIGNED(p->in.right->in.type) ? ULONG : LONG;
+		p->in.right = makety(p->in.right,t,0,(int)t);
+	} else
+# endif
 	if (actions & RINT) p->in.right = makety( p->in.right, INT, 0, INT );
+# ifdef Z8001_SEG
+	if ((actions&LINT) && (actions&CVTL)) {
+		TWORD t = ISUNSIGNED(p->in.left->in.type) ? ULONG : LONG;
+		p->in.left = makety(p->in.left,t,0,(int)t);
+	} else
+# endif
 	if (actions & LINT) p->in.left = makety( p->in.left, INT, 0, INT );
 
 	if( actions & (TYPL|TYPR) ){

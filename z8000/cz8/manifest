@@ -239,10 +239,10 @@
 # define SYMTSZ 450 /* size of the symbol table */
 # define DIMTABSZ 800 /* size of the dimension/size table */
 # define PARAMSZ 150 /* size of the parameter stack */
-# ifndef FORT
-# define TREESZ 350 /* space for building parse tree */
+# if defined(Z8001_SEG) || defined(FORT)
+# define TREESZ 1000 /* long pointer arithmetic expands SEG expression trees */
 # else
-# define TREESZ 1000
+# define TREESZ 350 /* space for building parse tree */
 # endif
 # define SWITSZ 250 /* size of switch table */
 
